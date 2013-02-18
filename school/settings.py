@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'school',
     'period',
     'subject',
+    'account',
 )
 
 # A sample logging configuration. The only tangible logging
