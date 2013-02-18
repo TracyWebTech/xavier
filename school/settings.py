@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'subject',
     'account',
     'classes',
+    'score',
 )
 
 # A sample logging configuration. The only tangible logging
