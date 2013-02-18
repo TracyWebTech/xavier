@@ -1,6 +1,6 @@
 *.swp
 *.db
-settings_local.py
+local_settings.py
 
 *.py[cod]
 
