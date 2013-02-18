@@ -1,7 +1,12 @@
 from django.db import models
 from period.models import Period
-from account.models import Student, Teacher
+from accounts.models import Student, Teacher
 from subject.models import Subject
+
+
+class Grade(models.Model):
+    name = models.CharField(max_length=50)
+    grade_type = models.CharField(max_length=50)
 
 
 class Class(models.Model):
@@ -11,12 +16,7 @@ class Class(models.Model):
     grade = models.ForeignKey(Grade)
 
 
-class Grade(models.Models):
-    name = models.CharField(max_length=50)
-    grade_type = models.CharField(max_length=50)
-
-
 class ClassSubject(models.Model):
-    classroom = ForeignKey(Class)
-    subject = ForeignKey(Subject)
-    teacher = ForeignKey(Teacher)
+    classroom = models.ForeignKey(Class)
+    subject = models.ForeignKey(Subject)
+    teacher = models.ForeignKey(Teacher)

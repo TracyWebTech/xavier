@@ -11,6 +11,6 @@ class EvaluationCriteria(models.Model):
 
 class Score(models.Model):
     score = models.IntegerField()
-    criteria = models.ForeignKey(evaluation_criteria)
+    criteria = models.ForeignKey(EvaluationCriteria)
     class_subject = models.ForeignKey(ClassSubject)
     subperiod = models.ForeignKey(SubPeriod)

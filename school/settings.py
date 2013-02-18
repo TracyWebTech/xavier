@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     'school',
     'period',
     'subject',
-    'account',
+    'accounts',
     'classes',
     'score',
 )
@@ -156,3 +156,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    from local_settings_example import *
