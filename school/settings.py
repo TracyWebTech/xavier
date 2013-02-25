@@ -1,5 +1,7 @@
 # Django settings for school project.
 
+AUTH_USER_MODEL = 'accounts.User'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
