@@ -5,5 +5,4 @@ from .models import School
 class SchoolAdmin(admin.ModelAdmin):
     pass
 
-
 admin.site.register(School, SchoolAdmin)
