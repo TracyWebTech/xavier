@@ -11,7 +11,7 @@ class ClassAdmin(admin.ModelAdmin):
 
 
 class ClassSubjectAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['classroom', 'teacher', 'subject']
 
 
 admin.site.register(Grade, GradeAdmin)
