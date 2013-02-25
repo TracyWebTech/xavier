@@ -16,7 +16,7 @@ class Migration(SchemaMigration):
         db.create_table(u'period_period', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('year', self.gf('django.db.models.fields.DateTimeField')()),
+            ('year', self.gf('django.db.models.fields.DateField')()),
             ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['school.School'])),
         ))
         db.send_create_signal(u'period', ['Period'])
@@ -46,7 +46,7 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['school.School']"}),
-            'year': ('django.db.models.fields.DateTimeField', [], {})
+            'year': ('django.db.models.fields.DateField', [], {})
         },
         u'period.subperiod': {
             'Meta': {'object_name': 'SubPeriod'},
