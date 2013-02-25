@@ -18,7 +18,7 @@ class User(AbstractUser):
     gender = models.CharField(_('gender'), max_length=2,
                               choices=GENDER_OPTIONS)
     school = models.ForeignKey(School, blank=True, null=True)
-    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'birthday', 'gender']
 
     def __unicode__(self):
         return self.username
