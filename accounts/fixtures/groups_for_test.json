@@ -15,22 +15,22 @@
         "permissions": [
             [
                 "add_evaluationcriteria", 
-                "score", 
+                "scores", 
                 "evaluationcriteria"
             ], 
             [
                 "change_evaluationcriteria", 
-                "score", 
+                "scores", 
                 "evaluationcriteria"
             ], 
             [
                 "delete_evaluationcriteria", 
-                "score", 
+                "scores", 
                 "evaluationcriteria"
             ], 
             [
                 "add_score", 
-                "score", 
+                "scores", 
                 "score"
             ]
         ]

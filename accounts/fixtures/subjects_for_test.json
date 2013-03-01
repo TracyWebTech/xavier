@@ -1,35 +1,35 @@
 [
 {
     "pk": 1, 
-    "model": "subject.subject", 
+    "model": "subjects.subject", 
     "fields": {
         "name": "Ingl\u00eas"
     }
 },
 {
     "pk": 2, 
-    "model": "subject.subject", 
+    "model": "subjects.subject", 
     "fields": {
         "name": "Portugu\u00eas"
     }
 },
 {
     "pk": 3, 
-    "model": "subject.subject", 
+    "model": "subjects.subject", 
     "fields": {
         "name": "Geografia"
     }
 },
 {
     "pk": 4, 
-    "model": "subject.subject", 
+    "model": "subjects.subject", 
     "fields": {
         "name": "Hist\u00f3ria"
     }
 },
 {
     "pk": 5, 
-    "model": "subject.subject", 
+    "model": "subjects.subject", 
     "fields": {
         "name": "Filosofia"
     }
