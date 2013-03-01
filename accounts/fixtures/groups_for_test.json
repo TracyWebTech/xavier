@@ -13,10 +13,26 @@
     "fields": {
         "name": "Teacher", 
         "permissions": [
-            55, 
-            56, 
-            57, 
-            58
+            [
+                "add_evaluationcriteria", 
+                "score", 
+                "evaluationcriteria"
+            ], 
+            [
+                "change_evaluationcriteria", 
+                "score", 
+                "evaluationcriteria"
+            ], 
+            [
+                "delete_evaluationcriteria", 
+                "score", 
+                "evaluationcriteria"
+            ], 
+            [
+                "add_score", 
+                "score", 
+                "score"
+            ]
         ]
     }
 },
