@@ -1,4 +1,4 @@
-# Django settings for school project.
+# Django settings for xavier project.
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -85,10 +85,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'school.urls'
+ROOT_URLCONF = 'xavier.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'school.wsgi.application'
+WSGI_APPLICATION = 'xavier.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -108,7 +108,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'south',
-    'school',
+    'xavier',
     'schools',
     'periods',
     'subjects',
