@@ -2,3 +2,4 @@ Django==1.5
 South==0.7.6
 argparse==1.2.1
 wsgiref==0.1.2
+django-test-pep8==0.1

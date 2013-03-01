@@ -1,4 +1,11 @@
+import os
 from settings import *
+
+PROJECT_DIR = os.path.dirname(__file__)
+TEST_PEP8_DIRS = [os.path.dirname(PROJECT_DIR), ]
+TEST_PEP8_EXCLUDE = ['migrations', ]
+
+INSTALLED_APPS += ('test_pep8', )
 
 DATABASES = {
     'default': {
