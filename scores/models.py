@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from accounts.models import Student
 from classes.models import ClassSubject
-from period.models import SubPeriod
+from periods.models import SubPeriod
 
 
 class EvaluationCriteria(models.Model):

@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from period.models import Period
+from periods.models import Period
 from accounts.models import Student, Teacher
-from subject.models import Subject
+from subjects.models import Subject
 
 
 class Grade(models.Model):

@@ -24,7 +24,7 @@ class Migration(SchemaMigration):
         db.create_table(u'classes_class', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('identification', self.gf('django.db.models.fields.CharField')(max_length=20)),
-            ('period', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['period.Period'])),
+            ('period', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['periods.Period'])),
             ('grade', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['classes.Grade'])),
         ))
         db.send_create_signal(u'classes', ['Class'])
@@ -41,7 +41,7 @@ class Migration(SchemaMigration):
         db.create_table(u'classes_classsubject', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('classroom', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['classes.Class'])),
-            ('subject', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['subject.Subject'])),
+            ('subject', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['subjects.Subject'])),
             ('teacher', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.Teacher'])),
         ))
         db.send_create_signal(u'classes', ['ClassSubject'])
@@ -69,27 +69,27 @@ class Migration(SchemaMigration):
             'gender': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['school.School']"})
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']"})
         },
         u'accounts.teacher': {
             'Meta': {'object_name': 'Teacher'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'subjects': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['subject.Subject']", 'symmetrical': 'False'})
+            'subjects': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['subjects.Subject']", 'symmetrical': 'False'})
         },
         u'classes.class': {
             'Meta': {'object_name': 'Class'},
             'grade': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.Grade']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'identification': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
-            'period': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['period.Period']"}),
+            'period': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['periods.Period']"}),
             'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'})
         },
         u'classes.classsubject': {
             'Meta': {'object_name': 'ClassSubject'},
             'classroom': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.Class']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'subject': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['subject.Subject']"}),
+            'subject': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['subjects.Subject']"}),
             'teacher': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.Teacher']"})
         },
         u'classes.grade': {
@@ -98,19 +98,19 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        u'period.period': {
+        u'periods.period': {
             'Meta': {'object_name': 'Period'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['school.School']"}),
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']"}),
             'year': ('django.db.models.fields.DateTimeField', [], {})
         },
-        u'school.school': {
+        u'schools.school': {
             'Meta': {'object_name': 'School'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        u'subject.subject': {
+        u'subjects.subject': {
             'Meta': {'object_name': 'Subject'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '30'})

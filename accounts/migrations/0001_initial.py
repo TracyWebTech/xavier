@@ -23,7 +23,7 @@ class Migration(SchemaMigration):
             ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('birthday', self.gf('django.db.models.fields.DateField')()),
             ('gender', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['school.School'], null=True, blank=True)),
+            ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['schools.School'], null=True, blank=True)),
         ))
         db.send_create_signal(u'accounts', ['User'])
 
@@ -67,7 +67,7 @@ class Migration(SchemaMigration):
         db.create_table(u'accounts_teacher_subjects', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('teacher', models.ForeignKey(orm[u'accounts.teacher'], null=False)),
-            ('subject', models.ForeignKey(orm[u'subject.subject'], null=False))
+            ('subject', models.ForeignKey(orm[u'subjects.subject'], null=False))
         ))
         db.create_unique(u'accounts_teacher_subjects', ['teacher_id', 'subject_id'])
 
@@ -109,7 +109,7 @@ class Migration(SchemaMigration):
         u'accounts.teacher': {
             'Meta': {'object_name': 'Teacher', '_ormbases': [u'accounts.Employee']},
             u'employee_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.Employee']", 'unique': 'True', 'primary_key': 'True'}),
-            'subjects': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['subject.Subject']", 'symmetrical': 'False'})
+            'subjects': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['subjects.Subject']", 'symmetrical': 'False'})
         },
         u'accounts.user': {
             'Meta': {'object_name': 'User'},
@@ -126,7 +126,7 @@ class Migration(SchemaMigration):
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['school.School']", 'null': 'True', 'blank': 'True'}),
+            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']", 'null': 'True', 'blank': 'True'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
@@ -150,12 +150,12 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        u'school.school': {
+        u'schools.school': {
             'Meta': {'object_name': 'School'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
-        u'subject.subject': {
+        u'subjects.subject': {
             'Meta': {'object_name': 'Subject'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '30'})
