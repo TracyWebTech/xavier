@@ -17,4 +17,3 @@ class ClassSubjectAdmin(admin.ModelAdmin):
 admin.site.register(Grade, GradeAdmin)
 admin.site.register(Class, ClassAdmin)
 admin.site.register(ClassSubject, ClassSubjectAdmin)
-

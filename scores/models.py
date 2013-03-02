@@ -21,6 +21,5 @@ class Score(models.Model):
     class_subject = models.ForeignKey(ClassSubject)
     subperiod = models.ForeignKey(SubPeriod)
 
-
     def __unicode__(self):
         return self.score

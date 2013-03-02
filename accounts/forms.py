@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import Student, Employee
 
+
 class UserCreateForm(UserCreationForm):
     class Meta:
         model = get_user_model()
@@ -24,14 +25,14 @@ class UserChangingForm(UserChangeForm):
 
 
 class StudentRegistrationForm(UserCreateForm):
-   class Meta:
-       model = Student
-       fields = ('first_name', 'last_name', 'username', 'birthday', 'gender')
-       exclude = ('is_staff', 'date_joined', 'last_login')
+    class Meta:
+        model = Student
+        fields = ('first_name', 'last_name', 'username', 'birthday', 'gender')
+        exclude = ('is_staff', 'date_joined', 'last_login')
 
 
 class EmployeeRegistrationForm(UserCreateForm):
-   class Meta:
-       model = Employee
-       fields = ('first_name', 'last_name', 'username')
-       exclude = ('is_staff', 'date_joined', 'last_login',)
+    class Meta:
+        model = Employee
+        fields = ('first_name', 'last_name', 'username')
+        exclude = ('is_staff', 'date_joined', 'last_login',)

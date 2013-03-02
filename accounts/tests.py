@@ -27,7 +27,6 @@ class AccountTests(TestCase):
     fixtures = ['subjects_for_test.json',
                 'groups_for_test.json']
 
-
     def test_users(self):
         users(self)
         self.assertEqual(self.user.username, 'user')
