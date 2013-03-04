@@ -18,7 +18,6 @@ class Score(models.Model):
     student = models.ForeignKey(Student)
     score = models.IntegerField(_('score'))
     criteria = models.ForeignKey(EvaluationCriteria)
-    class_subject = models.ForeignKey(ClassSubject)
     subperiod = models.ForeignKey(SubPeriod)
 
     def __unicode__(self):
