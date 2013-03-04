@@ -20,3 +20,12 @@ DATABASES = {
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '123'
+
+try:
+    import django_extensions
+except ImportError:
+    pass
+else:
+    INSTALLED_APPS += (
+        'django_extensions',
+    )
