@@ -18,7 +18,7 @@ class PeriodsTest(TestCase):
         period = Period.objects.create(name='anual', year='2013-02-02',
                                        school=self.school)
         start = datetime.now().date()
-        end = datetime.now().date() + timedelta(weeks=8)
+        end = start + timedelta(weeks=8)
         subperiod = SubPeriod.objects.create(name='1 bimestre', start=start,
                                              end=end, period=period)
 
@@ -26,7 +26,7 @@ class PeriodsTest(TestCase):
         period = Period.objects.create(name='anual', year='2013-02-02',
                                        school=self.school)
         start = datetime.now().date()
-        end = datetime.now().date() + timedelta(weeks=8)
+        end = start + timedelta(weeks=8)
         subperiod = SubPeriod.objects.create(name='1 bimestre', start=start,
                                              end=end, period=period)
         with self.assertRaises(ValidationError):
@@ -37,7 +37,23 @@ class PeriodsTest(TestCase):
         period = Period.objects.create(name='anual', year='2013-02-02',
                                        school=self.school)
         start = datetime.now().date()
-        end = datetime.now().date() - timedelta(weeks=8)
+        end = start - timedelta(weeks=8)
         with self.assertRaises(ValidationError):
             SubPeriod.objects.create(name='1 bimestre', start=start, end=end,
                                      period=period)
+
+    def test_subperiod_over_another(self):
+        period = Period.objects.create(name='anual', year='2013-02-02',
+                                       school=self.school)
+        start = datetime.now().date()
+        end = start + timedelta(weeks=8)
+        subperiod = SubPeriod.objects.create(name='1 bimestre', start=start,
+                                             end=end, period=period)
+        with self.assertRaises(ValidationError):
+            start += timedelta(weeks=4)
+            subperiod = SubPeriod.objects.create(
+                name='1 bimestre',
+                start=start,
+                end=end,
+                period=period
+            )
