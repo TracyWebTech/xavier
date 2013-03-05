@@ -3,7 +3,9 @@
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.test import TestCase
-from .models import *
+from .models import User, Student, Employee, Teacher
+from schools.models import School
+from subjects.models import Subject
 from datetime import datetime
 
 
