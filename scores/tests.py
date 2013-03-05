@@ -35,9 +35,9 @@ class ScoresTest(TestCase):
                                               birthday=birthday, gender='M')
 
         # Creating Class and students
-        school = School.objects.create(name='escolateste')
+        self.school = School.objects.create(name='escolateste')
         self.period = Period.objects.create(name='anual', year='2013-02-02',
-                                            school=school)
+                                            school=self.school)
         self.students = Student.objects.all()
         self.grade = Grade.objects.create(name='3 ano',
                                           grade_type='ensino médio')
@@ -54,7 +54,7 @@ class ScoresTest(TestCase):
                                                     subject=subject,
                                                     teacher=teacher)
 
-    def test_student_class_ok(self):
+    def test_student_score_ok(self):
         criteria = EvaluationCriteria.objects.create(
             name='Prova',
             weight=2,
@@ -73,18 +73,16 @@ class ScoresTest(TestCase):
             self.assertIn(score.criteria.class_subject.classroom,
                           student.class_set.all())
 
-    def test_student_wrong_class(self):
+    def test_student_with_wrong_class(self):
         # creating different class
-        school = School.objects.create(name='escolateste')
         period = Period.objects.create(name='anual', year='2013-05-02',
-                                       school=school)
+                                       school=self.school)
         students = Student.objects.all()
         grade = Grade.objects.create(name='2 ano',
                                      grade_type='ensino médio')
         classroom = Class.objects.create(identification='B',
                                          period=self.period,
                                          grade=self.grade)
-        classroom.students.add(*students)
 
         subject = Subject.objects.get(pk=1)
         teacher = self.teacher
@@ -95,7 +93,7 @@ class ScoresTest(TestCase):
         criteria = EvaluationCriteria.objects.create(
             name='Prova',
             weight=2,
-            class_subject=self.classubj
+            class_subject=classubj
         )
 
         start = datetime.now().date()
@@ -106,6 +104,6 @@ class ScoresTest(TestCase):
         # It must have the same class, in this case there is not
         # so it should raise a validation error.
         with self.assertRaises(ValidationError):
-            score = Score.objects.create(student=self.student1, score=10,
-                                         criteria=criteria,
-                                         subperiod=subperiod)
+            Score.objects.create(student=self.student1, score=10,
+                                 criteria=criteria,
+                                 subperiod=subperiod)
