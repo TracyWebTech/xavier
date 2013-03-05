@@ -1,16 +1,43 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
-
+from django.core.exceptions import ValidationError
 from django.test import TestCase
+from .models import Period, SubPeriod
+from schools.models import School
+
+from datetime import datetime, timedelta
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class PeriodsTest(TestCase):
+    def setUp(self):
+        self.school = School.objects.create(name='escolateste')
+
+    def test_period_ok(self):
+        period = Period.objects.create(name='anual', year='2013-02-02',
+                                       school=self.school)
+
+    def test_subperiod_ok(self):
+        period = Period.objects.create(name='anual', year='2013-02-02',
+                                       school=self.school)
+        start = datetime.now().date()
+        end = datetime.now().date() + timedelta(weeks=8)
+        subperiod = SubPeriod.objects.create(name='1 bimestre', start=start,
+                                             end=end, period=period)
+
+    def test_subperiod_duplicate(self):
+        period = Period.objects.create(name='anual', year='2013-02-02',
+                                       school=self.school)
+        start = datetime.now().date()
+        end = datetime.now().date() + timedelta(weeks=8)
+        subperiod = SubPeriod.objects.create(name='1 bimestre', start=start,
+                                             end=end, period=period)
+        with self.assertRaises(ValidationError):
+            SubPeriod.objects.create(name='2 bimestre', start=start, end=end,
+                                     period=period)
+
+    def test_subperiod_end_before_start(self):
+        period = Period.objects.create(name='anual', year='2013-02-02',
+                                       school=self.school)
+        start = datetime.now().date()
+        end = datetime.now().date() - timedelta(weeks=8)
+        with self.assertRaises(ValidationError):
+            SubPeriod.objects.create(name='1 bimestre', start=start, end=end,
+                                     period=period)
