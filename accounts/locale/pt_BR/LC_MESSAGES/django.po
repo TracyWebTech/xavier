@@ -1,0 +1,101 @@
+# Subjects translation for Xavier project.
+# Copyright (C) 2013.
+# This file is distributed under the same license as the Xavier package.
+# Luan Pablo <luan@tracy.com.br>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: Xavier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-07 11:59-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
+"Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:26
+msgid "Personal info"
+msgstr "Informação pessoal"
+
+#: admin.py:28
+msgid "Permissions"
+msgstr "Permissões"
+
+#: admin.py:30
+msgid "Important dates"
+msgstr "Datas importantes"
+
+#: models.py:17
+msgid "F"
+msgstr "F"
+
+#: models.py:17
+msgid "Female"
+msgstr "Feminino"
+
+#: models.py:18
+msgid "M"
+msgstr "M"
+
+#: models.py:18
+msgid "Male"
+msgstr "Masculino"
+
+#: models.py:20
+msgid "birthday"
+msgstr "aniversário"
+
+#: models.py:21
+msgid "gender"
+msgstr "sexo"
+
+#: models.py:23
+msgid "school"
+msgstr "escola"
+
+#: models.py:27
+msgid "user"
+msgstr "usuário"
+
+#: models.py:28
+msgid "users"
+msgstr "usuários"
+
+#: models.py:35
+msgid "code"
+msgstr "código"
+
+#: models.py:38
+msgid "student"
+msgstr "aluno"
+
+#: models.py:39
+msgid "students"
+msgstr "alunos"
+
+#: models.py:43
+msgid "degree"
+msgstr "grau"
+
+#: models.py:47
+msgid "employee"
+msgstr "funcionário"
+
+#: models.py:48
+msgid "employees"
+msgstr "funcionários"
+
+#: models.py:52
+msgid "subjects"
+msgstr "matérias"
+
+#: models.py:55
+msgid "teacher"
+msgstr "professor"
+
+#: models.py:56
+msgid "teachers"
+msgstr "professores"

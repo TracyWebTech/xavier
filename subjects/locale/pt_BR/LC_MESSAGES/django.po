@@ -1,0 +1,29 @@
+# Subjects translation for Xavier project.
+# Copyright (C) 2013.
+# This file is distributed under the same license as the Xavier package.
+# Luan Pablo <luan@tracy.com.br>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: Xavier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-07 11:12-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
+"Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: models.py:8
+msgid "name"
+msgstr "nome"
+
+#: models.py:11
+msgid "subject"
+msgstr "matéria"
+
+#: models.py:12
+msgid "subjects"
+msgstr "matérias"

@@ -1,0 +1,61 @@
+# Subjects translation for Xavier project.
+# Copyright (C) 2013.
+# This file is distributed under the same license as the Xavier package.
+# Luan Pablo <luan@tracy.com.br>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: Xavier\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-07 11:12-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
+"Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: models.py:12
+msgid "name"
+msgstr "nome"
+
+#: models.py:13
+msgid "weight"
+msgstr "peso"
+
+#: models.py:15
+msgid "class subject"
+msgstr "classe-matéria"
+
+#: models.py:18
+msgid "evaluation criteria"
+msgstr "critério de avaliação"
+
+#: models.py:19
+msgid "evaluation criterias"
+msgstr "critérios de avaliação"
+
+#: models.py:26
+msgid "student"
+msgstr "aluno"
+
+#: models.py:27 models.py:33
+msgid "score"
+msgstr "nota"
+
+#: models.py:29
+msgid "criteria"
+msgstr "critério"
+
+#: models.py:30
+msgid "subperiod"
+msgstr "subperíodo"
+
+#: models.py:34
+msgid "scores"
+msgstr "notas"
+
+#: models.py:41
+msgid "Student not in the class of given criteria"
+msgstr "Aluno não pertence a classe do critério escolhido"
