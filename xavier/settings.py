@@ -1,4 +1,18 @@
+# -*- coding: utf-8 -*-
+import os
+
+
 # Django settings for xavier project.
+
+PROJECT_DIR = os.path.dirname(__file__)
+
+# Internacionalization
+ugettext = lambda s: s
+LANGUAGES = (
+    ('es', ugettext('Spanish')),
+    ('pt-br', ugettext('Brazilian Portuguese')),
+)
+
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -78,6 +92,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
