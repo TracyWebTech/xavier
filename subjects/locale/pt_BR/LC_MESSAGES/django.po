@@ -22,8 +22,8 @@ msgstr "nome"
 
 #: models.py:11
 msgid "subject"
-msgstr "matéria"
+msgstr "disciplina"
 
 #: models.py:12
 msgid "subjects"
-msgstr "matérias"
+msgstr "disciplinas"
