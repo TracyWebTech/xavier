@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/holder.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">
+    <script>
+        $(function() {
+            $('.dropdown-toggle').dropdown()
+        });
+    </script>
+    <style>
+      body, a {
+        font-size: 90%;
+      }
+
+      #user {
+        float: right;
+      }
+
+      #user-menu {
+        text-decoration: none;
+        color: #333;
+      }
+
+      #avatar {
+        margin-right: 5px;
+      }
+
+      #user div.dropdown {
+        display: inline;
+      }
+
+      .navbar-block {
+        display: inline;
+        margin: 0 20px;
+      }
+
+      .caret {
+        vertical-align: middle;
+        margin-bottom: 7px;
+      }
+
+      #main-header {
+        height: 90px;
+        line-height: 90px;
+      }
+    
+      #sub-header {
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .breadcrumb {
+        font-size: 90%;
+        background-color: transparent;
+        padding: 0;
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      #menu-wrapper {
+        margin-top: 7.5px;
+      }
+
+      #menu {
+        width: 180px;
+        margin: 0;
+        vertical-align: middle;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div id="main-header" class="navbar-inner">
+        <!-- Bloco logo da escola -->
+        <div id="school" class="navbar-block">
+          <img id="school-logo" data-src="holder.js/180x70">
+        </div>
+
+        <!-- Bloco User -->
+        <div id="user" class="navbar-block">
+          <div class="dropdown">
+            <a id="user-menu" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+            <img id="avatar" data-src="holder.js/50x50">
+            Jose Fulano da Silva de Alcantara<b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-menu">
+              <li role="presentation"><a role="menu-item">Profile</a></li>
+              <li role="presentation"><a role="menu-item">Settings</a></li>
+              <li role="presentation"><a role="menu-item">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="sub-header" class="navbar-inner">
+        <div id="menu-wrapper" class="span3">
+          <button id="menu" class='btn btn-small btn-info'>Menu <b class="caret"></b></button>
+        </div>
+        <!-- Bloco breadcrumbs -->
+        <ul class="span9 breadcrumb">
+          <li><a href="#">Home</a> <i class="icon-chevron-right"></i></li>
+          <li><a href="#">Notas</a> <i class="icon-chevron-right"></i></li>
+          <li><a href="#">1o Bimestre</a> <i class="icon-chevron-right"></i></li>
+          <li><a href="#">Prova 1</a> <i class="icon-chevron-right"></i></li>
+          <li><a href="#">4a. Série A</a> <i class="icon-chevron-right"></i></li>
+          <li class="active">Ciências</li>
+        </ul> 
+      </div>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+
+    <hr/>
+  </body>
+</html>
