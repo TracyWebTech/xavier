@@ -18,6 +18,12 @@ DATABASES = {
     }
 }
 
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/tmp/media/'
+STATIC_ROOT = '/tmp/static/'
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '123'
 
