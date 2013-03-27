@@ -165,4 +165,4 @@ LOGGING = {
 try:
     from local_settings import *
 except ImportError:
-    from local_settings_example import *
+    pass
