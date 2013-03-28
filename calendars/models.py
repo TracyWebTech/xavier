@@ -16,7 +16,7 @@ class Calendar(models.model):
         default='break',
     )
     is_weekends_break = models.BooleanField(
-        _('Break on weekends'),
+        _('break on weekends'),
         help_text=_('Mark if weekends are (usually) considered days off'),
     )
 
