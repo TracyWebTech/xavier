@@ -6,6 +6,16 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Timetable(models.Model):
+    WEEKDAY_CHOICES = (
+        ('mon', 'Monday'),
+        ('tue', 'Tuesday'),
+        ('wed', 'Wednesday'),
+        ('thu', 'Thursday'),
+        ('fri', 'Friday'),
+        ('sat', 'Saturday'),
+        ('sun', 'Sunday'),
+    )
+
     calendar = models.ForeignKey('calendars.Calendar')
     class_subject = models.ForeignKey('classes.ClassSubject')
     start = models.TimeField()
@@ -13,15 +23,7 @@ class Timetable(models.Model):
     weekday = models.CharField(
         _('weekday'),
         max_length=3,
-        choices=(
-            ('mon', 'Monday'),
-            ('tue', 'Tuesday'),
-            ('wed', 'Wednesday'),
-            ('thu', 'Thursday'),
-            ('fri', 'Friday'),
-            ('sat', 'Saturday'),
-            ('sun', 'Sunday'),
-        ),
+        choices=WEEKDAY_CHOICES,
         null=True, blank=True,
     )
 
