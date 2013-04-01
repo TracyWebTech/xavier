@@ -131,6 +131,9 @@ INSTALLED_APPS = (
     'accounts',
     'classes',
     'scores',
+    'attendances',
+    'calendars',
+    'timetables'
 )
 
 # A sample logging configuration. The only tangible logging
