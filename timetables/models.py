@@ -37,6 +37,10 @@ class Timetable(models.Model):
         verbose_name=_(u'replacement teacher'),
     )
 
+    class Meta:
+        verbose_name = _('timetable')
+        verbose_name_plural = _('timetables')
+
     def clean(self):
         if (not self.weekday and not self.day) or (self.weekday and self.day):
             raise ValidationError('You must specify either a day or a weekday')
