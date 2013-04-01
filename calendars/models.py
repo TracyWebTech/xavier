@@ -12,6 +12,13 @@ class Calendar(models.model):
     """
     period = models.ForeignKey('periods.Period')
 
+    class Meta:
+        verbose_name = _('calendar')
+        verbose_name_plural = _('calendars')
+
+    def __unicode__(self):
+        return u"{0}'s calendar".format(self.period)
+
 
 class Break(models.Model):
     """
@@ -21,3 +28,7 @@ class Break(models.Model):
     """
     calendar = models.ForeignKey(Calendar)
     day = models.DateField(_('day'))
+
+    class Meta:
+        verbose_name = _('break')
+        verbose_name_plural = _('breaks')
