@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class Calendar(models.model):
+class Calendar(models.Model):
     """
     By default all days in a period are school days unless otherwise
     specified using the Break model.
