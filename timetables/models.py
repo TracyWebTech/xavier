@@ -39,4 +39,4 @@ class Timetable(models.Model):
 
     def clean(self):
         if (not self.weekday and not self.day) or (self.weekday and self.day):
-            raise ValidationError('You must specify either a day or a weekday)'
+            raise ValidationError('You must specify either a day or a weekday')
