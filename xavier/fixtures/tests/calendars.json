@@ -1,0 +1,17 @@
+[
+{
+  "pk": 1, 
+  "model": "calendars.calendar", 
+  "fields": {
+    "period": 1
+  }
+},
+{
+  "pk": 1, 
+  "model": "calendars.break", 
+  "fields": {
+    "calendar": 1, 
+    "day": "2013-04-02"
+  }
+}
+]
