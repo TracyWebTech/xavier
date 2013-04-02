@@ -9,7 +9,7 @@ from .models import User, Student, Employee, Teacher
 
 
 class AccountTestCase(TestCase):
-    fixtures = ['tests/subjects.json', 'tests/groups.json']
+    fixtures = ['tests/subjects.json']
 
     def setUp(self):
         birthday = date.today()
