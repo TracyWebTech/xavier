@@ -39,6 +39,10 @@ class AccountTestCase(TestCase):
             school=self.school
         )
 
+    def testUserModel(self):
+        self.assertQuerysetEqual(self.user.groups.all(), [])
+        self.assertIsNone(self.user.school)
+
     def testStudentModel(self):
         self.assertQuerysetEqual(
             self.student.groups.all(),
