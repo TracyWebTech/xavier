@@ -39,16 +39,6 @@ class AccountTestCase(TestCase):
             school=self.school
         )
 
-    def testTeacherModel(self):
-        subject = Subject.objects.get(pk=1)
-        self.teacher.subjects.add(subject)
-        self.assertEqual(self.teacher.subjects.all()[0].name, u'Ingl\xeas')
-        self.assertQuerysetEqual(
-            self.teacher.groups.all(),
-            ['<Group: Teacher>', '<Group: Employee>']
-        )
-        self.assertIsNotNone(self.teacher.school)
-
     def testStudentModel(self):
         self.assertQuerysetEqual(
             self.student.groups.all(),
@@ -62,3 +52,13 @@ class AccountTestCase(TestCase):
             ['<Group: Employee>']
         )
         self.assertIsNotNone(self.student.school)
+
+    def testTeacherModel(self):
+        subject = Subject.objects.get(pk=1)
+        self.teacher.subjects.add(subject)
+        self.assertEqual(self.teacher.subjects.all()[0].name, u'Ingl\xeas')
+        self.assertQuerysetEqual(
+            self.teacher.groups.all(),
+            ['<Group: Teacher>', '<Group: Employee>']
+        )
+        self.assertIsNotNone(self.teacher.school)
