@@ -10,5 +10,6 @@ class NonAttendance(models.Model):
     day = models.DateField()
 
     class Meta:
+        unique_together = ('student', 'class_subject', 'day')
         verbose_name = _('non-attendance')
         verbose_name_plural = _('non-attendances')

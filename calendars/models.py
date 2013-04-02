@@ -10,7 +10,7 @@ class Calendar(models.Model):
     specified using the Break model.
 
     """
-    period = models.ForeignKey('periods.Period')
+    period = models.ForeignKey('periods.Period', unique=True)
 
     class Meta:
         verbose_name = _('calendar')
@@ -30,5 +30,6 @@ class Break(models.Model):
     day = models.DateField(_('day'))
 
     class Meta:
+        unique_together = ('calendar', 'day')
         verbose_name = _('break')
         verbose_name_plural = _('breaks')
