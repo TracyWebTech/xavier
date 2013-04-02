@@ -13,10 +13,7 @@ from datetime import datetime, timedelta
 
 
 class ScoresTest(TestCase):
-    fixtures = [
-        'subjects_for_test.json',
-        'groups_for_test.json',
-    ]
+    fixtures = ['tests/subjects.json', 'tests/groups.json']
 
     def setUp(self):
         birthday = datetime.now().date()

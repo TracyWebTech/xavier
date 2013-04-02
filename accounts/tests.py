@@ -26,8 +26,7 @@ def users(self):
 
 
 class AccountTests(TestCase):
-    fixtures = ['subjects_for_test.json',
-                'groups_for_test.json']
+    fixtures = ['tests/subjects.json', 'tests/groups.json']
 
     def test_users(self):
         users(self)

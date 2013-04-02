@@ -37,8 +37,7 @@ def class_hs(self):
 
 
 class ClassesTests(TestCase):
-    fixtures = ['subjects_for_test.json',
-                'groups_for_test.json']
+    fixtures = ['tests/subjects.json', 'tests/groups.json']
 
     def test_class_ok(self):
         users(self)
