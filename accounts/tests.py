@@ -20,20 +20,20 @@ class AccountTestCase(TestCase):
             gender='M'
         )
         self.student = Student.objects.create(
-            username='user1', password='test',
+            username='student', password='test',
             birthday=birthday,
             gender='M',
             code='10',
             school=self.school
         )
         self.employee = Employee.objects.create(
-            username='user2', password='test',
+            username='employee', password='test',
             birthday=birthday,
             gender='M',
             school=self.school
         )
         self.teacher = Teacher.objects.create(
-            username='user3', password='test',
+            username='teacher', password='test',
             birthday=birthday,
             gender='M',
             school=self.school
