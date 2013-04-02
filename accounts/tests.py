@@ -12,17 +12,28 @@ from datetime import datetime
 def users(self):
     birthday = datetime.now().date()
     self.school = School.objects.create(name='escolateste')
-
-    self.user = User.objects.create(username='user', password='test',
-                                    birthday=birthday, gender='M')
-    self.student = Student.objects.create(username='user1', password='test',
-                                          birthday=birthday, gender='M',
-                                          code='10', school=self.school)
-    self.employee = Employee.objects.create(username='user2',
-                                            password='test', birthday=birthday,
-                                            gender='M')
-    self.teacher = Teacher.objects.create(username='user3', password='test',
-                                          birthday=birthday, gender='M')
+    self.user = User.objects.create(
+        username='user', password='test',
+        birthday=birthday,
+        gender='M'
+    )
+    self.student = Student.objects.create(
+        username='user1', password='test',
+        birthday=birthday,
+        gender='M',
+        code='10',
+        school=self.school
+    )
+    self.employee = Employee.objects.create(
+        username='user2', password='test',
+        birthday=birthday,
+        gender='M'
+    )
+    self.teacher = Teacher.objects.create(
+        username='user3', password='test',
+        birthday=birthday,
+        gender='M',
+    )
 
 
 class AccountTests(TestCase):
