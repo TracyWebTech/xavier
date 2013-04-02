@@ -19,17 +19,23 @@ class ScoresTest(TestCase):
         birthday = datetime.now().date()
 
         # Creating users
-        self.student1 = Student.objects.create(username='user1',
-                                              password='test',
-                                              birthday=birthday, gender='M',
-                                              code='10')
-        self.student2 = Student.objects.create(username='user2',
-                                              password='test',
-                                              birthday=birthday, gender='M',
-                                              code='11')
-        self.teacher = Teacher.objects.create(username='user3',
-                                              password='test',
-                                              birthday=birthday, gender='M')
+        self.student1 = Student.objects.create(
+            username='user1',
+            password='test',
+            birthday=birthday, gender='M',
+            code='10'
+        )
+        self.student2 = Student.objects.create(
+            username='user2',
+            password='test',
+            birthday=birthday, gender='M',
+            code='11'
+        )
+        self.teacher = Teacher.objects.create(
+            username='user3',
+            password='test',
+            birthday=birthday, gender='M'
+        )
 
         # Creating Class and students
         self.school = School.objects.create(name='escolateste')

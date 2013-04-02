@@ -10,5 +10,4 @@ def list(request, school_slug, class_slug, year, period_slug):
         'period': period_slug,
     }
 
-
     return render(request, 'scores/list.html', context)
