@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
+from django.db.models import signals
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
-from schools.models import School
 
-from datetime import datetime, timedelta
+from calendars.models import Calendar
+from schools.models import School
 
 
 class Period(models.Model):
@@ -45,3 +49,9 @@ class SubPeriod(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+@receiver(signals.post_save, sender=Period)
+def create_calendar_for_period(sender, instance, created, **kwargs):
+    if created:
+        Calendar.objects.create(period=instance)
