@@ -6,6 +6,9 @@
     <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
     <script src="{{ STATIC_URL }}js/holder.js"></script>
     <script src="{{ STATIC_URL }}js/init.js"></script>
+  
+    <!-- CSS to fix margin between content and navigation bar -->
+    <!-- Must be before bootstrap.css to work properly in small displays -->
     <style type="text/css" media="screen">
       body {
           padding-top: 60px;
@@ -24,6 +27,7 @@
           }
       }
     </style>
+
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/screen.css" media="screen">
   </head>
