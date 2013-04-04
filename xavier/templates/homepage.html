@@ -1,1 +1,8 @@
 {% extends "base.html" %}
+
+{% block title %}Dashboard - {{ block.super }}{% endblock %}
+{% block heading %}Dashboard <small>description here</small>{% endblock %}
+
+{% block breadcrumb %}
+  <li class="active">Home</li>
+{% endblock %}
