@@ -1,0 +1,53 @@
+{% extends 'clean.html' %}
+
+{% block extrahead %}
+  <style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      .container { 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        margin-top: -180px;
+        margin-left: -170px;
+      }
+
+      /* The white background content wrapper */
+      .container > .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; 
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+    .login-form {
+      margin-left: 65px;
+    }
+  
+    legend {
+      margin-right: -50px;
+      font-weight: bold;
+      color: #404040;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="login-form">
+    <h2>Xavier</h2>
+    <form method="post" action="{% url 'login' %}">{% csrf_token %}
+      <fieldset>
+        {{ form }}
+        <button class="btn btn-primary" type="submit">Acessar</button>
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}
