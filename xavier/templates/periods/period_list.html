@@ -1,0 +1,24 @@
+{% extends "modelview/object_list.html" %}
+
+{% load i18n modelview_list towel_batch_tags towel_form_tags %}
+
+{% block objects %}
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      {% if batch_form %}<td><input class="batch" type="checkbox"></td>{% endif %}
+      <th>{% trans "name"|capfirst %}</th>
+      <th>{% trans "year"|capfirst %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+    <tr class="{% cycle 'odd' 'even' %}">
+      {% if batch_form %}<td>{% batch_checkbox batch_form object.id %}</td>{% endif %}
+      <th><a href="{{ object.get_absolute_url }}">{{ object }}</a></th>
+      <td>{{ object.year|date:'Y' }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
