@@ -2,5 +2,4 @@ Django>=1.5
 South>=0.7.6
 django-test-pep8>=0.1
 Fabric>=1.6
-django-bootstrap-form==2.0.5
 towel==0.1.0
