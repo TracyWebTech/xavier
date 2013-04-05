@@ -113,6 +113,10 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_DIR, 'fixtures'),
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,6 +135,9 @@ INSTALLED_APPS = (
     'accounts',
     'classes',
     'scores',
+    'attendances',
+    'calendars',
+    'timetables'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -165,4 +172,4 @@ LOGGING = {
 try:
     from local_settings import *
 except ImportError:
-    from local_settings_example import *
+    pass

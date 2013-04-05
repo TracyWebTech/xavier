@@ -1,5 +1,8 @@
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns('schools.views',
-    url(r'^/?$', 'list_schools'),
+
+urlpatterns = patterns('',
+    url(r'^(?P<school_slug>[-\w]+)/scores/', include('scores.urls')),
 )
+
+

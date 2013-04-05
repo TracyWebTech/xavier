@@ -1,0 +1,118 @@
+[
+{
+  "pk": 4, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "wolverine", 
+    "first_name": "", 
+    "last_name": "", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": null, 
+    "birthday": "2013-04-02", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-02T18:27:37.133Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$7r4uAS5IgH2f$GTrtKMjNVpjGG4xSGDXO8j7piAhKQusJKu9HLW/6Riw=", 
+    "email": "", 
+    "date_joined": "2013-04-02T18:27:37.133Z"
+  }
+},
+{
+  "pk": 5, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "gambit", 
+    "first_name": "", 
+    "last_name": "", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": null, 
+    "birthday": "2013-04-02", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-02T18:27:53.466Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$hpz0yiskIKwH$WiVGfCjUw0WG0C/6Hv986/pcYa77FMhHtc2CoWTN6BE=", 
+    "email": "", 
+    "date_joined": "2013-04-02T18:27:53.466Z"
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "xavier", 
+    "first_name": "", 
+    "last_name": "", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": null, 
+    "birthday": "2013-04-02", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-02T18:29:01.157Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$8m4ZL3qwOygt$9OCP3Yi+9GpWi9EIDyFJ+24W2A6agIEQLdp1N5Yt73A=", 
+    "email": "", 
+    "date_joined": "2013-04-02T18:29:01.157Z"
+  }
+},
+{
+  "pk": 4, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 100, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 5, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 200, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+}
+]

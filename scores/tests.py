@@ -13,26 +13,29 @@ from datetime import datetime, timedelta
 
 
 class ScoresTest(TestCase):
-    fixtures = [
-        'subjects_for_test.json',
-        'groups_for_test.json',
-    ]
+    fixtures = ['tests/subjects.json', 'tests/groups.json']
 
     def setUp(self):
         birthday = datetime.now().date()
 
         # Creating users
-        self.student1 = Student.objects.create(username='user1',
-                                              password='test',
-                                              birthday=birthday, gender='M',
-                                              code='10')
-        self.student2 = Student.objects.create(username='user2',
-                                              password='test',
-                                              birthday=birthday, gender='M',
-                                              code='11')
-        self.teacher = Teacher.objects.create(username='user3',
-                                              password='test',
-                                              birthday=birthday, gender='M')
+        self.student1 = Student.objects.create(
+            username='user1',
+            password='test',
+            birthday=birthday, gender='M',
+            code='10'
+        )
+        self.student2 = Student.objects.create(
+            username='user2',
+            password='test',
+            birthday=birthday, gender='M',
+            code='11'
+        )
+        self.teacher = Teacher.objects.create(
+            username='user3',
+            password='test',
+            birthday=birthday, gender='M'
+        )
 
         # Creating Class and students
         self.school = School.objects.create(name='escolateste')

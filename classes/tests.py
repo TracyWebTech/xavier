@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from django.test import TestCase
-from .models import Grade, Class, ClassSubject
-from accounts.models import Student, Teacher
-from subjects.models import Subject
-from schools.models import School
-from periods.models import Period
-
 from datetime import datetime
+from django.test import TestCase
+
+from accounts.models import Student, Teacher
+from periods.models import Period
+from schools.models import School
+from subjects.models import Subject
+
+from .models import Grade, Class, ClassSubject
 
 
 def users(self):
@@ -36,8 +37,7 @@ def class_hs(self):
 
 
 class ClassesTests(TestCase):
-    fixtures = ['subjects_for_test.json',
-                'groups_for_test.json']
+    fixtures = ['tests/subjects.json', 'tests/groups.json']
 
     def test_class_ok(self):
         users(self)

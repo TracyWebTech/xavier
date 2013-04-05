@@ -1,0 +1,20 @@
+[
+{
+  "pk": 1, 
+  "model": "periods.period", 
+  "fields": {
+    "school": 1, 
+    "name": "1", 
+    "year": "2013-04-02"
+  }
+},
+{
+  "pk": 2, 
+  "model": "periods.period", 
+  "fields": {
+    "school": 1, 
+    "name": "2", 
+    "year": "2013-04-02"
+  }
+}
+]

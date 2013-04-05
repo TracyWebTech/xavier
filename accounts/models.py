@@ -1,26 +1,31 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.contrib.auth.models import Group
 from django.contrib.auth.models import PermissionManager
 from django.db import models
-from django.contrib.auth.models import Group
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
+
 from schools.models import School
 from subjects.models import Subject
 
 
 class User(AbstractUser):
+    REQUIRED_FIELDS = ['email', 'birthday', 'gender']
     GENDER_OPTIONS = (
         (_(u'F'), _(u'Female')),
         (_(u'M'), _(u'Male')),
     )
+
     birthday = models.DateField(_(u'birthday'))
-    gender = models.CharField(_(u'gender'), max_length=2,
-                              choices=GENDER_OPTIONS)
+    gender = models.CharField(
+        _(u'gender'),
+        max_length=2,
+        choices=GENDER_OPTIONS
+    )
     school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
-    REQUIRED_FIELDS = ['email', 'birthday', 'gender']
 
     class Meta:
         verbose_name = _(u'user')
@@ -39,8 +44,11 @@ class Student(User):
 
 
 class Employee(User):
-    degree = models.CharField(_(u'degree'), max_length=50, blank=True,
-                              null=True)
+    degree = models.CharField(
+        _(u'degree'),
+        max_length=50,
+        null=True, blank=True,
+    )
 
     class Meta:
         verbose_name = _(u'employee')

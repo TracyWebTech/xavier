@@ -1,0 +1,32 @@
+[
+{
+  "pk": 2, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "test", 
+    "name": "test"
+  }
+},
+{
+  "pk": 1, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 2, 
+    "students": [
+      4, 
+      5
+    ], 
+    "identification": "test", 
+    "period": 1
+  }
+},
+{
+  "pk": 1, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "teacher": 6, 
+    "subject": 2
+  }
+}
+]

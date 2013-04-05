@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Subject(models.Model):
-    name = models.CharField(_(u'name'), max_length=30)
+    name = models.CharField(_(u'name'), max_length=30, unique=True)
 
     class Meta:
         verbose_name = _(u'subject')
