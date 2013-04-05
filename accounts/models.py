@@ -61,8 +61,12 @@ def set_teacher_groups(sender, instance, **kwargs):
     default_group_employee = Group.objects.get(name='Employee')
     instance.groups.add(default_group_teacher, default_group_employee)
 
-
 @receiver(post_save, sender=Student)
 def set_student_group(sender, instance, **kwargs):
     default_group = Group.objects.get(name='Student')
+    instance.groups.add(default_group)
+
+@receiver(post_save, sender=Employee)
+def set_employee_group(sender, instance, **kwargs):
+    default_group = Group.objects.get(name='Employee')
     instance.groups.add(default_group)
