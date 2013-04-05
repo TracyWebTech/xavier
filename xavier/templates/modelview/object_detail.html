@@ -3,12 +3,13 @@
 {% load i18n modelview_detail %}
 
 {% block title %}{{ object }} - {{ block.super }}{% endblock %}
-{% block heading %}{{ object }}{% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
   <li><a href="{{ list_url }}">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li>
   <li class="active">{{ object }}</li>
 {% endblock %}
+
+{% block heading %}{{ object }}{% endblock %}
 
 {% block main %}
 <table>
