@@ -5,8 +5,11 @@
 {% block title %}{{ title }} {{ object }} - {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
-  <li><a href="{{ list_url }}">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li>
-  <li class="active"><a href="{{ object.get_absolute_url }}">{{ title }}: {{ object }}</a></li>
+  <li><a href="{{ list_url }}">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li> 
+  {% if object %}
+    <li><a href="{{ object.get_absolute_url }}">{{ object }}</a> <span class="divider">/</span></li>
+  {% endif %}
+  <li class="active">{{ title }}</li>
 {% endblock %}
 
 {% block heading %}<a href="{{ object.get_absolute_url }}">{{ title }}: {{ object }}</a>{% endblock %}
