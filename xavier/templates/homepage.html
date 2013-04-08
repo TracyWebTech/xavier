@@ -1,1 +1,46 @@
 {% extends "base.html" %}
+
+{% block title %}Dashboard - {{ block.super }}{% endblock %}
+{% block heading %}Dashboard <small>description here</small>{% endblock %}
+
+{% block breadcrumb %}
+  <li class="active">Home</li>
+{% endblock %}
+
+{% block main %}
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a
+     diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac
+     quam viverra nec consectetur ante hendrerit. Donec et mollis
+     dolor. Praesent et diam eget libero egestas mattis sit amet vitae
+     augue. Nam tincidunt congue enim, ut porta lorem lacinia
+     consectetur. Donec ut libero sed arcu vehicula ultricies a non
+     tortor. Lorem ipsum dolor sit amet, consectetur adipiscing
+     elit.</p>
+
+  <p>Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut
+     tristique vitae, sagittis vel odio. Maecenas convallis
+     ullamcorper ultricies. Curabitur ornare, ligula semper
+     consectetur sagittis, nisi diam iaculis velit, id fringilla sem
+     nunc vel mi.</p>
+
+  <p>Suspendisse lectus leo, consectetur in tempor sit amet, placerat
+     quis neque. Etiam luctus porttitor lorem, sed suscipit est rutrum
+     non. Curabitur lobortis nisl a enim congue semper. Aenean commodo
+     ultrices imperdiet. Vestibulum ut justo vel sapien venenatis
+     tincidunt. Phasellus eget dolor sit amet ipsum dapibus
+     condimentum vitae quis lectus. Aliquam ut massa in turpis dapibus
+     convallis. Praesent elit lacus, vestibulum at malesuada et,
+     ornare et est. Ut augue nunc, sodales ut euismod non, adipiscing
+     vitae orci. Mauris ut placerat justo. Mauris in ultricies
+     enim.</p>
+
+  <p>Class aptent taciti sociosqu ad litora torquent per conubia
+     nostra, per inceptos himenaeos. In euismod ultrices
+     facilisis. Vestibulum porta sapien adipiscing augue congue id
+     pretium lectus molestie. Proin quis dictum nisl. Morbi id quam
+     sapien, sed vestibulum sem. Duis elementum rutrum mauris sed
+     convallis. Proin vestibulum magna mi. Aenean tristique hendrerit
+     magna, ac facilisis nulla hendrerit ut. Sed non tortor sodales
+     quam auctor elementum.</p>
+
+{% endblock %}

@@ -1,19 +1,89 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}School{% endblock %}</title>
     <script src="{{ STATIC_URL }}js/jquery-1.9.1.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
     <script src="{{ STATIC_URL }}js/holder.js"></script>
     <script src="{{ STATIC_URL }}js/init.js"></script>
+  
+    <!-- CSS to fix margin between content and navigation bar            -->
+    <!-- Must be before bootstrap.css to work properly in small displays -->
+    <style type="text/css" media="screen">
+      body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+      }
+      .sidebar-nav {
+          padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+          /* Enable use of floated navbar text */
+          .navbar-text.pull-right {
+              float: none;
+              padding-left: 5px;
+              padding-right: 5px;
+          }
+      }
+    </style>
+
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/screen.css" media="screen">
+    {% block extrahead %}{% endblock%}
   </head>
   <body>
-    {% block header %}
-      {% include "includes/header.html" %}
-    {% endblock %}
+  {% block body %}
+    <div class="navbar navbar-fixed-top">
+      {% include 'includes/navbar.html' %}
+    </div>
 
-    {% block content %}{% endblock %}
+    <div class="container-fluid">
+      <div class="row-fluid">
+        {% block content %}
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                {% block sidebar %}
+                  <li class="nav-header">Sidebar</li>
+                  <li class="active"><a href="#">Link</a></li>
+                  <li><a href="#">Move to</a></li>
+                  <li><a href="#">Amazon</a></li>
+                  <li><a href="#">Style?</a></li>
+                  <li class="nav-header">Sidebar</li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>
+                {% endblock %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="span9">
+            <ul class="breadcrumb">
+              {% block breadcrumb %}
+              <li><a href="/">Home</a> <span class="divider">/</span></li>
+              {% endblock %}
+            </ul>
+
+            <div class="page-header">
+              <h2>{% block heading %}{% endblock %}</h2>
+            </div>
+
+            <div class="page-body">
+              {% block main %}{% endblock %}
+            </div>
+          </div>
+        {% endblock %}
+      </div>
+
+      <hr>
+
+      <footer class="footer muted">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Tracy 2013</p>
+      </footer>
+    </div>
+  {% endblock %}
   </body>
 </html>

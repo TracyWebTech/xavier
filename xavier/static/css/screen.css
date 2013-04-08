@@ -1,60 +1,20 @@
-body, a {
-  font-size: 90%;
-}
-
-#user {
-  float: right;
-}
-
-#user-menu {
-  text-decoration: none;
-  color: #333;
-}
-
-#avatar {
-  margin-right: 5px;
-}
-
-#user div.dropdown {
-  display: inline;
-}
-
-.navbar-block {
-  display: inline;
-  margin: 0 20px;
-}
-
-.caret {
-  vertical-align: middle;
-  margin-bottom: 7px;
-}
-#main-header {
-  height: 90px;
-  line-height: 90px;
-}
-
-#sub-header {
-  height: 40px;
-  line-height: 40px;
-}
-
-.breadcrumb {
-  font-size: 90%;
-  background-color: transparent;
-  padding: 0;
-}
-
-.breadcrumb a {
-  text-decoration: none;
-  color: #333;
-}
-
-#menu-wrapper {
-  margin-top: 7.5px;
-}
-
-#menu {
-  width: 180px;
-  margin: 0;
-  vertical-align: middle;
+/* Fix small input issue in bootstrap */
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  height: 30px;
 }

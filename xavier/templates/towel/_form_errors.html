@@ -1,0 +1,27 @@
+{% load i18n verbose_name_tags %}
+<div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{% trans "Please correct the errors below." %}</strong>
+</div>
+
+<div>
+    <ul>
+    {% for form in forms %}
+      {% if form.non_field_errors %}
+        <li><span>{% trans "Form errors" %}:</span> {{ form.non_field_errors }}</li>
+      {% endif %}
+    {% endfor %}
+
+    {% for formset in formsets %}
+    {% if formset.non_form_errors %}
+        <li><span>{{ fieldset|verbose_name_plural|default:_("Fieldset errors") }}:</span>
+            {{ formset.non_form_errors }}</li>
+    {% endif %}
+    {% for form in formset.forms %}
+        {% if form.non_field_errors %}
+            <li><span>{% trans "Form errors" %}:</span> {{ form.non_field_errors }}</li>
+        {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </ul>
+</div>
