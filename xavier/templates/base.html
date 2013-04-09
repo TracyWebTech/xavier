@@ -66,6 +66,17 @@
               {% endblock %}
             </ul>
 
+            {% if messages %}
+              <div class="messages">
+                {% for message in messages %}
+                  <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+
             <div class="page-header">
               <h2>{% block heading %}{% endblock %}</h2>
             </div>
