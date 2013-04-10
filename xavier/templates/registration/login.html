@@ -42,7 +42,7 @@
 
 {% block content %}
   <div class="login-form">
-    <h2>Xavier</h2>
+    <h2>{{ current_school.name }}</h2>
     <form method="post" action="{% url 'login' %}">{% csrf_token %}
       <fieldset>
         {{ form }}
