@@ -11,8 +11,17 @@
     <div class="nav-collapse collapse">
       <ul class="nav">
         <li class="active"><a href="{% url 'homepage' %}"><i class="icon-home"></i> Home</a></li>
-        <li><a href="/periods/"><i class="icon-calendar"></i> Periods</a></li>
-        <li><a href="/classes/"><i class="icon-th-large"></i> Classes</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-user"></i> Accounts <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'accounts_student_list' %}">Students</a></li>
+            <li><a href="{% url 'accounts_teacher_list' %}">Teachers</a></li>
+            <li><a href="{% url 'accounts_employee_list' %}">Employees</a></li>
+          </ul>
+        </li>
+        <li><a href="{% url 'periods_period_list' %}"><i class="icon-calendar"></i> Periods</a></li>
+        <li><a href="{% url 'classes_class_list' %}"><i class="icon-th-large"></i> Classes</a></li>
       </ul>
 
       <ul class="nav pull-right">
