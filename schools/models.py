@@ -34,8 +34,9 @@ class SchoolManager(models.Manager):
 
 
 class School(models.Model):
-    name = models.CharField(_(u'name'), max_length=50, unique=True)
-    hostname = models.CharField(_('host name'), max_length=100, unique=True)
+    name = models.CharField(_(u'name'), max_length=64)
+    short_name = models.CharField(_(u'short name'), max_length=32)
+    hostname = models.CharField(_('host name'), max_length=128, unique=True)
 
     objects = SchoolManager()
 
