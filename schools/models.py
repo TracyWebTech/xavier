@@ -16,7 +16,7 @@ class SchoolManager(models.Manager):
         the database.
 
         """
-        hostname, port = request.get_host().split(':')
+        hostname = request.get_host().split(':')[0]
         try:
             current_school = SCHOOL_CACHE[hostname]
         except KeyError:
