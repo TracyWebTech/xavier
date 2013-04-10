@@ -20,7 +20,10 @@ class SchoolManager(models.Manager):
         try:
             current_school = SCHOOL_CACHE[hostname]
         except KeyError:
-            current_school = self.get(hostname=hostname)
+            try:
+                current_school = self.get(hostname=hostname)
+            except School.DoesNotExist:
+                current_school = self.get(pk=1)
             SCHOOL_CACHE[hostname] = current_school
         return current_school
 
