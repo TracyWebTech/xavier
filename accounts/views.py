@@ -9,6 +9,7 @@ from .models import Student, Teacher, Employee
 
 
 class AccountView(ModelView):
+    base_template = 'accounts/base.html'
     paginate_by = 20
 
     def get_query_set(self, request, *args, **kwargs):
