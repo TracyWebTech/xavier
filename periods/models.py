@@ -13,7 +13,7 @@ from schools.models import School
 
 class Period(models.Model):
     name = models.CharField(max_length=50, verbose_name=_(u'name'))
-    year = models.DateField(verbose_name=_(u'year'))
+    year = models.PositiveSmallIntegerField(verbose_name=_(u'year'))
     school = models.ForeignKey(School, verbose_name=_(u'school'))
 
     class Meta:
