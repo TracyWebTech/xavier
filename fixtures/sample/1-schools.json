@@ -1,0 +1,11 @@
+[
+{
+  "pk": 1, 
+  "model": "schools.school", 
+  "fields": {
+    "hostname": "localhost", 
+    "name": "Escolas Interativas de Ensino Fundamental", 
+    "short_name": "Interativa Ribeir\u00e3o Preto"
+  }
+}
+]
