@@ -8,20 +8,33 @@
 {% elif "hidden" in type_class %}
     {{ item }}
 {% else %}
-<div class="control-group {{ additional_classes|default_if_none:"" }} {% if item.field.required %}required {% endif %}{% if item.errors %}error {% endif %} {{ type_class }}">
-  {% if is_checkbox %}{{ item }}{% endif %}
-  <label class="control-label" for="{{ item.auto_id }}">
-    {{ item.label }}{% if item.field.required %}*{% endif %}
-  </label>
+<div class="control-group {{ additional_classes|default_if_none:"" }} {% if item.field.required %}required {% endif %}{% if item.errors %}error {% endif %}">
   {% if not is_checkbox %}
-    <div class="controls">
-      {{ item }}
-      {% if item.errors %}
-        <span class="help-inline">{{ item.errors.0 }}</span>
-      {% elif item.field.help_text %}
-        <span class="help-inline">{{ item.field.help_text }}</span>
+    <label class="control-label" for="{{ item.auto_id }}">
+      {% if item.field.required  %}
+        <strong>{{ item.label }}</strong>
+      {% else %}
+        {{ item.label }}
       {% endif %}
-    </div>
+    </label>
   {% endif %}
+
+  <div class="controls">
+    {% if is_checkbox %}
+      <label class="{{ type_class }}" for="{{ item.auto_id }}">
+        {{ item }} {{ item.label }}
+      </label>
+    {% else %}
+      {{ item }}
+    {% endif %}
+
+    {% if item.errors %}
+      <span class="help-inline">{{ item.errors.0 }}</span>
+    {% endif %}
+
+    {% if item.field.help_text %}
+      <span class="help-block">{{ item.field.help_text }}</span>
+    {% endif %}
+  </div>
 </div>
 {% endif %}

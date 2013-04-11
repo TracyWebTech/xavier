@@ -1,0 +1,86 @@
+[
+{
+  "pk": 1, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Matem\u00e1tica"
+  }
+},
+{
+  "pk": 2, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Portugu\u00eas"
+  }
+},
+{
+  "pk": 3, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Ingl\u00eas"
+  }
+},
+{
+  "pk": 4, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Hist\u00f3ria"
+  }
+},
+{
+  "pk": 5, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Biologia"
+  }
+},
+{
+  "pk": 6, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "F\u00edsica"
+  }
+},
+{
+  "pk": 7, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Qu\u00edmica"
+  }
+},
+{
+  "pk": 8, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Geografia"
+  }
+},
+{
+  "pk": 9, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Educa\u00e7\u00e3o F\u00edsica"
+  }
+},
+{
+  "pk": 10, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Filosofia"
+  }
+},
+{
+  "pk": 11, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Sociologia"
+  }
+},
+{
+  "pk": 12, 
+  "model": "subjects.subject", 
+  "fields": {
+    "name": "Religi\u00e3o"
+  }
+}
+]
