@@ -1,0 +1,32 @@
+{% extends "attendances/base.html" %}
+
+{% block breadcrumb %}{{ block.super }}
+  <li>
+    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block main %}
+<table class="table table-stripped">
+  <tr>
+    <th>#</th>
+    <th>Aluno</th>
+    <th>Status</th>
+  </tr>
+  {% for student in object.students.all %}
+  <tr>
+    <td>{{ student.code }}</td>
+    <td>{{ student.get_full_name }}</td>
+    <td>
+      <div class="switch" data-on-label="<i class='icon-remove'></i>" data-off="success"
+           data-off-label="<i class='icon-ok icon-white'></i>" data-on="danger">
+        <input type="checkbox" checked />
+      </div>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
