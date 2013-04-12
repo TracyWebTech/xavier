@@ -2,6 +2,8 @@
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import slugify
+
 from periods.models import Period
 from accounts.models import Student, Teacher
 from subjects.models import Subject
@@ -24,6 +26,7 @@ class Class(models.Model):
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
     students = models.ManyToManyField(Student, verbose_name=_(u'students'))
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
+    slug = models.SlugField(max_length=70)
 
     class Meta:
         verbose_name = _(u'class')
@@ -31,6 +34,10 @@ class Class(models.Model):
 
     def __unicode__(self):
         return self.grade.name + ' - ' + self.identification
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(unicode(self))
+        super(Class, self).save(*args, **kwargs)
 
 
 class ClassSubject(models.Model):

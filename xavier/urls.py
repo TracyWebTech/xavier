@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('accounts.urls')),
     url(r'^classes/', include('classes.urls')),
     url(r'^periods/', include('periods.urls')),
+    url(r'^scores/', include('scores.urls')),
     url(r'^$', HomePageView.as_view(), name='homepage'),
 )
