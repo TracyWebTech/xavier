@@ -4,5 +4,5 @@ from .views import period_views
 
 
 urlpatterns = patterns('',
-    url(r'^', include(period_views.urls)),
+    url(r'^period/', include(period_views.urls)),
 )
