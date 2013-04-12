@@ -2,11 +2,16 @@
 
 from django.contrib import admin
 
-from .models import NonAttendance
+from .models import Attendance, AttendanceBook
 
 
-class NonAttendanceAdmin(admin.ModelAdmin):
+class AttendanceAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(NonAttendance, NonAttendanceAdmin)
+class AttendanceBookAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Attendance, AttendanceAdmin)
+admin.site.register(AttendanceBook, AttendanceBookAdmin)

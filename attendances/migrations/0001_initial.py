@@ -8,36 +8,48 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'NonAttendance'
-        db.create_table(u'attendances_nonattendance', (
+        # Adding model 'AttendanceBook'
+        db.create_table(u'attendances_attendancebook', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('student', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.Student'])),
-            ('class_subject', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['classes.ClassSubject'])),
+            ('classroom', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['classes.Class'])),
             ('day', self.gf('django.db.models.fields.DateField')()),
         ))
-        db.send_create_signal(u'attendances', ['NonAttendance'])
+        db.send_create_signal(u'attendances', ['AttendanceBook'])
+
+        # Adding unique constraint on 'AttendanceBook', fields ['classroom', 'day']
+        db.create_unique(u'attendances_attendancebook', ['classroom_id', 'day'])
+
+        # Adding model 'Attendance'
+        db.create_table(u'attendances_attendance', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('attendance_book', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['attendances.AttendanceBook'])),
+            ('student', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['accounts.Student'])),
+        ))
+        db.send_create_signal(u'attendances', ['Attendance'])
+
+        # Adding unique constraint on 'Attendance', fields ['attendance_book', 'student']
+        db.create_unique(u'attendances_attendance', ['attendance_book_id', 'student_id'])
 
 
     def backwards(self, orm):
-        # Deleting model 'NonAttendance'
-        db.delete_table(u'attendances_nonattendance')
+        # Removing unique constraint on 'Attendance', fields ['attendance_book', 'student']
+        db.delete_unique(u'attendances_attendance', ['attendance_book_id', 'student_id'])
+
+        # Removing unique constraint on 'AttendanceBook', fields ['classroom', 'day']
+        db.delete_unique(u'attendances_attendancebook', ['classroom_id', 'day'])
+
+        # Deleting model 'AttendanceBook'
+        db.delete_table(u'attendances_attendancebook')
+
+        # Deleting model 'Attendance'
+        db.delete_table(u'attendances_attendance')
 
 
     models = {
-        u'accounts.employee': {
-            'Meta': {'object_name': 'Employee', '_ormbases': [u'accounts.User']},
-            'degree': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
-        },
         u'accounts.student': {
             'Meta': {'object_name': 'Student', '_ormbases': [u'accounts.User']},
             'code': ('django.db.models.fields.IntegerField', [], {'unique': 'True'}),
             u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.User']", 'unique': 'True', 'primary_key': 'True'})
-        },
-        u'accounts.teacher': {
-            'Meta': {'object_name': 'Teacher', '_ormbases': [u'accounts.Employee']},
-            u'employee_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['accounts.Employee']", 'unique': 'True', 'primary_key': 'True'}),
-            'subjects': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['subjects.Subject']", 'symmetrical': 'False'})
         },
         u'accounts.user': {
             'Meta': {'object_name': 'User'},
@@ -58,12 +70,17 @@ class Migration(SchemaMigration):
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         },
-        u'attendances.nonattendance': {
-            'Meta': {'object_name': 'NonAttendance'},
-            'class_subject': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.ClassSubject']"}),
-            'day': ('django.db.models.fields.DateField', [], {}),
+        u'attendances.attendance': {
+            'Meta': {'unique_together': "(('attendance_book', 'student'),)", 'object_name': 'Attendance'},
+            'attendance_book': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['attendances.AttendanceBook']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'student': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.Student']"})
+        },
+        u'attendances.attendancebook': {
+            'Meta': {'unique_together': "(('classroom', 'day'),)", 'object_name': 'AttendanceBook'},
+            'classroom': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.Class']"}),
+            'day': ('django.db.models.fields.DateField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         u'auth.group': {
             'Meta': {'object_name': 'Group'},
@@ -86,13 +103,6 @@ class Migration(SchemaMigration):
             'period': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['periods.Period']"}),
             'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'})
         },
-        u'classes.classsubject': {
-            'Meta': {'object_name': 'ClassSubject'},
-            'classroom': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.Class']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'subject': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['subjects.Subject']"}),
-            'teacher': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['accounts.Teacher']"})
-        },
         u'classes.grade': {
             'Meta': {'object_name': 'Grade'},
             'grade_type': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
@@ -111,17 +121,14 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']"}),
-            'year': ('django.db.models.fields.DateField', [], {})
+            'year': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
         },
         u'schools.school': {
             'Meta': {'object_name': 'School'},
+            'hostname': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '128'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '50'})
-        },
-        u'subjects.subject': {
-            'Meta': {'object_name': 'Subject'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
+            'short_name': ('django.db.models.fields.CharField', [], {'max_length': '32'})
         }
     }
 
