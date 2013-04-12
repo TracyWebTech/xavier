@@ -45,9 +45,10 @@
     <td>{{ student.id }}</td>
     <td>{{ student.get_full_name }}</td>
     <td>
-      <div class="switch" data-on-label="<i class='icon-remove'></i>" data-off="success"
-           data-off-label="<i class='icon-ok icon-white'></i>" data-on="danger">
-        <input type="checkbox" value="{{ student.pk }}" checked />
+      <div class="switch" data-on="success" data-off="danger"
+           data-on-label="<i class='icon-ok icon-white'></i>"
+           data-off-label="<i class='icon-remove'></i>">
+        <input type="checkbox" value="{{ student.pk }}" />
       </div>
     </td>
   </tr>
