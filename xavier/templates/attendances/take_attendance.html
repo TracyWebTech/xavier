@@ -1,5 +1,30 @@
 {% extends "attendances/base.html" %}
 
+{% block extrahead %}
+<script type="text/javascript">
+  function toggleAttendance(student_id) {
+    var data = "student=" + student_id;
+    $.ajax({
+      url: "{% url 'attendances_attendancebook_take_attendance' classroom.id %}",
+      method: "GET",
+      data: data,
+      cache: false
+    });
+    return false;
+  }
+
+  $(document).ready(function () {
+    $('.switch').on('switch-change', function(e, data) {
+      // TODO: switch only if success!
+      var $el = $(data.el),
+          value = data.value,
+          student_id = $el[0].value;
+      toggleAttendance(student_id);
+    });
+  });
+</script>
+{% endblock %}
+
 {% block breadcrumb %}{{ block.super }}
   <li>
     <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
@@ -15,18 +40,18 @@
     <th>Aluno</th>
     <th>Status</th>
   </tr>
-  {% for student in object.students.all %}
+  {% for student in classroom.students.all %}
   <tr>
-    <td>{{ student.code }}</td>
+    <td>{{ student.id }}</td>
     <td>{{ student.get_full_name }}</td>
     <td>
-      <div class="switch" data-on-label="<i class='icon-remove'></i>" data-off="success"
-           data-off-label="<i class='icon-ok icon-white'></i>" data-on="danger">
-        <input type="checkbox" checked />
+      <div class="switch" data-on="success" data-off="danger"
+           data-on-label="<i class='icon-ok icon-white'></i>"
+           data-off-label="<i class='icon-remove'></i>">
+        <input type="checkbox" value="{{ student.pk }}" />
       </div>
     </td>
   </tr>
   {% endfor %}
 </table>
-
 {% endblock %}
