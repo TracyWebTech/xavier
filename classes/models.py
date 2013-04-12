@@ -33,7 +33,8 @@ class Class(models.Model):
         verbose_name_plural = _(u'classes')
 
     def __unicode__(self):
-        return u'%s, %s' % (self.identification, self.period)
+        return u'{0} - {1}, {2}'.format(self.grade.name, self.identification,
+                                        self.period)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))

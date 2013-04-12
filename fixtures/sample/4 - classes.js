@@ -81,7 +81,7 @@
         ], 
         "identification": "A", 
         "period": 1, 
-        "slug": "7o-ano-a"
+        "slug": "7o-ano-a-2013"
     }
 },
 {
@@ -201,7 +201,7 @@
         ], 
         "identification": "A", 
         "period": 1, 
-        "slug": "9o-ano-a"
+        "slug": "9o-ano-a-2013"
     }
 },
 {
