@@ -19,7 +19,7 @@ class User(AbstractUser):
         (_(u'M'), _(u'Male')),
     )
 
-    birthday = models.DateField(_(u'birthday'))
+    birthday = models.DateField(_(u'birthday'), null=True)
     gender = models.CharField(
         _(u'gender'),
         max_length=2,
