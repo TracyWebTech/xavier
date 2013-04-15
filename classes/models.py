@@ -45,6 +45,7 @@ class ClassSubject(models.Model):
     classroom = models.ForeignKey(Class, verbose_name=_(u'classroom'))
     subject = models.ForeignKey(Subject, verbose_name=_(u'subject'))
     teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
+    slug = models.SlugField(max_length=70)
 
     class Meta:
         verbose_name = _(u'class subject')
@@ -52,3 +53,7 @@ class ClassSubject(models.Model):
 
     def __unicode__(self):
         return unicode(self.classroom)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(unicode(self))
+        super(ClassSubject, self).save(*args, **kwargs)
