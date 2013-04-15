@@ -29,17 +29,6 @@
 </script>
 {% endblock %}
 
-{% block heading %}{{ block.super }}
-<form class="form-horizontal pull-right" action=".">
-  <span class="input-append">
-    {% spaceless %}
-    <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
-    <button class="btn" type="submit">&nbsp;<i class="icon icon-refresh"></i>&nbsp;</button>
-    {% endspaceless %}
-  </span>
-</form>
-{% endblock %}
-
 {% block breadcrumb %}{{ block.super }}
   <li>
     <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
@@ -49,6 +38,16 @@
 {% endblock %}
 
 {% block main %}
+<form class="form-horizontal" action=".">
+  <span class="input-append">
+    <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
+    <button class="btn btn-primary" type="submit" title="{% trans 'Change date' %}">
+      &nbsp;<i class="icon-white icon-refresh"></i>&nbsp;
+    </button>
+  </span>
+  <a class="btn" href="." title="{% trans 'Show today' %}">{% trans 'today'|capfirst %}</a>
+</form>
+
 <table class="table table-striped">
   <tr>
     <th>#</th>
