@@ -7,16 +7,18 @@
   <thead>
     <tr>
       {% if batch_form %}<td><input class="batch" type="checkbox"></td>{% endif %}
-      <th>{% trans "name"|capfirst %}</th>
-      <th>{% trans "year"|capfirst %}</th>
+      <th>{% trans "identification"|capfirst %}</th>
+      <th>{% trans "period"|capfirst %}</th>
+      <th>{% trans "grade"|capfirst %}</th>
     </tr>
   </thead>
   <tbody>
     {% for object in object_list %}
     <tr>
       {% if batch_form %}<td>{% batch_checkbox batch_form object.id %}</td>{% endif %}
-      <th><a href="{{ object.get_absolute_url }}">{{ object }}</a></th>
-      <td>{{ object.year|date:'Y' }}</td>
+      <th><a href="{{ object.get_absolute_url }}">{{ object.identification }}</a></th>
+      <td>{{ object.period }}</td>
+      <td>{{ object.grade }}</td>
     </tr>
     {% endfor %}
   </tbody>

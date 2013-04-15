@@ -43,6 +43,11 @@ class AttendanceBookView(ModelView):
             return self.response_adding_denied(request)
 
         classroom = get_object_or_404(Class, pk=classroom)
+        attendance_book, _ = AttendanceBook.objects.get_or_create(
+            classroom=classroom,
+            day=date.today(),
+        )
+
         if request.is_ajax():
             try:
                 student_id = int(request.GET.get('student'))
@@ -51,10 +56,6 @@ class AttendanceBookView(ModelView):
                 return http.HttpResponse(status=400)
             except ObjectDoesNotExist:
                 return http.HttpResponse(status=400)
-            attendance_book, _ = AttendanceBook.objects.get_or_create(
-                classroom=classroom,
-                day=date.today(),
-            )
             attendance, created = Attendance.objects.get_or_create(
                 attendance_book=attendance_book,
                 student=student,
@@ -65,7 +66,11 @@ class AttendanceBookView(ModelView):
 
         title = ugettext('Take attendance for class %s')
         title %= classroom.identification
-        context = dict(title=title, classroom=classroom)
+        context = {
+            'title': title,
+            'classroom': classroom,
+            'attendance_book': attendance_book
+        }
         return self.render(
             request,
             template='attendances/take_attendance.html',

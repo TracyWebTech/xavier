@@ -1,0 +1,23 @@
+[
+{
+  "pk": 1, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "admin", 
+    "first_name": "", 
+    "last_name": "", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": null, 
+    "birthday": "2010-01-01", 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-04-15T17:39:50.819Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$dG7NDN88WYf4$8a7GH51U3EYtjkq4ICPNFZMaLHCTBbqaRVyyO+2qDe0=", 
+    "email": "admin@admin.com", 
+    "date_joined": "2013-04-15T17:39:50.819Z"
+  }
+}
+]

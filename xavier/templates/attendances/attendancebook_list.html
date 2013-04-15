@@ -11,7 +11,7 @@
         <form method="post" action=".">{% csrf_token %}
           <p><i>{{ class.students.count }} {% trans "students" %}</i></p>
           <a href="{% url 'attendances_attendancebook_take_attendance' class.id %}"
-             type="submit" class="btn btn-primary">Take attendance</a>
+             type="submit" class="btn btn-primary">{% trans 'Take attendance' %}</a>
         </form>
       </div>
     </div>
