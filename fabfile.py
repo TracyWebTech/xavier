@@ -10,6 +10,9 @@ from fabric.context_managers import lcd
 
 from django.core import management
 
+django.project('xavier')
+from django.db.utils import IntegrityError
+
 
 DJANGO_PROJECT_NAME = 'xavier'
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -26,6 +29,7 @@ def ldjango_project(fn):
 
     return wrapper
 
+
 @ldjango_project
 def load_testdata():
     fixt_path = 'fixtures/sample/'
@@ -33,25 +37,14 @@ def load_testdata():
     fixtures = sorted(glob.glob(os.path.join(fixt_path, '*.json')))
     management.call_command('loaddata', *fixtures)
 
-    management.call_command('loadtestdata', 'accounts.User:200')
-    #    local(python_path +
-    #          ' manage.py loadtestdata accounts.User:200')
-    #    local(python_path +
-    #          ' manage.py loadtestdata accounts.Employee:30')
-    #    local(python_path +
-    #          ' manage.py loadtestdata accounts.Teacher:10')
-    #    # separating the student creation in different commands
-    #    # 'cause the loadtestdata can have an integrityerror for unique
-    #    # fields
-    #    local(python_path +
-    #          ' manage.py loadtestdata accounts.Student:50')
-    #    #local(python_path +
-    #    #      ' manage.py loadtestdata accounts.Student:50')
-    #    #local(python_path +
-    #    #      ' manage.py loadtestdata accounts.Student:50')
-    #    # generating classes
-    #    local(python_path + ' manage.py loadtestdata classes.Grade:2')
-    #    local(python_path + ' manage.py loadtestdata classes.Class:2')
+    while True:
+        try:
+            management.call_command('loadtestdata',
+                                'accounts.User:140', 'accounts.Employee:30',
+                                'accounts.Teacher:10', 'accounts.Student:100',
+                                'classes.Grade:2', 'classes.Class:2')
+        except IntegrityError: pass
+        else: break
 
 
 def translate():
