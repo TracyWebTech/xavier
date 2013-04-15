@@ -42,8 +42,8 @@
   <caption><h3>{{ attendance_book.day }}</h3></caption>
   <tr>
     <th>#</th>
-    <th>{% trans 'Student' %}</th>
-    <th>{% trans 'Status' %}</th>
+    <th>{% trans 'student'|capfirst %}</th>
+    <th>{% trans 'status'|capfirst %}</th>
   </tr>
   {% for student in classroom.students.all %}
   <tr>
