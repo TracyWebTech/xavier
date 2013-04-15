@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-15 16:10-0300\n"
-"PO-Revision-Date: 2013-04-15 16:11-0300\n"
+"POT-Creation-Date: 2013-04-15 17:48-0300\n"
+"PO-Revision-Date: 2013-04-15 17:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,15 +26,15 @@ msgstr "lista de chamada"
 msgid "attendance books"
 msgstr "lista de chamadas"
 
-#: models.py:28
+#: models.py:31
 msgid "attendance"
 msgstr "presença"
 
-#: models.py:29
+#: models.py:32
 msgid "attendances"
 msgstr "presenças"
 
-#: views.py:67
+#: views.py:71
 #, python-format
-msgid "Take attendance for class %s"
-msgstr "Fazer chamada para classe %s"
+msgid "Take attendance for %s"
+msgstr "Fazer chamada para %s"

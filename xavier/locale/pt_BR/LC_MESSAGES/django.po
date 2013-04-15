@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-15 15:59-0300\n"
-"PO-Revision-Date: 2013-04-15 16:07-0300\n"
+"POT-Creation-Date: 2013-04-15 17:47-0300\n"
+"PO-Revision-Date: 2013-04-15 17:48-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,12 +26,12 @@ msgstr "Espanhol"
 msgid "Brazilian Portuguese"
 msgstr "Português Brasileiro"
 
-#: templates/base.html:63 templates/homepage.html:7
+#: templates/base.html:65 templates/homepage.html:7
 #: templates/includes/navbar.html:13
 msgid "Home"
 msgstr "Início"
 
-#: templates/base.html:92
+#: templates/base.html:94
 msgid "Back to top"
 msgstr "Voltar ao topo"
 
@@ -48,25 +48,25 @@ msgstr "Contas"
 msgid "students"
 msgstr "estudantes"
 
+#: templates/attendances/attendancebook_list.html:14
+#: templates/attendances/take_attendance.html:44
+msgid "Take attendance"
+msgstr "Fazer chamada"
+
 #: templates/attendances/base.html:4 templates/includes/navbar.html:28
 msgid "Attendances"
 msgstr "Chamadas"
 
-#: templates/attendances/take_attendance.html:5
-#: templates/attendances/take_attendance.html:37
-msgid "Take attendance"
-msgstr "Fazer chamada"
-
-#: templates/attendances/take_attendance.html:34
+#: templates/attendances/take_attendance.html:41
 #: templates/includes/navbar.html:30
 msgid "Attendance books"
 msgstr "Lista de chamadas"
 
-#: templates/attendances/take_attendance.html:45
+#: templates/attendances/take_attendance.html:51
 msgid "student"
 msgstr "estudante"
 
-#: templates/attendances/take_attendance.html:46
+#: templates/attendances/take_attendance.html:52
 msgid "status"
 msgstr "status"
 
@@ -106,15 +106,19 @@ msgstr "Classes"
 msgid "Reports"
 msgstr "Relatórios"
 
-#: templates/includes/navbar.html:39
+#: templates/includes/navbar.html:36
+msgid "Scores"
+msgstr "Notas"
+
+#: templates/includes/navbar.html:47
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:50
+#: templates/includes/navbar.html:58
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:54
+#: templates/includes/navbar.html:62
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -122,7 +126,7 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:55
+#: templates/includes/navbar.html:63
 msgid "Logout"
 msgstr "Sair"
 
