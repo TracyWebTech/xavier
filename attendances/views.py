@@ -45,7 +45,6 @@ class AttendanceBookView(ModelView):
         today = date.today().strftime('%Y-%m-%d')
         year, month, month_day = request.GET.get('day', today).split('-')
         day = date(int(year), int(month), int(month_day))
-        
         classroom = get_object_or_404(Class, pk=classroom)
         attendance_book, _ = AttendanceBook.objects.get_or_create(
             classroom=classroom,
