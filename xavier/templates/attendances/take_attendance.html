@@ -1,5 +1,9 @@
 {% extends "attendances/base.html" %}
 
+{% load attendances_tags %}
+
+{% block title %}{% trans 'Take attendance' %} - {{ block.super }}{% endblock %}
+
 {% block extrahead %}
 <script type="text/javascript">
   function toggleAttendance(student_id) {
@@ -49,7 +53,8 @@
       <div class="switch" data-on="success" data-off="danger"
            data-on-label="<i class='icon-ok icon-white'></i>"
            data-off-label="<i class='icon-remove'></i>">
-        <input type="checkbox" value="{{ student.pk }}" />
+        <input type="checkbox" value="{{ student.pk }}"
+               {% if student|is_attendee:attendance_book %}checked{% endif %}/>
       </div>
     </td>
   </tr>

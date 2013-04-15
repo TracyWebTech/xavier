@@ -13,6 +13,11 @@ class AttendanceBook(models.Model):
         verbose_name = _('attendance book')
         verbose_name_plural = _('attendance books')
 
+    def is_attendee(self, student):
+        if self.attendance_set.filter(student=student):
+            return True
+        return False
+
 
 class Attendance(models.Model):
     attendance_book = models.ForeignKey(AttendanceBook)
