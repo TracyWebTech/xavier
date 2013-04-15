@@ -2,12 +2,12 @@
 
 {% load attendances_tags %}
 
-{% block title %}{% trans 'Take attendance' %} - {{ block.super }}{% endblock %}
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
 
 {% block extrahead %}
 <script type="text/javascript">
   function toggleAttendance(student_id) {
-    var data = "student=" + student_id;
+    var data = "{{ request.GET.urlencode }}" + "&student=" + student_id;
     $.ajax({
       url: "{% url 'attendances_attendancebook_take_attendance' classroom.id %}",
       method: "GET",
@@ -29,6 +29,13 @@
 </script>
 {% endblock %}
 
+{% block heading %}{{ block.super }}
+<form class="form-horizontal pull-right" action=".">
+  <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
+  <button class="btn" type="submit"><i class="icon icon-refresh"></i></button>
+</form>
+{% endblock %}
+
 {% block breadcrumb %}{{ block.super }}
   <li>
     <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
@@ -39,7 +46,6 @@
 
 {% block main %}
 <table class="table table-striped">
-  <caption><h3>{{ attendance_book.day }}</h3></caption>
   <tr>
     <th>#</th>
     <th>{% trans 'student'|capfirst %}</th>

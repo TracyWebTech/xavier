@@ -13,6 +13,9 @@ class AttendanceBook(models.Model):
         verbose_name = _('attendance book')
         verbose_name_plural = _('attendance books')
 
+    def __unicode__(self):
+        return u'%s, %s' % (self.classroom.identification, self.day)
+
     def is_attendee(self, student):
         if self.attendance_set.filter(student=student):
             return True
