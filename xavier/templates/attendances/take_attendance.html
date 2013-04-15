@@ -31,8 +31,12 @@
 
 {% block heading %}{{ block.super }}
 <form class="form-horizontal pull-right" action=".">
-  <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
-  <button class="btn" type="submit"><i class="icon icon-refresh"></i></button>
+  <span class="input-append">
+    {% spaceless %}
+    <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
+    <button class="btn" type="submit">&nbsp;<i class="icon icon-refresh"></i>&nbsp;</button>
+    {% endspaceless %}
+  </span>
 </form>
 {% endblock %}
 
