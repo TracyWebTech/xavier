@@ -10,18 +10,19 @@
 
     <div class="nav-collapse collapse">
       <ul class="nav">
-        <li <!--class="active"--><a href="{% url 'homepage' %}"><i class="icon-home"></i> Home</a></li>
+        <li><a href="{% url 'homepage' %}"><i class="icon-home"></i> {% trans 'Home' %}</a>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-user"></i> Accounts <b class="caret"></b></a>
+            <i class="icon-user"></i> {% trans 'Accounts' %} <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="{% url 'accounts_student_list' %}">Students</a></li>
-            <li><a href="{% url 'accounts_teacher_list' %}">Teachers</a></li>
-            <li><a href="{% url 'accounts_employee_list' %}">Employees</a></li>
+            <li><a href="{% url 'accounts_student_list' %}">{% trans 'Students' %}</a></li>
+            <li><a href="{% url 'accounts_teacher_list' %}">{% trans 'Teachers' %}</a></li>
+            <li><a href="{% url 'accounts_employee_list' %}">{% trans 'Employees' %}</a></li>
           </ul>
         </li>
-        <li><a href="{% url 'periods_period_list' %}"><i class="icon-calendar"></i> Periods</a></li>
-        <li><a href="{% url 'classes_class_list' %}"><i class="icon-th-large"></i> Classes</a></li>
+        <li><a href="{% url 'periods_period_list' %}"><i class="icon-calendar"></i> {% trans 'Periods' %}</a></li>
+        <li><a href="{% url 'classes_class_list' %}"><i class="icon-th-large"></i> {% trans 'Classes' %}</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="icon-user"></i> {% trans 'Attendances' %} <b class="caret"></b></a>
@@ -35,7 +36,7 @@
 
       <ul class="nav pull-right">
         <li class="divider-vertical"></li>
-        <li><a href="#"><i class="icon-user"></i> Me</a></li>
+        <li><a href="#"><i class="icon-user"></i> {% trans 'Me' %}</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="icon-off"></i> <b class="caret"></b></a>
@@ -46,12 +47,12 @@
               {% if user.groups.all %}
               <small>{{ user.groups.all.0 }}</small> 
               {% else %}
-              <small>Administrator</small>
+              <small>{% trans 'Administrator' %}</small>
               {% endif %}
             </li>
             <li class="divider"></li>
-            <li><a href="{% url 'password_change' %}">Change password</a></li>
-            <li><a href="{% url 'logout' %}"><b>Logout</b></a></li>
+            <li><a href="{% url 'password_change' %}">{% trans 'Change password' %}</a></li>
+            <li><a href="{% url 'logout' %}"><b>{% trans 'Logout' %}</b></a></li>
           </ul>
         </li>
       </ul>
