@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-15 17:47-0300\n"
-"PO-Revision-Date: 2013-04-15 17:48-0300\n"
+"POT-Creation-Date: 2013-04-15 18:49-0300\n"
+"PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,12 +26,12 @@ msgstr "Espanhol"
 msgid "Brazilian Portuguese"
 msgstr "Português Brasileiro"
 
-#: templates/base.html:65 templates/homepage.html:7
+#: templates/base.html:66 templates/homepage.html:7
 #: templates/includes/navbar.html:13
 msgid "Home"
 msgstr "Início"
 
-#: templates/base.html:94
+#: templates/base.html:95
 msgid "Back to top"
 msgstr "Voltar ao topo"
 
@@ -49,7 +49,7 @@ msgid "students"
 msgstr "estudantes"
 
 #: templates/attendances/attendancebook_list.html:14
-#: templates/attendances/take_attendance.html:44
+#: templates/attendances/take_attendance.html:37
 msgid "Take attendance"
 msgstr "Fazer chamada"
 
@@ -57,16 +57,28 @@ msgstr "Fazer chamada"
 msgid "Attendances"
 msgstr "Chamadas"
 
-#: templates/attendances/take_attendance.html:41
+#: templates/attendances/take_attendance.html:34
 #: templates/includes/navbar.html:30
 msgid "Attendance books"
 msgstr "Lista de chamadas"
 
-#: templates/attendances/take_attendance.html:51
+#: templates/attendances/take_attendance.html:44
+msgid "Change date"
+msgstr "Alterar data"
+
+#: templates/attendances/take_attendance.html:48
+msgid "Show today"
+msgstr "Mostrar hoje"
+
+#: templates/attendances/take_attendance.html:48
+msgid "today"
+msgstr "hoje"
+
+#: templates/attendances/take_attendance.html:54
 msgid "student"
 msgstr "estudante"
 
-#: templates/attendances/take_attendance.html:52
+#: templates/attendances/take_attendance.html:55
 msgid "status"
 msgstr "status"
 
