@@ -100,6 +100,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'schools.context_processors.current_school',
+    'classes.context_processors.all_classes',
 )
 
 MIDDLEWARE_CLASSES = (
