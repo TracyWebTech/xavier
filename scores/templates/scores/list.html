@@ -1,14 +1,71 @@
 {% extends "base.html" %}
 
-{% block content %}
-<br>
-<br>
-<br>
-<br>
-<br><br><br><br><br>
+{% block extrahead %}
+    <script type="text/javascript">
+        $(function() {
+            $('.scores').attr('maxlength', '3');
+            $('.average').prop('disabled', true);
+            $('.average').css('width', '50px');
+            $('.scores').css('width', '50px');
+            /*
+            $('.scores').change(function() {
+                scores = $(this).parent().parent().find('input.scores');
+                var data = {};
+                scores.each(function() {
+                    data = {
+                        scores: {$(this).attr('name'): $(this).val()}
+                    }
+                });
+                    request = $.ajax({
+                        type: "POST",
+                        url: "{% url 'get_score' %}",
+                        data: data,
+                    });
+                    request.done(function ( data ) {
+                    });
+                    request.fail(function (jqXHR, textStatus) {
+                        alert(textStatus);
+                    });
+            });
+            */
+        });
+    </script>
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li><a href="#">Scores</a> <span class="divider">/</span></li>
+    <li class="active">{{ class|capfirst }}</li>
+{% endblock %}
+{% block heading %}
 {{ class }}
-<br>
-{{ year }}
-<br>
-{{ period }}
+{% endblock %}
+{% block main %}
+<table class="table table-condensed">
+<thead>
+<tr>
+    <th>Aluno</th>
+{% for criteria in criterias %}
+    <th>{{ criteria.name }}</th>
+{% endfor %}
+    <th>Média</th>
+</tr>
+</thead>
+<tbody>
+{% for student in students %}
+    <tr>
+        <td>
+            {{ student.get_full_name }}
+        </td>
+        {% for criteria in criterias %}
+        <td>
+            <input type="text" class="score{{ forloop.counter }} scores" name="{{ criteria.id }}" />
+        </td>
+        {% endfor %}
+        <td>
+            <input type="text" class="average" />
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
 {% endblock %}

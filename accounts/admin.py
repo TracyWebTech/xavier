@@ -17,12 +17,12 @@ class UserAdmin(DjangoUserAdmin):
             'classes': ('wide',),
             'fields': ('first_name', 'last_name', 'username', 'password1',
                        'password2', 'email', 'birthday', 'gender', 'groups',
-                       'user_permissions')}),
+                       'user_permissions', 'school')}),
     )
 
     # add fields here to appear when changing user
     fieldsets = (
-        (None, {'fields': ('username', 'password')}),
+        (None, {'fields': ('username', 'password', 'school')}),
         (_(u'Personal info'), {
             'fields': ('first_name', 'last_name', 'email', 'birthday',
                        'gender')
@@ -43,7 +43,7 @@ class StudentAdmin(UserAdmin):
             'classes': ('wide',),
             'fields': ('code', 'first_name', 'last_name', 'username',
                        'password1', 'password2', 'email', 'birthday', 'gender',
-                       'user_permissions')}),
+                       'user_permissions', 'school')}),
     )
 
 
@@ -53,7 +53,7 @@ class EmployeeAdmin(UserAdmin):
             'classes': ('wide',),
             'fields': ('first_name', 'last_name', 'username', 'password1',
                        'password2', 'email', 'birthday', 'gender', 'groups',
-                       'user_permissions')}),
+                       'user_permissions', 'school')}),
     )
 
 
@@ -63,7 +63,7 @@ class TeacherAdmin(EmployeeAdmin):
             'classes': ('wide',),
             'fields': ('first_name', 'last_name', 'username', 'password1',
                        'password2', 'email', 'birthday', 'gender',
-                       'user_permissions')}),
+                       'user_permissions', 'school')}),
     )
 
 
