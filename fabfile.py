@@ -10,17 +10,18 @@ from fabric.context_managers import lcd
 
 from django.core import management
 
-django.project('xavier')
-from django.db.utils import IntegrityError
-
-
 DJANGO_PROJECT_NAME = 'xavier'
+django.project(DJANGO_PROJECT_NAME)
+from django.db.utils import IntegrityError
+from classes.models import Class, Period, Grade, Student
+
+
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
 def ldjango_project(fn):
     def wrapper(*args, **kwargs):
-        django.project('xavier')
+        django.project(DJANGO_PROJECT_NAME)
 
         if LOCAL_CWD_PATH not in sys.path:
             sys.path.insert(0, LOCAL_CWD_PATH)
@@ -28,6 +29,31 @@ def ldjango_project(fn):
         return fn(*args, **kwargs)
 
     return wrapper
+
+
+def create_students():
+    from random import shuffle
+    students = list(Student.objects.all())
+    classes = Class.objects.all()
+
+    for classroom in classes:
+        shuffle(students)
+        for i in range(20):
+            classroom.students.add(students[i])
+
+
+def create_class():
+    identifications = ["A", "B", "C"]
+    periods = Period.objects.all()
+    grades = Grade.objects.all()
+    for period in periods:
+        for grade in grades:
+            for identification in identifications:
+                classroom = Class.objects.create(
+                    identification=identification,
+                    period=period,
+                    grade=grade
+                )
 
 
 @ldjango_project
@@ -41,10 +67,12 @@ def load_testdata():
         try:
             management.call_command('loadtestdata',
                                 'accounts.User:140', 'accounts.Employee:30',
-                                'accounts.Teacher:10', 'accounts.Student:100',
-                                'classes.Grade:2', 'classes.Class:2')
+                                'accounts.Teacher:10', 'accounts.Student:100')
         except IntegrityError: pass
         else: break
+
+    create_class()
+    create_students()
 
 
 def translate():
@@ -52,4 +80,5 @@ def translate():
     for dir in dirs:
         if os.path.exists(os.path.join(dir, 'locale')):
             with lcd(dir):
+                local('django-admin.py makemessages --all')
                 local('django-admin.py compilemessages')
