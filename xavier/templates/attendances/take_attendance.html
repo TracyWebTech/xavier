@@ -112,7 +112,7 @@
       </div>
     </td>
     <td>
-      <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-time"></i></button>
+      <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i></button>
     </td>
   </tr>
   {% endfor %}
