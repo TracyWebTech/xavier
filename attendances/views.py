@@ -55,7 +55,7 @@ class AttendanceBookView(ModelView):
         title = ugettext('Take attendance for %s') % classroom.identification
         context = {
             'title': title,
-            'subtitle': unicode(classroom)
+            'subtitle': unicode(classroom),
             'classroom': classroom,
             'attendance_book': attendance_book
         }
