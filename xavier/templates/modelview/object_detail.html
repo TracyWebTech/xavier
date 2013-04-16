@@ -12,9 +12,9 @@
 {% block heading %}{{ object }}{% endblock %}
 
 {% block main %}
-<table>
+<table class="table table-striped">
 {% for title, value in object|model_details %}
-    <tr class="{% cycle "odd" "even" %}">
+    <tr>
         <th>{{ title|capfirst }}</th>
         <td>{{ value }}</td>
     </tr>
