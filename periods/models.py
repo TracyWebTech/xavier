@@ -23,7 +23,7 @@ class Period(models.Model):
         verbose_name_plural = _(u'periods')
 
     def __unicode__(self):
-        return self.name
+        return u'{0} ({1})'.format(self.name, self.school.short_name)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))

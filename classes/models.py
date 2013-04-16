@@ -34,7 +34,7 @@ class Class(models.Model):
 
     def __unicode__(self):
         return u'{0} - {1}, {2}'.format(self.grade.name, self.identification,
-                                        self.period)
+                                        self.period.name)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))
@@ -52,7 +52,7 @@ class ClassSubject(models.Model):
         verbose_name_plural = _(u'class subjects')
 
     def __unicode__(self):
-        return unicode(self.classroom)
+        return u'{0} ({1})'.format(unicode(self.classroom), self.subject)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))
