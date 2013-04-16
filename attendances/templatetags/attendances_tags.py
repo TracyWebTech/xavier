@@ -4,5 +4,5 @@ register = template.Library()
 
 
 @register.filter
-def is_attendee(student, attendance_book):
-    return attendance_book.is_attendee(student)
+def is_late(student, attendance_book):
+    return attendance_book.is_late(student)
