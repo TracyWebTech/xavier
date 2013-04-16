@@ -1,0 +1,74 @@
+[
+{
+  "pk": 1, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "1 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 2, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "2 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 3, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "3 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 4, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "4 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 5, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "5 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 6, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "6 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 7, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "7 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 8, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "8 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+},
+{
+  "pk": 9, 
+  "model": "classes.grade", 
+  "fields": {
+    "name": "9 ano",
+    "grade_type": "Ensino Fundamental"
+  }
+}
+]
