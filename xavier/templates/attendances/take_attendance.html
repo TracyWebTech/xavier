@@ -6,10 +6,21 @@
 
 {% block extrahead %}
 <script type="text/javascript">
-  function toggleAttendance(student_id) {
-    var data = "{{ request.GET.urlencode }}" + "&student=" + student_id;
+  function toggleAttendance(studentId) {
+    var data = "attendance_book=" + {{ attendance_book.pk }} + "&student=" + studentId;
     $.ajax({
-      url: "{% url 'attendances_attendancebook_take_attendance' classroom.id %}",
+      url: "{% url 'attendances_attendancebook_ajax_toggle_attendance' %}",
+      method: "GET",
+      data: data,
+      cache: false
+    });
+    return false;
+  }
+
+  function toggleLateStatus(studentId) {
+    var data = "attendance_book=" + {{ attendance_book.pk }} + "&student=" + studentId;
+    $.ajax({
+      url: "{% url 'attendances_attendancebook_ajax_toggle_late_status' %}",
       method: "GET",
       data: data,
       cache: false
@@ -21,9 +32,15 @@
     $('.switch').on('switch-change', function(e, data) {
       // TODO: switch only if success!
       var $el = $(data.el),
-          value = data.value,
-          student_id = $el[0].value;
-      toggleAttendance(student_id);
+          attendee = data.value,
+          studentId = $el[0].value;
+
+      toggleAttendance(studentId);
+
+      $lateButton = $('#late-' + studentId);
+      $lateButton.toggleClass('disabled');
+      if ($lateButton.hasClass('active'))
+        $lateButton.removeClass('active');
     });
   });
 </script>
@@ -62,8 +79,9 @@
       <div class="switch" data-on="success" data-off="danger"
            data-on-label="P" data-off-label="A">
         <input type="checkbox" value="{{ student.pk }}"
-               {% if student|is_attendee:attendance_book %}checked{% endif %}/>
+               {% if student in attendance_book.students.all %}checked{% endif %}/>
       </div>
+      <button class="btn{% if student|is_late:attendance_book == None %} disabled{% elif student|is_late:attendance_book %} active{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-time"></i> {% trans 'Late' %}</button>
     </td>
   </tr>
   {% endfor %}
