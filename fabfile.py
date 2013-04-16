@@ -10,17 +10,17 @@ from fabric.context_managers import lcd
 
 from django.core import management
 
-django.project('xavier')
+DJANGO_PROJECT_NAME = 'xavier'
+django.project(DJANGO_PROJECT_NAME)
 from django.db.utils import IntegrityError
 
 
-DJANGO_PROJECT_NAME = 'xavier'
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
 def ldjango_project(fn):
     def wrapper(*args, **kwargs):
-        django.project('xavier')
+        django.project(DJANGO_PROJECT_NAME)
 
         if LOCAL_CWD_PATH not in sys.path:
             sys.path.insert(0, LOCAL_CWD_PATH)
@@ -46,10 +46,10 @@ def load_testdata():
         except IntegrityError: pass
         else: break
 
-
 def translate():
     dirs = [file for file in os.listdir('.') if os.path.isdir(file)]
     for dir in dirs:
         if os.path.exists(os.path.join(dir, 'locale')):
             with lcd(dir):
+                local('django-admin.py makemessages --all')
                 local('django-admin.py compilemessages')

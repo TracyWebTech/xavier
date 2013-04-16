@@ -18,3 +18,9 @@ input[type="color"],
 .uneditable-input {
   height: 30px;
 }
+
+/* h1 is the name of the school and will always be in the navbar*/
+h1 {
+  margin: 0;
+  line-height: inherit;
+}

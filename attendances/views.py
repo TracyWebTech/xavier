@@ -42,10 +42,13 @@ class AttendanceBookView(ModelView):
         if not self.adding_allowed(request):
             return self.response_adding_denied(request)
 
+        today = date.today().strftime('%Y-%m-%d')
+        year, month, month_day = request.GET.get('day', today).split('-')
+        day = date(int(year), int(month), int(month_day))
         classroom = get_object_or_404(Class, pk=classroom)
         attendance_book, _ = AttendanceBook.objects.get_or_create(
             classroom=classroom,
-            day=date.today(),
+            day=day,
         )
 
         if request.is_ajax():
@@ -64,12 +67,13 @@ class AttendanceBookView(ModelView):
                 attendance.delete()
             return http.HttpResponse(status=200)
 
-        title = ugettext('Take attendance for class %s')
-        title %= classroom.identification
+        title = ugettext('Attendance')
+        subtitle = unicode(classroom)
         context = {
             'title': title,
+            'subtitle': subtitle,
             'classroom': classroom,
-            'attendance_book': attendance_book
+            'attendance_book': attendance_book,
         }
         return self.render(
             request,

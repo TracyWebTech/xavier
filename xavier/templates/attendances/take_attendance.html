@@ -2,12 +2,12 @@
 
 {% load attendances_tags %}
 
-{% block title %}{% trans 'Take attendance' %} - {{ block.super }}{% endblock %}
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
 
 {% block extrahead %}
 <script type="text/javascript">
   function toggleAttendance(student_id) {
-    var data = "student=" + student_id;
+    var data = "{{ request.GET.urlencode }}" + "&student=" + student_id;
     $.ajax({
       url: "{% url 'attendances_attendancebook_take_attendance' classroom.id %}",
       method: "GET",
@@ -31,15 +31,24 @@
 
 {% block breadcrumb %}{{ block.super }}
   <li>
-    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
+    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance' %}</a>
     <span class="divider">/</span>
   </li>
-  <li class="active">{% trans 'Take attendance' %}</li>
+  <li class="active">{{ classroom }}</li>
 {% endblock %}
 
 {% block main %}
+<form class="form-horizontal" action=".">
+  <span class="input-append">
+    <input class="input-medium" type="date" name="day" value="{{ attendance_book.day|date:'Y-m-d' }}" />
+    <button class="btn btn-primary" type="submit" title="{% trans 'Change date' %}">
+      &nbsp;<i class="icon-white icon-refresh"></i>&nbsp;
+    </button>
+  </span>
+  <a class="btn" href="." title="{% trans 'Show today' %}">{% trans 'today'|capfirst %}</a>
+</form>
+
 <table class="table table-striped">
-  <caption><h3>{{ attendance_book.day }}</h3></caption>
   <tr>
     <th>#</th>
     <th>{% trans 'student'|capfirst %}</th>
@@ -51,8 +60,7 @@
     <td>{{ student.get_full_name }}</td>
     <td>
       <div class="switch" data-on="success" data-off="danger"
-           data-on-label="<i class='icon-ok icon-white'></i>"
-           data-off-label="<i class='icon-remove'></i>">
+           data-on-label="P" data-off-label="A">
         <input type="checkbox" value="{{ student.pk }}"
                {% if student|is_attendee:attendance_book %}checked{% endif %}/>
       </div>
