@@ -36,7 +36,7 @@
             <i class="icon-list-alt"></i> {% trans 'Scores' %} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             {% for class in classes %}
-            <li><a href="{% url 'scores_list' class.classroom.period.year class.slug %}">{{ class }}</a></li>
+            <li><a href="{% url 'classes_list' class.period.year class.slug %}">{{ class }}</a></li>
             {% endfor %}
           </ul>
         </li>
