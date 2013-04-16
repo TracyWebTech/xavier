@@ -67,11 +67,13 @@ class AttendanceBookView(ModelView):
                 attendance.delete()
             return http.HttpResponse(status=200)
 
-        title = ugettext('Take attendance for %s') % classroom.identification
+        title = ugettext('Attendance')
+        subtitle = unicode(classroom)
         context = {
             'title': title,
+            'subtitle': subtitle,
             'classroom': classroom,
-            'attendance_book': attendance_book
+            'attendance_book': attendance_book,
         }
         return self.render(
             request,

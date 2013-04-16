@@ -31,10 +31,10 @@
 
 {% block breadcrumb %}{{ block.super }}
   <li>
-    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance books' %}</a>
+    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance' %}</a>
     <span class="divider">/</span>
   </li>
-  <li class="active">{% trans 'Take attendance' %}</li>
+  <li class="active">{{ classroom }}</li>
 {% endblock %}
 
 {% block main %}
