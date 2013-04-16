@@ -13,6 +13,7 @@ from django.core import management
 DJANGO_PROJECT_NAME = 'xavier'
 django.project(DJANGO_PROJECT_NAME)
 from django.db.utils import IntegrityError
+from classes.models import Class, Period, Grade
 
 
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -30,6 +31,20 @@ def ldjango_project(fn):
     return wrapper
 
 
+def create_class():
+    identifications = ["A", "B", "C"]
+    periods = Period.objects.all()
+    grades = Grade.objects.all()
+    for period in periods:
+        for grade in grades:
+            for identification in identifications:
+                classroom = Class.objects.create(
+                    identification=identification,
+                    period=period,
+                    grade=grade
+                )
+
+
 @ldjango_project
 def load_testdata():
     fixt_path = 'fixtures/sample/'
@@ -41,10 +56,11 @@ def load_testdata():
         try:
             management.call_command('loadtestdata',
                                 'accounts.User:140', 'accounts.Employee:30',
-                                'accounts.Teacher:10', 'accounts.Student:100',
-                                'classes.Grade:2', 'classes.Class:2')
+                                'accounts.Teacher:10', 'accounts.Student:100')
         except IntegrityError: pass
         else: break
+
+    create_class()
 
 def translate():
     dirs = [file for file in os.listdir('.') if os.path.isdir(file)]

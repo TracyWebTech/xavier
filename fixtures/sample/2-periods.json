@@ -14,9 +14,9 @@
     "model": "periods.period",
     "fields": {
         "school": 1,
-        "name": "2014",
-        "slug": "2014-interativa-ribeirao-preto",
-        "year": 2014
+        "name": "2013",
+        "slug": "2013-interativa-ribeirao-preto",
+        "year": 2013
     }
 },
 {
