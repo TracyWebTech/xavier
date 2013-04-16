@@ -81,9 +81,7 @@
         <input type="checkbox" value="{{ student.pk }}"
                {% if student in attendance_book.students.all %}checked{% endif %}/>
       </div>
-      <button class="btn{% if student|is_late:attendance_book == None %} disabled{% elif student|is_late:attendance_book %} active{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})">
-        Atrasado
-      </button>
+      <button class="btn{% if student|is_late:attendance_book == None %} disabled{% elif student|is_late:attendance_book %} active{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-time"></i> {% trans 'Late' %}</button>
     </td>
   </tr>
   {% endfor %}
