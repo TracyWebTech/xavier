@@ -1,0 +1,21 @@
+{% extends "modelview/object_list.html" %}
+
+{% block main %}
+<ul class="thumbnails">
+  {% for class in class_subjects %}
+  <li class="span3">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x200" alt="">
+      <div class="caption">
+        <h3>{{ class }} <small>{{ class.period }}</small></h3>
+        <form method="post" action=".">{% csrf_token %}
+          <p><i>{{ class.classroom.students.count }} {% trans "students" %}</i></p>
+          <a href="{% url 'scores_list' class.classroom.period.year class.classroom.slug class.subject.slug %}"
+             type="submit" class="btn btn-primary">{% trans 'Take scores' %}</a>
+        </form>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
