@@ -11,7 +11,8 @@ class AttendanceBook(models.Model):
     day = models.DateField()
     students = models.ManyToManyField(
         Student,
-        through='attendances.Attendance'
+        through='attendances.Attendance',
+        verbose_name=_('students')
     )
 
     class Meta:
@@ -31,8 +32,10 @@ class AttendanceBook(models.Model):
 
 
 class Attendance(models.Model):
-    attendance_book = models.ForeignKey('attendances.AttendanceBook')
-    student = models.ForeignKey('accounts.Student')
+    attendance_book = models.ForeignKey(
+        'attendances.AttendanceBook',
+        verbose_name=_('attendance book'))
+    student = models.ForeignKey('accounts.Student', verbose_name=_('student'))
     is_late = models.BooleanField(_('is late?'))
 
     class Meta:
