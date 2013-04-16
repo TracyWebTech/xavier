@@ -50,5 +50,5 @@ class School(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.short_name)
+        self.slug = slugify(unicode(self.short_name))
         super(School, self).save(*args, **kwargs)
