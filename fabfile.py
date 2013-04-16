@@ -13,7 +13,7 @@ from django.core import management
 DJANGO_PROJECT_NAME = 'xavier'
 django.project(DJANGO_PROJECT_NAME)
 from django.db.utils import IntegrityError
-from classes.models import Class, Period, Grade
+from classes.models import Class, Period, Grade, Student
 
 
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -29,6 +29,17 @@ def ldjango_project(fn):
         return fn(*args, **kwargs)
 
     return wrapper
+
+
+def create_students():
+    from random import shuffle
+    students = list(Student.objects.all())
+    classes = Class.objects.all()
+
+    for classroom in classes:
+        shuffle(students)
+        for i in range(20):
+            classroom.students.add(students[i])
 
 
 def create_class():
@@ -61,6 +72,8 @@ def load_testdata():
         else: break
 
     create_class()
+    create_students()
+
 
 def translate():
     dirs = [file for file in os.listdir('.') if os.path.isdir(file)]
