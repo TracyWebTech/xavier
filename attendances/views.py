@@ -52,9 +52,8 @@ class AttendanceBookView(ModelView):
             classroom=classroom,
             day=day,
         )
-        title = ugettext('Take attendance for %s') % classroom.identification
         context = {
-            'title': title,
+            'title': ugettext('Attendances'),
             'subtitle': unicode(classroom),
             'classroom': classroom,
             'attendance_book': attendance_book
@@ -109,6 +108,10 @@ class AttendanceBookView(ModelView):
 
     def list_view(self, request, *args, **kwargs):
         context = dict(class_rooms=self.get_class_rooms(request))
+        context.update({
+            'title': ugettext('Attendances'),
+            'subtitle': ugettext('Classes'),
+        })
         return self.render_list(request, context)
 
 attendancebook_views = AttendanceBookView(AttendanceBook)

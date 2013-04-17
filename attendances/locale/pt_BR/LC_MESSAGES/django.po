@@ -18,23 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:13
+#: models.py:15
+msgid "students"
+msgstr "alunos"
+
+#: models.py:20 models.py:37
 msgid "attendance book"
-msgstr "lista de chamada"
+msgstr "presença"
 
-#: models.py:14
+#: models.py:21
 msgid "attendance books"
-msgstr "lista de chamadas"
+msgstr "presenças"
 
-#: models.py:31
+#: models.py:38
+msgid "student"
+msgstr "aluno"
+
+#: models.py:39
+msgid "is late?"
+msgstr "está atrasado?"
+
+#: models.py:43
 msgid "attendance"
 msgstr "presença"
 
-#: models.py:32
+#: models.py:44
 msgid "attendances"
 msgstr "presenças"
 
-#: views.py:71
-#, python-format
-msgid "Take attendance for %s"
-msgstr "Fazer chamada para %s"
+#: views.py:56 views.py:112
+msgid "Attendances"
+msgstr "Presenças"
+
+#: views.py:113
+msgid "Classes"
+msgstr "Turmas"
+
+#~ msgid "Take attendance for %s"
+#~ msgstr "Fazer chamada para %s"

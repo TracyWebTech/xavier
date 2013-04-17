@@ -44,13 +44,13 @@ msgstr "Dashboard"
 msgid "Accounts"
 msgstr "Contas"
 
-#: templates/attendances/attendancebook_list.html:11
+#: templates/attendances/attendancebook_list.html:13
 msgid "students"
 msgstr "estudantes"
 
-#: templates/attendances/attendancebook_list.html:13
+#: templates/attendances/attendancebook_list.html:15
 msgid "Take attendance"
-msgstr "Fazer chamada"
+msgstr "Chamada"
 
 #: templates/attendances/take_attendance.html:93
 msgid "Change date"
@@ -107,15 +107,15 @@ msgstr "Períodos"
 
 #: templates/includes/navbar.html:26
 msgid "Classes"
-msgstr "Classes"
+msgstr "Turmas"
 
 #: templates/includes/navbar.html:30
 msgid "Attendances"
-msgstr "Chamadas"
+msgstr "Presenças"
 
 #: templates/includes/navbar.html:32
 msgid "Attendance books"
-msgstr "Lista de chamadas"
+msgstr "Presenças"
 
 #: templates/includes/navbar.html:33
 msgid "Reports"

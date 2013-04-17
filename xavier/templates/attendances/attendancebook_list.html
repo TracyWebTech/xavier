@@ -1,5 +1,7 @@
 {% extends "modelview/object_list.html" %}
 
+{% block heading %}{{ title }}{% endblock %}
+
 {% block main %}
 <ul class="thumbnails">
   {% for class in class_rooms %}
