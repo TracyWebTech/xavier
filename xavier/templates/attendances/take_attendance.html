@@ -80,7 +80,7 @@
 
 {% block breadcrumb %}{{ block.super }}
   <li>
-    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance' %}</a>
+    <a href="{% url 'attendances_attendancebook_list' %}">{{ verbose_name_plural|capfirst }}</a>
     <span class="divider">/</span>
   </li>
   <li class="active">{{ classroom }}</li>
