@@ -1,26 +1,104 @@
 # Create your views here.
 
 import json
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404
 
-from classes.models import ClassSubject
-from periods.models import Period
+from accounts.models import Student
+from classes.models import Class, ClassSubject
+from periods.models import Period, SubPeriod
+from scores.models import EvaluationCriteria, Score
 
 
-def list(request, year, class_subject_slug):
-    class_subject = get_object_or_404(ClassSubject, slug=class_subject_slug)
+def classes_list(request):
+    return render(request, 'scores/classes_list.html', {})
+
+
+def scores_list(request, year, subject_slug, class_slug):
+    class_subject = get_object_or_404(ClassSubject,
+                                      classroom__slug=class_slug,
+                                      subject__slug=subject_slug)
     students = class_subject.classroom.students.filter()
+    subperiod = class_subject.classroom.period.get_current_subperiod()
+    students_list = []
+    criterias = class_subject.evaluationcriteria_set.all()
 
-    return render(request, 'scores/list.html', {'year': year,
-        'class': class_subject,
-        'students': students,
-        'criterias': class_subject.evaluationcriteria_set.values(),
+    for student in students:
+        student_scores = {}
+        student_scores['student'] = student
+        student_scores['scores'] = {}
+
+        # returns a qs with scores of given student
+        scores = student.get_scores(subperiod_id=subperiod.pk)
+        for criteria in criterias:
+            for score in scores:
+                if score.criteria == criteria:
+                    student_scores['scores'][criteria.pk] = score.score
+                    break
+            else:
+                student_scores['scores'][criteria.pk] = ''
+        students_list.append(student_scores)
+
+    return render(request, 'scores/scores_list.html', {'year': year,
+        'title': unicode(class_subject) + ' - '+ subperiod.name,
+        'class_subject': class_subject,
+        'students_list': students_list,
+        'criterias': criterias,
+        'subperiod_pk': subperiod.pk,
     })
 
+
 def get_score(request):
-    # scores = request.POST.get('scores', None)
-    if not scores:
+    data = request.POST.get('data', None)
+    student_id = request.POST.get('student_id', None)
+    subperiod_pk = request.POST.get('subperiod_pk', None)
+    if not data or not student_id or not subperiod_pk:
         return HttpResponseBadRequest()
+
+    student = Student.objects.get(pk=student_id)
+    subperiod = SubPeriod.objects.get(pk=subperiod_pk)
+
+    scores = json.loads(data)
     average = 0
+    weight = 0
+    for criteria_id, score in scores.items():
+        criteria = EvaluationCriteria.objects.get(pk=criteria_id)
+        criteria_weight = float(criteria.weight)
+        if score:
+            try:
+                score = float(score)
+            except score.ValueError:
+                # TODO display a message to user if a letter is send
+                msg = u'Only numbers are allowed'
+                HttpResponse(msg)
+            else:
+                Score.objects.create(
+                    student=student,
+                    score=score,
+                    criteria=criteria,
+                    subperiod=subperiod
+                )
+                average += score * criteria_weight
+        weight += criteria_weight
+    # TODO save average somewhere and display it when the page is load
+    average = average / weight
+
+    # TODO if average is bigger than 10, set a msg and the average field to 10
+    # or don't allow values bigger than 10 on template
     return HttpResponse(json.dumps(average), mimetype="application/json")
+
+
+def get_subjects(request):
+    class_pk = request.POST.get('class_pk', None)
+    if not class_pk:
+        return HttpResponseNotFound()
+    classroom = Class.objects.get(pk=class_pk)
+    class_subjects = classroom.classsubject_set.all()
+    data = []
+    for class_subject in class_subjects:
+        subject = class_subject.subject
+        url = reverse('scores_list', args=[
+                classroom.period.year, subject.slug, classroom.slug])
+        data.append([subject.name, url])
+    return HttpResponse(json.dumps(data), mimetype="application/json")

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <script type="text/javascript">
+        $(function() {
+            $('.scores').attr('maxlength', '3');
+            $('.average').prop('disabled', true);
+            $('.average').css('width', '50px');
+            $('.scores').css('width', '50px');
+            $('.scores').change(function() {
+                $scores_student = $(this).parent().parent();
+                var $scores = $scores_student.find('input.scores');
+                student_id = $scores_student.find('input[name="student_id"]').val();
+                data = {};
+                $scores.each(function() {
+                    data[$(this).attr('name')] = $(this).val();
+                });
+                data = JSON.stringify(data);
+                request = $.ajax({
+                    type: "POST",
+                    url: "{% url 'get_score' %}",
+                    data: {
+                        'data': data,
+                        'student_id': student_id,
+                        'subperiod_pk': $('#subperiod').val(),
+                    },
+                });
+                request.done(function ( data ) {
+                    $scores_student.find('input.average').val(data);
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li><a href="#">Scores</a> <span class="divider">/</span></li>
+    <li class="active">{{ class|capfirst }}</li>
+{% endblock %}
+
+{% block main %}
+<input type="hidden" value="{{ subperiod_pk }}" id="subperiod" />
+<table class="table table-condensed">
+<thead>
+<tr>
+    <th>Aluno</th>
+{% for criteria in criterias %}
+    <th>{{ criteria.name }}</th>
+{% endfor %}
+    <th>Média</th>
+</tr>
+</thead>
+<tbody>
+{% for student in students_list %}
+    <tr>
+        <td class="student">
+            {{ student.student.get_full_name }}
+            <input type="hidden" value="{{ student.student.pk }}" name="student_id" />
+        </td>
+        {% for criteria, score in student.scores.items %}
+        <td>
+            <input type="text" class="score{{ forloop.counter }} scores" name="{{ criteria }}" value="{{ score }}" />
+        </td>
+        {% endfor %}
+        <td>
+            <input type="text" class="average" />
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

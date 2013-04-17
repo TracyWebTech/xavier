@@ -22,3 +22,11 @@ def absent_students(classroom, day=None):
         return n_students # all absent
 
     return n_students - attbook.students.count()
+
+@register.filter
+def is_present(student, attendance_book):
+    return attendance_book.is_present(student)
+
+@register.filter
+def is_absent(student, attendance_book):
+    return attendance_book.is_absent(student)

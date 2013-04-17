@@ -24,7 +24,7 @@ class EvaluationCriteria(models.Model):
 
 class Score(models.Model):
     student = models.ForeignKey(Student, verbose_name=_(u'student'))
-    score = models.IntegerField(_(u'score'))
+    score = models.SmallIntegerField(_(u'score'))
     criteria = models.ForeignKey(EvaluationCriteria,
                                  verbose_name=_(u'criteria'))
     subperiod = models.ForeignKey(SubPeriod, verbose_name=_(u'subperiod'))
@@ -43,4 +43,4 @@ class Score(models.Model):
         super(Score, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return self.score
+        return unicode(self.score)

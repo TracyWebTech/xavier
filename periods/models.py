@@ -5,7 +5,8 @@ from django.db import models
 from django.db.models import Q
 from django.db.models import signals
 from django.dispatch import receiver
-from django.template.defaultfilters import slugify
+from django.utils import timezone
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
 from calendars.models import Calendar
@@ -16,18 +17,22 @@ class Period(models.Model):
     name = models.CharField(max_length=50, verbose_name=_(u'name'))
     year = models.PositiveSmallIntegerField(verbose_name=_(u'year'))
     school = models.ForeignKey(School, verbose_name=_(u'school'))
-    slug = models.SlugField(max_length=50)
+    slug = models.SlugField(max_length=50, null=True)
 
     class Meta:
         verbose_name = _(u'period')
         verbose_name_plural = _(u'periods')
 
     def __unicode__(self):
-        return self.name
+        return u'{0} ({1})'.format(self.name, self.school.short_name)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))
         super(Period, self).save(*args, **kwargs)
+
+    def get_current_subperiod(self):
+        now = timezone.now().date()
+        return self.subperiod_set.filter(start__lte=now, end__gte=now).get()
 
 
 class SubPeriod(models.Model):
