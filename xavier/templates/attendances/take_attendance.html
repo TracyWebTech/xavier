@@ -95,6 +95,7 @@
     <th>{% trans 'student'|capfirst %}</th>
     <th>{% trans 'attendance'|capfirst %}</th>
     <th>{% trans 'late'|capfirst %}</th>
+    <th>{% trans 'explanation'|capfirst %}</th>
   </tr>
   {% for student in classroom.students.all %}
   <tr>
@@ -109,6 +110,25 @@
     </td>
     <td>
       <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i></button>
+    </td>
+    <td>
+      <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn" data-toggle="modal">
+        <i class="icon icon-comment"></i></a>
+
+      <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3>{% blocktrans with student_name=student.first_name%}{{ student_name }}'s explanation{% endblocktrans %}</h3>
+        </div>
+        <div class="modal-body">
+          <textarea style="width:100%">{% get_student_explanation %}</textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans 'Close' %}</button>
+          <button class="btn btn-primary">{% trans 'Save' %}</button>
+        </div>
+      </div>
     </td>
   </tr>
   {% endfor %}
