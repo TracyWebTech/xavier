@@ -32,6 +32,7 @@ class Score(models.Model):
     class Meta:
         verbose_name = _(u'score')
         verbose_name_plural = _(u'scores')
+        unique_together = ('student', 'criteria', 'subperiod')
 
     def save(self, *args, **kwargs):
         student_classes = self.student.class_set.all()
