@@ -124,8 +124,8 @@
       <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i></button>
     </td>
     <td>
-      <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn" data-toggle="modal">
-        <i class="icon icon-comment"></i></a>
+      <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large explanation{% if student|has_explanation:attendance_book %} btn-info{% endif %}" data-toggle="modal">
+        <i class="icon icon-comment explanation{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i></a>
 
       <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel" aria-hidden="true">

@@ -33,6 +33,14 @@ button.late .icon {
   margin-top: -3px;
 }
 
+a.explanation {
+  height: 10px;
+}
+
+a.explanation .icon {
+  margin-top: -1px;
+}
+
 a.thumbnail {
   text-decoration: none;
 }
