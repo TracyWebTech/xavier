@@ -21,7 +21,8 @@
                     url: "{% url 'get_score' %}",
                     data: {
                         'data': data,
-                        'student_id': student_id
+                        'student_id': student_id,
+                        'subperiod_pk': $('#subperiod').val(),
                     },
                 });
                 request.done(function ( data ) {
@@ -38,6 +39,7 @@
 {% endblock %}
 
 {% block main %}
+<input type="hidden" value="{{ subperiod_pk }}" id="subperiod" />
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -49,15 +51,15 @@
 </tr>
 </thead>
 <tbody>
-{% for student in students %}
+{% for student in students_list %}
     <tr>
         <td class="student">
-            {{ student.get_full_name }}
-            <input type="hidden" value="{{ student.pk }}" name="student_id" />
+            {{ student.student.get_full_name }}
+            <input type="hidden" value="{{ student.student.pk }}" name="student_id" />
         </td>
-        {% for criteria in criterias %}
+        {% for criteria, score in student.scores.items %}
         <td>
-            <input type="text" class="score{{ forloop.counter }} scores" name="{{ criteria.id }}" />
+            <input type="text" class="score{{ forloop.counter }} scores" name="{{ criteria }}" value="{{ score }}" />
         </td>
         {% endfor %}
         <td>
