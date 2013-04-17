@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import Q
 from django.db.models import signals
 from django.dispatch import receiver
+from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
@@ -28,6 +29,10 @@ class Period(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))
         super(Period, self).save(*args, **kwargs)
+
+    def get_current_subperiod(self):
+        now = timezone.now().date()
+        return self.subperiod_set.filter(start__lte=now, end__gte=now).get()
 
 
 class SubPeriod(models.Model):
