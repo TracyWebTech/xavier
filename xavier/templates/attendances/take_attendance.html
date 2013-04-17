@@ -54,7 +54,7 @@
 
       toggleAttendanceCallBack = false;
       if ($el.is(':checked') && isLate) {
-        toggleAttendanceCallBack = ajaxChangeStatus('late');
+        toggleAttendanceCallBack = ajaxChangeStatus(studentId, 'late');
       }
       else if ($el.is(':not(:checked)')) {
         $('#late-' + studentId).removeClass('active btn-warning');
