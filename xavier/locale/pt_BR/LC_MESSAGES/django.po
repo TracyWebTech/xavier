@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-17 12:44-0300\n"
+"POT-Creation-Date: 2013-04-17 17:37-0300\n"
 "PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,13 +44,24 @@ msgstr "Dashboard"
 msgid "Accounts"
 msgstr "Contas"
 
-#: templates/attendances/attendancebook_list.html:13
+#: templates/attendances/attendancebook_list.html:15
 msgid "students"
 msgstr "estudantes"
 
-#: templates/attendances/attendancebook_list.html:15
-msgid "Take attendance"
-msgstr "Chamada"
+#: templates/attendances/attendancebook_list.html:20
+msgid "all absent"
+msgstr "todos ausentes"
+
+#: templates/attendances/attendancebook_list.html:22
+#, python-format
+msgid "%(counter)s absence"
+msgid_plural "%(counter)s absences"
+msgstr[0] "%(counter)s ausente"
+msgstr[1] "%(counter)s ausentes"
+
+#: templates/attendances/attendancebook_list.html:24
+msgid "no absence"
+msgstr "todos presentes"
 
 #: templates/attendances/take_attendance.html:93
 msgid "Change date"
@@ -109,31 +120,23 @@ msgstr "Períodos"
 msgid "Classes"
 msgstr "Turmas"
 
-#: templates/includes/navbar.html:30
-msgid "Attendances"
-msgstr "Presenças"
-
-#: templates/includes/navbar.html:32
+#: templates/includes/navbar.html:28
 msgid "Attendance books"
 msgstr "Presenças"
 
-#: templates/includes/navbar.html:33
-msgid "Reports"
-msgstr "Relatórios"
-
-#: templates/includes/navbar.html:38
+#: templates/includes/navbar.html:31
 msgid "Scores"
 msgstr "Notas"
 
-#: templates/includes/navbar.html:49
+#: templates/includes/navbar.html:42
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:60
+#: templates/includes/navbar.html:53
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:64
+#: templates/includes/navbar.html:57
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -141,7 +144,7 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:65
+#: templates/includes/navbar.html:58
 msgid "Logout"
 msgstr "Sair"
 
@@ -251,6 +254,15 @@ msgstr "Por favor, revise os seguintes avisos:"
 #: templates/towel/_pagination.html:17
 msgid "show all"
 msgstr "mostrar todos"
+
+#~ msgid "Take attendance"
+#~ msgstr "Chamada"
+
+#~ msgid "Attendances"
+#~ msgstr "Presenças"
+
+#~ msgid "Reports"
+#~ msgstr "Relatórios"
 
 #~ msgid "status"
 #~ msgstr "status"
