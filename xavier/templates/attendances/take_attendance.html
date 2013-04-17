@@ -6,10 +6,10 @@
 
 {% block extrahead %}
 <script type="text/javascript">
-  function toggleAttendance(studentId, successCallback) {
-    var data = "attendance_book=" + {{ attendance_book.pk }} + "&student=" + studentId;
+  function ajaxChangeStatus(studentId, status, successCallback) {
+    var data = "{{ request.GET.urlencode }}" + "&status=" + status;
     $.ajax({
-      url: "{% url 'attendances_attendancebook_ajax_toggle_attendance' %}",
+      url: studentId + "/change-status/",
       method: "GET",
       data: data,
       cache: false,
@@ -20,31 +20,23 @@
     return false;
   }
 
-  function toggleLateStatusAjax(studentId) {
-    var data = "attendance_book=" + {{ attendance_book.pk }} + "&student=" + studentId;
-    $.ajax({
-      url: "{% url 'attendances_attendancebook_ajax_toggle_late_status' %}",
-      method: "GET",
-      data: data,
-      cache: false
-    });
-  }
-
   function toggleLateStatus(studentId) {
-
-    $attendance = $('.switch input[value="'+ studentId +'"]');
-    $lateButton = $('#late-' + studentId);
+    var $attendance = $('.switch input[value="'+ studentId +'"]'),
+        $lateButton = $('#late-' + studentId),
+        status = null;
 
     if ($lateButton.hasClass('btn-warning')) {
       $lateButton.removeClass('btn-warning');
       $attendance.attr('data-is-late', false);
+      status = 'present';
     } else {
       $lateButton.addClass('btn-warning');
       $attendance.attr('data-is-late', true);
+      status = 'late';
     }
 
     if ($attendance.is(':checked')) {
-      toggleLateStatusAjax(studentId);
+      ajaxChangeStatus(studentId, 'late');
     } else {
       $attendance.parent().bootstrapSwitch('toggleState');
     }
@@ -54,21 +46,24 @@
 
   $(document).ready(function () {
     $('.switch').on('switch-change', function(e, data) {
-      // TODO: switch only if success!
       var $el = $(data.el),
           attendee = data.value,
           studentId = $el[0].value,
-          isLate = $el.attr('data-is-late');
+          isLate = $el.attr('data-is-late'),
+          status = null;;
 
       toggleAttendanceCallBack = false;
       if ($el.is(':checked') && isLate) {
-        toggleAttendanceCallBack = toggleLateStatusAjax;
+        toggleAttendanceCallBack = ajaxChangeStatus('late');
       }
       else if ($el.is(':not(:checked)')) {
         $('#late-' + studentId).removeClass('active btn-warning');
+        status = 'absent';
+      } else {
+        status = 'present';
       }
 
-      toggleAttendance(studentId, toggleAttendanceCallBack);
+      ajaxChangeStatus(studentId, status, toggleAttendanceCallBack);
     });
 
     $('input[name="day"]').on('change', function(event) {
@@ -112,7 +107,7 @@
       <div class="switch" data-on="success" data-off="danger"
            data-on-label="P" data-off-label="A">
         <input type="checkbox" value="{{ student.pk }}"
-               {% if student in attendance_book.students.all %}checked{% endif %}/>
+               {% if not student|is_absent:attendance_book %}checked{% endif %}/>
       </div>
     </td>
     <td>

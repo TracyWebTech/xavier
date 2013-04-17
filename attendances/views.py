@@ -48,7 +48,7 @@ class AttendanceBookView(ModelView):
     def additional_urls(self):
         return [
             (r'^take-attendance/(?P<classroom>\d+)/$', self.take_attendance),
-            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)$', self.ajax_take_attendance),
+            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/change-status/$', self.ajax_student_change_status),
         ]
 
     def take_attendance(self, request, classroom):
@@ -71,13 +71,13 @@ class AttendanceBookView(ModelView):
             context=self.get_context(request, context)
         )
 
-    def ajax_toggle_attendance(self, request):
+    def ajax_student_change_status(self, request, classroom, student):
         if request.is_ajax():
             try:
-                attendance_book_id = int(request.GET.get('attendance_book'))
-                attendance_book = AttendanceBook.objects.get(pk=attendance_book_id)
-                student_id = int(request.GET.get('student'))
-                student = Student.objects.get(pk=student_id)
+                student = Student.objects.get(pk=student)
+                day = request.GET.get('day', date.today())
+                status = request.GET.get('status')
+                attendance_book = self.get_attendance_book(classroom, day)
             except ValueError:
                 return http.HttpResponse(status=400)
             except ObjectDoesNotExist:
@@ -85,30 +85,11 @@ class AttendanceBookView(ModelView):
             attendance, created = Attendance.objects.get_or_create(
                 attendance_book=attendance_book,
                 student=student,
+                defaults={'status': status}
             )
             if not created:
-                attendance.delete()
-            return http.HttpResponse(status=200)
-        return http.HttpResponse(status=400)
-
-    def ajax_toggle_late_status(self, request):
-        if request.is_ajax():
-            try:
-                attendance_book_id = int(request.GET.get('attendance_book'))
-                attendance_book = AttendanceBook.objects.get(pk=attendance_book_id)
-                student_id = int(request.GET.get('student'))
-                student = Student.objects.get(pk=student_id)
-            except ValueError:
-                return http.HttpResponse(status=400)
-            except ObjectDoesNotExist:
-                return http.HttpResponse(status=400)
-            attendance = Attendance.objects.get(
-                attendance_book=attendance_book,
-                student=student,
-            )
-            is_late = attendance.is_late
-            attendance.is_late = False if is_late else True
-            attendance.save()
+                attendance.status = status
+                attendance.save()
             return http.HttpResponse(status=200)
         return http.HttpResponse(status=400)
 
