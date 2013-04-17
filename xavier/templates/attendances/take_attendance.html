@@ -19,13 +19,22 @@
 
   function ajaxSetExplanation(studentId) {
     var explanation = $('#explanation-' + studentId)[0].value,
-        data = "{{ request.GET.urlencode }}" + "&explanation=" + explanation;
+        data = "{{ request.GET.urlencode }}" + "&explanation=" + explanation,
+        $explanationButton = $('#explanation-button-' + studentId);
+        $explanationButtonIcon = $('#explanation-button-' + studentId + ' .icon');
     $.ajax({
       url: studentId + "/set-explanation/",
       method: "GET",
       data: data,
       cache: false
     });
+    if (explanation && ! $explanationButton.hasClass('btn-info')) {
+      $explanationButton.addClass('btn-info active');
+      $explanationButtonIcon.addClass('icon-white');
+    } else if (! explanation) {
+      $explanationButton.removeClass('btn-info active');
+      $explanationButtonIcon.removeClass('icon-white');
+    }
     $('#explanation-modal-' + studentId).modal('hide');
   }
 
@@ -120,7 +129,7 @@
     <td>
       <div class="btn-group">
         <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>{% trans "late" %}</p></button>
-        <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label{% if student|has_explanation:attendance_book %} btn-info{% endif %}" data-toggle="modal">
+        <a id="explanation-button-{{ student.id }}" href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label{% if student|has_explanation:attendance_book %} btn-info active{% endif %}" data-toggle="modal">
         <i class="icon icon-comment{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i><p>{% trans "comment" %}</p></a>
       </div>
 
