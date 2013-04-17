@@ -27,18 +27,6 @@ class AttendanceBookView(ModelView):
             period__school=self.get_current_school(request)
         )
 
-    def get_attendance_book(self, classroom, day):
-        if not isinstance(day, date):
-            year, month, month_day = day.split('-')
-            day = date(int(year), int(month), int(month_day))
-        if not isinstance(classroom, Class):
-            classroom = Class.objects.get(pk=classroom)
-        attendance_book, _ = AttendanceBook.objects.get_or_create(
-            classroom=classroom,
-            day=day,
-        )
-        return attendance_book
-
     def get_query_set(self, request, *args, **kwargs):
         # Filter items only from current school
         qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
@@ -55,9 +43,14 @@ class AttendanceBookView(ModelView):
         if not self.adding_allowed(request):
             return self.response_adding_denied(request)
 
+        today = date.today().strftime('%Y-%m-%d')
+        year, month, month_day = request.GET.get('day', today).split('-')
+        day = date(int(year), int(month), int(month_day))
         classroom = get_object_or_404(Class, pk=classroom)
-        day = request.GET.get('day', date.today())
-        attendance_book = self.get_attendance_book(classroom, day)
+        attendance_book, _ = AttendanceBook.objects.get_or_create(
+            classroom=classroom,
+            day=day,
+        )
         context = {
             'title': ugettext('Attendances'),
             'subtitle': unicode(classroom),
@@ -95,9 +88,11 @@ class AttendanceBookView(ModelView):
 
     def list_view(self, request, *args, **kwargs):
         context = dict(class_rooms=self.get_class_rooms(request))
+        # TODO XXX: 2013 needs to be a dynamic period instead of
+        #   hardcoded
         context.update({
             'title': ugettext('Attendances'),
-            'subtitle': ugettext('Classes'),
+            'subtitle': u'{} 2013'.format(ugettext('Classes'), ),
         })
         return self.render_list(request, context)
 
