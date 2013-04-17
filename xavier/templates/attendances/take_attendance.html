@@ -70,13 +70,17 @@
 
       toggleAttendance(studentId, toggleAttendanceCallBack);
     });
+
+    $('input[name="day"]').on('change', function(event) {
+      $(event.target).closest('form').submit();
+    });
   });
 </script>
 {% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
   <li>
-    <a href="{% url 'attendances_attendancebook_list' %}">{% trans 'Attendance' %}</a>
+    <a href="{% url 'attendances_attendancebook_list' %}">{{ verbose_name_plural|capfirst }}</a>
     <span class="divider">/</span>
   </li>
   <li class="active">{{ classroom }}</li>
@@ -97,7 +101,7 @@
   <tr>
     <th>#</th>
     <th>{% trans 'student'|capfirst %}</th>
-    <th>{% trans 'status'|capfirst %}</th>
+    <th>{% trans 'attendance'|capfirst %}</th>
     <th>{% trans 'late'|capfirst %}</th>
   </tr>
   {% for student in classroom.students.all %}

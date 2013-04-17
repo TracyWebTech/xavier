@@ -10,13 +10,9 @@ from fabric.context_managers import lcd
 
 from django.core import management
 
-DJANGO_PROJECT_NAME = 'xavier'
-django.project(DJANGO_PROJECT_NAME)
-from django.db.utils import IntegrityError
-from classes.models import Class, Period, Grade, Student
-
 
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
+DJANGO_PROJECT_NAME = 'xavier'
 
 
 def ldjango_project(fn):
@@ -32,6 +28,7 @@ def ldjango_project(fn):
 
 
 def create_students():
+    from classes.models import Class, Period, Student
     from random import shuffle
     students = list(Student.objects.all())
     classes = Class.objects.all()
@@ -43,6 +40,7 @@ def create_students():
 
 
 def create_class():
+    from classes.models import Class, Period, Grade
     identifications = ["A", "B", "C"]
     periods = Period.objects.all()
     grades = Grade.objects.all()
@@ -58,6 +56,7 @@ def create_class():
 
 @ldjango_project
 def load_testdata():
+    from django.db.utils import IntegrityError
     fixt_path = 'fixtures/sample/'
 
     fixtures = sorted(glob.glob(os.path.join(fixt_path, '*.json')))
