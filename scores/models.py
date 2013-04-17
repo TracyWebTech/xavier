@@ -43,4 +43,4 @@ class Score(models.Model):
         super(Score, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return self.score
+        return unicode(self.score)
