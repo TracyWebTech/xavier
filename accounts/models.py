@@ -46,6 +46,23 @@ class Student(User):
         scores = self.score_set.filter(subperiod_id=subperiod_id)
         return scores
 
+    def get_average(self, subperiod_id):
+        scores = self.get_scores(subperiod_id)
+        if not scores:
+            return None
+
+        class_subject = scores[0].criteria.class_subject
+        criterias = criterias = class_subject.evaluationcriteria_set.all()
+        score_sum_product = 0
+        weight_sum = 0
+        for criteria in criterias:
+            for score in scores:
+                if score.criteria == criteria:
+                    score_sum_product += score.score * score.criteria.weight
+                    break
+            weight_sum += score.criteria.weight
+        return score_sum_product / weight_sum
+
 
 class Employee(User):
     degree = models.CharField(

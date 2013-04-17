@@ -28,6 +28,7 @@ def scores_list(request, year, subject_slug, class_slug):
         student_scores = {}
         student_scores['student'] = student
         student_scores['scores'] = {}
+        student_scores['average'] = student.get_average(subperiod.pk)
 
         # returns a qs with scores of given student
         scores = student.get_scores(subperiod_id=subperiod.pk)
@@ -81,7 +82,6 @@ def get_score(request):
                 )
                 average += score * criteria_weight
         weight += criteria_weight
-    # TODO save average somewhere and display it when the page is load
     average = average / weight
 
     # TODO if average is bigger than 10, set a msg and the average field to 10

@@ -63,7 +63,7 @@
         </td>
         {% endfor %}
         <td>
-            <input type="text" class="average" />
+            <input type="text" class="average" {% if student.average %}value="{{ student.average }}" {% endif %}/>
         </td>
     </tr>
 {% endfor %}
