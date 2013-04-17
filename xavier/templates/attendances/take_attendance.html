@@ -119,9 +119,9 @@
     </td>
     <td>
       <div class="btn-group">
-        <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>atrasado</p></button>
+        <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>{% trans "late" %}</p></button>
         <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label{% if student|has_explanation:attendance_book %} btn-info{% endif %}" data-toggle="modal">
-        <i class="icon icon-comment{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i><p>comentário</p></a>
+        <i class="icon icon-comment{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i><p>{% trans "comment" %}</p></a>
       </div>
 
       <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"

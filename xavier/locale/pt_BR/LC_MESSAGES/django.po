@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-17 17:37-0300\n"
+"POT-Creation-Date: 2013-04-17 19:14-0300\n"
 "PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,30 +63,48 @@ msgstr[1] "%(counter)s ausentes"
 msgid "no absence"
 msgstr "todos presentes"
 
-#: templates/attendances/take_attendance.html:93
+#: templates/attendances/take_attendance.html:97
 msgid "Change date"
 msgstr "Alterar data"
 
-#: templates/attendances/take_attendance.html:97
+#: templates/attendances/take_attendance.html:101
 msgid "Show today"
 msgstr "Mostrar hoje"
 
-#: templates/attendances/take_attendance.html:97
+#: templates/attendances/take_attendance.html:101
 msgid "today"
 msgstr "hoje"
 
-#: templates/attendances/take_attendance.html:103
+#: templates/attendances/take_attendance.html:106
 msgid "student"
 msgstr "estudante"
 
-#: templates/attendances/take_attendance.html:104
+#: templates/attendances/take_attendance.html:107
 #, fuzzy
 msgid "attendance"
 msgstr "Chamadas"
 
-#: templates/attendances/take_attendance.html:105
+#: templates/attendances/take_attendance.html:122
 msgid "late"
 msgstr "atrasado"
+
+#: templates/attendances/take_attendance.html:124
+msgid "comment"
+msgstr "comentário"
+
+#: templates/attendances/take_attendance.html:131
+#, python-format
+msgid "Comment (%(student_name)s)"
+msgstr "Comentário (%(student_name)s)"
+
+#: templates/attendances/take_attendance.html:137
+msgid "Close"
+msgstr "Fechar"
+
+#: templates/attendances/take_attendance.html:138
+#: templates/registration/password_change_form.html:16
+msgid "Save"
+msgstr "Salvar"
 
 #: templates/classes/class_list.html:10
 msgid "identification"
@@ -124,19 +142,19 @@ msgstr "Turmas"
 msgid "Attendance books"
 msgstr "Presenças"
 
-#: templates/includes/navbar.html:31
+#: templates/includes/navbar.html:29
 msgid "Scores"
 msgstr "Notas"
 
-#: templates/includes/navbar.html:42
+#: templates/includes/navbar.html:35
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:53
+#: templates/includes/navbar.html:46
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:57
+#: templates/includes/navbar.html:50
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -144,7 +162,7 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:58
+#: templates/includes/navbar.html:51
 msgid "Logout"
 msgstr "Sair"
 
@@ -230,10 +248,6 @@ msgstr "Usuário \"%(username)s\""
 #: templates/registration/password_change_form.html:15
 msgid "Cancel"
 msgstr "Cancelar"
-
-#: templates/registration/password_change_form.html:16
-msgid "Save"
-msgstr "Salvar"
 
 #: templates/towel/_form_errors.html:4
 msgid "Please correct the errors below."
