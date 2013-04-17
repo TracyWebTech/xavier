@@ -120,14 +120,15 @@
     <td>
       <div class="btn-group">
         <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>atrasado</p></button>
-        <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label" data-toggle="modal"><i class="icon icon-comment"></i><p>comentário</p></a>
+        <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label{% if student|has_explanation:attendance_book %} btn-info{% endif %}" data-toggle="modal">
+        <i class="icon icon-comment{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i><p>comentário</p></a>
       </div>
 
       <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3>{% blocktrans with student_name=student.first_name%}{{ student_name }}'s explanation{% endblocktrans %}</h3>
+          <h3>{% blocktrans with student_name=student.first_name%}Comment ({{ student_name }}){% endblocktrans %}</h3>
         </div>
         <div class="modal-body">
           <textarea id="explanation-{{ student.pk }}" style="width:100%; height:140px">{% get_student_explanation %}</textarea>
