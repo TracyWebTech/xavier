@@ -74,12 +74,15 @@ def get_score(request):
                 msg = u'Only numbers are allowed'
                 HttpResponse(msg)
             else:
-                Score.objects.create(
-                    student=student,
-                    score=score,
-                    criteria=criteria,
-                    subperiod=subperiod
+                score_obj, created = Score.objects.get_or_create(
+                        student=student,
+                        criteria=criteria,
+                        subperiod=subperiod,
+                        defaults={'score': score, }
                 )
+                if not created:
+                    score_obj.score = score
+                    score_obj.save()
                 average += score * criteria_weight
         weight += criteria_weight
     average = average / weight

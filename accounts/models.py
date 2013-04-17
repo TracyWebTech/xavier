@@ -53,15 +53,15 @@ class Student(User):
 
         class_subject = scores[0].criteria.class_subject
         criterias = criterias = class_subject.evaluationcriteria_set.all()
-        score_sum_product = 0
-        weight_sum = 0
+        score_sum_product = 0.0
+        weight_sum = 0.0
         for criteria in criterias:
             for score in scores:
                 if score.criteria == criteria:
                     score_sum_product += score.score * score.criteria.weight
                     break
             weight_sum += score.criteria.weight
-        return score_sum_product / weight_sum
+        return float(score_sum_product / weight_sum)
 
 
 class Employee(User):
