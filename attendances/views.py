@@ -49,6 +49,7 @@ class AttendanceBookView(ModelView):
         return [
             (r'^take-attendance/(?P<classroom>\d+)/$', self.take_attendance),
             (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/change-status/$', self.ajax_student_change_status),
+            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/set-explanation/$', self.ajax_student_set_explanation),
         ]
 
     def take_attendance(self, request, classroom):
@@ -89,6 +90,28 @@ class AttendanceBookView(ModelView):
             )
             if not created:
                 attendance.status = status
+                attendance.save()
+            return http.HttpResponse(status=200)
+        return http.HttpResponse(status=400)
+
+    def ajax_student_set_explanation(self, request, classroom, student):
+        if request.is_ajax():
+            try:
+                student = Student.objects.get(pk=student)
+                day = request.GET.get('day', date.today())
+                explanation = request.GET.get('explanation', '')
+                attendance_book = self.get_attendance_book(classroom, day)
+            except ValueError:
+                return http.HttpResponse(status=400)
+            except ObjectDoesNotExist:
+                return http.HttpResponse(status=400)
+            attendance, created = Attendance.objects.get_or_create(
+                attendance_book=attendance_book,
+                student=student,
+                defaults={'status': 'absent', 'explanation': explanation}
+            )
+            if not created:
+                attendance.explanation = explanation
                 attendance.save()
             return http.HttpResponse(status=200)
         return http.HttpResponse(status=400)
