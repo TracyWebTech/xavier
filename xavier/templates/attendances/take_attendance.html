@@ -17,17 +17,6 @@
     return false;
   }
 
-  function ajaxSetExplanation(studentId, explanation) {
-    var data = "{{ request.GET.urlencode }}" + "&explanation=" + status;
-    $.ajax({
-      url: studentId + "/set-explanation/",
-      method: "GET",
-      data: data,
-      cache: false
-    });
-    return false;
-  }
-
   function toggleLateStatus(studentId) {
     var $attendance = $('.switch input[value="'+ studentId +'"]'),
         $lateButton = $('#late-' + studentId),

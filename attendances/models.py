@@ -23,6 +23,13 @@ class AttendanceBook(models.Model):
     def __unicode__(self):
         return u'%s, %s' % (self.classroom.identification, self.day)
 
+    def get_student_explanation(self, student):
+        try:
+            attendance = self.attendance_set.get(student=student)
+        except Attendance.DoesNotExist:
+            return ''
+        return attendance.explanation
+
     def get_student_status(self, student):
         try:
             attendance = self.attendance_set.get(student=student)
