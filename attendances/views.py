@@ -114,9 +114,11 @@ class AttendanceBookView(ModelView):
 
     def list_view(self, request, *args, **kwargs):
         context = dict(class_rooms=self.get_class_rooms(request))
+        # TODO XXX: 2013 needs to be a dynamic period instead of
+        #   hardcoded
         context.update({
             'title': ugettext('Attendances'),
-            'subtitle': ugettext('Classes'),
+            'subtitle': u'{} 2013'.format(ugettext('Classes'), ),
         })
         return self.render_list(request, context)
 
