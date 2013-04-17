@@ -27,6 +27,18 @@ class AttendanceBookView(ModelView):
             period__school=self.get_current_school(request)
         )
 
+    def get_attendance_book(self, classroom, day):
+        if not isinstance(day, date):
+            year, month, month_day = day.split('-')
+            day = date(int(year), int(month), int(month_day))
+        if not isinstance(classroom, Class):
+            classroom = Class.objects.get(pk=classroom)
+        attendance_book, _ = AttendanceBook.objects.get_or_create(
+            classroom=classroom,
+            day=day,
+        )
+        return attendance_book
+
     def get_query_set(self, request, *args, **kwargs):
         # Filter items only from current school
         qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
@@ -36,22 +48,16 @@ class AttendanceBookView(ModelView):
     def additional_urls(self):
         return [
             (r'^take-attendance/(?P<classroom>\d+)/$', self.take_attendance),
-            (r'^ajax/toggle-attendance/$', self.ajax_toggle_attendance),
-            (r'^ajax/toggle-late-status/$', self.ajax_toggle_late_status),
+            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/change-status/$', self.ajax_student_change_status),
         ]
 
     def take_attendance(self, request, classroom):
         if not self.adding_allowed(request):
             return self.response_adding_denied(request)
 
-        today = date.today().strftime('%Y-%m-%d')
-        year, month, month_day = request.GET.get('day', today).split('-')
-        day = date(int(year), int(month), int(month_day))
         classroom = get_object_or_404(Class, pk=classroom)
-        attendance_book, _ = AttendanceBook.objects.get_or_create(
-            classroom=classroom,
-            day=day,
-        )
+        day = request.GET.get('day', date.today())
+        attendance_book = self.get_attendance_book(classroom, day)
         context = {
             'title': ugettext('Attendances'),
             'subtitle': unicode(classroom),
@@ -65,13 +71,13 @@ class AttendanceBookView(ModelView):
             context=self.get_context(request, context)
         )
 
-    def ajax_toggle_attendance(self, request):
+    def ajax_student_change_status(self, request, classroom, student):
         if request.is_ajax():
             try:
-                attendance_book_id = int(request.GET.get('attendance_book'))
-                attendance_book = AttendanceBook.objects.get(pk=attendance_book_id)
-                student_id = int(request.GET.get('student'))
-                student = Student.objects.get(pk=student_id)
+                student = Student.objects.get(pk=student)
+                day = request.GET.get('day', date.today())
+                status = request.GET.get('status')
+                attendance_book = self.get_attendance_book(classroom, day)
             except ValueError:
                 return http.HttpResponse(status=400)
             except ObjectDoesNotExist:
@@ -79,30 +85,11 @@ class AttendanceBookView(ModelView):
             attendance, created = Attendance.objects.get_or_create(
                 attendance_book=attendance_book,
                 student=student,
+                defaults={'status': status}
             )
             if not created:
-                attendance.delete()
-            return http.HttpResponse(status=200)
-        return http.HttpResponse(status=400)
-
-    def ajax_toggle_late_status(self, request):
-        if request.is_ajax():
-            try:
-                attendance_book_id = int(request.GET.get('attendance_book'))
-                attendance_book = AttendanceBook.objects.get(pk=attendance_book_id)
-                student_id = int(request.GET.get('student'))
-                student = Student.objects.get(pk=student_id)
-            except ValueError:
-                return http.HttpResponse(status=400)
-            except ObjectDoesNotExist:
-                return http.HttpResponse(status=400)
-            attendance = Attendance.objects.get(
-                attendance_book=attendance_book,
-                student=student,
-            )
-            is_late = attendance.is_late
-            attendance.is_late = False if is_late else True
-            attendance.save()
+                attendance.status = status
+                attendance.save()
             return http.HttpResponse(status=200)
         return http.HttpResponse(status=400)
 
