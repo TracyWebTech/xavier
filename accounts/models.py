@@ -42,6 +42,10 @@ class Student(User):
         verbose_name = _(u'student')
         verbose_name_plural = _(u'students')
 
+    def get_scores(self, subperiod_id):
+        scores = self.score_set.filter(subperiod_id=subperiod_id)
+        return scores
+
 
 class Employee(User):
     degree = models.CharField(
