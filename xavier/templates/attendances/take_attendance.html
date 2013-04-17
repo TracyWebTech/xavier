@@ -70,6 +70,10 @@
 
       toggleAttendance(studentId, toggleAttendanceCallBack);
     });
+
+    $('input[name="day"]').on('change', function(event) {
+        $(event.target).closest('form').submit();
+    });
   });
 </script>
 {% endblock %}
