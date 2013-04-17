@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-15 18:49-0300\n"
+"POT-Creation-Date: 2013-04-17 12:44-0300\n"
 "PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "Português Brasileiro"
 msgid "Home"
 msgstr "Início"
 
-#: templates/base.html:95
+#: templates/base.html:96
 msgid "Back to top"
 msgstr "Voltar ao topo"
 
@@ -39,48 +39,43 @@ msgstr "Voltar ao topo"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/accounts/base.html:4 templates/includes/navbar.html:17
+#: templates/accounts/base.html:4 templates/includes/navbar.html:18
 #: templates/registration/base.html:4
 msgid "Accounts"
 msgstr "Contas"
 
-#: templates/attendances/attendancebook_list.html:12
+#: templates/attendances/attendancebook_list.html:11
 msgid "students"
 msgstr "estudantes"
 
-#: templates/attendances/attendancebook_list.html:14
-#: templates/attendances/take_attendance.html:37
+#: templates/attendances/attendancebook_list.html:13
 msgid "Take attendance"
 msgstr "Fazer chamada"
 
-#: templates/attendances/base.html:4 templates/includes/navbar.html:28
-msgid "Attendances"
-msgstr "Chamadas"
-
-#: templates/attendances/take_attendance.html:34
-#: templates/includes/navbar.html:30
-msgid "Attendance books"
-msgstr "Lista de chamadas"
-
-#: templates/attendances/take_attendance.html:44
+#: templates/attendances/take_attendance.html:93
 msgid "Change date"
 msgstr "Alterar data"
 
-#: templates/attendances/take_attendance.html:48
+#: templates/attendances/take_attendance.html:97
 msgid "Show today"
 msgstr "Mostrar hoje"
 
-#: templates/attendances/take_attendance.html:48
+#: templates/attendances/take_attendance.html:97
 msgid "today"
 msgstr "hoje"
 
-#: templates/attendances/take_attendance.html:54
+#: templates/attendances/take_attendance.html:103
 msgid "student"
 msgstr "estudante"
 
-#: templates/attendances/take_attendance.html:55
-msgid "status"
-msgstr "status"
+#: templates/attendances/take_attendance.html:104
+#, fuzzy
+msgid "attendance"
+msgstr "Chamadas"
+
+#: templates/attendances/take_attendance.html:105
+msgid "late"
+msgstr "atrasado"
 
 #: templates/classes/class_list.html:10
 msgid "identification"
@@ -94,43 +89,51 @@ msgstr "período"
 msgid "grade"
 msgstr "grade"
 
-#: templates/includes/navbar.html:19
+#: templates/includes/navbar.html:20
 msgid "Students"
 msgstr "Estudantes"
 
-#: templates/includes/navbar.html:20
+#: templates/includes/navbar.html:21
 msgid "Teachers"
 msgstr "Professores"
 
-#: templates/includes/navbar.html:21
+#: templates/includes/navbar.html:22
 msgid "Employees"
 msgstr "Empregados"
 
-#: templates/includes/navbar.html:24
+#: templates/includes/navbar.html:25
 msgid "Periods"
 msgstr "Períodos"
 
-#: templates/includes/navbar.html:25
+#: templates/includes/navbar.html:26
 msgid "Classes"
 msgstr "Classes"
 
-#: templates/includes/navbar.html:31
+#: templates/includes/navbar.html:30
+msgid "Attendances"
+msgstr "Chamadas"
+
+#: templates/includes/navbar.html:32
+msgid "Attendance books"
+msgstr "Lista de chamadas"
+
+#: templates/includes/navbar.html:33
 msgid "Reports"
 msgstr "Relatórios"
 
-#: templates/includes/navbar.html:36
+#: templates/includes/navbar.html:38
 msgid "Scores"
 msgstr "Notas"
 
-#: templates/includes/navbar.html:47
+#: templates/includes/navbar.html:49
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:58
+#: templates/includes/navbar.html:60
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:62
+#: templates/includes/navbar.html:64
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -138,7 +141,7 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:63
+#: templates/includes/navbar.html:65
 msgid "Logout"
 msgstr "Sair"
 
@@ -157,7 +160,7 @@ msgid "delete"
 msgstr "remover"
 
 #: templates/modelview/object_delete_confirmation.html:33
-#: templates/modelview/object_form.html:53
+#: templates/modelview/object_form.html:52
 msgid "cancel"
 msgstr "cancelar"
 
@@ -248,3 +251,6 @@ msgstr "Por favor, revise os seguintes avisos:"
 #: templates/towel/_pagination.html:17
 msgid "show all"
 msgstr "mostrar todos"
+
+#~ msgid "status"
+#~ msgstr "status"
