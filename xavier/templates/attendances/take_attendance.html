@@ -6,16 +6,24 @@
 
 {% block extrahead %}
 <script type="text/javascript">
-  function ajaxChangeStatus(studentId, status, successCallback) {
+  function ajaxChangeStatus(studentId, status) {
     var data = "{{ request.GET.urlencode }}" + "&status=" + status;
     $.ajax({
       url: studentId + "/change-status/",
       method: "GET",
       data: data,
       cache: false,
-      success: function (){
-        if (successCallback) successCallback(studentId);
-      }
+    });
+    return false;
+  }
+
+  function ajaxSetExplanation(studentId, explanation) {
+    var data = "{{ request.GET.urlencode }}" + "&explanation=" + status;
+    $.ajax({
+      url: studentId + "/set-explanation/",
+      method: "GET",
+      data: data,
+      cache: false
     });
     return false;
   }
@@ -36,7 +44,7 @@
     }
 
     if ($attendance.is(':checked')) {
-      ajaxChangeStatus(studentId, 'late');
+      ajaxChangeStatus(studentId, status)
     } else {
       $attendance.parent().bootstrapSwitch('toggleState');
     }
@@ -54,7 +62,7 @@
 
       toggleAttendanceCallBack = false;
       if ($el.is(':checked') && isLate) {
-        toggleAttendanceCallBack = ajaxChangeStatus(studentId, 'late');
+        status = 'late';
       }
       else if ($el.is(':not(:checked)')) {
         $('#late-' + studentId).removeClass('active btn-warning');
@@ -63,7 +71,7 @@
         status = 'present';
       }
 
-      ajaxChangeStatus(studentId, status, toggleAttendanceCallBack);
+      ajaxChangeStatus(studentId, status);
     });
 
     $('input[name="day"]').on('change', function(event) {
