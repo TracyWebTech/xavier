@@ -22,14 +22,9 @@ class EvaluationCriteria(models.Model):
         return self.name
 
 
-class StudentScore(models.Model):
-    score = models.IntegerField(_(u'score'))
-
-
 class Score(models.Model):
     student = models.ForeignKey(Student, verbose_name=_(u'student'))
-    scores = models.ForeignKey(StudentScore, verbose_name=_(u'scores'),
-                               related_name=_(u'student_score'))
+    score = models.SmallIntegerField(_(u'score'))
     criteria = models.ForeignKey(EvaluationCriteria,
                                  verbose_name=_(u'criteria'))
     subperiod = models.ForeignKey(SubPeriod, verbose_name=_(u'subperiod'))
