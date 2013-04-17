@@ -23,53 +23,20 @@ class AttendanceBook(models.Model):
     def __unicode__(self):
         return u'%s, %s' % (self.classroom.identification, self.day)
 
-    def get_student_status(self, student):
+    def is_late(self, student):
         try:
             attendance = self.attendance_set.get(student=student)
         except Attendance.DoesNotExist:
-            return Attendance.ABSENT
-        return attendance.status
-
-    def is_late(self, student):
-        status = self.get_student_status(student)
-        if status == Attendance.LATE:
-            return True
-        return False
-
-    def is_present(self, student):
-        status = self.get_student_status(student)
-        if status == Attendance.PRESENT:
-            return True
-        return False
-
-    def is_absent(self, student):
-        status = self.get_student_status(student)
-        if status == Attendance.ABSENT:
-            return True
-        return False
+            return None
+        return attendance.is_late
 
 
 class Attendance(models.Model):
-    PRESENT = 'present'
-    LATE = 'late'
-    ABSENT = 'absent'
-    STATUS_CHOICES = (
-        (PRESENT, _('Present')),
-        (LATE,    _('Present but late')),
-        (ABSENT,  _('Absent')),
-    )
-
     attendance_book = models.ForeignKey(
         'attendances.AttendanceBook',
         verbose_name=_('attendance book'))
     student = models.ForeignKey('accounts.Student', verbose_name=_('student'))
-    status = models.CharField(
-        _('status'),
-        max_length=8,
-        choices=STATUS_CHOICES,
-        default='present',
-    )
-    explanation = models.TextField(_('notes'), blank=True)
+    is_late = models.BooleanField(_('is late?'))
 
     class Meta:
         unique_together = ('attendance_book', 'student')
