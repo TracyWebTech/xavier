@@ -25,12 +25,18 @@ h1 {
   line-height: inherit;
 }
 
-button.late {
-  height: 32px;
+.btn-with-label {
+  padding: 3px 5px;
 }
 
-button.late .icon {
-  margin-top: -3px;
+.btn-with-label .icon {
+  margin: 0;
+}
+
+.btn-with-label p {
+  font-size: 11px;
+  line-height: 11px;
+  margin: 0;
 }
 
 a.thumbnail {

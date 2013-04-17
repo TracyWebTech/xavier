@@ -103,15 +103,12 @@
 
 <table class="table table-striped">
   <tr>
-    <th>#</th>
     <th>{% trans 'student'|capfirst %}</th>
     <th>{% trans 'attendance'|capfirst %}</th>
-    <th>{% trans 'late'|capfirst %}</th>
-    <th>{% trans 'explanation'|capfirst %}</th>
+    <th></th>
   </tr>
   {% for student in classroom.students.all %}
   <tr>
-    <td>{{ student.id }}</td>
     <td>{{ student.get_full_name }}</td>
     <td>
       <div class="switch" data-on="success" data-off="danger"
@@ -121,11 +118,10 @@
       </div>
     </td>
     <td>
-      <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i></button>
-    </td>
-    <td>
-      <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn" data-toggle="modal">
-        <i class="icon icon-comment"></i></a>
+      <div class="btn-group">
+        <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>atrasado</p></button>
+        <a href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label" data-toggle="modal"><i class="icon icon-comment"></i><p>comentário</p></a>
+      </div>
 
       <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel" aria-hidden="true">
