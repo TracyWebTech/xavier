@@ -1,6 +1,7 @@
 # Create your views here.
 
 import json
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404
 from django.utils import simplejson
@@ -11,12 +12,8 @@ from periods.models import Period
 from scores.models import EvaluationCriteria, Score, StudentScore
 
 
-def classes_list(request, year, class_slug):
-    class_subjects = ClassSubject.objects.filter(classroom__slug=class_slug)
-    return render(request, 'scores/classes_list.html', {
-        'title': unicode(Class.objects.get(slug=class_slug)),
-        'class_subjects': class_subjects
-    })
+def classes_list(request):
+    return render(request, 'scores/classes_list.html', {})
 
 
 def scores_list(request, year, class_slug, subject_slug):
@@ -70,3 +67,18 @@ def get_score(request):
     # TODO if average is bigger than 10, set a msg and the average field to 10
     # or don't allow values bigger than 10 on template
     return HttpResponse(json.dumps(average), mimetype="application/json")
+
+
+def get_subjects(request):
+    class_pk = request.POST.get('class_pk', None)
+    if not class_pk:
+        return HttpResponseNotFound()
+    classroom = Class.objects.get(pk=class_pk)
+    class_subjects = classroom.classsubject_set.all()
+    data = []
+    for class_subject in class_subjects:
+        subject = class_subject.subject
+        url = reverse('scores_list', args=[
+                classroom.period.year, subject.slug, classroom.slug])
+        data.append([subject.name, url])
+    return HttpResponse(json.dumps(data), mimetype="application/json")

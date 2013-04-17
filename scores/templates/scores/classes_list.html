@@ -2,20 +2,50 @@
 
 {% block main %}
 <ul class="thumbnails">
-  {% for class in class_subjects %}
+  {% for class in classes %}
   <li class="span3">
     <div class="thumbnail">
-      <img data-src="holder.js/300x200" alt="">
       <div class="caption">
         <h3>{{ class }} <small>{{ class.period }}</small></h3>
         <form method="post" action=".">{% csrf_token %}
-          <p><i>{{ class.classroom.students.count }} {% trans "students" %}</i></p>
-          <a href="{% url 'scores_list' class.classroom.period.year class.classroom.slug class.subject.slug %}"
-             type="submit" class="btn btn-primary">{% trans 'Take scores' %}</a>
+          <p><i>{{ class.students.count }} {% trans "students" %}</i></p>
+          <button class="btn btn-info btn-block" type="button" name="subjects">{% trans 'Subjects' %}</button>
+          <input type="hidden" value="{{ class.pk }}" class="class_pk" />
         </form>
       </div>
     </div>
   </li>
   {% endfor %}
 </ul>
+<script>
+    $(function() {
+        $('button[name="subjects"]').click(function() {
+            obj = $(this).parent();
+            var class_pk = obj.find('input.class_pk').val();
+            request = $.ajax({
+                type: "POST",
+                url: "{% url 'get_subjects' %}",
+                data: {'class_pk': class_pk, },
+            });
+            request.done(function( data ) {
+                if ($('#subjects')) {
+                    $('#subjects').remove();
+                }
+                $section = $('<section>').attr('id', 'subjects');
+                for (var i=0; i < data.length; i++) {
+                    $a = $('<a>');
+                    $p = $('<p>');
+                    $p.attr('class', 'subject');
+
+                    $p.append(data[i][0]);
+                    $a.attr('href', data[i][1]);
+
+                    $a.append($p);
+                    $section.append($a);
+                }
+                $(obj).after($section);
+            });
+        });
+    });
+</script>
 {% endblock %}

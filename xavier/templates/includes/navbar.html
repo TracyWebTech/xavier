@@ -31,15 +31,8 @@
             <li><a href="#">{% trans 'Reports' %}</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-list-alt"></i> {% trans 'Scores' %} <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            {% for class in classes %}
-            <li><a href="{% url 'classes_list' class.period.year class.slug %}">{{ class }}</a></li>
-            {% endfor %}
+            <li><a href="{% url 'classes_list' %}"><i class="icon-list-alt"></i> {% trans 'Scores' %}</a></li>
           </ul>
-        </li>
       </ul>
 
       <ul class="nav pull-right">
