@@ -33,10 +33,17 @@ def scores_list(request, year, subject_slug, class_slug):
         student_scores = {}
         student_scores['student'] = student
         student_scores['scores'] = {}
-        student_scores['average'] = student.get_average(subperiod.pk)
+        try:
+            average = student.get_average(subperiod.pk, class_subject)
+        except ZeroDivisionError:
+            average = None
+        else:
+            student_scores['average'] = average
+
 
         # returns a qs with scores of given student
         scores = student.get_scores(subperiod_id=subperiod.pk)
+        weight = 0
         for criteria in criterias:
             for score in scores:
                 if score.criteria == criteria:
@@ -44,14 +51,19 @@ def scores_list(request, year, subject_slug, class_slug):
                     break
             else:
                 student_scores['scores'][criteria.pk] = ''
+
         students_list.append(student_scores)
 
-    title = u"{0} - {1}, {2}".format(class_subject.classroom.grade,
-            class_subject.classroom.identification,
-            subperiod.name)
+    title = u'{0} - {1}, {2}'.format(
+        class_subject.classroom.grade,
+        class_subject.classroom.identification,
+        subperiod.name
+    )
+    subtitle = u'Teacher {0} - {1}'.format(class_subject.teacher,
+            class_subject.subject.name)
     return render(request, 'scores/scores_list.html', {'year': year,
         'title': title,
-        'subtitle': class_subject.subject.name,
+        'subtitle': subtitle,
         'class_subject': class_subject,
         'students_list': students_list,
         'criterias': criterias,

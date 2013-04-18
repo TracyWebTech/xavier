@@ -42,17 +42,20 @@ class Student(User):
         verbose_name = _(u'student')
         verbose_name_plural = _(u'students')
 
-    def get_scores(self, subperiod_id):
+    def get_scores(self, subperiod_id, class_subject=None):
         scores = self.score_set.filter(subperiod_id=subperiod_id)
+        if class_subject:
+            scores = scores.filter(criteria__class_subject=class_subject)
         return scores
 
-    def get_average(self, subperiod_id):
-        scores = self.get_scores(subperiod_id)
+    def get_average(self, subperiod_id, class_subject=None):
+        # TODO subject = None it works just when a class subject is given
+        scores = self.get_scores(subperiod_id, class_subject)
         if not scores:
             return None
 
         class_subject = scores[0].criteria.class_subject
-        criterias = criterias = class_subject.evaluationcriteria_set.all()
+        criterias = class_subject.evaluationcriteria_set.all()
         score_sum_product = 0.0
         weight_sum = 0.0
         for criteria in criterias:
