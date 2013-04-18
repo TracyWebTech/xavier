@@ -6,7 +6,7 @@
 
 {% block main %}
 <ul class="thumbnails">
-  {% for class in class_rooms %}
+  {% for class in classes %}
   <li class="span3">
     <a class="thumbnail" href="{% url "attendances_attendancebook_take_attendance" class.pk %}">
     <div>
