@@ -5,8 +5,8 @@
 {% block title %}{{ object }} - {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
-  <li><a href="{{ list_url }}">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li>
-  <li class="active">{{ object }}</li>
+  <li><a href="..">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li>
+  <li class="active">{{ object|truncatechars:32 }}</li>
 {% endblock %}
 
 {% block heading %}{{ object }}{% endblock %}
