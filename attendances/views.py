@@ -117,7 +117,7 @@ class AttendanceBookView(ModelView):
         return http.HttpResponse(status=400)
 
     def list_view(self, request, *args, **kwargs):
-        context = dict(class_rooms=self.get_class_rooms(request))
+        context = dict(classes=self.get_class_rooms(request))
         # TODO XXX: 2013 needs to be a dynamic period instead of
         #   hardcoded
         context.update({
