@@ -17,9 +17,10 @@ class Period(models.Model):
     name = models.CharField(max_length=50, verbose_name=_(u'name'))
     year = models.PositiveSmallIntegerField(verbose_name=_(u'year'))
     school = models.ForeignKey(School, verbose_name=_(u'school'))
-    slug = models.SlugField(max_length=50, null=True)
+    slug = models.SlugField(max_length=50, null=True, unique=True)
 
     class Meta:
+        unique_together = ('name', 'year', 'school')
         verbose_name = _(u'period')
         verbose_name_plural = _(u'periods')
 
@@ -40,8 +41,10 @@ class SubPeriod(models.Model):
     start = models.DateField(verbose_name=_(u'start'))
     end = models.DateField(verbose_name=_(u'end'))
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
+    slug = models.SlugField(max_length=30, null=True, unique=True)
 
     class Meta:
+        unique_together = ('name', 'period')
         verbose_name = _(u'subperiod')
         verbose_name_plural = _(u'subperiods')
 
@@ -54,6 +57,9 @@ class SubPeriod(models.Model):
         subperiods = SubPeriod.objects.filter(x | y).exists()
         if subperiods:
             raise ValidationError(_("Invalid subperiod."))
+
+        self.slug = slugify(unicode(self))
+
         super(SubPeriod, self).save(*args, **kwargs)
 
     def __unicode__(self):
