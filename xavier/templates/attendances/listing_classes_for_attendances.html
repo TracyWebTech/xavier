@@ -1,0 +1,22 @@
+{% load attendances_tags %}
+
+<a class="thumbnail" href="{% url "attendances_attendancebook_take_attendance" class.pk %}">
+<div>
+  <div class="caption clearfix">
+    <h4>{{ class.grade }} - {{ class.identification }}</h4>
+    <p class="pull-left"><i>{{ class.students.count }} {% trans "students" %}</i></p>
+
+    {% with class|absent_students as abs_students %}
+    <p class="attendance-label pull-right label label-{% if abs_students == class.students.count %}important{% elif abs_students %}warning{% else %}success{% endif%}">
+    {% if abs_students == class.students.count %}
+      {% trans "all absent"|capfirst %}
+    {% elif abs_students %}
+      {% blocktrans count counter=abs_students %}{{ counter }} absence{% plural %}{{ counter }} absences{% endblocktrans %}
+    {% else %}
+      {% trans "no absence"|capfirst %}
+    {% endif %}
+    </p>
+    {% endwith %}
+  </div>
+</div>
+</a>
