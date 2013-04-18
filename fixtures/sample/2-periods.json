@@ -10,16 +10,6 @@
     }
 },
 {
-    "pk": 2,
-    "model": "periods.period",
-    "fields": {
-        "school": 1,
-        "name": "2013",
-        "slug": "2013-interativa-ribeirao-preto",
-        "year": 2013
-    }
-},
-{
     "pk": 1,
     "model": "periods.subperiod",
     "fields": {
@@ -57,46 +47,6 @@
         "end": "2013-12-31",
         "name": "4\u00b0 Bimestre",
         "period": 1
-    }
-},
-{
-    "pk": 5,
-    "model": "periods.subperiod",
-    "fields": {
-        "start": "2014-01-01",
-        "end": "2014-03-31",
-        "name": "1 \u00b0 Bimestre",
-        "period": 2
-    }
-},
-{
-    "pk": 6,
-    "model": "periods.subperiod",
-    "fields": {
-        "start": "2014-04-01",
-        "end": "2014-06-30",
-        "name": "2\u00b0 Bimestre",
-        "period": 2
-    }
-},
-{
-    "pk": 7,
-    "model": "periods.subperiod",
-    "fields": {
-        "start": "2014-07-01",
-        "end": "2014-09-30",
-        "name": "3\u00b0 Bimestre",
-        "period": 2
-    }
-},
-{
-    "pk": 8,
-    "model": "periods.subperiod",
-    "fields": {
-        "start": "2014-10-01",
-        "end": "2014-12-31",
-        "name": "4\u00b0 Bimestre",
-        "period": 2
     }
 }
 ]

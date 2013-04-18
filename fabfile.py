@@ -4,6 +4,8 @@ import os
 import sys
 import glob
 
+from random import choice, shuffle
+
 from fabric.api import run, local
 from fabric.contrib import django
 from fabric.context_managers import lcd
@@ -29,7 +31,6 @@ def ldjango_project(fn):
 
 def create_students():
     from classes.models import Class, Period, Student
-    from random import shuffle
     students = list(Student.objects.all())
     classes = Class.objects.all()
 
@@ -41,7 +42,7 @@ def create_students():
 
 def create_class():
     from classes.models import Class, Period, Grade
-    identifications = ["A", "B", "C"]
+    identifications = ["A", "B"]
     periods = Period.objects.all()
     grades = Grade.objects.all()
     for period in periods:
@@ -52,6 +53,51 @@ def create_class():
                     period=period,
                     grade=grade
                 )
+
+
+def create_class_subject():
+    from subjects.models import Subject
+    from classes.models import ClassSubject, Class
+    from accounts.models import Teacher
+
+    teachers = list(Teacher.objects.all())
+    classes = Class.objects.all()
+    subjects = Subject.objects.all()
+
+    for classroom in classes:
+        for subject in subjects:
+            ClassSubject.objects.create(
+                classroom=classroom,
+                subject=subject,
+                teacher=choice(teachers),
+            )
+
+def create_eval_criteria():
+    from classes.models import ClassSubject, Class
+    from scores.models import EvaluationCriteria
+
+    class_subjects = ClassSubject.objects.all()
+    for class_subject in class_subjects:
+        EvaluationCriteria.objects.create(
+            name='Prova 1',
+            weight=1,
+            class_subject=class_subject
+        )
+        EvaluationCriteria.objects.create(
+            name='Prova 2',
+            weight=2,
+            class_subject=class_subject
+        )
+        EvaluationCriteria.objects.create(
+            name='Prova 3',
+            weight=3,
+            class_subject=class_subject
+        )
+        EvaluationCriteria.objects.create(
+            name='Trabalho',
+            weight=1,
+            class_subject=class_subject
+        )
 
 
 @ldjango_project
@@ -72,6 +118,8 @@ def load_testdata():
 
     create_class()
     create_students()
+    create_class_subject()
+    create_eval_criteria()
 
 
 def translate():
