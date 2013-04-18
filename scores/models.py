@@ -8,6 +8,7 @@ from classes.models import ClassSubject
 from periods.models import SubPeriod
 
 
+# TODO Change modeling of criterias
 class EvaluationCriteria(models.Model):
     name = models.CharField(_(u'name'), max_length=30)
     weight = models.SmallIntegerField(_(u'weight'))
@@ -15,6 +16,7 @@ class EvaluationCriteria(models.Model):
                                       verbose_name=_(u'class subject'))
 
     class Meta:
+        unique_together = ('name', 'weight', 'class_subject')
         verbose_name = _(u'evaluation criteria')
         verbose_name_plural = _(u'evaluation criterias')
 
@@ -30,9 +32,9 @@ class Score(models.Model):
     subperiod = models.ForeignKey(SubPeriod, verbose_name=_(u'subperiod'))
 
     class Meta:
+        unique_together = ('student', 'criteria', 'subperiod')
         verbose_name = _(u'score')
         verbose_name_plural = _(u'scores')
-        unique_together = ('student', 'criteria', 'subperiod')
 
     def save(self, *args, **kwargs):
         student_classes = self.student.class_set.all()
