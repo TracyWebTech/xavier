@@ -1,0 +1,25 @@
+{% extends base_template|default:"base.html" %}
+
+{% load i18n %}
+
+{% block title %}{{ object }} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+  <li><a href="{{ list_url }}">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li>
+  <li class="active">{{ object }}</li>
+{% endblock %}
+
+{% block heading %}{{ object }}{% endblock %}
+
+{% block main %}
+  {% block object %}
+    <p><i>You must inherit <code>generic/object_detail.html</code> and
+        override the <code>object</code> block to show the desired content
+        here.</i></p>
+  {% endblock %}
+
+  <div class="form-actions">
+    <a class="btn btn-danger" href="delete/" class="button">{% trans "delete"|capfirst %}</a>
+    <a class="btn" href="edit/"class="button">{% trans "edit"|capfirst %}</a>
+  </div>
+{% endblock %}
