@@ -3,6 +3,7 @@
 {% block extrahead %}
     <script type="text/javascript">
         $(function() {
+            $('#formula').css({textAlign: 'right', margin: '-10px 0 10px 0'});
             $('.scores').attr('maxlength', '3');
             $('.average').prop('disabled', true);
             $('.average').css('width', '50px');
@@ -31,6 +32,7 @@
             });
         });
     </script>
+
 {% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
@@ -40,14 +42,15 @@
 
 {% block main %}
 <input type="hidden" value="{{ subperiod_pk }}" id="subperiod" />
+<p id="formula">{% trans 'Final grade formula' %}: {{ math }}</p>
 <table class="table table-condensed">
 <thead>
 <tr>
-    <th>Aluno</th>
+    <th>{% trans 'Student' %}</th>
 {% for criteria in criterias %}
     <th>{{ criteria.name }}</th>
 {% endfor %}
-    <th>Média</th>
+    <th>{% trans 'Final grade' %}</th>
 </tr>
 </thead>
 <tbody>

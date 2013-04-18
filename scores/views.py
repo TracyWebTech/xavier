@@ -44,6 +44,7 @@ def scores_list(request, year, subject_slug, class_slug):
         # returns a qs with scores of given student
         scores = student.get_scores(subperiod_id=subperiod.pk)
         weight = 0
+        math = u'('
         for criteria in criterias:
             for score in scores:
                 if score.criteria == criteria:
@@ -52,7 +53,12 @@ def scores_list(request, year, subject_slug, class_slug):
             else:
                 student_scores['scores'][criteria.pk] = ''
 
+            math += u'{0} x {1} + '.format(criteria.name,
+                                          unicode(criteria.weight))
+            weight += float(criteria.weight)
         students_list.append(student_scores)
+    math = math[:-3]
+    math += ') / {0}'.format(unicode(weight))
 
     title = u'{0} - {1}, {2}'.format(
         class_subject.classroom.grade,
@@ -68,6 +74,7 @@ def scores_list(request, year, subject_slug, class_slug):
         'students_list': students_list,
         'criterias': criterias,
         'subperiod_pk': subperiod.pk,
+        'math': math,
     })
 
 
