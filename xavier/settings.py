@@ -142,7 +142,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'autofixture',
     'south',
-    'towel',
     'schools',
     'periods',
     'subjects',
