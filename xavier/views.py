@@ -23,7 +23,7 @@ class GenericTemplateMixin(object):
         context.update({
             'base_template': self.base_template,
             'verbose_name': meta.verbose_name,
-            'verbose_name_plural': meta.verbose_name,
+            'verbose_name_plural': meta.verbose_name_plural,
         })
         return context
 
