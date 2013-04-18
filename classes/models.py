@@ -43,10 +43,9 @@ class Class(models.Model):
         self.slug = slugify(unicode(self))
         super(Class, self).save(*args, **kwargs)
 
+    @models.permalink
     def get_absolute_url(self):
-        return ('classes-class-detail', None, {
-            'slug': self.slug,
-        })
+        return ('classes-class-detail', None, {'id': self.pk})
 
 
 class ClassSubject(models.Model):
