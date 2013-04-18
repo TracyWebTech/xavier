@@ -45,7 +45,7 @@ class Class(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('classes-class-detail', None, {'id': self.pk})
+        return ('classes-class-detail', None, {'pk': self.pk})
 
 
 class ClassSubject(models.Model):
