@@ -1,7 +1,7 @@
 from django import template
 from django.utils import timezone
 
-from attendances.models import AttendanceBook
+from attendances.models import Attendance, AttendanceBook
 
 register = template.Library()
 
@@ -39,5 +39,5 @@ def absent_students(classroom, day=None):
     except AttendanceBook.DoesNotExist:
         return n_students # all absent
 
-    return n_students - attbook.students\
-                                .exclude(attendance__status='absent').count()
+    return n_students - Attendance.objects.filter(attendance_book=attbook)\
+                                          .exclude(status='absent').count()
