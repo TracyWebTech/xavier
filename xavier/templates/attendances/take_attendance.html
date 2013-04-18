@@ -6,18 +6,36 @@
 
 {% block extrahead %}
 <script type="text/javascript">
-  function ajaxChangeStatus(studentId, status, successCallback) {
+  function ajaxChangeStatus(studentId, status) {
     var data = "{{ request.GET.urlencode }}" + "&status=" + status;
     $.ajax({
       url: studentId + "/change-status/",
       method: "GET",
       data: data,
       cache: false,
-      success: function (){
-        if (successCallback) successCallback(studentId);
-      }
     });
     return false;
+  }
+
+  function ajaxSetExplanation(studentId) {
+    var explanation = $('#explanation-' + studentId)[0].value,
+        data = "{{ request.GET.urlencode }}" + "&explanation=" + explanation,
+        $explanationButton = $('#explanation-button-' + studentId);
+        $explanationButtonIcon = $('#explanation-button-' + studentId + ' .icon');
+    $.ajax({
+      url: studentId + "/set-explanation/",
+      method: "GET",
+      data: data,
+      cache: false
+    });
+    if (explanation && ! $explanationButton.hasClass('btn-info')) {
+      $explanationButton.addClass('btn-info active');
+      $explanationButtonIcon.addClass('icon-white');
+    } else if (! explanation) {
+      $explanationButton.removeClass('btn-info active');
+      $explanationButtonIcon.removeClass('icon-white');
+    }
+    $('#explanation-modal-' + studentId).modal('hide');
   }
 
   function toggleLateStatus(studentId) {
@@ -36,7 +54,7 @@
     }
 
     if ($attendance.is(':checked')) {
-      ajaxChangeStatus(studentId, 'late');
+      ajaxChangeStatus(studentId, status)
     } else {
       $attendance.parent().bootstrapSwitch('toggleState');
     }
@@ -50,11 +68,11 @@
           attendee = data.value,
           studentId = $el[0].value,
           isLate = $el.attr('data-is-late'),
-          status = null;;
+          status = null;
 
       toggleAttendanceCallBack = false;
       if ($el.is(':checked') && isLate) {
-        toggleAttendanceCallBack = ajaxChangeStatus(studentId, 'late');
+        status = 'late';
       }
       else if ($el.is(':not(:checked)')) {
         $('#late-' + studentId).removeClass('active btn-warning');
@@ -63,7 +81,7 @@
         status = 'present';
       }
 
-      ajaxChangeStatus(studentId, status, toggleAttendanceCallBack);
+      ajaxChangeStatus(studentId, status);
     });
 
     $('input[name="day"]').on('change', function(event) {
@@ -94,14 +112,12 @@
 
 <table class="table table-striped">
   <tr>
-    <th>#</th>
     <th>{% trans 'student'|capfirst %}</th>
     <th>{% trans 'attendance'|capfirst %}</th>
-    <th>{% trans 'late'|capfirst %}</th>
+    <th></th>
   </tr>
   {% for student in classroom.students.all %}
   <tr>
-    <td>{{ student.id }}</td>
     <td>{{ student.get_full_name }}</td>
     <td>
       <div class="switch" data-on="success" data-off="danger"
@@ -111,7 +127,26 @@
       </div>
     </td>
     <td>
-      <button class="btn btn-large late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i></button>
+      <div class="btn-group">
+        <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>{% trans "late" %}</p></button>
+        <a id="explanation-button-{{ student.id }}" href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label{% if student|has_explanation:attendance_book %} btn-info active{% endif %}" data-toggle="modal">
+        <i class="icon icon-comment{% if student|has_explanation:attendance_book %} icon-white{% endif %}"></i><p>{% trans "comment" %}</p></a>
+      </div>
+
+      <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3>{% blocktrans with student_name=student.first_name%}Comment ({{ student_name }}){% endblocktrans %}</h3>
+        </div>
+        <div class="modal-body">
+          <textarea id="explanation-{{ student.pk }}" style="width:100%; height:140px">{% get_student_explanation %}</textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans 'Close' %}</button>
+          <button class="btn btn-primary" onclick="ajaxSetExplanation({{ student.pk }});">{% trans 'Save' %}</button>
+        </div>
+      </div>
     </td>
   </tr>
   {% endfor %}
