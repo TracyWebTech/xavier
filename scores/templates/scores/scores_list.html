@@ -34,7 +34,7 @@
 {% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
-    <li><a href="#">Scores</a> <span class="divider">/</span></li>
+    <li><a href="{% url 'classes_list' %}">Scores</a> <span class="divider">/</span></li>
     <li class="active">{{ class|capfirst }}</li>
 {% endblock %}
 
