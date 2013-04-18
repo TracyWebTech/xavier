@@ -31,3 +31,23 @@ class GenericTemplateMixin(object):
         names = super(GenericTemplateMixin, self).get_template_names()
         names.append('generic/object%s.html' % self.template_name_suffix)
         return names
+
+
+class ListView(GenericTemplateMixin, generic.ListView):
+    paginate_by = 20
+
+
+class DetailView(GenericTemplateMixin, generic.DetailView):
+    pass
+
+
+class CreateView(GenericTemplateMixin, generic.CreateView):
+    pass
+
+
+class UpdateView(GenericTemplateMixin, generic.UpdateView):
+    pass
+
+
+class DeleteView(GenericTemplateMixin, generic.DeleteView):
+    pass

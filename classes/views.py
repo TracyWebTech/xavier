@@ -1,29 +1,28 @@
 # -*- coding: utf-8 -*-
 
-from django.views import generic
 from django.core.urlresolvers import reverse_lazy
 
-from xavier.views import GenericTemplateMixin
+from xavier import views
 from classes import models, forms
 
 
-class ClassList(GenericTemplateMixin, generic.ListView):
+class ClassList(views.ListView):
     model = models.Class
     paginate_by = 20
 
 
-class ClassDetail(GenericTemplateMixin, generic.DetailView):
+class ClassDetail(views.DetailView):
     model = models.Class
 
 
-class ClassCreate(GenericTemplateMixin, generic.CreateView):
+class ClassCreate(views.CreateView):
     model = models.Class
 
 
-class ClassUpdate(GenericTemplateMixin, generic.UpdateView):
+class ClassUpdate(views.UpdateView):
     model = models.Class
 
 
-class ClassDelete(GenericTemplateMixin, generic.DeleteView):
+class ClassDelete(views.DeleteView):
     model = models.Class
     success_url = reverse_lazy('classes-class-list')
