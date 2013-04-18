@@ -121,6 +121,8 @@ def load_testdata():
     create_class_subject()
     create_eval_criteria()
 
+    management.call_command('loaddata', os.path.join(fixt_path, '0-admin.json'))
+
 
 def translate():
     dirs = [file for file in os.listdir('.') if os.path.isdir(file)]
