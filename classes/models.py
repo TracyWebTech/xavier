@@ -14,6 +14,7 @@ class Grade(models.Model):
     grade_type = models.CharField(_(u'grade type'), max_length=50)
 
     class Meta:
+        unique_together = ('name', 'grade_type')
         verbose_name = _(u'grade')
         verbose_name_plural = _(u'grades')
 
@@ -26,9 +27,10 @@ class Class(models.Model):
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
     students = models.ManyToManyField(Student, verbose_name=_(u'students'))
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
-    slug = models.SlugField(max_length=70, null=True)
+    slug = models.SlugField(max_length=70, null=True, unique=True)
 
     class Meta:
+        unique_together = ('identification', 'period', 'grade')
         verbose_name = _(u'class')
         verbose_name_plural = _(u'classes')
 
@@ -45,9 +47,11 @@ class ClassSubject(models.Model):
     classroom = models.ForeignKey(Class, verbose_name=_(u'classroom'))
     subject = models.ForeignKey(Subject, verbose_name=_(u'subject'))
     teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
-    slug = models.SlugField(max_length=70, null=True)
+    slug = models.SlugField(max_length=70, null=True, unique=True)
 
     class Meta:
+        # TODO It should be class, subject and teacher
+        unique_together = ('classroom', 'subject')
         verbose_name = _(u'class subject')
         verbose_name_plural = _(u'class subjects')
 
