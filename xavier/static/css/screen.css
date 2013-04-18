@@ -42,3 +42,14 @@ h1 {
 a.thumbnail {
   text-decoration: none;
 }
+
+.has-comment {
+  line-height: 10px;
+  font-size: 15px;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+.no-comment {
+  display: none;
+}

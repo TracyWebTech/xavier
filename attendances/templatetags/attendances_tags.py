@@ -39,4 +39,5 @@ def absent_students(classroom, day=None):
     except AttendanceBook.DoesNotExist:
         return n_students # all absent
 
-    return n_students - attbook.students.count()
+    return n_students - attbook.students\
+                                .exclude(attendance__status='absent').count()
