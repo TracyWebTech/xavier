@@ -58,3 +58,19 @@ a.thumbnail {
   min-width: 100px;
   text-align: center;
 }
+
+#attendance-table td {
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+#attendance-table div.actions {
+  margin: -5px 0;
+}
+
+#attendance-table .btn-group,
+#attendance-table .switch {
+  vertical-align: middle;
+  margin: 5px;
+}
+
