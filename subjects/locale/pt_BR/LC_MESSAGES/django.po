@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 11:12-0300\n"
+"POT-Creation-Date: 2013-04-18 12:25-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:8
+#: models.py:9
 msgid "name"
 msgstr "nome"
 
-#: models.py:11
+#: models.py:13
 msgid "subject"
 msgstr "disciplina"
 
-#: models.py:12
+#: models.py:14
 msgid "subjects"
 msgstr "disciplinas"

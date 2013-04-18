@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-17 19:14-0300\n"
+"POT-Creation-Date: 2013-04-18 12:25-0300\n"
 "PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,45 +63,45 @@ msgstr[1] "%(counter)s ausentes"
 msgid "no absence"
 msgstr "todos presentes"
 
-#: templates/attendances/take_attendance.html:97
+#: templates/attendances/take_attendance.html:106
 msgid "Change date"
 msgstr "Alterar data"
 
-#: templates/attendances/take_attendance.html:101
+#: templates/attendances/take_attendance.html:110
 msgid "Show today"
 msgstr "Mostrar hoje"
 
-#: templates/attendances/take_attendance.html:101
+#: templates/attendances/take_attendance.html:110
 msgid "today"
 msgstr "hoje"
 
-#: templates/attendances/take_attendance.html:106
+#: templates/attendances/take_attendance.html:115
 msgid "student"
 msgstr "estudante"
 
-#: templates/attendances/take_attendance.html:107
+#: templates/attendances/take_attendance.html:116
 #, fuzzy
 msgid "attendance"
 msgstr "Chamadas"
 
-#: templates/attendances/take_attendance.html:122
+#: templates/attendances/take_attendance.html:131
 msgid "late"
 msgstr "atrasado"
 
-#: templates/attendances/take_attendance.html:124
+#: templates/attendances/take_attendance.html:134
 msgid "comment"
 msgstr "comentário"
 
-#: templates/attendances/take_attendance.html:131
+#: templates/attendances/take_attendance.html:141
 #, python-format
 msgid "Comment (%(student_name)s)"
 msgstr "Comentário (%(student_name)s)"
 
-#: templates/attendances/take_attendance.html:137
+#: templates/attendances/take_attendance.html:147
 msgid "Close"
 msgstr "Fechar"
 
-#: templates/attendances/take_attendance.html:138
+#: templates/attendances/take_attendance.html:148
 #: templates/registration/password_change_form.html:16
 msgid "Save"
 msgstr "Salvar"

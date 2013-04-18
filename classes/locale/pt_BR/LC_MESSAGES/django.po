@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 11:12-0300\n"
+"POT-Creation-Date: 2013-04-18 12:25-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -16,58 +16,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:11
+#: models.py:13
 msgid "name"
 msgstr "nome"
 
-#: models.py:12
+#: models.py:14
 msgid "grade type"
 msgstr "escolaridade"
 
-#: models.py:15 models.py:26
+#: models.py:18 models.py:29
 msgid "grade"
 msgstr "série"
 
-#: models.py:16
+#: models.py:19
 msgid "grades"
 msgstr "séries"
 
-#: models.py:23
+#: models.py:26
 msgid "identification"
 msgstr "identificação"
 
-#: models.py:24
+#: models.py:27
 msgid "period"
 msgstr "período"
 
-#: models.py:25
+#: models.py:28
 msgid "students"
 msgstr "alunos"
 
-#: models.py:29
+#: models.py:34
 msgid "class"
 msgstr "classe"
 
-#: models.py:30
+#: models.py:35
 msgid "classes"
 msgstr "classes"
 
-#: models.py:37
+#: models.py:47
 msgid "classroom"
 msgstr "sala de aula"
 
-#: models.py:38
+#: models.py:48
 msgid "subject"
 msgstr "matéria"
 
-#: models.py:39
+#: models.py:49
 msgid "teacher"
 msgstr "professor"
 
-#: models.py:42
+#: models.py:55
 msgid "class subject"
 msgstr "classe-matéria"
 
-#: models.py:43
+#: models.py:56
 msgid "class subjects"
 msgstr "classe-matérias"

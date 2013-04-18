@@ -65,7 +65,8 @@ def scores_list(request, year, subject_slug, class_slug):
         class_subject.classroom.identification,
         subperiod.name
     )
-    subtitle = u'Teacher {0} - {1}'.format(class_subject.teacher,
+    subtitle = u'{0} {1} - {2}'.format(ugettext(u'Teacher'),
+            class_subject.teacher,
             class_subject.subject.name)
     return render(request, 'scores/scores_list.html', {'year': year,
         'title': title,

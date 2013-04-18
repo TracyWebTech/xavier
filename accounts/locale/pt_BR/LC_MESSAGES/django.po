@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 11:59-0300\n"
+"POT-Creation-Date: 2013-04-18 12:25-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -20,82 +20,82 @@ msgstr ""
 msgid "Personal info"
 msgstr "Informação pessoal"
 
-#: admin.py:28
+#: admin.py:30
 msgid "Permissions"
 msgstr "Permissões"
 
-#: admin.py:30
+#: admin.py:34
 msgid "Important dates"
 msgstr "Datas importantes"
 
-#: models.py:17
+#: models.py:18
 msgid "F"
 msgstr "F"
 
-#: models.py:17
+#: models.py:18
 msgid "Female"
 msgstr "Feminino"
 
-#: models.py:18
+#: models.py:19
 msgid "M"
 msgstr "M"
 
-#: models.py:18
+#: models.py:19
 msgid "Male"
 msgstr "Masculino"
 
-#: models.py:20
+#: models.py:22
 msgid "birthday"
 msgstr "aniversário"
 
-#: models.py:21
+#: models.py:24
 msgid "gender"
 msgstr "sexo"
 
-#: models.py:23
+#: models.py:28
 msgid "school"
 msgstr "escola"
 
-#: models.py:27
+#: models.py:31
 msgid "user"
 msgstr "usuário"
 
-#: models.py:28
+#: models.py:32
 msgid "users"
 msgstr "usuários"
 
-#: models.py:35
+#: models.py:39
 msgid "code"
 msgstr "código"
 
-#: models.py:38
+#: models.py:42
 msgid "student"
 msgstr "aluno"
 
-#: models.py:39
+#: models.py:43
 msgid "students"
 msgstr "alunos"
 
-#: models.py:43
+#: models.py:72
 msgid "degree"
 msgstr "grau"
 
-#: models.py:47
+#: models.py:78
 msgid "employee"
 msgstr "funcionário"
 
-#: models.py:48
+#: models.py:79
 msgid "employees"
 msgstr "funcionários"
 
-#: models.py:52
+#: models.py:83
 msgid "subjects"
 msgstr "matérias"
 
-#: models.py:55
+#: models.py:86
 msgid "teacher"
 msgstr "professor"
 
-#: models.py:56
+#: models.py:87
 msgid "teachers"
 msgstr "professores"

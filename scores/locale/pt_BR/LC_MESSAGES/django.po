@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 11:12-0300\n"
+"POT-Creation-Date: 2013-04-18 12:25-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -16,46 +16,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:12
+#: models.py:13
 msgid "name"
 msgstr "nome"
 
-#: models.py:13
+#: models.py:14
 msgid "weight"
 msgstr "peso"
 
-#: models.py:15
+#: models.py:16
 msgid "class subject"
 msgstr "classe-matéria"
 
-#: models.py:18
+#: models.py:20
 msgid "evaluation criteria"
 msgstr "critério de avaliação"
 
-#: models.py:19
+#: models.py:21
 msgid "evaluation criterias"
 msgstr "critérios de avaliação"
 
-#: models.py:26
+#: models.py:28
 msgid "student"
 msgstr "aluno"
 
-#: models.py:27 models.py:33
+#: models.py:29 models.py:36
 msgid "score"
 msgstr "nota"
 
-#: models.py:29
+#: models.py:31
 msgid "criteria"
 msgstr "critério"
 
-#: models.py:30
+#: models.py:32
 msgid "subperiod"
 msgstr "subperíodo"
 
-#: models.py:34
+#: models.py:37
 msgid "scores"
 msgstr "notas"
 
-#: models.py:41
+#: models.py:44
 msgid "Student not in the class of given criteria"
 msgstr "Aluno não pertence a classe do critério escolhido"
+
+#: views.py:18 templates/scores/scores_list.html:39
+msgid "Scores"
+msgstr "notas"
+
+#: views.py:19
+msgid "Classes"
+msgstr "Turmas"
+
+#: views.py:68
+msgid "Teacher"
+msgstr "Professor(a)"
+
+#: templates/scores/classes_list.html:11
+msgid "students"
+msgstr "alunos"
+
+#: templates/scores/classes_list.html:12
+msgid "Subjects"
+msgstr "Matérias"
+
+#: templates/scores/scores_list.html:45
+msgid "Final grade formula"
+msgstr "Fórmula da nota final"
+
+#: templates/scores/scores_list.html:49
+msgid "Student"
+msgstr "Aluno"
+
+#: templates/scores/scores_list.html:53
+msgid "Final grade"
+msgstr "Nota final"
