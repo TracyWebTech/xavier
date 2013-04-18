@@ -113,7 +113,7 @@ def get_score(request):
                     score_obj.save()
                 average += score * criteria_weight
         weight += criteria_weight
-    average = average / weight
+    average = round((average / weight), 1)
 
     # TODO if average is bigger than 10, set a msg and the average field to 10
     # or don't allow values bigger than 10 on template

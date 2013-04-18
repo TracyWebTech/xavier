@@ -64,7 +64,7 @@ class Student(User):
                     score_sum_product += score.score * score.criteria.weight
                     break
             weight_sum += score.criteria.weight
-        return float(score_sum_product / weight_sum)
+        return round(float(score_sum_product / weight_sum), 1)
 
 
 class Employee(User):
