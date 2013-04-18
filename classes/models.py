@@ -43,6 +43,11 @@ class Class(models.Model):
         self.slug = slugify(unicode(self))
         super(Class, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return ('classes-class-detail', None, {
+            'slug': self.slug,
+        })
+
 
 class ClassSubject(models.Model):
     classroom = models.ForeignKey(Class, verbose_name=_(u'classroom'))

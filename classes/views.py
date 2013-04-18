@@ -1,20 +1,29 @@
 # -*- coding: utf-8 -*-
 
-from django import forms
-from django.forms.models import modelform_factory
+from django.views import generic
+from django.core.urlresolvers import reverse_lazy
 
-from xavier.views import ModelView
+from xavier.views import GenericTemplateMixin
+from classes import models, forms
 
-from .models import Class
 
-
-class ClassView(ModelView):
+class ClassList(GenericTemplateMixin, generic.ListView):
+    model = models.Class
     paginate_by = 20
 
-    def get_query_set(self, request, *args, **kwargs):
-        # Filter items only from current school
-        qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
-        return qs.filter(period__school=self.get_current_school(request))
+
+class ClassDetail(GenericTemplateMixin, generic.DetailView):
+    model = models.Class
 
 
-class_views = ClassView(Class)
+class ClassCreate(GenericTemplateMixin, generic.CreateView):
+    model = models.Class
+
+
+class ClassUpdate(GenericTemplateMixin, generic.UpdateView):
+    model = models.Class
+
+
+class ClassDelete(GenericTemplateMixin, generic.DeleteView):
+    model = models.Class
+    success_url = reverse_lazy('classes-class-list')
