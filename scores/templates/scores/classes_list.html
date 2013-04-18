@@ -6,7 +6,7 @@
   <li class="span3">
     <div class="thumbnail">
       <div class="caption">
-        <h3>{{ class }} <small>{{ class.period }}</small></h3>
+        <h4>{{ class.grade }} - {{ class.identification }} <small class="period">{{ class.period.name }}</small></h4>
         <form method="post" action=".">{% csrf_token %}
           <p><i>{{ class.students.count }} {% trans "students" %}</i></p>
           <button class="btn btn-info btn-block" type="button" name="subjects">{% trans 'Subjects' %}</button>
@@ -19,6 +19,7 @@
 </ul>
 <script>
     $(function() {
+        $('.period').css('float', 'right');
         $('button[name="subjects"]').click(function() {
             obj = $(this).parent();
             var class_pk = obj.find('input.class_pk').val();
@@ -36,12 +37,16 @@
                     $a = $('<a>');
                     $p = $('<p>');
                     $p.attr('class', 'subject');
+                    $p.css({fontSize: '14px', marginBottom: '0', marginTop: '10px'});
 
                     $p.append(data[i][0]);
                     $a.attr('href', data[i][1]);
 
                     $a.append($p);
                     $section.append($a);
+                    $section.append($('<hr>').css('margin', '10px 0 0 0'));
+                    $section.css({boxShadow: '0 0 5px 1px #C7C7C7 inset',
+                            textAlign: 'center', padding: '5px'});
                 }
                 $(obj).after($section);
             });
