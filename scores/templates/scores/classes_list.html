@@ -1,5 +1,9 @@
 {% extends "modelview/object_list.html" %}
 
+{% block breadcrumb %}{{ block.super }}
+    <li class="active">{% trans 'Scores'|capfirst %}</li>
+{% endblock %}
+
 {% block main %}
 <ul class="thumbnails">
   {% for class in classes %}

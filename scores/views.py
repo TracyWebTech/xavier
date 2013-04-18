@@ -71,7 +71,6 @@ def scores_list(request, year, subject_slug, class_slug):
     return render(request, 'scores/scores_list.html', {'year': year,
         'title': title,
         'subtitle': subtitle,
-        'class_subject': class_subject,
         'students_list': students_list,
         'criterias': criterias,
         'subperiod_pk': subperiod.pk,

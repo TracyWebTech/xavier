@@ -37,7 +37,7 @@
 
 {% block breadcrumb %}{{ block.super }}
     <li><a href="{% url 'classes_list' %}">{% trans 'Scores' %}</a> <span class="divider">/</span></li>
-    <li class="active">{{ class|capfirst }}</li>
+    <li class="active">{{ title|capfirst }}</li>
 {% endblock %}
 
 {% block main %}
