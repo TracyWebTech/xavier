@@ -4,6 +4,7 @@ import json
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import ugettext
 
 from accounts.models import Student
 from classes.models import Class, ClassSubject
@@ -12,7 +13,11 @@ from scores.models import EvaluationCriteria, Score
 
 
 def classes_list(request):
-    return render(request, 'scores/classes_list.html', {})
+    # TODO Dynamic year instead hardcoded
+    return render(request, 'scores/classes_list.html', {
+        'title': ugettext(u'Scores'),
+        'subtitle': u'{} 2013'.format(ugettext(u'Classes')),
+    })
 
 
 def scores_list(request, year, subject_slug, class_slug):
@@ -41,8 +46,12 @@ def scores_list(request, year, subject_slug, class_slug):
                 student_scores['scores'][criteria.pk] = ''
         students_list.append(student_scores)
 
+    title = u"{0} - {1}, {2}".format(class_subject.classroom.grade,
+            class_subject.classroom.identification,
+            subperiod.name)
     return render(request, 'scores/scores_list.html', {'year': year,
-        'title': unicode(class_subject) + ' - '+ subperiod.name,
+        'title': title,
+        'subtitle': class_subject.subject.name,
         'class_subject': class_subject,
         'students_list': students_list,
         'criterias': criterias,
