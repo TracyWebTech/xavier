@@ -53,3 +53,8 @@ a.thumbnail {
 .no-comment {
   display: none;
 }
+
+.attendance-label {
+  min-width: 100px;
+  text-align: center;
+}

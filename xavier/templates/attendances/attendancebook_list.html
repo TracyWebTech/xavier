@@ -15,7 +15,7 @@
         <p class="pull-left"><i>{{ class.students.count }} {% trans "students" %}</i></p>
 
         {% with class|absent_students as abs_students %}
-        <p class="pull-right label label-{% if abs_students == class.students.count %}important{% elif abs_students %}warning{% else %}success{% endif%}">
+        <p class="attendance-label pull-right label label-{% if abs_students == class.students.count %}important{% elif abs_students %}warning{% else %}success{% endif%}">
         {% if abs_students == class.students.count %}
           {% trans "all absent"|capfirst %}
         {% elif abs_students %}
