@@ -8,8 +8,20 @@
 <ul class="thumbnails">
     {% for class in classes %}
         <li class="span3">
-            {% block listing %}
-            {% endblock %}
+            <a class="thumbnail" {% block thumbnail_url %}{% endblock %}>
+                <div>
+                    <div class="caption clearfix">
+                        <h4>{{ class.grade }} - {{ class.identification }}</h4>
+                        <p class="pull-left">
+                            <i>{{ class.students.count }} {% trans "students" %}</i>
+                            {% block listing %}
+                            {% endblock %}
+                        </p>
+                        {% block class_pk %}{% endblock %}
+                    </div>
+                </div>
+            </a>
+            {% block dropdown %}{% endblock %}
         </li>
     {% endfor %}
 
@@ -18,35 +30,41 @@
 <script>
     $(function() {
         $('.period').css('float', 'right');
-        $('button[name="subjects"]').click(function() {
-            obj = $(this).parent();
-            var class_pk = obj.find('input.class_pk').val();
+        $('a[name="subjects"]').click(function() {
+            $obj = $(this);
+            var class_pk = $obj.find('input.class_pk').val();
             request = $.ajax({
                 type: "POST",
                 url: "{% url 'get_subjects' %}",
                 data: {'class_pk': class_pk, },
             });
             request.done(function( data ) {
+                if ($obj.parent().find('ul#subjects').length > 0) {
+                    $obj.parent().find('div.dropdown').empty();
+                    return false;
+                }
                 if ($('#subjects')) {
                     $('#subjects').remove();
                 }
-                $section = $('<section>').attr('id', 'subjects');
+                $ul = $('<ul>').attr({id: 'subjects', class: 'dropdown-menu',
+                                     role: 'menu', ariaLabelledby: 'dLabel'});
                 for (var i=0; i < data.length; i++) {
+                    $li = $('<li>');
                     $a = $('<a>');
-                    $p = $('<p>');
-                    $p.attr('class', 'subject');
-                    $p.css({fontSize: '14px', marginBottom: '0', marginTop: '10px'});
+                    $li.attr('class', 'subject');
+                    $li.css({fontSize: '14px', marginBottom: '0'});
 
-                    $p.append(data[i][0]);
+                    $a.append(data[i][0]);
                     $a.attr('href', data[i][1]);
 
-                    $a.append($p);
-                    $section.append($a);
-                    $section.append($('<hr>').css('margin', '10px 0 0 0'));
-                    $section.css({boxShadow: '0 0 5px 1px #C7C7C7 inset',
-                            textAlign: 'center', padding: '5px'});
+                    $li.append($a);
+                    $ul.append($li);
+                    $li.append($('<hr>').css('margin', '0 0 0 0'));
+                    $ul.css({textAlign: 'center', display: 'block',
+                            marginLeft: '-1px'});
+                    $ul.addClass('span3');
                 }
-                $(obj).after($section);
+                $obj.parent().find('div.dropdown').append($ul);
             });
         });
     });

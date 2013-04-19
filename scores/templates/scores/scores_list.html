@@ -42,7 +42,7 @@
 
 {% block main %}
 <input type="hidden" value="{{ subperiod_pk }}" id="subperiod" />
-<p id="formula">{% trans 'Final grade formula' %}: {{ math }}</p>
+{% if math %}<p id="formula">{% trans 'Final grade formula' %}: {{ math }}</p>{% endif %}
 <table class="table table-condensed">
 <thead>
 <tr>
