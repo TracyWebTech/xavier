@@ -71,7 +71,8 @@ class Attendance(models.Model):
 
     attendance_book = models.ForeignKey(
         'attendances.AttendanceBook',
-        verbose_name=_('attendance book'))
+        verbose_name=_('attendance book')
+    )
     student = models.ForeignKey('accounts.Student', verbose_name=_('student'))
     status = models.CharField(
         _('status'),

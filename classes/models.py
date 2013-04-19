@@ -23,8 +23,11 @@ class Grade(models.Model):
 
 
 class Class(models.Model):
-    identification = models.CharField(_(u'identification'), max_length=20,
-                                      blank=True)
+    identification = models.CharField(
+        _(u'identification'),
+        max_length=20,
+        blank=True
+    )
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
     students = models.ManyToManyField(Student, verbose_name=_(u'students'))
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
