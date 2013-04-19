@@ -10,10 +10,6 @@ from schools.models import School
 class ClassBaseMixin(object):
     model = models.Class
 
-    @property
-    def current_school(self):
-        return School.objects.get_current(self.request)
-
     def get_queryset(self):
         queryset = super(PeriodBaseMixin, self).get_queryset()
         return queryset.filter(school=self.current_school)

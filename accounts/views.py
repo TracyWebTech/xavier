@@ -7,10 +7,6 @@ from schools.models import School
 
 class AccountBaseMixin(object):
 
-    @property
-    def current_school(self):
-        return School.objects.get_current(self.request)
-
     def get_queryset(self):
         queryset = super(AccountBaseMixin, self).get_queryset()
         return queryset.filter(school=self.current_school)

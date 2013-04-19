@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
+from schools.managers import CurrentSchoolManager
 from schools.models import School
 from subjects.models import Subject
 
@@ -27,6 +28,8 @@ class User(AbstractUser):
     )
     school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
 
+    objects = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'user')
         verbose_name_plural = _(u'users')
@@ -37,6 +40,8 @@ class User(AbstractUser):
 
 class Student(User):
     code = models.IntegerField(_(u'code'), unique=True)
+
+    objects = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'student')
@@ -81,6 +86,8 @@ class Employee(User):
         null=True, blank=True,
     )
 
+    objects = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'employee')
         verbose_name_plural = _(u'employees')
@@ -92,6 +99,8 @@ class Employee(User):
 
 class Teacher(Employee):
     subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
+
+    objects = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'teacher')

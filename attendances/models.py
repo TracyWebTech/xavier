@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from accounts.models import Student
+from schools.managers import CurrentSchoolManager
 
 
 class AttendanceBook(models.Model):
@@ -14,6 +15,8 @@ class AttendanceBook(models.Model):
         through='attendances.Attendance',
         verbose_name=_('students')
     )
+
+    objects = CurrentSchoolManager(school_field='classroom__period__school')
 
     class Meta:
         unique_together = ('classroom', 'day')
