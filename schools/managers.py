@@ -51,20 +51,13 @@ class CurrentSchoolManager(models.Manager):
     def __init__(self, school_field=None, *args, **kwargs):
         if school_field:
             self.school_field = school_field
-        super(CurrentSchoolManager, self).__init__(self, *args, **kwargs)
+        super(CurrentSchoolManager, self).__init__(*args, **kwargs)
 
     @property
     def current_school(self):
         from .models import School
         return School.objects.get_current()
 
-    @property
-    def school_field(self):
-        raise NotImplementedError(
-            'You must specify a school_field attribute to this manager '
-            'determine how to filter objects by the current school!'
-        )
-        
     def get_query_set(self):
         return super(CurrentSchoolManager, self).get_query_set().filter(
             **{self.school_field: self.current_school}
