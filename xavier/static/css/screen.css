@@ -78,7 +78,7 @@ a.thumbnail {
     float: right;
 }
 
-ul#subjects {
+ul.list_subjects {
     text-align: center;
     display: none;
     margin-left: -1px;

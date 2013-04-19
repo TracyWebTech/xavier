@@ -4,6 +4,8 @@
 
 {% block heading %}{{ title }}{% endblock %}
 
+{% block extrahead %}<script type="text/javascript" src="{{ STATIC_URL }}js/dropdown_subjects.js"></script>{% endblock %}
+
 {% block main %}
 <ul class="thumbnails">
     {% for class in classes %}
@@ -26,12 +28,4 @@
     {% endfor %}
 
 </ul>
-
-<script>
-    $(function() {
-        $('a[name="subjects"]').click(function() {
-        });
-    });
-</script>
-
 {% endblock %}
