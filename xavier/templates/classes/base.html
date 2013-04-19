@@ -30,38 +30,6 @@
 <script>
     $(function() {
         $('a[name="subjects"]').click(function() {
-            $obj = $(this);
-            var class_pk = $obj.find('input.class_pk').val();
-            request = $.ajax({
-                type: "POST",
-                url: "{% url 'get_subjects' %}",
-                data: {'class_pk': class_pk, },
-            });
-            request.done(function( data ) {
-                if ($obj.parent().find('ul#subjects').length > 0) {
-                    $obj.parent().find('div.dropdown').empty();
-                    return false;
-                }
-                if ($('#subjects')) {
-                    $('#subjects').remove();
-                }
-                $ul = $('<ul>').attr({id: 'subjects', class: 'dropdown-menu',
-                                     role: 'menu', ariaLabelledby: 'dLabel'});
-                for (var i=0; i < data.length; i++) {
-                    $li = $('<li>');
-                    $a = $('<a>');
-                    $li.attr('class', 'subject');
-
-                    $a.append(data[i][0]);
-                    $a.attr('href', data[i][1]);
-
-                    $li.append($a);
-                    $ul.append($li);
-                    $li.append($('<hr>'));
-                    $ul.addClass('span3');
-                }
-                $obj.parent().find('div.dropdown').append($ul);
-            });
         });
     });
 </script>

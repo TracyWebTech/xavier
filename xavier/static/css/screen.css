@@ -80,7 +80,7 @@ a.thumbnail {
 
 ul#subjects {
     text-align: center;
-    display: block;
+    display: none;
     margin-left: -1px;
 }
 li.subject {

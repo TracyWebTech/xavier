@@ -122,18 +122,3 @@ def get_score(request):
     # TODO if average is bigger than 10, set a msg and the average field to 10
     # or don't allow values bigger than 10 on template
     return HttpResponse(json.dumps(average), mimetype="application/json")
-
-
-def get_subjects(request):
-    class_pk = request.POST.get('class_pk', None)
-    if not class_pk:
-        return HttpResponseNotFound()
-    classroom = Class.objects.get(pk=class_pk)
-    class_subjects = classroom.classsubject_set.all()
-    data = []
-    for class_subject in class_subjects:
-        subject = class_subject.subject
-        url = reverse('scores_list', args=[
-                classroom.period.year, subject.slug, classroom.slug])
-        data.append([subject.name, url])
-    return HttpResponse(json.dumps(data), mimetype="application/json")
