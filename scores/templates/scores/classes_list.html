@@ -5,9 +5,11 @@
 {% endblock%}
 
 {% block thumbnail_url %}name="subjects" title="{% trans "Click to choose a subject" %}" class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" id="dLabel" role="button"{% endblock %}
-{% block class_pk %}
+{% block extra_out_p %}
+    <span class="caret"></span>
     <input type="hidden" value="{{ class.pk }}" class="class_pk" />
 {% endblock %}
+
 {% block dropdown %}
     <div class="dropdown">
         <ul class="dropdown-menu span3 list_subjects" role="menu" ariaLabelledby="dLabel">
