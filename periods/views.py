@@ -7,35 +7,26 @@ from periods import models
 from schools.models import School
 
 
-class PeriodBaseMixin(object):
+class PeriodMixin(object):
     model = models.Period
 
-    @property
-    def current_school(self):
-        return School.objects.get_current(self.request)
-
-    def get_queryset(self):
-        queryset = super(PeriodBaseMixin, self).get_queryset()
-        return queryset.filter(school=self.current_school)
-
-
-class PeriodList(PeriodBaseMixin, views.ListView):
+class PeriodList(PeriodMixin, views.ListView):
     paginate_by = 20
 
 
-class PeriodDetail(PeriodBaseMixin, views.DetailView):
+class PeriodDetail(PeriodMixin, views.DetailView):
     pass
 
 
-class PeriodCreate(PeriodBaseMixin, views.CreateView):
+class PeriodCreate(PeriodMixin, views.CreateView):
     pass
 
 
-class PeriodUpdate(PeriodBaseMixin, views.UpdateView):
+class PeriodUpdate(PeriodMixin, views.UpdateView):
     pass
 
 
-class PeriodDelete(PeriodBaseMixin, views.DeleteView):
+class PeriodDelete(PeriodMixin, views.DeleteView):
     success_url = reverse_lazy('period-list')
 
 
