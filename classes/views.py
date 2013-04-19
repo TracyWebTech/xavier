@@ -25,4 +25,4 @@ class ClassUpdate(views.UpdateView):
 
 class ClassDelete(views.DeleteView):
     model = models.Class
-    success_url = reverse_lazy('classes-class-list')
+    success_url = reverse_lazy('class-list')
