@@ -23,10 +23,10 @@ class CurrentSchoolMiddleware(object):
         hostname, port = self.parse_host(host)
         try:
             return models.School.objects.get(hostname=hostname)
-        except School.DoesNotExist:
+        except models.School.DoesNotExist:
             # The default school (id 1) is created during the
             # first syncdb by a signal in ``schools.management``.
-            return get_object_or_404(School, pk=1)
+            return get_object_or_404(models.School, pk=1)
 
     def process_request(self, request):
         host = request.get_host().lower()
