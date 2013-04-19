@@ -54,6 +54,9 @@ class Student(User):
         if not scores:
             return None
 
+        if scores and scores < 0:
+            return None
+
         class_subject = scores[0].criteria.class_subject
         criterias = class_subject.evaluationcriteria_set.all()
         score_sum_product = 0.0

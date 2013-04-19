@@ -104,6 +104,8 @@ def get_score(request):
                 msg = u'Only numbers are allowed'
                 HttpResponse(msg)
             else:
+                if float(score) < 0:
+                    return HttpResponseBadRequest()
                 score_obj, created = Score.objects.get_or_create(
                         student=student,
                         criteria=criteria,
