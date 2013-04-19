@@ -1,6 +1,11 @@
 $(function() {
     $('a[name="subjects"]').click(function() {
+        $ul = $(this).parent().find('ul.list_subjects');
         $('ul.list_subjects', $(this).parent().siblings()).hide();
-        $(this).parent().find('ul.list_subjects').toggle();
+        if ($('li', $ul).length == 1) {
+            window.location = $('li a', $ul).attr('href');
+        } else {
+            $ul.toggle();
+        }
     });
 });
