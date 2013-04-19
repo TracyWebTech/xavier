@@ -4,9 +4,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
 
-from periods.models import Period
 from accounts.models import Student, Teacher
+from periods.models import Period
 from subjects.models import Subject
+from schools.managers import CurrentSchoolManager
 
 
 class Grade(models.Model):
@@ -33,6 +34,8 @@ class Class(models.Model):
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
+    objects = CurrentSchoolManager(school_field='period__school')
+
     class Meta:
         unique_together = ('identification', 'period', 'grade')
         verbose_name = _(u'class')
@@ -56,6 +59,8 @@ class ClassSubject(models.Model):
     subject = models.ForeignKey(Subject, verbose_name=_(u'subject'))
     teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
+
+    objects = CurrentSchoolManager(school_field='classroom__period__school')
 
     class Meta:
         # TODO It should be class, subject and teacher
