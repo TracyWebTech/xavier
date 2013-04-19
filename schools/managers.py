@@ -44,8 +44,15 @@ class SchoolManager(models.Manager):
         SCHOOL_CACHE = {}
 
 
-class AbstractCurrentSchoolManager(models.Manager):
+class CurrentSchoolManager(models.Manager):
     "Use this to limit objects to those associated with the current school"
+
+    school_field = 'school'
+
+    def __init__(self, school_field=None, *args, **kwargs):
+        if school_field:
+            self.school_field = school_field
+        super(CurrentSchoolManager, self).__init__(self, *args, **kwargs))
 
     @property
     def current_school(self):
@@ -64,12 +71,3 @@ class AbstractCurrentSchoolManager(models.Manager):
         return super(CurrentSchoolManager, self).get_query_set().filter(
             **{self.school_field: self.current_school}
         )
-
-
-class CurrentSchoolManager(models.Manager):
-    school_field = 'school'
-
-    def __init__(self, school_field=None, *args, **kwargs):
-        if school_field:
-            self.school_field = school_field
-        super(CurrentSchoolManager, self).__init__(self, *args, **kwargs))
