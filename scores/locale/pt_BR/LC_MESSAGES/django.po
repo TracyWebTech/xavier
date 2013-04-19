@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-18 13:37-0300\n"
+"POT-Creation-Date: 2013-04-19 12:23-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -68,17 +68,13 @@ msgstr "Notas"
 msgid "Classes"
 msgstr "Turmas"
 
-#: views.py:68
+#: views.py:70
 msgid "Teacher"
 msgstr "Professor(a)"
 
-#: templates/scores/classes_list.html:11
-msgid "students"
-msgstr "alunos"
-
-#: templates/scores/classes_list.html:12
-msgid "Subjects"
-msgstr "Matérias"
+#: templates/scores/classes_list.html:2
+msgid "Click to choose a subject"
+msgstr "Clique para escolher uma matéria"
 
 #: templates/scores/scores_list.html:45
 msgid "Final grade formula"
@@ -91,3 +87,9 @@ msgstr "Aluno"
 #: templates/scores/scores_list.html:53
 msgid "Final grade"
 msgstr "Nota final"
+
+#~ msgid "students"
+#~ msgstr "alunos"
+
+#~ msgid "Subjects"
+#~ msgstr "Matérias"
