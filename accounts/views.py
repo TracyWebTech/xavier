@@ -1,35 +1,58 @@
 # -*- coding: utf-8 -*-
 
-from django import forms
-from django.forms.models import modelform_factory
-
-from xavier.views import ModelView
-
-from .models import Student, Teacher, Employee
+from xavier import views
+from accounts import models
+from schools.models import School
 
 
-class AccountView(ModelView):
-    base_template = 'accounts/base.html'
+class AccountBaseMixin(object):
+
+    @property
+    def current_school(self):
+        return School.objects.get_current(self.request)
+
+    def get_queryset(self):
+        queryset = super(AccountBaseMixin, self).get_queryset()
+        return queryset.filter(school=self.current_school)
+
+
+class AccountList(AccountBaseMixin, views.ListView):
     paginate_by = 20
 
-    def get_query_set(self, request, *args, **kwargs):
-        # Filter items only from current school
-        qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
-        return qs.filter(school=self.get_current_school(request))
 
-    def get_form(self, request, instance=None, change=None, **kwargs):
-        # Overriding just to exclude school field
-        formfield_callback = self.get_formfield_callback(request)
-        kwargs.setdefault('formfield_callback', formfield_callback)
-        kwargs.setdefault('form', self.form_class or forms.ModelForm)
-        return modelform_factory(self.model, exclude=('school',), **kwargs)
-
-    def save_model(self, request, instance, form, change):
-        if not change:
-            instance.school = self.get_current_school(request)
-        instance.save()
+class AccountDetail(AccountBaseMixin, views.DetailView):
+    pass
 
 
-students_views = AccountView(Student)
-teachers_views = AccountView(Teacher)
-employees_views = AccountView(Employee)
+class AccountCreate(AccountBaseMixin, views.CreateView):
+    pass
+
+
+class AccountUpdate(AccountBaseMixin, views.UpdateView):
+    pass
+
+
+class AccountDelete(AccountBaseMixin, views.DeleteView):
+    pass
+
+
+# Students
+student_list = AccountList.as_view(model=models.Student)
+student_detail = AccountDetail.as_view(model=models.Student)
+student_create = AccountCreate.as_view(model=models.Student)
+student_update = AccountUpdate.as_view(model=models.Student)
+student_delete = AccountDelete.as_view(model=models.Student)
+
+# Employees
+employee_list = AccountList.as_view(model=models.Employee)
+employee_detail = AccountDetail.as_view(model=models.Employee)
+employee_create = AccountCreate.as_view(model=models.Employee)
+employee_update = AccountUpdate.as_view(model=models.Employee)
+employee_delete = AccountDelete.as_view(model=models.Employee)
+
+# Teachers
+teacher_list = AccountList.as_view(model=models.Teacher)
+teacher_detail = AccountDetail.as_view(model=models.Teacher)
+teacher_create = AccountCreate.as_view(model=models.Teacher)
+teacher_update = AccountUpdate.as_view(model=models.Teacher)
+teacher_delete = AccountDelete.as_view(model=models.Teacher)

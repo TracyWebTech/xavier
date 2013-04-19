@@ -42,6 +42,10 @@ class Student(User):
         verbose_name = _(u'student')
         verbose_name_plural = _(u'students')
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('student-detail', None, {'pk': self.pk})
+
     def get_scores(self, subperiod_id, class_subject=None):
         scores = self.score_set.filter(subperiod_id=subperiod_id)
         if class_subject:
@@ -78,6 +82,10 @@ class Employee(User):
         verbose_name = _(u'employee')
         verbose_name_plural = _(u'employees')
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('employee-detail', None, {'pk': self.pk})
+
 
 class Teacher(Employee):
     subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
@@ -85,6 +93,10 @@ class Teacher(Employee):
     class Meta:
         verbose_name = _(u'teacher')
         verbose_name_plural = _(u'teachers')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('teacher-detail', None, {'pk': self.pk})
 
 
 @receiver(post_save, sender=Teacher)
