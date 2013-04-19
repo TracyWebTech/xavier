@@ -29,7 +29,6 @@
 
 <script>
     $(function() {
-        $('.period').css('float', 'right');
         $('a[name="subjects"]').click(function() {
             $obj = $(this);
             var class_pk = $obj.find('input.class_pk').val();
@@ -52,16 +51,13 @@
                     $li = $('<li>');
                     $a = $('<a>');
                     $li.attr('class', 'subject');
-                    $li.css({fontSize: '14px', marginBottom: '0'});
 
                     $a.append(data[i][0]);
                     $a.attr('href', data[i][1]);
 
                     $li.append($a);
                     $ul.append($li);
-                    $li.append($('<hr>').css('margin', '0 0 0 0'));
-                    $ul.css({textAlign: 'center', display: 'block',
-                            marginLeft: '-1px'});
+                    $li.append($('<hr>'));
                     $ul.addClass('span3');
                 }
                 $obj.parent().find('div.dropdown').append($ul);

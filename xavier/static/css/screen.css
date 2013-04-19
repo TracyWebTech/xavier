@@ -74,3 +74,20 @@ a.thumbnail {
   margin: 5px;
 }
 
+.period {
+    float: right;
+}
+
+ul#subjects {
+    text-align: center;
+    display: block;
+    margin-left: -1px;
+}
+li.subject {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+li.subject hr {
+    margin: 0 0 0 0;
+}
