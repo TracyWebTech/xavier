@@ -5,5 +5,4 @@ urlpatterns = patterns('scores.views',
     url(r'^(?P<year>\d{4})/(?P<subject_slug>[-\w]+)/(?P<class_slug>[-\w]+)/$',
         'scores_list', name='scores_list'),
     url(r'^get_score$', 'get_score', name='get_score'),
-    url(r'^get_subjects', 'get_subjects', name='get_subjects'),
 )
