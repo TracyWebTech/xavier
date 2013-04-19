@@ -33,7 +33,7 @@ class AccountUpdate(AccountBaseMixin, views.UpdateView):
 
 
 class AccountDelete(AccountBaseMixin, views.DeleteView):
-    pass
+    success_url = '../../'
 
 
 # Students
