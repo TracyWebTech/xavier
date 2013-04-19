@@ -11,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from calendars.models import Calendar
 from schools.models import School
+from schools.managers import CurrentSchoolManager
 
 
 class Period(models.Model):
