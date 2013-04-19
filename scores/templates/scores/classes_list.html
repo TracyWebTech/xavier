@@ -1,5 +1,5 @@
 {% extends "classes/base.html" %}
-{% block thumbnail_url %}name="subjects" title="{% trans "Click to choose a subject" %}" class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#"{% endblock %}
+{% block thumbnail_url %}name="subjects" title="{% trans "Click to choose a subject" %}" class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" id="dLabel" role="button"{% endblock %}
 {% block class_pk %}
     <input type="hidden" value="{{ class.pk }}" class="class_pk" />
 {% endblock %}
