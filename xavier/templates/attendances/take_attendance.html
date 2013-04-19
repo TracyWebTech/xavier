@@ -110,28 +110,27 @@
   <a class="btn" href="." title="{% trans 'Show today' %}">{% trans 'today'|capfirst %}</a>
 </form>
 
-<table class="table table-striped">
+<table id="attendance-table" class="table table-striped">
   <tr>
     <th>{% trans 'student'|capfirst %}</th>
     <th>{% trans 'attendance'|capfirst %}</th>
-    <th></th>
   </tr>
   {% for student in classroom.students.all %}
   <tr>
     <td>{{ student.get_full_name }}</td>
     <td>
-      <div class="switch" data-on="success" data-off="danger"
-           data-on-label="P" data-off-label="A">
-        <input type="checkbox" value="{{ student.pk }}"
-               {% if not student|is_absent:attendance_book %}checked{% endif %}/>
-      </div>
-    </td>
-    <td>
-      <div class="btn-group">
-        <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>{% trans "late" %}</p></button>
-        <a id="explanation-button-{{ student.id }}" href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label" data-toggle="modal">
-        <i class="icon icon-comment"></i><span class="{% if student|has_explanation:attendance_book %}has-comment{% else %}no-comment{% endif %}">*</span>
-        <p>{% trans "comment" %}</p></a>
+      <div class="actions">
+        <div class="switch" data-on="success" data-off="danger"
+                            data-on-label="P" data-off-label="A">
+          <input type="checkbox" value="{{ student.pk }}"
+                 {% if not student|is_absent:attendance_book %}checked{% endif %}/>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-large btn-with-label late{% if student|is_late:attendance_book %} active btn-warning{% endif %}" id="late-{{ student.id }}" type="button" data-toggle="button" onclick="toggleLateStatus({{ student.pk }})"><i class="icon icon-warning-sign"></i><p>{% trans "late" %}</p></button>
+          <a id="explanation-button-{{ student.id }}" href="#explanation-modal-{{ student.pk }}" role="button" class="btn btn-large btn-with-label" data-toggle="modal">
+          <i class="icon icon-comment"></i><span class="{% if student|has_explanation:attendance_book %}has-comment{% else %}no-comment{% endif %}">*</span>
+          <p>{% trans "comment" %}</p></a>
+        </div>
       </div>
 
       <div id="explanation-modal-{{ student.pk }}" class="modal hide fade" tabindex="-1" role="dialog"

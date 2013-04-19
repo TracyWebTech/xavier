@@ -25,9 +25,19 @@ def scores_list(request, year, subject_slug, class_slug):
                                       classroom__slug=class_slug,
                                       subject__slug=subject_slug)
     students = class_subject.classroom.students.filter()
+
     subperiod = class_subject.classroom.period.get_current_subperiod()
     students_list = []
     criterias = class_subject.evaluationcriteria_set.all()
+
+    math = u'('
+    weight = 0
+    for criteria in criterias:
+        math += u'{0} x {1} + '.format(criteria.name,
+                                       unicode(criteria.weight))
+        weight += float(criteria.weight)
+    math = math[:-3]
+    math += ') / {0}'.format(unicode(weight))
 
     for student in students:
         student_scores = {}
@@ -43,8 +53,6 @@ def scores_list(request, year, subject_slug, class_slug):
 
         # returns a qs with scores of given student
         scores = student.get_scores(subperiod_id=subperiod.pk)
-        weight = 0
-        math = u'('
         for criteria in criterias:
             for score in scores:
                 if score.criteria == criteria:
@@ -52,13 +60,7 @@ def scores_list(request, year, subject_slug, class_slug):
                     break
             else:
                 student_scores['scores'][criteria.pk] = ''
-
-            math += u'{0} x {1} + '.format(criteria.name,
-                                          unicode(criteria.weight))
-            weight += float(criteria.weight)
         students_list.append(student_scores)
-    math = math[:-3]
-    math += ') / {0}'.format(unicode(weight))
 
     title = u'{0} - {1}, {2}'.format(
         class_subject.classroom.grade,

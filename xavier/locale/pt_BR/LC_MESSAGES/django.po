@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-18 13:37-0300\n"
+"POT-Creation-Date: 2013-04-19 12:23-0300\n"
 "PO-Revision-Date: 2013-04-15 18:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,22 +44,18 @@ msgstr "Dashboard"
 msgid "Accounts"
 msgstr "Contas"
 
-#: templates/attendances/attendancebook_list.html:15
-msgid "students"
-msgstr "estudantes"
-
-#: templates/attendances/attendancebook_list.html:20
+#: templates/attendances/attendancebook_list.html:10
 msgid "all absent"
 msgstr "todos ausentes"
 
-#: templates/attendances/attendancebook_list.html:22
+#: templates/attendances/attendancebook_list.html:12
 #, python-format
 msgid "%(counter)s absence"
 msgid_plural "%(counter)s absences"
 msgstr[0] "%(counter)s ausente"
 msgstr[1] "%(counter)s ausentes"
 
-#: templates/attendances/attendancebook_list.html:24
+#: templates/attendances/attendancebook_list.html:14
 msgid "no absence"
 msgstr "todos presentes"
 
@@ -84,27 +80,31 @@ msgstr "estudante"
 msgid "attendance"
 msgstr "Chamadas"
 
-#: templates/attendances/take_attendance.html:131
+#: templates/attendances/take_attendance.html:129
 msgid "late"
 msgstr "atrasado"
 
-#: templates/attendances/take_attendance.html:134
+#: templates/attendances/take_attendance.html:132
 msgid "comment"
 msgstr "comentário"
 
-#: templates/attendances/take_attendance.html:141
+#: templates/attendances/take_attendance.html:140
 #, python-format
 msgid "Comment (%(student_name)s)"
 msgstr "Comentário (%(student_name)s)"
 
-#: templates/attendances/take_attendance.html:147
+#: templates/attendances/take_attendance.html:146
 msgid "Close"
 msgstr "Fechar"
 
-#: templates/attendances/take_attendance.html:148
+#: templates/attendances/take_attendance.html:147
 #: templates/registration/password_change_form.html:16
 msgid "Save"
 msgstr "Salvar"
+
+#: templates/classes/base.html:16
+msgid "students"
+msgstr "estudantes"
 
 #: templates/classes/class_list.html:10
 msgid "identification"

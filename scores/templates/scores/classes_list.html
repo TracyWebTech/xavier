@@ -1,5 +1,9 @@
 {% extends "classes/base.html" %}
-
-{% block listing %}
-    {% include 'scores/listing_classes_for_scores.html' %}
+{% block thumbnail_url %}name="subjects" title="{% trans "Click to choose a subject" %}" class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" id="dLabel" role="button"{% endblock %}
+{% block class_pk %}
+    <input type="hidden" value="{{ class.pk }}" class="class_pk" />
+{% endblock %}
+{% block dropdown %}
+    <div class="dropdown">
+    </div>
 {% endblock %}
