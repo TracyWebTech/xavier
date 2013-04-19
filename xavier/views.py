@@ -50,4 +50,4 @@ class UpdateView(GenericTemplateMixin, generic.UpdateView):
 
 
 class DeleteView(GenericTemplateMixin, generic.DeleteView):
-    pass
+    success_url = '../../'
