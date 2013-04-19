@@ -88,6 +88,11 @@ li.subject {
     margin-bottom: 0px;
 }
 
+li.subject a {
+    line-height: 2.5em;
+    vertical-align: bottom;
+}
+
 li.subject hr {
     margin: 0 0 0 0;
 }
