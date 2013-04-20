@@ -102,3 +102,11 @@ li.subject hr {
     position: relative;
     margin-top: -35px;
 }
+
+h2#header {
+    display: inline;
+}
+h3#subheader {
+    display: inline;
+    color: #C2C2C2;
+}
