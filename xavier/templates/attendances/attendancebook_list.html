@@ -1,7 +1,7 @@
 {% extends "classes/base.html" %}
 {% load attendances_tags %}
 
-{% block thumbnail_url %} href="{% url "attendances_attendancebook_take_attendance" class.pk %}"{% endblock %}
+{% block thumbnail_url %} href="{% url "takeattendance" class.pk %}"{% endblock %}
 
 {% block listing %}
     {% with class|absent_students as abs_students %}
