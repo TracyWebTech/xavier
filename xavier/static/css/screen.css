@@ -106,7 +106,25 @@ li.subject hr {
 h2#header {
     display: inline;
 }
+
 h3#subheader {
     display: inline;
     color: #C2C2C2;
+}
+
+p#formula {
+    text-align: right;
+    margin: -10px 0 10px 0;
+}
+
+.scores {
+    width: 50px;
+}
+
+.average {
+    width: 50px;
+}
+
+input:invalid {
+    border: 1px solid #ff0000;
 }

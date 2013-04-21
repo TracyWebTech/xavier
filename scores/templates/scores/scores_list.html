@@ -3,19 +3,25 @@
 {% block extrahead %}
     <script type="text/javascript">
         $(function() {
-            $('#formula').css({textAlign: 'right', margin: '-10px 0 10px 0'});
             $('.scores').attr('maxlength', '3');
             $('.average').prop('disabled', true);
-            $('.average').css('width', '50px');
-            $('.scores').css('width', '50px');
             $('.scores').change(function() {
                 $scores_student = $(this).parent().parent();
                 var $scores = $scores_student.find('input.scores');
-                student_id = $scores_student.find('input[name="student_id"]').val();
-                data = {};
+                var student_id = $scores_student.find('input[name="student_id"]').val();
+                var data = {};
+                var notvalid = false;
                 $scores.each(function() {
+                    if (isNaN($(this).val()) || parseFloat($(this).val()) < 0 || parseFloat($(this).val()) > 10) {
+                        notvalid = true;
+                    }
                     data[$(this).attr('name')] = $(this).val();
                 });
+
+                if (notvalid) {
+                    return false;
+                }
+
                 data = JSON.stringify(data);
                 request = $.ajax({
                     type: "POST",
@@ -62,7 +68,7 @@
         </td>
         {% for criteria, score in student.scores.items %}
         <td>
-            <input type="text" class="score{{ forloop.counter }} scores" name="{{ criteria }}" value="{{ score }}" />
+            <input type="number" class="score{{ forloop.counter }} scores" name="{{ criteria }}" value="{{ score }}" pattern="[0-9]|10" min="0" max="10" />
         </td>
         {% endfor %}
         <td>
