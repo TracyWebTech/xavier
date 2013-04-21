@@ -1,0 +1,46 @@
+{% extends base_template|default:"base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+  {% if object %}
+    {% blocktrans %}Edit {{ verbose_name }}{% endblocktrans %}
+  {% else %}
+    {% blocktrans %}Add {{ verbose_name }}{% endblocktrans %}
+  {% endif %}
+  - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+  {% if object %}
+    <li><a href="../../">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li> 
+    <li><a href="{{ object.get_absolute_url }}">{{ object|truncatechars:32 }}</a> <span class="divider">/</span></li>
+    <li class="active">{% trans 'edit'|capfirst %}</li>
+  {% else %}
+    <li><a href="../">{{ verbose_name_plural|capfirst }}</a> <span class="divider">/</span></li> 
+    <li class="active">{% trans 'edit'|capfirst %}</li>
+  {% endif %}
+{% endblock %}
+
+{% block heading %}
+  {% if object %}
+    {% blocktrans %}Edit {{ verbose_name }}{% endblocktrans %}
+  {% else %}
+    {% blocktrans %}Add {{ verbose_name }}{% endblocktrans %}
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+  <form class="form-horizontal" method="post" action="{{ request.get_full_path|default:"." }}"
+        enctype="multipart/form-data">{% csrf_token %}
+    <fieldset>
+      {% if object %}<legend>{% block legend %}{{ object }}{% endblock %}</legend>{% endif %}
+      {{ form }}
+    </fieldset>
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" name="_save" value="{% trans "save"|capfirst %}">
+        <input class="btn" type="submit" name="_continue" value="{% trans "Save and continue editing" %}">
+        <a class="btn btn-link" href="../" class="button">{% trans "cancel"|capfirst %}</a>
+    </div>
+  </form>
+{% endblock %}

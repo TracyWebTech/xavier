@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import Group
-from django.contrib.auth.models import PermissionManager
+from django.contrib.auth.models import UserManager
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
+from schools.managers import CurrentSchoolManager
 from schools.models import School
 from subjects.models import Subject
 
@@ -27,6 +28,9 @@ class User(AbstractUser):
     )
     school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
 
+    objects = UserManager()
+    on_school = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'user')
         verbose_name_plural = _(u'users')
@@ -38,9 +42,16 @@ class User(AbstractUser):
 class Student(User):
     code = models.IntegerField(_(u'code'), unique=True)
 
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'student')
         verbose_name_plural = _(u'students')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('student-detail', None, {'pk': self.pk})
 
     def get_scores(self, subperiod_id, class_subject=None):
         scores = self.score_set.filter(subperiod_id=subperiod_id)
@@ -77,17 +88,31 @@ class Employee(User):
         null=True, blank=True,
     )
 
+    objects = UserManager()
+    on_school = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'employee')
         verbose_name_plural = _(u'employees')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('employee-detail', None, {'pk': self.pk})
 
 
 class Teacher(Employee):
     subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
 
+    objects = UserManager()
+    on_school = CurrentSchoolManager()
+
     class Meta:
         verbose_name = _(u'teacher')
         verbose_name_plural = _(u'teachers')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('teacher-detail', None, {'pk': self.pk})
 
 
 @receiver(post_save, sender=Teacher)

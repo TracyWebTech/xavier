@@ -1,0 +1,22 @@
+{% extends "generic/object_detail.html" %}
+
+{% block object %}
+<table class="table table-striped">
+  <tr>
+    <th>{% trans 'identification'|capfirst %}</th>
+    <td>{{ object.identification }}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'period'|capfirst %}</th>
+    <td>{{ object.period }}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'students'|capfirst %}</th>
+    <td>{{ object.students.all.count }}</td>
+  </tr>
+  <tr>
+    <th>{% trans 'grade'|capfirst %}</th>
+    <td>{{ object.grade }}</td>
+  </tr>
+</table>
+{% endblock %}

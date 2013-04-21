@@ -112,6 +112,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'schools.middleware.CurrentSchoolMiddleware',
     'xavier.middleware.LoginRequiredMiddleware',
 )
 
@@ -142,7 +143,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'autofixture',
     'south',
-    'towel',
+    'tastypie',
     'schools',
     'periods',
     'subjects',

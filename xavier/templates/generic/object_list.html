@@ -1,0 +1,59 @@
+{% extends base_template|default:"base.html" %}
+
+{% load i18n %}
+
+{% block title %}{{ verbose_name_plural|capfirst }} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+  <li class="active">{{ verbose_name_plural|capfirst }}</li>
+{% endblock %}
+
+{% block heading %}{{ verbose_name_plural|capfirst }}{% endblock %}
+
+{% block main %}
+  <div class="well">
+    <a href="add/" class="btn">
+      <span>{% blocktrans %}Add {{ verbose_name }}{% endblocktrans %}</span>
+    </a>
+  </div>
+
+  {% if object_list %}
+    {% block objects %}
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>{% trans "item"|capfirst %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for object in object_list %}
+            <tr><th><a href="{{ object.get_absolute_url }}">{{ object }}</a></th></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endblock %}
+
+      <div class="pagination pagination-centered">
+        <ul>
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">&laquo;</a></li>  
+          {% else %}
+            <li class="disabled"><a href="#">&laquo;</a></li>
+          {% endif %}
+
+          {% for page_num in paginator.page_range %}
+              <li{% if page_num == page_obj.number %} class="active"{% endif %}>
+                <a href="?page={{ page_num}}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">{{ page_num }}</a></li>            
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><a href="#">&raquo;</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    {% else %}
+      <p><em>{% trans 'No item.' %}</em></p>
+    {% endif %}
+{% endblock %}

@@ -1,35 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from django import forms
-from django.forms.models import modelform_factory
-
-from xavier.views import ModelView
-
-from .models import Student, Teacher, Employee
+from xavier import views
+from accounts import models
 
 
-class AccountView(ModelView):
-    base_template = 'accounts/base.html'
-    paginate_by = 20
+# Students
+student_list = views.ListView.as_view(model=models.Student)
+student_detail = views.DetailView.as_view(model=models.Student)
+student_create = views.CreateView.as_view(model=models.Student)
+student_update = views.UpdateView.as_view(model=models.Student)
+student_delete = views.DeleteView.as_view(model=models.Student)
 
-    def get_query_set(self, request, *args, **kwargs):
-        # Filter items only from current school
-        qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
-        return qs.filter(school=self.get_current_school(request))
+# Employees
+employee_list = views.ListView.as_view(model=models.Employee)
+employee_detail = views.DetailView.as_view(model=models.Employee)
+employee_create = views.CreateView.as_view(model=models.Employee)
+employee_update = views.UpdateView.as_view(model=models.Employee)
+employee_delete = views.DeleteView.as_view(model=models.Employee)
 
-    def get_form(self, request, instance=None, change=None, **kwargs):
-        # Overriding just to exclude school field
-        formfield_callback = self.get_formfield_callback(request)
-        kwargs.setdefault('formfield_callback', formfield_callback)
-        kwargs.setdefault('form', self.form_class or forms.ModelForm)
-        return modelform_factory(self.model, exclude=('school',), **kwargs)
-
-    def save_model(self, request, instance, form, change):
-        if not change:
-            instance.school = self.get_current_school(request)
-        instance.save()
-
-
-students_views = AccountView(Student)
-teachers_views = AccountView(Teacher)
-employees_views = AccountView(Employee)
+# Teachers
+teacher_list = views.ListView.as_view(model=models.Teacher)
+teacher_detail = views.DetailView.as_view(model=models.Teacher)
+teacher_create = views.CreateView.as_view(model=models.Teacher)
+teacher_update = views.UpdateView.as_view(model=models.Teacher)
+teacher_delete = views.DeleteView.as_view(model=models.Teacher)

@@ -4,9 +4,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
 
-from periods.models import Period
 from accounts.models import Student, Teacher
+from periods.models import Period
 from subjects.models import Subject
+from schools.managers import CurrentSchoolManager
 
 
 class Grade(models.Model):
@@ -23,12 +24,18 @@ class Grade(models.Model):
 
 
 class Class(models.Model):
-    identification = models.CharField(_(u'identification'), max_length=20,
-                                      blank=True)
+    identification = models.CharField(
+        _(u'identification'),
+        max_length=20,
+        blank=True
+    )
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
     students = models.ManyToManyField(Student, verbose_name=_(u'students'))
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
+
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='period__school')
 
     class Meta:
         unique_together = ('identification', 'period', 'grade')
@@ -43,12 +50,19 @@ class Class(models.Model):
         self.slug = slugify(unicode(self))
         super(Class, self).save(*args, **kwargs)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('class-detail', None, {'pk': self.pk})
+
 
 class ClassSubject(models.Model):
     classroom = models.ForeignKey(Class, verbose_name=_(u'classroom'))
     subject = models.ForeignKey(Subject, verbose_name=_(u'subject'))
     teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
+
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='classroom__period__school')
 
     class Meta:
         # TODO It should be class, subject and teacher

@@ -4,34 +4,7 @@ from django.utils.text import slugify
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-
-SCHOOL_CACHE = {}
-
-
-class SchoolManager(models.Manager):
-
-    def get_current(self, request):
-        """
-        Returns the current ``School`` based on the ``request.get_host()``.
-        The ``School`` object is cached the first time it's retrieved from
-        the database.
-
-        """
-        hostname = request.get_host().split(':')[0]
-        try:
-            current_school = SCHOOL_CACHE[hostname]
-        except KeyError:
-            try:
-                current_school = self.get(hostname=hostname)
-            except School.DoesNotExist:
-                current_school = self.get(pk=1)
-            SCHOOL_CACHE[hostname] = current_school
-        return current_school
-
-    def clear_cache(self):
-        """Clears the ``School`` object cache."""
-        global SITE_CACHE
-        SITE_CACHE = {}
+from schools import managers
 
 
 class School(models.Model):
@@ -40,7 +13,7 @@ class School(models.Model):
     hostname = models.CharField(_('host name'), max_length=128, unique=True)
     slug = models.SlugField(max_length=50, null=True)
 
-    objects = SchoolManager()
+    objects = managers.SchoolManager()
 
     class Meta:
         verbose_name = _(u'school')

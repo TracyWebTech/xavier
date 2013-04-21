@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from accounts.models import Student
+from schools.managers import CurrentSchoolManager
 
 
 class AttendanceBook(models.Model):
@@ -15,6 +16,9 @@ class AttendanceBook(models.Model):
         verbose_name=_('students')
     )
 
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='classroom__period__school')
+
     class Meta:
         unique_together = ('classroom', 'day')
         verbose_name = _('attendance book')
@@ -25,14 +29,14 @@ class AttendanceBook(models.Model):
 
     def get_student_explanation(self, student):
         try:
-            attendance = self.attendance_set.get(student=student)
+            attendance = self.attendances.get(student=student)
         except Attendance.DoesNotExist:
             return ''
         return attendance.explanation
 
     def get_student_status(self, student):
         try:
-            attendance = self.attendance_set.get(student=student)
+            attendance = self.attendances.get(student=student)
         except Attendance.DoesNotExist:
             return Attendance.ABSENT
         return attendance.status
@@ -68,8 +72,14 @@ class Attendance(models.Model):
 
     attendance_book = models.ForeignKey(
         'attendances.AttendanceBook',
-        verbose_name=_('attendance book'))
-    student = models.ForeignKey('accounts.Student', verbose_name=_('student'))
+        verbose_name=_('attendance book'),
+        related_name='attendances',
+    )
+    student = models.ForeignKey(
+        'accounts.Student',
+        verbose_name=_('student'),
+        related_name='attendances',
+    )
     status = models.CharField(
         _('status'),
         max_length=8,
@@ -77,6 +87,11 @@ class Attendance(models.Model):
         default='present',
     )
     explanation = models.TextField(_('notes'), blank=True)
+
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(
+        school_field='attendance_book__classroom__period__school'
+    )
 
     class Meta:
         unique_together = ('attendance_book', 'student')

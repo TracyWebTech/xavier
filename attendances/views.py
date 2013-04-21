@@ -2,128 +2,116 @@
 
 from datetime import date
 
-from django import forms
 from django import http
 from django.core.exceptions import ObjectDoesNotExist
-from django.forms.models import modelform_factory
-from django.shortcuts import get_object_or_404
-from django.utils.text import capfirst
+from django.views.generic import View
+from django.shortcuts import get_object_or_404, render_to_response
+from django.template import RequestContext
 from django.utils.translation import ugettext
 
-
+from xavier import views
 from accounts.models import Student
+from attendances import models
 from classes.models import Class
-from xavier.views import ModelView
-
-from .models import Attendance, AttendanceBook
 
 
-class AttendanceBookView(ModelView):
+def get_attendance_book(classroom, day):
+    if not isinstance(day, date):
+        year, month, month_day = day.split('-')
+        day = date(int(year), int(month), int(month_day))
+    if not isinstance(classroom, Class):
+        classroom = Class.objects.get(pk=classroom)
+    attendance_book, _ = models.AttendanceBook.objects.get_or_create(
+        classroom=classroom,
+        day=day,
+    )
+    return attendance_book
+
+
+class AttendanceBookList(views.ListView):
     base_template = 'attendances/base.html'
-    paginate_by = 20
+    model = models.AttendanceBook
 
-    def get_class_rooms(self, request):
-        return Class.objects.filter(
-            period__school=self.get_current_school(request)
-        )
+    def get_classroom_list(self):
+        return Class.on_school.all()
 
-    def get_attendance_book(self, classroom, day):
-        if not isinstance(day, date):
-            year, month, month_day = day.split('-')
-            day = date(int(year), int(month), int(month_day))
-        if not isinstance(classroom, Class):
-            classroom = Class.objects.get(pk=classroom)
-        attendance_book, _ = AttendanceBook.objects.get_or_create(
-            classroom=classroom,
-            day=day,
-        )
-        return attendance_book
+    def get_context_data(self, **kwargs):
+        context = super(AttendanceBookList, self).get_context_data(**kwargs)
+        context.update({
+            'classroom_list': self.get_classroom_list(),
+        })
+        return context
 
-    def get_query_set(self, request, *args, **kwargs):
-        # Filter items only from current school
-        qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
-        current_school = self.get_current_school(request)
-        return qs.filter(classroom__period__school=current_school)
 
-    def additional_urls(self):
-        return [
-            (r'^take-attendance/(?P<classroom>\d+)/$', self.take_attendance),
-            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/change-status/$', self.ajax_student_change_status),
-            (r'^take-attendance/(?P<classroom>\d+)/(?P<student>\d+)/set-explanation/$', self.ajax_student_set_explanation),
-        ]
+class TakeAttendance(View):
 
-    def take_attendance(self, request, classroom):
-        if not self.adding_allowed(request):
-            return self.response_adding_denied(request)
-
+    def get(self, request, classroom):
         classroom = get_object_or_404(Class, pk=classroom)
         day = request.GET.get('day', date.today())
-        attendance_book = self.get_attendance_book(classroom, day)
+        attendance_book = get_attendance_book(classroom, day)
         context = {
             'title': ugettext('Attendances'),
             'subtitle': unicode(classroom),
             'classroom': classroom,
             'attendance_book': attendance_book
         }
-
-        return self.render(
-            request,
-            template='attendances/take_attendance.html',
-            context=self.get_context(request, context)
+        return render_to_response(
+            template_name='attendances/take_attendance.html',
+            dictionary=context,
+            context_instance=RequestContext(request)
         )
 
-    def ajax_student_change_status(self, request, classroom, student):
-        if request.is_ajax():
-            try:
-                student = Student.objects.get(pk=student)
-                day = request.GET.get('day', date.today())
-                status = request.GET.get('status')
-                attendance_book = self.get_attendance_book(classroom, day)
-            except ValueError:
-                return http.HttpResponse(status=400)
-            except ObjectDoesNotExist:
-                return http.HttpResponse(status=400)
-            attendance, created = Attendance.objects.get_or_create(
-                attendance_book=attendance_book,
-                student=student,
-                defaults={'status': status}
-            )
-            if not created:
-                attendance.status = status
-                attendance.save()
-            return http.HttpResponse(status=200)
-        return http.HttpResponse(status=400)
 
-    def ajax_student_set_explanation(self, request, classroom, student):
-        if request.is_ajax():
-            try:
-                student = Student.objects.get(pk=student)
-                day = request.GET.get('day', date.today())
-                explanation = request.GET.get('explanation', '')
-                attendance_book = self.get_attendance_book(classroom, day)
-            except ValueError:
-                return http.HttpResponse(status=400)
-            except ObjectDoesNotExist:
-                return http.HttpResponse(status=400)
-            attendance, created = Attendance.objects.get_or_create(
-                attendance_book=attendance_book,
-                student=student,
-                defaults={'status': 'absent', 'explanation': explanation}
-            )
-            if not created:
-                attendance.explanation = explanation
-                attendance.save()
-            return http.HttpResponse(status=200)
-        return http.HttpResponse(status=400)
+def ajax_attendance_change_status(request, classroom, student):
+    if request.is_ajax():
+        try:
+            student = Student.objects.get(pk=student)
+            day = request.GET.get('day', date.today())
+            status = request.GET.get('status')
+            attendance_book = get_attendance_book(classroom, day)
+        except ValueError:
+            return http.HttpResponse(status=400)
+        except ObjectDoesNotExist:
+            return http.HttpResponse(status=400)
+        attendance, created = models.Attendance.objects.get_or_create(
+            attendance_book=attendance_book,
+            student=student,
+            defaults={'status': status}
+        )
+        if not created:
+            attendance.status = status
+            attendance.save()
+        return http.HttpResponse(status=200)
+    return http.HttpResponse(status=400)
 
-    def list_view(self, request, *args, **kwargs):
-        context = dict(classes=self.get_class_rooms(request))
-        # TODO XXX: 2013 needs to be a dynamic period instead of
-        #   hardcoded
-        context.update({
-            'title': ugettext('Attendances'),
-            'subtitle': u'{} 2013'.format(ugettext('Classes'), ),
-        })
-        return self.render_list(request, context)
 
-attendancebook_views = AttendanceBookView(AttendanceBook)
+def ajax_attendance_set_explanation(request, classroom, student):
+    if request.is_ajax():
+        try:
+            student = Student.objects.get(pk=student)
+            day = request.GET.get('day', date.today())
+            explanation = request.GET.get('explanation', '')
+            attendance_book = get_attendance_book(classroom, day)
+        except ValueError:
+            return http.HttpResponse(status=400)
+        except ObjectDoesNotExist:
+            return http.HttpResponse(status=400)
+        attendance, created = models.Attendance.objects.get_or_create(
+            attendance_book=attendance_book,
+            student=student,
+            defaults={'status': 'absent', 'explanation': explanation}
+        )
+        if not created:
+            attendance.explanation = explanation
+            attendance.save()
+        return http.HttpResponse(status=200)
+    return http.HttpResponse(status=400)
+
+
+attendancebook_list = AttendanceBookList.as_view()
+attendancebook_detail = views.DetailView.as_view(model=models.AttendanceBook)
+attendancebook_create = views.CreateView.as_view(model=models.AttendanceBook)
+attendancebook_update = views.UpdateView.as_view(model=models.AttendanceBook)
+attendancebook_delete = views.DeleteView.as_view(model=models.AttendanceBook)
+
+takeattendance = TakeAttendance.as_view()

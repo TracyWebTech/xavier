@@ -1,32 +1,37 @@
 # -*- coding: utf-8 -*-
 
-from django import forms
-from django.forms.models import modelform_factory
+from django.core.urlresolvers import reverse_lazy
 
-from xavier.views import ModelView
+from xavier import views
+from periods import models
+from schools.models import School
 
-from .models import Period
 
+class PeriodMixin(object):
+    model = models.Period
 
-class PeriodView(ModelView):
+class PeriodList(PeriodMixin, views.ListView):
     paginate_by = 20
 
-    def get_query_set(self, request, *args, **kwargs):
-        # Filter items only from current school
-        qs = super(ModelView, self).get_query_set(request, *args, **kwargs)
-        return qs.filter(school=self.get_current_school(request))
 
-    def get_form(self, request, instance=None, change=None, **kwargs):
-        # Overriding just to exclude school field
-        formfield_callback = self.get_formfield_callback(request)
-        kwargs.setdefault('formfield_callback', formfield_callback)
-        kwargs.setdefault('form', self.form_class or forms.ModelForm)
-        return modelform_factory(self.model, exclude=('school',), **kwargs)
-
-    def save_model(self, request, instance, form, change):
-        if not change:
-            instance.school = self.get_current_school(request)
-        instance.save()
+class PeriodDetail(PeriodMixin, views.DetailView):
+    pass
 
 
-period_views = PeriodView(Period)
+class PeriodCreate(PeriodMixin, views.CreateView):
+    pass
+
+
+class PeriodUpdate(PeriodMixin, views.UpdateView):
+    pass
+
+
+class PeriodDelete(PeriodMixin, views.DeleteView):
+    success_url = reverse_lazy('period-list')
+
+
+period_list = PeriodList.as_view()
+period_detail = PeriodDetail.as_view()
+period_create = PeriodCreate.as_view()
+period_update = PeriodUpdate.as_view()
+period_delete = PeriodDelete.as_view()

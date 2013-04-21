@@ -17,15 +17,15 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 <i class="icon-user"></i> {% trans 'Accounts' %} <b class="caret"></b></a>
 <ul class="dropdown-menu">
-<li><a href="{% url 'accounts_student_list' %}">{% trans 'Students' %}</a></li>
-<li><a href="{% url 'accounts_teacher_list' %}">{% trans 'Teachers' %}</a></li>
-<li><a href="{% url 'accounts_employee_list' %}">{% trans 'Employees' %}</a></li>
+<li><a href="{#% url 'accounts_student_list' %#}">{% trans 'Students' %}</a></li>
+<li><a href="{#% url 'accounts_teacher_list' %#}">{% trans 'Teachers' %}</a></li>
+<li><a href="{#% url 'accounts_employee_list' %#}">{% trans 'Employees' %}</a></li>
 </ul>
 </li>
-<li><a href="{% url 'periods_period_list' %}"><i class="icon-calendar"></i> {% trans 'Periods' %}</a></li>
-<li><a href="{% url 'classes_class_list' %}"><i class="icon-th-large"></i> {% trans 'Classes' %}</a></li>
+<li><a href="{#% url 'periods_period_list' %#}"><i class="icon-calendar"></i> {% trans 'Periods' %}</a></li>
+<li><a href="{#% url 'classes_class_list' %#}"><i class="icon-th-large"></i> {% trans 'Classes' %}</a></li>
 -->
-        <li><a href="{% url 'attendances_attendancebook_list' %}"><i class="icon-user"></i> {% trans 'Attendance books' %}</a></li>
+        <li><a href="{#% url 'attendances_attendancebook_list' %#}"><i class="icon-user"></i> {% trans 'Attendance books' %}</a></li>
         <li><a href="{% url 'classes_list' %}"><i class="icon-list-alt"></i> {% trans 'Scores' %}</a>
         </li>
       </ul>

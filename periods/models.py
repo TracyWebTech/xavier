@@ -11,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from calendars.models import Calendar
 from schools.models import School
+from schools.managers import CurrentSchoolManager
 
 
 class Period(models.Model):
@@ -18,6 +19,9 @@ class Period(models.Model):
     year = models.PositiveSmallIntegerField(verbose_name=_(u'year'))
     school = models.ForeignKey(School, verbose_name=_(u'school'))
     slug = models.SlugField(max_length=50, null=True, unique=True)
+
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         unique_together = ('name', 'year', 'school')
