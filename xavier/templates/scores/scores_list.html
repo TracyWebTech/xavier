@@ -35,6 +35,8 @@
                 request.done(function ( data ) {
                     $scores_student.find('input.average').val(data);
                 });
+                request.fail(function ( data ) {
+                });
             });
         });
     </script>
