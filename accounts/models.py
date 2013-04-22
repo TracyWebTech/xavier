@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import Group
-from django.contrib.auth.models import PermissionManager
+from django.contrib.auth.models import UserManager
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -28,7 +28,7 @@ class User(AbstractUser):
     )
     school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
 
-    objects = models.Manager()
+    objects = UserManager()
     on_school = CurrentSchoolManager()
 
     class Meta:
@@ -88,7 +88,7 @@ class Employee(User):
         null=True, blank=True,
     )
 
-    objects = models.Manager()
+    objects = UserManager()
     on_school = CurrentSchoolManager()
 
     class Meta:
@@ -103,7 +103,7 @@ class Employee(User):
 class Teacher(Employee):
     subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
 
-    objects = models.Manager()
+    objects = UserManager()
     on_school = CurrentSchoolManager()
 
     class Meta:
