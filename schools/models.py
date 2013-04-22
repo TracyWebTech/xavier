@@ -25,7 +25,3 @@ class School(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self.short_name))
         super(School, self).save(*args, **kwargs)
-
-        # Refresh cache to ``School.objects.get_current()`` return a
-        # updated School object
-        self.objects.clear_cache()
