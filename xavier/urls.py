@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+from xavier.api import v1_api
 from xavier.views import HomePageView
 
 
@@ -13,6 +14,7 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
+    url(r'^api/', include(v1_api.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^classes/', include('classes.urls')),
