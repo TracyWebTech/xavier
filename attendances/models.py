@@ -83,6 +83,11 @@ class Attendance(models.Model):
     )
     explanation = models.TextField(_('notes'), blank=True)
 
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(
+        school_field='attendance_book__classroom__period__school'
+    )
+
     class Meta:
         unique_together = ('attendance_book', 'student')
         verbose_name = _('attendance')
