@@ -29,14 +29,14 @@ class AttendanceBook(models.Model):
 
     def get_student_explanation(self, student):
         try:
-            attendance = self.attendance_set.get(student=student)
+            attendance = self.attendances.get(student=student)
         except Attendance.DoesNotExist:
             return ''
         return attendance.explanation
 
     def get_student_status(self, student):
         try:
-            attendance = self.attendance_set.get(student=student)
+            attendance = self.attendances.get(student=student)
         except Attendance.DoesNotExist:
             return Attendance.ABSENT
         return attendance.status
@@ -72,9 +72,14 @@ class Attendance(models.Model):
 
     attendance_book = models.ForeignKey(
         'attendances.AttendanceBook',
-        verbose_name=_('attendance book')
+        verbose_name=_('attendance book'),
+        related_name='attendances',
     )
-    student = models.ForeignKey('accounts.Student', verbose_name=_('student'))
+    student = models.ForeignKey(
+        'accounts.Student',
+        verbose_name=_('student'),
+        related_name='attendances',
+    )
     status = models.CharField(
         _('status'),
         max_length=8,
