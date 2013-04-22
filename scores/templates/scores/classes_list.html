@@ -1,13 +1,20 @@
 {% extends "classes/base.html" %}
+
+{% block breadcrumb %}{{ block.super }}
+<li class="active">{% trans 'Scores' %}</li>
+{% endblock%}
+
 {% block thumbnail_url %}name="subjects" title="{% trans "Click to choose a subject" %}" class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#" id="dLabel" role="button"{% endblock %}
-{% block class_pk %}
+{% block extra_out_p %}
+    <span class="caret"></span>
     <input type="hidden" value="{{ class.pk }}" class="class_pk" />
 {% endblock %}
+
 {% block dropdown %}
     <div class="dropdown">
         <ul class="dropdown-menu span3 list_subjects" role="menu" ariaLabelledby="dLabel">
             {% for class_subject in class.classsubject_set.all %}
-                <li class="subject"><a href="{% url 'scores_list' class.period.year class_subject.subject.slug class.slug %}">{{ class_subject.subject }}</a></li>
+                <li class="subject"><a href="{% url 'scores_list' class.period.year class_subject.subject.slug class.slug %}">{{ class_subject.subject }}</a>{%if not forloop.last %}<hr />{% endif %}</li>
             {% endfor %}
         </ul>
     </div>

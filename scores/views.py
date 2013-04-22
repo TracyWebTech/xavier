@@ -62,17 +62,18 @@ def scores_list(request, year, subject_slug, class_slug):
                 student_scores['scores'][criteria.pk] = ''
         students_list.append(student_scores)
 
-    title = u'{0} - {1}, {2}'.format(
+    subtitle = u'{0} - {1}, {2}'.format(
         class_subject.classroom.grade,
         class_subject.classroom.identification,
-        subperiod.name
+        class_subject.classroom.period.name
     )
-    subtitle = u'{0} {1} - {2}'.format(ugettext(u'Teacher'),
+    teacher_subject = u'{0} {1} - {2}'.format(ugettext(u'Teacher'),
             class_subject.teacher,
             class_subject.subject.name)
     return render(request, 'scores/scores_list.html', {'year': year,
-        'title': title,
+        'title': ugettext(u'Scores'),
         'subtitle': subtitle,
+        'teacher_subject': teacher_subject,
         'students_list': students_list,
         'criterias': criterias,
         'subperiod_pk': subperiod.pk,
