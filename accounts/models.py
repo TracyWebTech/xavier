@@ -28,7 +28,8 @@ class User(AbstractUser):
     )
     school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
 
-    objects = CurrentSchoolManager()
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'user')
@@ -41,7 +42,8 @@ class User(AbstractUser):
 class Student(User):
     code = models.IntegerField(_(u'code'), unique=True)
 
-    objects = CurrentSchoolManager()
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'student')
@@ -86,7 +88,8 @@ class Employee(User):
         null=True, blank=True,
     )
 
-    objects = CurrentSchoolManager()
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'employee')
@@ -100,7 +103,8 @@ class Employee(User):
 class Teacher(Employee):
     subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
 
-    objects = CurrentSchoolManager()
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         verbose_name = _(u'teacher')

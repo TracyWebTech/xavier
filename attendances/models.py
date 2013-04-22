@@ -16,7 +16,8 @@ class AttendanceBook(models.Model):
         verbose_name=_('students')
     )
 
-    objects = CurrentSchoolManager(school_field='classroom__period__school')
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='classroom__period__school')
 
     class Meta:
         unique_together = ('classroom', 'day')

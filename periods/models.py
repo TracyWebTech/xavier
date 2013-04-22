@@ -20,7 +20,8 @@ class Period(models.Model):
     school = models.ForeignKey(School, verbose_name=_(u'school'))
     slug = models.SlugField(max_length=50, null=True, unique=True)
 
-    objects = CurrentSchoolManager()
+    objects = models.Manager()
+    on_school = CurrentSchoolManager()
 
     class Meta:
         unique_together = ('name', 'year', 'school')

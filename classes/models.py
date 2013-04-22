@@ -34,7 +34,8 @@ class Class(models.Model):
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
-    objects = CurrentSchoolManager(school_field='period__school')
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='period__school')
 
     class Meta:
         unique_together = ('identification', 'period', 'grade')
@@ -60,7 +61,8 @@ class ClassSubject(models.Model):
     teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
-    objects = CurrentSchoolManager(school_field='classroom__period__school')
+    objects = models.Manager()
+    on_school = CurrentSchoolManager(school_field='classroom__period__school')
 
     class Meta:
         # TODO It should be class, subject and teacher
