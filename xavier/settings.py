@@ -150,6 +150,7 @@ INSTALLED_APPS = (
     'classes',
     'scores',
     'attendances',
+    'reportcard',
     'calendars',
     'timetables',
     'xavier',

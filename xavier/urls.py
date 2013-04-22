@@ -19,5 +19,6 @@ urlpatterns = patterns('',
     url(r'^periods/', include('periods.urls')),
     url(r'^scores/', include('scores.urls')),
     url(r'^attendances/', include('attendances.urls')),
+    url(r'^report-card/', include('reportcard.urls')),
     url(r'^$', HomePageView.as_view(), name='homepage'),
 )
