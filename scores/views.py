@@ -20,7 +20,7 @@ def classes_list(request):
     })
 
 
-def scores_list(request, year, subject_slug, class_slug):
+def scores_list(request, subject_slug, class_slug):
     class_subject = get_object_or_404(ClassSubject,
                                       classroom__slug=class_slug,
                                       subject__slug=subject_slug)
@@ -70,7 +70,7 @@ def scores_list(request, year, subject_slug, class_slug):
     teacher_subject = u'{0} {1} - {2}'.format(ugettext(u'Teacher'),
             class_subject.teacher,
             class_subject.subject.name)
-    return render(request, 'scores/scores_list.html', {'year': year,
+    return render(request, 'scores/scores_list.html', {'year': '2013',
         'title': ugettext(u'Scores'),
         'subtitle': subtitle,
         'teacher_subject': teacher_subject,
