@@ -20,7 +20,7 @@ def get_attendance_book(classroom, day):
         year, month, month_day = day.split('-')
         day = date(int(year), int(month), int(month_day))
     if not isinstance(classroom, Class):
-        classroom = Class.objects.get(pk=classroom)
+        classroom = Class.objects.get(slug=classroom)
     attendance_book, _ = models.AttendanceBook.objects.get_or_create(
         classroom=classroom,
         day=day,
@@ -57,13 +57,13 @@ class ClassAttendances(generic.TemplateView):
         return context
 
 
-def ajax_attendance_change_status(request, classroom, student):
+def ajax_attendance_change_status(request, classroom_slug, student):
     if request.is_ajax():
         try:
             student = Student.objects.get(pk=student)
             day = request.GET.get('day', date.today())
             status = request.GET.get('status')
-            attendance_book = get_attendance_book(classroom, day)
+            attendance_book = get_attendance_book(classroom_slug, day)
         except ValueError:
             return http.HttpResponse(status=400)
         except exceptions.ObjectDoesNotExist:
@@ -80,13 +80,13 @@ def ajax_attendance_change_status(request, classroom, student):
     return http.HttpResponse(status=400)
 
 
-def ajax_attendance_set_explanation(request, classroom, student):
+def ajax_attendance_set_explanation(request, classroom_slug, student):
     if request.is_ajax():
         try:
             student = Student.objects.get(pk=student)
             day = request.GET.get('day', date.today())
             explanation = request.GET.get('explanation', '')
-            attendance_book = get_attendance_book(classroom, day)
+            attendance_book = get_attendance_book(classroom_slug, day)
         except ValueError:
             return http.HttpResponse(status=400)
         except exceptions.ObjectDoesNotExist:
