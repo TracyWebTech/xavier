@@ -1,5 +1,7 @@
 {% extends "classes/class_listing.html" %}
 
+{% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
+
 {% block breadcrumb %}{{ block.super }}
 <li class="active">{% trans 'Scores' %}</li>
 {% endblock%}
