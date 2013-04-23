@@ -1,7 +1,13 @@
 {% extends "classes/class_listing.html" %}
 {% load attendances_tags %}
 
-{% block thumbnail_url %} href="{% url "takeattendance" class.pk %}"{% endblock %}
+{% block thumbnail_url %} href="{% url "attendances-class" class.pk %}"{% endblock %}
+
+{% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+  <li class="active">{{ title }}</li>
+{% endblock %}
 
 {% block listing %}
     {% with class|absent_students as abs_students %}
