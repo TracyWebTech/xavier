@@ -45,7 +45,7 @@ class ClassAttendances(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ClassAttendances, self).get_context_data(**kwargs)
-        classroom = get_object_or_404(Class, pk=kwargs['classroom'])
+        classroom = get_object_or_404(Class, slug=kwargs['classroom_slug'])
         day = self.request.GET.get('day', date.today())
         attendance_book = get_attendance_book(classroom, day)
         context.update({

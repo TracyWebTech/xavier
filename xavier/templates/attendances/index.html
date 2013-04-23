@@ -1,7 +1,7 @@
 {% extends "classes/class_listing.html" %}
 {% load attendances_tags %}
 
-{% block thumbnail_url %} href="{% url "attendances-class" class.pk %}"{% endblock %}
+{% block thumbnail_url %} href="{% url "attendances-class" class.slug %}"{% endblock %}
 
 {% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
 
