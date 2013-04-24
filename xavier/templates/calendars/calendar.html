@@ -7,12 +7,45 @@
 {% block extrahead %}
 <style type="text/css" media="screen">
   .calendar th, .calendar td { text-align: center }
-  .calendar .today { border:2px solid #555 }
-  .calendar .noday { background-color: #f4f4f4 }
+  .calendar .day { padding:0 }
+  .calendar .day a { padding:8px; display:block; }
+  .calendar .day a:hover {
+    padding:7px;
+    border:1px solid #0088cc;
+    text-decoration:none
+  }
+  .calendar .today a { font-weight: bold; }
+  .calendar .break a { background-color: #fcf8e3; }
+  .calendar .weekend { background-color: #f6f6f6 }
+
+  .calendar .popover { width: 210px }
+  .calendar .popover button, .calendar .popover textarea { width: 100% }
+  .calendar .popover-title { font-weight: bold; text-align: center; }
 </style>
 
 <script type="text/javascript">
-  
+  function toggleBreak(day) {
+    var data = "day=" + day;
+    $.ajax({
+      url: "toggle-break/",
+      method: "GET",
+      data: data,
+      cache: false,
+      success: function () {
+        $('.day-' + day).toggleClass('break');
+        $('.day a').popover('hide');
+      },
+    });
+    return false;
+  }
+
+  function togglePopOver() {
+    $(this).popover('toggle');
+  }
+
+  $(document).ready(function () {
+    $('.day a').popover({placement:'top', html:true});
+  })
 </script>
 {% endblock %}
 
@@ -42,13 +75,21 @@
             <th>{% trans 'Sat' %}</th>
           </tr>
           {% for week in month %}
-          <tr>
+          <tr class="week">
             {% for day in week %}
-              {% if day %}
-                <td {% if day == today %}class="today"{% endif %}>{{ day.day }}</td>
-              {% else %}
-                <td class="noday"></td>
-              {% endif %}
+              <td class="day day-{{ day|date:'Y-m-d' }}
+                         {% if forloop.first or forloop.last %}weekend{% endif %}
+                         {% if day == today %}today{% endif %}
+                         {% if day|is_break %}break{% endif %}">
+                <a data-title="{{ day }}" data-content="
+                     <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
+                       {% trans 'Toggle Break' %}</button>
+                     <div class='clearfix'></div>
+                   "
+                   href="javascript:togglePopOver()">
+                  {{ day.day }}
+                </a>
+              </td>
             </td>
             {% endfor %}
           </tr>
