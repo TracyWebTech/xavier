@@ -10,6 +10,10 @@
   .calendar .today { border:2px solid #555 }
   .calendar .noday { background-color: #f4f4f4 }
 </style>
+
+<script type="text/javascript">
+  
+</script>
 {% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
@@ -41,7 +45,7 @@
           <tr>
             {% for day in week %}
               {% if day %}
-                <td>{{ day }}</td>
+                <td {% if day == today %}class="today"{% endif %}>{{ day.day }}</td>
               {% else %}
                 <td class="noday"></td>
               {% endif %}
