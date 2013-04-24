@@ -81,14 +81,18 @@
                          {% if forloop.first or forloop.last %}weekend{% endif %}
                          {% if day == today %}today{% endif %}
                          {% if day|is_break %}break{% endif %}">
-                <a data-title="{{ day }}" data-content="
-                     <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
-                       {% trans 'Toggle Break' %}</button>
-                     <div class='clearfix'></div>
-                   "
-                   href="javascript:togglePopOver()">
-                  {{ day.day }}
-                </a>
+                {% with week|last as last_day %}
+                  {% if forloop.parentloop.first and day.month != last_day.month %}
+                    <a class="muted">{{ day.day }}</a>
+                  {% elif forloop.parentloop.last and day.month == last_day.month %}         
+                    <a class="muted">{{ day.day }}</a>
+                  {% else %}
+                    <a href="javascript:togglePopOver()" data-title="{{ day }}" data-content="
+                         <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
+                           {% trans 'Toggle Break' %}</button>
+                         <div class='clearfix'></div>">{{ day.day }}</a>
+                  {% endif %}
+                {% endwith %}
               </td>
             </td>
             {% endfor %}
