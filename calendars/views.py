@@ -2,6 +2,8 @@ import calendar
 
 from datetime import date
 
+from django import http
+from django.core import exceptions
 from django.views import generic
 from django.utils.translation import ugettext
 
@@ -20,3 +22,25 @@ class Calendar(generic.TemplateView):
             'today': date.today()
         })
         return context
+
+
+def ajax_toggle_break(request):
+    if request.is_ajax():
+        try:
+            year, month, month_day = request.GET.get('day').split('-')
+            day = date(int(year), int(month), int(month_day))
+            calendar = models.Calendar.objects.all()[0]  # TODO
+        except ValueError:
+            return http.HttpResponse(status=400)
+        except AttributeError:
+            return http.HttpResponse(status=400)
+        except exceptions.ObjectDoesNotExist:
+            return http.HttpResponse(status=400)
+        break_, created = models.Break.objects.get_or_create(
+            calendar=calendar,
+            day=day,
+        )
+        if not created:
+            break_.delete()
+        return http.HttpResponse(status=200)
+    return http.HttpResponse(status=400)
