@@ -1,5 +1,11 @@
+import calendar
+
+from datetime import date
+
 from django.views import generic
 from django.utils.translation import ugettext
+
+from calendars import models
 
 
 class Calendar(generic.TemplateView):
@@ -9,5 +15,8 @@ class Calendar(generic.TemplateView):
         context = super(Calendar, self).get_context_data(**kwargs)
         context.update({
             'title': ugettext('Calendar'),
+            'subtitle': '2013',
+            'calendar': calendar.Calendar(calendar.SUNDAY).yeardayscalendar(2013, 2),
+            'today': date.today()
         })
         return context

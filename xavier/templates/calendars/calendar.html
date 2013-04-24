@@ -1,7 +1,57 @@
 {% extends "base.html" %}
 
+{% load calendars_tags %}
+
 {% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
+
+{% block extrahead %}
+<style type="text/css" media="screen">
+  .calendar th, .calendar td { text-align: center }
+  .calendar .today { border:2px solid #555 }
+  .calendar .noday { background-color: #f4f4f4 }
+</style>
+{% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
   <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block main %}
+
+<div class="calendar">
+    {% for bimester in calendar %}
+    <div class="row">
+      {% for month in bimester %}
+        <table class="table table-bordered span6">
+          <tr>
+            <th colspan="7">
+              {% get_month_name forloop.parentloop.counter0 forloop.counter %}
+            </th>
+          </tr>
+          <tr>
+            <th>{% trans 'Sun' %}</th>
+            <th>{% trans 'Mon' %}</th>
+            <th>{% trans 'Tue' %}</th>
+            <th>{% trans 'Wed' %}</th>
+            <th>{% trans 'Thu' %}</th>
+            <th>{% trans 'Fri' %}</th>
+            <th>{% trans 'Sat' %}</th>
+          </tr>
+          {% for week in month %}
+          <tr>
+            {% for day in week %}
+              {% if day %}
+                <td>{{ day }}</td>
+              {% else %}
+                <td class="noday"></td>
+              {% endif %}
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      {% endfor %}
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
