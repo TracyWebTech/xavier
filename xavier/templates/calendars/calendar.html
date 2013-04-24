@@ -5,24 +5,6 @@
 {% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
 
 {% block extrahead %}
-<style type="text/css" media="screen">
-  .calendar th, .calendar td { text-align: center }
-  .calendar .day { padding:0 }
-  .calendar .day a, .calendar .day span { padding:8px; display:block; }
-  .calendar .day a:hover {
-    padding:7px;
-    border:1px solid #0088cc;
-    text-decoration:none
-  }
-  .calendar .today a { font-weight: bold; }
-  .calendar .break a { background-color: #fcf8e3; }
-  .calendar .weekend { background-color: #f6f6f6 }
-
-  .calendar .popover { width: 210px }
-  .calendar .popover button, .calendar .popover textarea { width: 100% }
-  .calendar .popover-title { font-weight: bold; text-align: center; }
-</style>
-
 <script type="text/javascript">
   function toggleBreak(day) {
     var data = "day=" + day;
