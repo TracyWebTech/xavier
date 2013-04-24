@@ -16,7 +16,7 @@ class Calendar(generic.TemplateView):
         context.update({
             'title': ugettext('Calendar'),
             'subtitle': '2013',
-            'calendar': calendar.Calendar(calendar.SUNDAY).yeardayscalendar(2013, 2),
+            'calendar': calendar.Calendar(calendar.SUNDAY).yeardatescalendar(2013, 2),
             'today': date.today()
         })
         return context
