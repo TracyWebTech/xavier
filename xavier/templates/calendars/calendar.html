@@ -15,18 +15,20 @@
       cache: false,
       success: function () {
         $('.day-' + day).toggleClass('break');
-        $('.day a').popover('hide');
+        $('.day-' + day + ' a').popover('hide');
       },
     });
     return false;
   }
 
-  function togglePopOver() {
-    $(this).popover('toggle');
-  }
-
   $(document).ready(function () {
-    $('.day a').popover({placement:'top', html:true});
+    var activePopOver = null;
+    $('.day a').popover({placement:'top', html:true, trigger:'manual'}).click(function(el){
+      if (activePopOver && $(activePopOver)[0] != $(this)[0])
+        $(activePopOver).popover('hide');
+      $(this).popover('toggle');
+      activePopOver = $(this);
+    });
   })
 </script>
 {% endblock %}
@@ -69,7 +71,7 @@
                   {% elif forloop.parentloop.last and day.month != week.0.month %}         
                     <span class="muted">{{ day.day }}</span>
                   {% else %}
-                    <a href="javascript:togglePopOver()" data-title="{{ day }}" data-content="
+                    <a href="#" data-title="{{ day }}" data-content="
                          <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
                            {% trans 'Toggle Break' %}</button>
                          <div class='clearfix'></div>">{{ day.day }}</a>
