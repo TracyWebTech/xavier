@@ -128,3 +128,12 @@ p#formula {
 input:invalid {
     border: 1px solid #ff0000;
 }
+
+span.timetable {
+    display: inline-block;
+    float: none;
+}
+
+input.times {
+    width: 140px;
+}

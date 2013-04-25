@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block main %}
+    <ul class="thumbnails" id="timetable_list">
+        <li class="span3">
+            <a class="thumbnail" href="{% url 'add_timetable' %}">
+                <div>
+                    <div class="caption clearfix">
+                        <h4>{% trans 'Add timetable' %}</h4>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {% for timetable in timetables %}
+            {% if timetable.slug %}
+                <li class="span3">
+                    <a class="thumbnail" href="{% if timetable.slug %}{% url 'edit_timetable' timetable.slug %}{% endif %}">
+                    <div>
+                        <div class="caption clearfix">
+                            <h4>{{ timetable }}</h4>
+                        </div>
+                    </div>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

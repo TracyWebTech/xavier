@@ -20,5 +20,6 @@ urlpatterns = patterns('',
     url(r'^scores/', include('scores.urls')),
     url(r'^attendances/', include('attendances.urls')),
     url(r'^report-card/', include('reportcard.urls')),
+    url(r'^timetables/', include('timetables.urls')),
     url(r'^$', HomePageView.as_view(), name='homepage'),
 )
