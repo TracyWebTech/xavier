@@ -100,7 +100,7 @@ li.subject hr {
 #class-list .caret {
   float: right;
   position: relative;
-  margin-top: -35px;
+  margin-top: 25px;
 }
 
 h2#header {
