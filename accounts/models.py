@@ -34,6 +34,7 @@ class User(AbstractUser):
     class Meta:
         verbose_name = _(u'user')
         verbose_name_plural = _(u'users')
+        ordering = ['first_name', 'last_name']
 
     def __unicode__(self):
         return self.username
