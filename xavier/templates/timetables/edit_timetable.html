@@ -22,6 +22,8 @@
 
 {% block heading %}{{ title }}{% endblock %}
 {% block main %}
+<label>{% trans 'name'|capfirst %}</label><input type="text" id="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}" value="{{ timetable.name }}"></input>
+    <br />
     <a href="#" id="add_new_line"><i class="icon-plus-sign"></i></a>
     <ul class="unstyled" id="timetable_list">
         <li>

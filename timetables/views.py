@@ -24,7 +24,7 @@ class AddTimetable(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(AddTimetable, self).get_context_data(**kwargs)
-        # context['title'] =
+        context['title'] = ugettext('Timetables')
         return context
 
 
@@ -33,10 +33,11 @@ class EditTimetable(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EditTimetable, self).get_context_data(**kwargs)
-        timetable = Timetable.objects.get(slug=context['timetable_slug'])
-        context['times'] = Time.objects.filter(timetable=timetable)
+        timetable_slug = context['timetable_slug']
+        context['timetable'] = Timetable.objects.get(slug=timetable_slug)
+        context['subtitle'] = context['timetable'].name
+        context['times'] = Time.objects.filter(timetable=context['timetable'])
         context['title'] = ugettext('Timetables')
-        context['subtitle'] = timetable.name
         return context
 
 
