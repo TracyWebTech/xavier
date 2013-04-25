@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 12:23-0300\n"
+"POT-Creation-Date: 2013-04-25 16:04-0300\n"
 "PO-Revision-Date: 2013-04-15 17:49-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,57 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:15
+#: models.py:16
 msgid "students"
 msgstr "alunos"
 
-#: models.py:20 models.py:71
+#: models.py:24 models.py:75
 msgid "attendance book"
 msgstr "presença"
 
-#: models.py:21
+#: models.py:25
 msgid "attendance books"
 msgstr "presenças"
 
-#: models.py:64
+#: models.py:68
 msgid "Present"
 msgstr ""
 
-#: models.py:65
+#: models.py:69
 msgid "Present but late"
 msgstr ""
 
-#: models.py:66
+#: models.py:70
 msgid "Absent"
 msgstr ""
 
-#: models.py:72
+#: models.py:80
 msgid "student"
 msgstr "aluno"
 
-#: models.py:74
+#: models.py:84
 msgid "status"
 msgstr ""
 
-#: models.py:79
+#: models.py:89
 msgid "notes"
 msgstr ""
 
-#: models.py:83
+#: models.py:98
 msgid "attendance"
 msgstr "presença"
 
-#: models.py:84
+#: models.py:99
 msgid "attendances"
 msgstr "presenças"
 
-#: views.py:63 views.py:124
+#: views.py:37 views.py:52
 msgid "Attendances"
 msgstr "Presenças"
 
-#: views.py:125
-msgid "Classes"
-msgstr "Turmas"
+#~ msgid "Classes"
+#~ msgstr "Turmas"
 
 #~ msgid "is late?"
 #~ msgstr "está atrasado?"

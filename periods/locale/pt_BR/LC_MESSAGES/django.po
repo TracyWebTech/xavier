@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 12:23-0300\n"
+"POT-Creation-Date: 2013-04-25 16:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -16,42 +16,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:17 models.py:40
+#: models.py:18 models.py:44
 msgid "name"
 msgstr "nome"
 
-#: models.py:18
+#: models.py:19
 msgid "year"
 msgstr "ano"
 
-#: models.py:19
+#: models.py:20
 msgid "school"
 msgstr "escola"
 
-#: models.py:24 models.py:43
+#: models.py:28 models.py:47
 msgid "period"
 msgstr "período"
 
-#: models.py:25
+#: models.py:29
 msgid "periods"
 msgstr "períodos"
 
-#: models.py:41
+#: models.py:45
 msgid "start"
 msgstr "início"
 
-#: models.py:42
+#: models.py:46
 msgid "end"
 msgstr "término"
 
-#: models.py:48
+#: models.py:52
 msgid "subperiod"
 msgstr "subperíodo"
 
-#: models.py:49
+#: models.py:53
 msgid "subperiods"
 msgstr "subperíodos"
 
-#: models.py:59
+#: models.py:63
 msgid "Invalid subperiod."
 msgstr "Subperíodo inválido."

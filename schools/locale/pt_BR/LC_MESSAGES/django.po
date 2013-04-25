@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 12:23-0300\n"
+"POT-Creation-Date: 2013-04-25 16:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:38
+#: models.py:11
 msgid "name"
 msgstr "nome"
 
-#: models.py:39
+#: models.py:12
 msgid "short name"
 msgstr "nome abreviado"
 
-#: models.py:40
+#: models.py:13
 #, fuzzy
 msgid "host name"
 msgstr "nome"
 
-#: models.py:46
+#: models.py:19
 msgid "school"
 msgstr "escola"
 
-#: models.py:47
+#: models.py:20
 msgid "schools"
 msgstr "escolas"

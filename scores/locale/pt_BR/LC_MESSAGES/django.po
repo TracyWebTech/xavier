@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xavier\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 12:23-0300\n"
+"POT-Creation-Date: 2013-04-25 16:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luan Pablo <luan@tracy.com.br>\n"
 "Language-Team: Portuguese (Brasil) <contato@tracy.com.br>\n"
@@ -60,7 +60,7 @@ msgstr "notas"
 msgid "Student not in the class of given criteria"
 msgstr "Aluno não pertence a turma do critério escolhido"
 
-#: views.py:18 templates/scores/scores_list.html:39
+#: views.py:18 views.py:75
 msgid "Scores"
 msgstr "Notas"
 
@@ -68,25 +68,21 @@ msgstr "Notas"
 msgid "Classes"
 msgstr "Turmas"
 
-#: views.py:70
+#: views.py:71
 msgid "Teacher"
 msgstr "Professor(a)"
 
-#: templates/scores/classes_list.html:2
-msgid "Click to choose a subject"
-msgstr "Clique para escolher uma matéria"
+#~ msgid "Click to choose a subject"
+#~ msgstr "Clique para escolher uma matéria"
 
-#: templates/scores/scores_list.html:45
-msgid "Final grade formula"
-msgstr "Fórmula da nota final"
+#~ msgid "Final grade formula"
+#~ msgstr "Fórmula da nota final"
 
-#: templates/scores/scores_list.html:49
-msgid "Student"
-msgstr "Aluno"
+#~ msgid "Student"
+#~ msgstr "Aluno"
 
-#: templates/scores/scores_list.html:53
-msgid "Final grade"
-msgstr "Nota final"
+#~ msgid "Final grade"
+#~ msgstr "Nota final"
 
 #~ msgid "students"
 #~ msgstr "alunos"

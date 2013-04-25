@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-25 14:27-0300\n"
+"POT-Creation-Date: 2013-04-25 16:04-0300\n"
 "PO-Revision-Date: 2013-04-25 14:56-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,7 +173,7 @@ msgstr "cancelar"
 
 #: templates/generic/object_detail.html:23
 #: templates/generic/object_form.html:18 templates/generic/object_form.html:21
-#: templates/timetables/edit_timetable.html:20
+#: templates/timetables/edit_timetable.html:21
 msgid "edit"
 msgstr "editar"
 
@@ -238,8 +238,8 @@ msgid "Logout"
 msgstr "Sair"
 
 #: templates/periods/period_list.html:9
-#: templates/timetables/add_timetable.html:24
-#: templates/timetables/edit_timetable.html:25
+#: templates/timetables/add_timetable.html:26
+#: templates/timetables/edit_timetable.html:26
 msgid "name"
 msgstr "nome"
 
@@ -287,34 +287,34 @@ msgid "Final grade"
 msgstr "Grade final"
 
 #: templates/timetables/add_timetable.html:5
-#: templates/timetables/add_timetable.html:29
-#: templates/timetables/add_timetable.html:34
+#: templates/timetables/add_timetable.html:31
+#: templates/timetables/add_timetable.html:36
 #: templates/timetables/edit_timetable.html:5
-#: templates/timetables/edit_timetable.html:30
-#: templates/timetables/edit_timetable.html:36
+#: templates/timetables/edit_timetable.html:31
+#: templates/timetables/edit_timetable.html:37
 msgid "Start"
 msgstr "Início"
 
 #: templates/timetables/add_timetable.html:6
-#: templates/timetables/add_timetable.html:30
-#: templates/timetables/add_timetable.html:37
+#: templates/timetables/add_timetable.html:32
+#: templates/timetables/add_timetable.html:39
 #: templates/timetables/edit_timetable.html:6
-#: templates/timetables/edit_timetable.html:31
-#: templates/timetables/edit_timetable.html:39
+#: templates/timetables/edit_timetable.html:32
+#: templates/timetables/edit_timetable.html:40
 msgid "End"
 msgstr "Fim"
 
-#: templates/timetables/add_timetable.html:16
-#: templates/timetables/edit_timetable.html:17
+#: templates/timetables/add_timetable.html:17
+#: templates/timetables/edit_timetable.html:18
 msgid "timetables"
 msgstr "grade de horários"
 
-#: templates/timetables/add_timetable.html:19
+#: templates/timetables/add_timetable.html:20
 msgid "add"
 msgstr "adicionar"
 
-#: templates/timetables/add_timetable.html:24
-#: templates/timetables/edit_timetable.html:25
+#: templates/timetables/add_timetable.html:26
+#: templates/timetables/edit_timetable.html:26
 msgid "timetable name"
 msgstr "nome da grade de horários"
 
