@@ -1,0 +1,4863 @@
+[
+{
+  "pk": 1, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "admin", 
+    "first_name": "", 
+    "last_name": "", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": null, 
+    "birthday": "2010-01-01", 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2013-04-25T15:30:05.293Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$10000$dG7NDN88WYf4$8a7GH51U3EYtjkq4ICPNFZMaLHCTBbqaRVyyO+2qDe0=", 
+    "email": "admin@admin.com", 
+    "date_joined": "2013-04-15T17:39:50.819Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ChristineNailKim\n", 
+    "first_name": "Christine", 
+    "last_name": "Nail Kim\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.390Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.392Z"
+  }
+},
+{
+  "pk": 3, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CesarHenriqueDaCruzMartins\n", 
+    "first_name": "Cesar", 
+    "last_name": "Henrique Da Cruz Martins\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.481Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.481Z"
+  }
+},
+{
+  "pk": 4, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PedroFreitasSilveira\n", 
+    "first_name": "Pedro", 
+    "last_name": "Freitas Silveira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.583Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.583Z"
+  }
+},
+{
+  "pk": 5, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LuizEduardoMartinsDeFreitas\n", 
+    "first_name": "Luiz", 
+    "last_name": "Eduardo Martins De Freitas\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.689Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.689Z"
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VanderAntonioDeLara\n", 
+    "first_name": "Vander", 
+    "last_name": "Antonio De Lara\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.781Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.781Z"
+  }
+},
+{
+  "pk": 7, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GabrielaMantovani\n", 
+    "first_name": "Gabriela", 
+    "last_name": "Mantovani\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.879Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.879Z"
+  }
+},
+{
+  "pk": 8, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "KarinaDaSilvaPereira\n", 
+    "first_name": "Karina", 
+    "last_name": "Da Silva Pereira\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:33.976Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:33.976Z"
+  }
+},
+{
+  "pk": 9, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PaulaMachadoOliveira\n", 
+    "first_name": "Paula", 
+    "last_name": "Machado Oliveira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.139Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.139Z"
+  }
+},
+{
+  "pk": 10, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "IgorQuintalMendes\n", 
+    "first_name": "Igor", 
+    "last_name": "Quintal Mendes\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.235Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.236Z"
+  }
+},
+{
+  "pk": 11, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RodrigoJaquetoNomura\n", 
+    "first_name": "Rodrigo", 
+    "last_name": "Jaqueto Nomura\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.335Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.335Z"
+  }
+},
+{
+  "pk": 12, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ThaisDeSouzaSilva\n", 
+    "first_name": "Thais", 
+    "last_name": "De Souza Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.494Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.494Z"
+  }
+},
+{
+  "pk": 13, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RebeccaRodriguesNossig\n", 
+    "first_name": "Rebecca", 
+    "last_name": "Rodrigues Nossig\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.588Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.588Z"
+  }
+},
+{
+  "pk": 14, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PatriciaEikoKawamura\n", 
+    "first_name": "Patricia", 
+    "last_name": "Eiko Kawamura\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.687Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.687Z"
+  }
+},
+{
+  "pk": 15, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RenanColettiPerego\n", 
+    "first_name": "Renan", 
+    "last_name": "Coletti Perego\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.780Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.780Z"
+  }
+},
+{
+  "pk": 16, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "OlavoDeJesusNeto\n", 
+    "first_name": "Olavo", 
+    "last_name": "De Jesus Neto\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.879Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.879Z"
+  }
+},
+{
+  "pk": 17, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "IlaneCavalcanteLobatoAlvesDaSi", 
+    "first_name": "Ilane", 
+    "last_name": "Cavalcante Lobato Alves Da Silva\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:34.976Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:34.976Z"
+  }
+},
+{
+  "pk": 18, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LauroMichielinNeto\n", 
+    "first_name": "Lauro", 
+    "last_name": "Michielin Neto\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.075Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.075Z"
+  }
+},
+{
+  "pk": 19, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasPortilhoMiguel\n", 
+    "first_name": "Lucas", 
+    "last_name": "Portilho Miguel\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.175Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.176Z"
+  }
+},
+{
+  "pk": 20, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VictorPacettiPajaroGrande\n", 
+    "first_name": "Victor", 
+    "last_name": "Pacetti Pajaro Grande\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.276Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.277Z"
+  }
+},
+{
+  "pk": 21, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PedroRochaPereira\n", 
+    "first_name": "Pedro", 
+    "last_name": "Rocha Pereira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.376Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.376Z"
+  }
+},
+{
+  "pk": 22, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DanielyPaulinoGomesDeFigueired", 
+    "first_name": "Daniely", 
+    "last_name": "Paulino Gomes De Figueiredo\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.472Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.472Z"
+  }
+},
+{
+  "pk": 23, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VitorInforzatoGuermandi\n", 
+    "first_name": "Vitor", 
+    "last_name": "Inforzato Guermandi\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.571Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.571Z"
+  }
+},
+{
+  "pk": 24, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "EduardoDeAlmeidaPlentzDaSilva\n", 
+    "first_name": "Eduardo", 
+    "last_name": "De Almeida Plentz Da Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.664Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.665Z"
+  }
+},
+{
+  "pk": 25, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AngelinaRodriguesTazoi\n", 
+    "first_name": "Angelina", 
+    "last_name": "Rodrigues Tazoi\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.759Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.759Z"
+  }
+},
+{
+  "pk": 26, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GiseleBarresCosta\n", 
+    "first_name": "Gisele", 
+    "last_name": "Barres Costa\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.859Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.859Z"
+  }
+},
+{
+  "pk": 27, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BeatrizBarioniBonifacio\n", 
+    "first_name": "Beatriz", 
+    "last_name": "Barioni Bonifacio\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:35.951Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:35.951Z"
+  }
+},
+{
+  "pk": 28, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RicardoKenjiSannomiya\n", 
+    "first_name": "Ricardo", 
+    "last_name": "Kenji Sannomiya\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.058Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.058Z"
+  }
+},
+{
+  "pk": 29, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LuizAlexandreDeMacedoSoaresAbd", 
+    "first_name": "Luiz", 
+    "last_name": "Alexandre De Macedo Soares Abdalla\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.159Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.159Z"
+  }
+},
+{
+  "pk": 30, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MatheusSilvaKamimura\n", 
+    "first_name": "Matheus", 
+    "last_name": "Silva Kamimura\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.266Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.266Z"
+  }
+},
+{
+  "pk": 31, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "IsabellaAlvesPiola\n", 
+    "first_name": "Isabella", 
+    "last_name": "Alves Piola\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.365Z", 
+    "groups": [
+      2, 
+      3
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.365Z"
+  }
+},
+{
+  "pk": 32, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DayaneBezerraLima\n", 
+    "first_name": "Dayane", 
+    "last_name": "Bezerra Lima\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.467Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.468Z"
+  }
+},
+{
+  "pk": 33, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "FelipeAntonioMorenoBerni\n", 
+    "first_name": "Felipe", 
+    "last_name": "Antonio Moreno Berni\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.545Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.545Z"
+  }
+},
+{
+  "pk": 34, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JaineDaSilvaPeixe\n", 
+    "first_name": "Jaine", 
+    "last_name": "Da Silva Peixe\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.619Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.619Z"
+  }
+},
+{
+  "pk": 35, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "NatashaFulcherberguerSantos\n", 
+    "first_name": "Natasha", 
+    "last_name": "Fulcherberguer Santos\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.702Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.702Z"
+  }
+},
+{
+  "pk": 36, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "WilsonFrancaDeOliveiraNeto\n", 
+    "first_name": "Wilson", 
+    "last_name": "Franca De Oliveira Neto\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.778Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.778Z"
+  }
+},
+{
+  "pk": 37, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JoaoGabrielPaulinoMazzon\n", 
+    "first_name": "Joao", 
+    "last_name": "Gabriel Paulino Mazzon\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.880Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.881Z"
+  }
+},
+{
+  "pk": 38, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DiegoOkuma\n", 
+    "first_name": "Diego", 
+    "last_name": "Okuma\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:36.955Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:36.956Z"
+  }
+},
+{
+  "pk": 39, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ThomasBlaauwBarbosa\n", 
+    "first_name": "Thomas", 
+    "last_name": "Blaauw Barbosa\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.034Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.034Z"
+  }
+},
+{
+  "pk": 40, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AlanaPistoni\n", 
+    "first_name": "Alana", 
+    "last_name": "Pistoni\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.112Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.112Z"
+  }
+},
+{
+  "pk": 41, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MariliaFilipaki\n", 
+    "first_name": "Marilia", 
+    "last_name": "Filipaki\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.194Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.194Z"
+  }
+},
+{
+  "pk": 42, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SofiaPignoliDeCastro\n", 
+    "first_name": "Sofia", 
+    "last_name": "Pignoli De Castro\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.270Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.271Z"
+  }
+},
+{
+  "pk": 43, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasDeOliveiraLyra\n", 
+    "first_name": "Lucas", 
+    "last_name": "De Oliveira Lyra\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.348Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.348Z"
+  }
+},
+{
+  "pk": 44, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SergioLuisAlcardeJunior\n", 
+    "first_name": "Sergio", 
+    "last_name": "Luis Alcarde Junior\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.425Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.425Z"
+  }
+},
+{
+  "pk": 45, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AnaCarolinaMarinhoSilva\n", 
+    "first_name": "Ana", 
+    "last_name": "Carolina Marinho Silva\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.546Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.546Z"
+  }
+},
+{
+  "pk": 46, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AdrianaPassosBueno\n", 
+    "first_name": "Adriana", 
+    "last_name": "Passos Bueno\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.620Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.620Z"
+  }
+},
+{
+  "pk": 47, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasEduardoPortoDeToledo\n", 
+    "first_name": "Lucas", 
+    "last_name": "Eduardo Porto De Toledo\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.704Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.704Z"
+  }
+},
+{
+  "pk": 48, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PriscillaBuenoHoraParodi\n", 
+    "first_name": "Priscilla", 
+    "last_name": "Bueno Hora Parodi\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.777Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.777Z"
+  }
+},
+{
+  "pk": 49, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GabrielPeixotoVieira\n", 
+    "first_name": "Gabriel", 
+    "last_name": "Peixoto Vieira\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.858Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.858Z"
+  }
+},
+{
+  "pk": 50, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MarceloAkikazuLoungAshizawa\n", 
+    "first_name": "Marcelo", 
+    "last_name": "Akikazu Loung Ashizawa\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:37.928Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:37.929Z"
+  }
+},
+{
+  "pk": 51, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RaquelKhouriDosSantos\n", 
+    "first_name": "Raquel", 
+    "last_name": "Khouri Dos Santos\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.003Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.003Z"
+  }
+},
+{
+  "pk": 52, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasMeloHergesel\n", 
+    "first_name": "Lucas", 
+    "last_name": "Melo Hergesel\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.080Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.080Z"
+  }
+},
+{
+  "pk": 53, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MauricioEinstossDeCastroBarbos", 
+    "first_name": "Mauricio", 
+    "last_name": "Einstoss De Castro Barbosa\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.152Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.152Z"
+  }
+},
+{
+  "pk": 54, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "WesleyWolak\n", 
+    "first_name": "Wesley", 
+    "last_name": "Wolak\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.384Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.384Z"
+  }
+},
+{
+  "pk": 55, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LeonardoRodriguesDeCastro\n", 
+    "first_name": "Leonardo", 
+    "last_name": "Rodrigues De Castro\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.459Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.459Z"
+  }
+},
+{
+  "pk": 56, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JuliaDaSilvaMafud\n", 
+    "first_name": "Julia", 
+    "last_name": "Da Silva Mafud\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.539Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.540Z"
+  }
+},
+{
+  "pk": 57, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasBigliassiAlponti\n", 
+    "first_name": "Lucas", 
+    "last_name": "Bigliassi Alponti\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.610Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.610Z"
+  }
+},
+{
+  "pk": 58, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "NataliaSahyounCamargo\n", 
+    "first_name": "Natalia", 
+    "last_name": "Sahyoun Camargo\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.687Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.687Z"
+  }
+},
+{
+  "pk": 59, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "EdivaldoPassariniAlonsoJunior\n", 
+    "first_name": "Edivaldo", 
+    "last_name": "Passarini Alonso Junior\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.767Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.767Z"
+  }
+},
+{
+  "pk": 60, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GuilhermeMonteiroBonillia\n", 
+    "first_name": "Guilherme", 
+    "last_name": "Monteiro Bonillia\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.845Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.845Z"
+  }
+},
+{
+  "pk": 61, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JessikaCristinaChagas\n", 
+    "first_name": "Jessika", 
+    "last_name": "Cristina Chagas\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:38.922Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:38.922Z"
+  }
+},
+{
+  "pk": 62, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RenatoSeijiGoto\n", 
+    "first_name": "Renato", 
+    "last_name": "Seiji Goto\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.001Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.001Z"
+  }
+},
+{
+  "pk": 63, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SauloAndradePereiraFilho\n", 
+    "first_name": "Saulo", 
+    "last_name": "Andrade Pereira Filho\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.080Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.080Z"
+  }
+},
+{
+  "pk": 64, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CarolinePavoniCerantola\n", 
+    "first_name": "Caroline", 
+    "last_name": "Pavoni Cerantola\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.159Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.159Z"
+  }
+},
+{
+  "pk": 65, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ArthurDalMoroParo\n", 
+    "first_name": "Arthur", 
+    "last_name": "Dal Moro Paro\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.241Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.241Z"
+  }
+},
+{
+  "pk": 66, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MarcosThomasOlmedillaVinhoteCo", 
+    "first_name": "Marcos", 
+    "last_name": "Thomas Olmedilla Vinhote Costa\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.323Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.323Z"
+  }
+},
+{
+  "pk": 67, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CamilaFioriPereira\n", 
+    "first_name": "Camila", 
+    "last_name": "Fiori Pereira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.404Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.404Z"
+  }
+},
+{
+  "pk": 68, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LorenaAlvesMendes\n", 
+    "first_name": "Lorena", 
+    "last_name": "Alves Mendes\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.482Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.482Z"
+  }
+},
+{
+  "pk": 69, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DanieleMihoTakara\n", 
+    "first_name": "Daniele", 
+    "last_name": "Miho Takara\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.559Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.559Z"
+  }
+},
+{
+  "pk": 70, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "KarolineRodriguesKurosaki\n", 
+    "first_name": "Karoline", 
+    "last_name": "Rodrigues Kurosaki\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.750Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.750Z"
+  }
+},
+{
+  "pk": 71, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MarceloNunesDaSilva\n", 
+    "first_name": "Marcelo", 
+    "last_name": "Nunes Da Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.832Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.832Z"
+  }
+},
+{
+  "pk": 72, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "FernandaTiemiMakiyama\n", 
+    "first_name": "Fernanda", 
+    "last_name": "Tiemi Makiyama\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.909Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.909Z"
+  }
+},
+{
+  "pk": 73, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BrunaFernandesDeSouza\n", 
+    "first_name": "Bruna", 
+    "last_name": "Fernandes De Souza\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:39.987Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:39.988Z"
+  }
+},
+{
+  "pk": 74, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LauraNerySilva\n", 
+    "first_name": "Laura", 
+    "last_name": "Nery Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.068Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.068Z"
+  }
+},
+{
+  "pk": 75, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AlexBrandonGrifoni\n", 
+    "first_name": "Alex", 
+    "last_name": "Brandon Grifoni\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.147Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.147Z"
+  }
+},
+{
+  "pk": 76, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MarioFranzagoMarcoccia\n", 
+    "first_name": "Mario", 
+    "last_name": "Franzago Marcoccia\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.228Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.228Z"
+  }
+},
+{
+  "pk": 77, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LiliamSayuriVitorioKomori\n", 
+    "first_name": "Liliam", 
+    "last_name": "Sayuri Vitorio Komori\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.302Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.302Z"
+  }
+},
+{
+  "pk": 78, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AmandaMoraisMatiasSilva\n", 
+    "first_name": "Amanda", 
+    "last_name": "Morais Matias Silva\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.381Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.382Z"
+  }
+},
+{
+  "pk": 79, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "FrancisleineAlvesTiburcio\n", 
+    "first_name": "Francisleine", 
+    "last_name": "Alves Tiburcio\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.459Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.459Z"
+  }
+},
+{
+  "pk": 80, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LuisaDeCarvalhoMesel\n", 
+    "first_name": "Luisa", 
+    "last_name": "De Carvalho Mesel\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.538Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.538Z"
+  }
+},
+{
+  "pk": 81, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "IsabelaPizzarroRebessi\n", 
+    "first_name": "Isabela", 
+    "last_name": "Pizzarro Rebessi\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.620Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.620Z"
+  }
+},
+{
+  "pk": 82, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "YasminAngstGoncalves\n", 
+    "first_name": "Yasmin", 
+    "last_name": "Angst Goncalves\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.698Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.698Z"
+  }
+},
+{
+  "pk": 83, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GuilhermePastorelli\n", 
+    "first_name": "Guilherme", 
+    "last_name": "Pastorelli\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.780Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.781Z"
+  }
+},
+{
+  "pk": 84, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CarlosAugustoPintorDeArruda\n", 
+    "first_name": "Carlos", 
+    "last_name": "Augusto Pintor De Arruda\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.859Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.860Z"
+  }
+},
+{
+  "pk": 85, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BarbaraSouzaDeMedeirosNunes\n", 
+    "first_name": "Barbara", 
+    "last_name": "Souza De Medeiros Nunes\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:40.932Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:40.932Z"
+  }
+},
+{
+  "pk": 86, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MariaAliceDePaulaBeretta\n", 
+    "first_name": "Maria", 
+    "last_name": "Alice De Paula Beretta\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.010Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.010Z"
+  }
+},
+{
+  "pk": 87, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasMarrachMerotti\n", 
+    "first_name": "Lucas", 
+    "last_name": "Marrach Merotti\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.089Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.089Z"
+  }
+},
+{
+  "pk": 88, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CaioCesarTangerinoOlivares\n", 
+    "first_name": "Caio", 
+    "last_name": "Cesar Tangerino Olivares\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.169Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.169Z"
+  }
+},
+{
+  "pk": 89, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GuilhermePinn\n", 
+    "first_name": "Guilherme", 
+    "last_name": "Pinn\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.247Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.247Z"
+  }
+},
+{
+  "pk": 90, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GustavoAiresTiago\n", 
+    "first_name": "Gustavo", 
+    "last_name": "Aires Tiago\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.319Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.319Z"
+  }
+},
+{
+  "pk": 91, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MarryelleStefaniFlorido\n", 
+    "first_name": "Marryelle", 
+    "last_name": "Stefani Florido\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.397Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.397Z"
+  }
+},
+{
+  "pk": 92, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "EricGregoMaduro\n", 
+    "first_name": "Eric", 
+    "last_name": "Grego Maduro\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.475Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.475Z"
+  }
+},
+{
+  "pk": 93, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CarolinaBarbosaTovani\n", 
+    "first_name": "Carolina", 
+    "last_name": "Barbosa Tovani\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.551Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.551Z"
+  }
+},
+{
+  "pk": 94, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AlexiaAlmeidaRodrigues\n", 
+    "first_name": "Alexia", 
+    "last_name": "Almeida Rodrigues\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.639Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.640Z"
+  }
+},
+{
+  "pk": 95, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GlauberAraujoDaSilva\n", 
+    "first_name": "Glauber", 
+    "last_name": "Araujo Da Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.718Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.718Z"
+  }
+},
+{
+  "pk": 96, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ArthurLongoSimione\n", 
+    "first_name": "Arthur", 
+    "last_name": "Longo Simione\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.793Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.794Z"
+  }
+},
+{
+  "pk": 97, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JessicaCristinaGimenes\n", 
+    "first_name": "Jessica", 
+    "last_name": "Cristina Gimenes\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.870Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.870Z"
+  }
+},
+{
+  "pk": 98, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RenataBarbosaSimao\n", 
+    "first_name": "Renata", 
+    "last_name": "Barbosa Simao\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:41.940Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:41.940Z"
+  }
+},
+{
+  "pk": 99, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GiulianoAugustoFaulinBelinassi", 
+    "first_name": "Giuliano", 
+    "last_name": "Augusto Faulin Belinassi\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.018Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.018Z"
+  }
+},
+{
+  "pk": 100, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CarolinaHiga\n", 
+    "first_name": "Carolina", 
+    "last_name": "Higa\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.101Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.101Z"
+  }
+},
+{
+  "pk": 101, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AnaClaudiaRodriguesSanchez\n", 
+    "first_name": "Ana", 
+    "last_name": "Claudia Rodrigues Sanchez\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.178Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.178Z"
+  }
+},
+{
+  "pk": 102, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VitorSilvaDePaula\n", 
+    "first_name": "Vitor", 
+    "last_name": "Silva De Paula\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.249Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.249Z"
+  }
+},
+{
+  "pk": 103, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "TiagoCarlosDosSantos\n", 
+    "first_name": "Tiago", 
+    "last_name": "Carlos Dos Santos\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.327Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.327Z"
+  }
+},
+{
+  "pk": 104, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ElisaDionisioMilare\n", 
+    "first_name": "Elisa", 
+    "last_name": "Dionisio Milare\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.397Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.397Z"
+  }
+},
+{
+  "pk": 105, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BeatrizYukariKawakitaFranco\n", 
+    "first_name": "Beatriz", 
+    "last_name": "Yukari Kawakita Franco\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.477Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.477Z"
+  }
+},
+{
+  "pk": 106, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GabriellaCarrijoSouza\n", 
+    "first_name": "Gabriella", 
+    "last_name": "Carrijo Souza\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.556Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.556Z"
+  }
+},
+{
+  "pk": 107, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CarlosGabrielFernandesCunha\n", 
+    "first_name": "Carlos", 
+    "last_name": "Gabriel Fernandes Cunha\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.628Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.628Z"
+  }
+},
+{
+  "pk": 108, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LaraPetriniVictorino\n", 
+    "first_name": "Lara", 
+    "last_name": "Petrini Victorino\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.712Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.712Z"
+  }
+},
+{
+  "pk": 109, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "CamilaRamosDeAvila\n", 
+    "first_name": "Camila", 
+    "last_name": "Ramos De Avila\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.787Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.787Z"
+  }
+},
+{
+  "pk": 110, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DanielFerreiraDaSilva\n", 
+    "first_name": "Daniel", 
+    "last_name": "Ferreira Da Silva\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.860Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.860Z"
+  }
+},
+{
+  "pk": 111, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DanielJahchanDeAraujo\n", 
+    "first_name": "Daniel", 
+    "last_name": "Jahchan De Araujo\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:42.937Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:42.937Z"
+  }
+},
+{
+  "pk": 112, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GustavoDeOliveiraGasparini\n", 
+    "first_name": "Gustavo", 
+    "last_name": "De Oliveira Gasparini\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.012Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.012Z"
+  }
+},
+{
+  "pk": 113, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "HellenRodriguesSoga\n", 
+    "first_name": "Hellen", 
+    "last_name": "Rodrigues Soga\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.088Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.088Z"
+  }
+},
+{
+  "pk": 114, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "GustavoXavierMoreira\n", 
+    "first_name": "Gustavo", 
+    "last_name": "Xavier Moreira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.163Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.164Z"
+  }
+},
+{
+  "pk": 115, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BeatrizVillanova\n", 
+    "first_name": "Beatriz", 
+    "last_name": "Villanova\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.247Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.247Z"
+  }
+},
+{
+  "pk": 116, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SanieleNaianeBindandiLaureano\n", 
+    "first_name": "Saniele", 
+    "last_name": "Naiane Bindandi Laureano\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.319Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.319Z"
+  }
+},
+{
+  "pk": 117, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "AndreaCristinaNatanaelDaSilva\n", 
+    "first_name": "Andrea", 
+    "last_name": "Cristina Natanael Da Silva\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.397Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.397Z"
+  }
+},
+{
+  "pk": 118, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JulianaSoaresDaSilvaBurato\n", 
+    "first_name": "Juliana", 
+    "last_name": "Soares Da Silva Burato\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.469Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.470Z"
+  }
+},
+{
+  "pk": 119, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "MariaReginaReisMartins\n", 
+    "first_name": "Maria", 
+    "last_name": "Regina Reis Martins\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.547Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.547Z"
+  }
+},
+{
+  "pk": 120, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SalomaoAbdalaAraujo\n", 
+    "first_name": "Salomao", 
+    "last_name": "Abdala Araujo\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.625Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.626Z"
+  }
+},
+{
+  "pk": 121, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "SamaraCardoso\n", 
+    "first_name": "Samara", 
+    "last_name": "Cardoso\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.701Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.701Z"
+  }
+},
+{
+  "pk": 122, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VanessaZiemerRixHrdlicka\n", 
+    "first_name": "Vanessa", 
+    "last_name": "Ziemer Rix Hrdlicka\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.788Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.789Z"
+  }
+},
+{
+  "pk": 123, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LucasYuiitiOgawa\n", 
+    "first_name": "Lucas", 
+    "last_name": "Yuiiti Ogawa\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.859Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.859Z"
+  }
+},
+{
+  "pk": 124, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "LorenaBarbosaDolenc\n", 
+    "first_name": "Lorena", 
+    "last_name": "Barbosa Dolenc\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:43.938Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:43.938Z"
+  }
+},
+{
+  "pk": 125, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "JoaoVictorCarpinelliMacedo\n", 
+    "first_name": "Joao", 
+    "last_name": "Victor Carpinelli Macedo\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.013Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.015Z"
+  }
+},
+{
+  "pk": 126, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "VerenaMarinsDeCerqueira\n", 
+    "first_name": "Verena", 
+    "last_name": "Marins De Cerqueira\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.091Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.091Z"
+  }
+},
+{
+  "pk": 127, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "RayssaRobertaDeCarvalho\n", 
+    "first_name": "Rayssa", 
+    "last_name": "Roberta De Carvalho\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.166Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.167Z"
+  }
+},
+{
+  "pk": 128, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "ThomazFortunato\n", 
+    "first_name": "Thomaz", 
+    "last_name": "Fortunato\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.243Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.245Z"
+  }
+},
+{
+  "pk": 129, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "BarbaraGioloDeFreitas\n", 
+    "first_name": "Barbara", 
+    "last_name": "Giolo De Freitas\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.321Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.321Z"
+  }
+},
+{
+  "pk": 130, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "DanielDamascenoBernardo\n", 
+    "first_name": "Daniel", 
+    "last_name": "Damasceno Bernardo\n", 
+    "gender": "F", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.398Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.398Z"
+  }
+},
+{
+  "pk": 131, 
+  "model": "accounts.user", 
+  "fields": {
+    "username": "PamelaAdrianeToniMarques\n", 
+    "first_name": "Pamela", 
+    "last_name": "Adriane Toni Marques\n", 
+    "gender": "M", 
+    "is_active": true, 
+    "school": 1, 
+    "birthday": "1989-02-01", 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2013-04-25T15:19:44.478Z", 
+    "groups": [
+      1
+    ], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2013-04-25T15:19:44.478Z"
+  }
+},
+{
+  "pk": 46, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 14, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 40, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 8, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 75, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 43, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 94, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 62, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 78, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 46, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 45, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 13, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 101, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 69, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 117, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 85, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 65, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 33, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 96, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 64, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 129, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 97, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 85, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 53, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 115, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 83, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 105, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 73, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 73, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 41, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 88, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 56, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 67, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 35, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 109, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 77, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 84, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 52, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 107, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 75, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 93, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 61, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 100, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 68, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 64, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 32, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 130, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 98, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 110, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 78, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 111, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 79, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 69, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 37, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 32, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 0, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 38, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 6, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 59, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 27, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 104, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 72, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 92, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 60, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 33, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 1, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 72, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 40, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 79, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 47, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 49, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 17, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 106, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 74, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 99, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 67, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 95, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 63, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 60, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 28, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 83, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 51, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 89, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 57, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 90, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 58, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 112, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 80, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 114, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 82, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 113, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 81, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 81, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 49, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 34, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 2, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 97, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 65, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 61, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 29, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 37, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 5, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 125, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 93, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 56, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 24, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 118, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 86, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 70, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 38, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 108, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 76, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 74, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 42, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 55, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 23, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 77, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 45, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 68, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 36, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 124, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 92, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 57, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 25, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 43, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 11, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 47, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 15, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 87, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 55, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 52, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 20, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 123, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 91, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 80, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 48, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 50, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 18, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 71, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 39, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 66, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 34, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 86, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 54, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 119, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 87, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 41, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 9, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 76, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 44, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 91, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 59, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 53, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 21, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 58, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 26, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 35, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 3, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 131, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 99, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 48, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 16, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 51, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 19, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 127, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 95, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 98, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 66, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 62, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 30, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 120, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 88, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 121, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 89, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 116, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 84, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 63, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 31, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 44, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 12, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 42, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 10, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 39, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 7, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 128, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 96, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 103, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 71, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 122, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 90, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 126, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 94, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 102, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 70, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 54, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 22, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 36, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 4, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 82, 
+  "model": "accounts.student", 
+  "fields": {
+    "user_permissions": [], 
+    "code": 50, 
+    "groups": [
+      1
+    ]
+  }
+},
+{
+  "pk": 25, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 27, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 3, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 2, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 22, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 24, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 7, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 26, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 10, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 17, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 31, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 8, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 18, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 19, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 29, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 5, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 30, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 16, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 14, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 9, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 4, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 21, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 13, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 15, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 28, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 11, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 12, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 20, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 23, 
+  "model": "accounts.employee", 
+  "fields": {
+    "user_permissions": [], 
+    "groups": [
+      2, 
+      3
+    ], 
+    "degree": null
+  }
+},
+{
+  "pk": 25, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 27, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 3, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 22, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 24, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 7, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 26, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 10, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 17, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 31, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 8, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 18, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 19, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 29, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 5, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 30, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 16, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 14, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 9, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 4, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 21, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 13, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 15, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 28, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 11, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 12, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 6, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 20, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+},
+{
+  "pk": 23, 
+  "model": "accounts.teacher", 
+  "fields": {
+    "user_permissions": [], 
+    "subjects": [], 
+    "groups": [
+      2, 
+      3
+    ]
+  }
+}
+]
