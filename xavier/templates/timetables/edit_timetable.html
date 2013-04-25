@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <script type="text/javascript">
+        var START = "{% trans 'Start' %}";
+        var END = "{% trans 'End' %}";
+        var TIMETABLE_SLUG = "{{ timetable_slug }}";
+        var URL = "{% url 'update_times' %}";
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
+{% endblock %}
+
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li>
+        <a href="{% url 'school_timetables' %}">{% trans 'timetables'|capfirst %}</a>
+        <span class="divider">/</span>
+    </li>
+    <li class="active">{% trans 'edit'|capfirst %} {{ title }}</li>
+{% endblock %}
+
+{% block heading %}{{ title }}{% endblock %}
+{% block main %}
+    <a href="#" id="add_new_line"><i class="icon-plus-sign"></i></a>
+    <ul class="unstyled" id="timetable_list">
+        <li>
+            <span class="span2 timetable">{% trans 'Start' %}</span>
+            <span class="span2 timetable">{% trans 'End' %}</span>
+        </li>
+        {% for time in times %}
+        <li class="start_end" id="timeline-{{ time.pk }}">
+            <span class="span2 timetable">
+                <input type="time" value="{{ time.start }}" class="times timetable" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
+            </span>
+            <span class="span2 timetable">
+                <input type="time" value="{{ time.end }}" class="times timetable" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
