@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% load calendars_tags %}
+
+{% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
+
+{% block extrahead %}
+<script type="text/javascript">
+  function toggleBreak(day) {
+    var data = "day=" + day;
+    $.ajax({
+      url: "toggle-break/",
+      method: "GET",
+      data: data,
+      cache: false,
+      success: function () {
+        $('.day-' + day).toggleClass('break');
+        $('.day a').popover('hide');
+      },
+    });
+    return false;
+  }
+
+  function togglePopOver() {
+    $(this).popover('toggle');
+  }
+
+  $(document).ready(function () {
+    $('.day a').popover({placement:'top', html:true});
+  })
+</script>
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+  <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block main %}
+
+<div class="calendar">
+    {% for bimester in calendar %}
+    <div class="row">
+      {% for month in bimester %}
+        <table class="table table-bordered span6">
+          <tr>
+            <th colspan="7">
+              {% get_month_name forloop.parentloop.counter0 forloop.counter %}
+            </th>
+          </tr>
+          <tr>
+            <th>{% trans 'Sun' %}</th>
+            <th>{% trans 'Mon' %}</th>
+            <th>{% trans 'Tue' %}</th>
+            <th>{% trans 'Wed' %}</th>
+            <th>{% trans 'Thu' %}</th>
+            <th>{% trans 'Fri' %}</th>
+            <th>{% trans 'Sat' %}</th>
+          </tr>
+          {% for week in month %}
+          <tr class="week">
+            {% for day in week %}
+              <td class="day day-{{ day|date:'Y-m-d' }}
+                         {% if forloop.first or forloop.last %}weekend{% endif %}
+                         {% if day == today %}today{% endif %}
+                         {% if day|is_break %}break{% endif %}">
+                {% with week|last as last_day %}
+                  {% if forloop.parentloop.first and day.month != last_day.month %}
+                    <span class="muted">{{ day.day }}</span>
+                  {% elif forloop.parentloop.last and day.month == last_day.month %}         
+                    <span class="muted">{{ day.day }}</span>
+                  {% else %}
+                    <a href="javascript:togglePopOver()" data-title="{{ day }}" data-content="
+                         <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
+                           {% trans 'Toggle Break' %}</button>
+                         <div class='clearfix'></div>">{{ day.day }}</a>
+                  {% endif %}
+                {% endwith %}
+              </td>
+            </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

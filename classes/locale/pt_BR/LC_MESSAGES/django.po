@@ -46,11 +46,11 @@ msgstr "alunos"
 
 #: models.py:35
 msgid "class"
-msgstr "classe"
+msgstr "turma"
 
 #: models.py:36
 msgid "classes"
-msgstr "classes"
+msgstr "turmas"
 
 #: models.py:48
 msgid "classroom"
@@ -66,8 +66,8 @@ msgstr "professor"
 
 #: models.py:56
 msgid "class subject"
-msgstr "classe-matéria"
+msgstr "turma-matéria"
 
 #: models.py:57
 msgid "class subjects"
-msgstr "classe-matérias"
+msgstr "turma-matérias"

@@ -43,6 +43,8 @@
 
 {% endblock %}
 
+{% block title %}{{ subtitle }} - {{ current_school.name }}{% endblock %}
+
 {% block breadcrumb %}{{ block.super }}
     <li><a href="{% url 'classes_list' %}">{% trans 'Scores' %}</a> <span class="divider">/</span></li>
     <li class="active">{{ subtitle|capfirst }}</li>

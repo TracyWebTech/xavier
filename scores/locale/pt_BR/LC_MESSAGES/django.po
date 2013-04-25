@@ -26,7 +26,7 @@ msgstr "peso"
 
 #: models.py:16
 msgid "class subject"
-msgstr "classe-matéria"
+msgstr "turma-matéria"
 
 #: models.py:20
 msgid "evaluation criteria"
@@ -58,7 +58,7 @@ msgstr "notas"
 
 #: models.py:44
 msgid "Student not in the class of given criteria"
-msgstr "Aluno não pertence a classe do critério escolhido"
+msgstr "Aluno não pertence a turma do critério escolhido"
 
 #: views.py:18 templates/scores/scores_list.html:39
 msgid "Scores"

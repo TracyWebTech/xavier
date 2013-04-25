@@ -3,8 +3,7 @@
 import os
 import sys
 import glob
-
-from random import choice, shuffle
+import random
 
 from fabric.api import run, local
 from fabric.contrib import django
@@ -16,6 +15,7 @@ from django.core import management
 LOCAL_CWD_PATH = os.path.abspath(os.path.dirname(__file__))
 DJANGO_PROJECT_NAME = 'xavier'
 
+NAMES = []
 
 def ldjango_project(fn):
     def wrapper(*args, **kwargs):
@@ -29,16 +29,73 @@ def ldjango_project(fn):
     return wrapper
 
 
-def create_students():
+def populate_classes():
     from classes.models import Class, Period, Student
     students = list(Student.objects.all())
     classes = Class.objects.all()
 
     for classroom in classes:
-        shuffle(students)
+        random.shuffle(students)
         for i in range(20):
             classroom.students.add(students[i])
 
+
+def get_names():
+    global NAMES
+
+    if NAMES:
+        return NAMES
+
+    with file(os.path.join(LOCAL_CWD_PATH, 'fixtures', 'names.txt')) as f_names:
+        NAMES = f_names.readlines()
+
+    return NAMES
+
+
+def get_name():
+    names = get_names()
+    name = random.choice(NAMES)
+    names.remove(name)
+    return name
+
+
+def get_user_dict():
+    name = get_name()
+    username = name.replace(' ', '')[:30]
+    first_name, last_name = name.split(' ', 1)
+    return {
+        'username': username,
+        'first_name': first_name,
+        'last_name': last_name,
+    }
+
+
+def create_teachers():
+    from accounts.models import Teacher
+    names = get_names()
+    for i in range(0, 30):
+        user_dict = get_user_dict()
+        Teacher.objects.create(
+            birthday='1989-02-01',
+            gender=random.choice(['M', 'F']),
+            school_id=1,
+            **user_dict
+        )
+
+
+def create_students():
+    from accounts.models import Student
+    names = get_names()
+
+    for i in range(0, 100):
+        user_dict = get_user_dict()
+        Student.objects.create(
+            birthday='1989-02-01',
+            gender=random.choice(['M', 'F']),
+            school_id=1,
+            code=i,
+            **user_dict
+        )
 
 def create_class():
     from classes.models import Class, Period, Grade
@@ -69,7 +126,7 @@ def create_class_subject():
             ClassSubject.objects.create(
                 classroom=classroom,
                 subject=subject,
-                teacher=choice(teachers),
+                teacher=random.choice(teachers),
             )
 
 def create_eval_criteria():
@@ -108,16 +165,10 @@ def load_testdata():
     fixtures = sorted(glob.glob(os.path.join(fixt_path, '*.json')))
     management.call_command('loaddata', *fixtures)
 
-    while True:
-        try:
-            management.call_command('loadtestdata',
-                                'accounts.User:140', 'accounts.Employee:30',
-                                'accounts.Teacher:10', 'accounts.Student:100')
-        except IntegrityError: pass
-        else: break
-
-    create_class()
+    create_teachers()
     create_students()
+    create_class()
+    populate_classes()
     create_class_subject()
     create_eval_criteria()
 

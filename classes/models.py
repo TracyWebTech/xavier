@@ -15,6 +15,7 @@ class Grade(models.Model):
     grade_type = models.CharField(_(u'grade type'), max_length=50)
 
     class Meta:
+        ordering = ['grade_type', 'name']
         unique_together = ('name', 'grade_type')
         verbose_name = _(u'grade')
         verbose_name_plural = _(u'grades')
@@ -38,6 +39,7 @@ class Class(models.Model):
     on_school = CurrentSchoolManager(school_field='period__school')
 
     class Meta:
+        ordering = ['period', 'grade', 'identification']
         unique_together = ('identification', 'period', 'grade')
         verbose_name = _(u'class')
         verbose_name_plural = _(u'classes')
