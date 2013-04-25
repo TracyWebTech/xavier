@@ -63,10 +63,10 @@
                          {% if forloop.first or forloop.last %}weekend{% endif %}
                          {% if day == today %}today{% endif %}
                          {% if day|is_break %}break{% endif %}">
-                {% with week|last as last_day %}
-                  {% if forloop.parentloop.first and day.month != last_day.month %}
+                {% with week|last as last_weekday %}
+                  {% if forloop.parentloop.first and day.month != last_weekday.month %}
                     <span class="muted">{{ day.day }}</span>
-                  {% elif forloop.parentloop.last and day.month == last_day.month %}         
+                  {% elif forloop.parentloop.last and day.month != week.0.month %}         
                     <span class="muted">{{ day.day }}</span>
                   {% else %}
                     <a href="javascript:togglePopOver()" data-title="{{ day }}" data-content="
