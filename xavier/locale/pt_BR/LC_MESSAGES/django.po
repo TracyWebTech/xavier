@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 12:23-0300\n"
-"PO-Revision-Date: 2013-04-15 18:49-0300\n"
+"POT-Creation-Date: 2013-04-25 14:27-0300\n"
+"PO-Revision-Date: 2013-04-25 14:56-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -39,122 +39,193 @@ msgstr "Voltar ao topo"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/accounts/base.html:4 templates/includes/navbar.html:18
-#: templates/registration/base.html:4
-msgid "Accounts"
-msgstr "Contas"
+#: templates/attendances/base.html:5 templates/includes/navbar.html:28
+msgid "Attendances"
+msgstr "Presenças"
 
-#: templates/attendances/attendancebook_list.html:10
+#: templates/attendances/class.html:102
+msgid "Change date"
+msgstr "Alterar data"
+
+#: templates/attendances/class.html:106
+msgid "Show today"
+msgstr "Mostrar hoje"
+
+#: templates/attendances/class.html:106
+msgid "today"
+msgstr "hoje"
+
+#: templates/attendances/class.html:111
+msgid "student"
+msgstr "estudante"
+
+#: templates/attendances/class.html:112
+msgid "attendance"
+msgstr "chamada"
+
+#: templates/attendances/class.html:125
+msgid "late"
+msgstr "atrasado"
+
+#: templates/attendances/class.html:128
+msgid "comment"
+msgstr "comentário"
+
+#: templates/attendances/class.html:136
+#, python-format
+msgid "Comment (%(student_name)s)"
+msgstr "Comentário (%(student_name)s)"
+
+#: templates/attendances/class.html:142
+msgid "Close"
+msgstr "Fechar"
+
+#: templates/attendances/class.html:143
+#: templates/registration/password_change_form.html:16
+msgid "Save"
+msgstr "Salvar"
+
+#: templates/attendances/index.html:16
 msgid "all absent"
 msgstr "todos ausentes"
 
-#: templates/attendances/attendancebook_list.html:12
+#: templates/attendances/index.html:18
 #, python-format
 msgid "%(counter)s absence"
 msgid_plural "%(counter)s absences"
 msgstr[0] "%(counter)s ausente"
 msgstr[1] "%(counter)s ausentes"
 
-#: templates/attendances/attendancebook_list.html:14
+#: templates/attendances/index.html:20
 msgid "no absence"
 msgstr "todos presentes"
 
-#: templates/attendances/take_attendance.html:106
-msgid "Change date"
-msgstr "Alterar data"
+#: templates/calendars/calendar.html:53
+msgid "Sun"
+msgstr "Dom"
 
-#: templates/attendances/take_attendance.html:110
-msgid "Show today"
-msgstr "Mostrar hoje"
+#: templates/calendars/calendar.html:54
+msgid "Mon"
+msgstr "Seg"
 
-#: templates/attendances/take_attendance.html:110
-msgid "today"
-msgstr "hoje"
+#: templates/calendars/calendar.html:55
+msgid "Tue"
+msgstr "Ter"
 
-#: templates/attendances/take_attendance.html:115
-msgid "student"
-msgstr "estudante"
+#: templates/calendars/calendar.html:56
+msgid "Wed"
+msgstr "Qua"
 
-#: templates/attendances/take_attendance.html:116
-#, fuzzy
-msgid "attendance"
-msgstr "Chamadas"
+#: templates/calendars/calendar.html:57
+msgid "Thu"
+msgstr "Qui"
 
-#: templates/attendances/take_attendance.html:129
-msgid "late"
-msgstr "atrasado"
+#: templates/calendars/calendar.html:58
+msgid "Fri"
+msgstr "Sex"
 
-#: templates/attendances/take_attendance.html:132
-msgid "comment"
-msgstr "comentário"
+#: templates/calendars/calendar.html:59
+msgid "Sat"
+msgstr "Sáb"
 
-#: templates/attendances/take_attendance.html:140
-#, python-format
-msgid "Comment (%(student_name)s)"
-msgstr "Comentário (%(student_name)s)"
+#: templates/calendars/calendar.html:76
+msgid "Toggle Break"
+msgstr "Alternar Recesso"
 
-#: templates/attendances/take_attendance.html:146
-msgid "Close"
-msgstr "Fechar"
-
-#: templates/attendances/take_attendance.html:147
-#: templates/registration/password_change_form.html:16
-msgid "Save"
-msgstr "Salvar"
-
-#: templates/classes/base.html:16
-msgid "students"
-msgstr "estudantes"
-
-#: templates/classes/class_list.html:10
+#: templates/classes/class_detail.html:6 templates/classes/class_list.html:9
 msgid "identification"
 msgstr "identificador"
 
-#: templates/classes/class_list.html:11
+#: templates/classes/class_detail.html:10 templates/classes/class_list.html:10
 msgid "period"
 msgstr "período"
 
-#: templates/classes/class_list.html:12
+#: templates/classes/class_detail.html:14
+#: templates/classes/class_listing.html:18
+msgid "students"
+msgstr "estudantes"
+
+#: templates/classes/class_detail.html:18 templates/classes/class_list.html:11
 msgid "grade"
 msgstr "grade"
 
-#: templates/includes/navbar.html:20
-msgid "Students"
-msgstr "Estudantes"
+#: templates/generic/object_confirm_delete.html:15
+#: templates/generic/object_confirm_delete.html:25
+#: templates/generic/object_detail.html:22
+msgid "delete"
+msgstr "remover"
 
-#: templates/includes/navbar.html:21
-msgid "Teachers"
-msgstr "Professores"
+#: templates/generic/object_confirm_delete.html:18
+msgid "Are you sure?"
+msgstr "Tem certeza?"
 
-#: templates/includes/navbar.html:22
-msgid "Employees"
-msgstr "Empregados"
+#: templates/generic/object_confirm_delete.html:21
+#, fuzzy, python-format
+msgid ""
+"Do you really want to delete <a href=\"%(object.get_absolute_url)s\">"
+"%(object)s</a>?"
+msgstr "Você realmente deseja remover %(object)s?"
 
-#: templates/includes/navbar.html:25
-msgid "Periods"
-msgstr "Períodos"
+#: templates/generic/object_confirm_delete.html:27
+#: templates/generic/object_form.html:43
+msgid "cancel"
+msgstr "cancelar"
 
-#: templates/includes/navbar.html:26
-msgid "Classes"
-msgstr "Turmas"
+#: templates/generic/object_detail.html:23
+#: templates/generic/object_form.html:18 templates/generic/object_form.html:21
+#: templates/timetables/edit_timetable.html:20
+msgid "edit"
+msgstr "editar"
 
-#: templates/includes/navbar.html:28
-msgid "Attendance books"
-msgstr "Presenças"
+#: templates/generic/object_form.html:7 templates/generic/object_form.html:27
+#, python-format
+msgid "Edit %(verbose_name)s"
+msgstr "Editar %(verbose_name)s"
 
-#: templates/includes/navbar.html:29
+#: templates/generic/object_form.html:9 templates/generic/object_form.html:29
+#: templates/generic/object_list.html:16
+#, python-format
+msgid "Add %(verbose_name)s"
+msgstr "Adicionar %(verbose_name)s"
+
+#: templates/generic/object_form.html:41
+msgid "save"
+msgstr "salvar"
+
+#: templates/generic/object_form.html:42
+msgid "Save and continue editing"
+msgstr "Salvar e continuar editando"
+
+#: templates/generic/object_list.html:25
+msgid "item"
+msgstr "item"
+
+#: templates/generic/object_list.html:57
+msgid "No item."
+msgstr "Nenhum item."
+
+#: templates/includes/navbar.html:18 templates/registration/base.html:4
+msgid "Accounts"
+msgstr "Contas"
+
+#: templates/includes/navbar.html:29 templates/scores/classes_list.html:6
+#: templates/scores/scores_list.html:49
 msgid "Scores"
 msgstr "Notas"
 
-#: templates/includes/navbar.html:35
+#: templates/includes/navbar.html:30
+msgid "Calendar"
+msgstr "Calendário"
+
+#: templates/includes/navbar.html:36
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:46
+#: templates/includes/navbar.html:47
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:50
+#: templates/includes/navbar.html:51
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -162,67 +233,17 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:51
+#: templates/includes/navbar.html:52
 msgid "Logout"
 msgstr "Sair"
 
-#: templates/modelview/object_delete_confirmation.html:18
-#, python-format
-msgid "Do you really want to delete %(object)s?"
-msgstr "Você realmente deseja remover %(object)s?"
-
-#: templates/modelview/object_delete_confirmation.html:21
-msgid "You are about to delete the following objects:"
-msgstr "Você esta prestes a remover os seguintes itens:"
-
-#: templates/modelview/object_delete_confirmation.html:31
-#: templates/modelview/object_detail.html:25
-msgid "delete"
-msgstr "remover"
-
-#: templates/modelview/object_delete_confirmation.html:33
-#: templates/modelview/object_form.html:52
-msgid "cancel"
-msgstr "cancelar"
-
-#: templates/modelview/object_detail.html:26
-msgid "edit"
-msgstr "editar"
-
-#: templates/modelview/object_form.html:50
-msgid "save"
-msgstr "salvar"
-
-#: templates/modelview/object_form.html:51
-msgid "Save and continue editing"
-msgstr "Salvar e continuar editando"
-
-#: templates/modelview/object_list.html:18
-#, python-format
-msgid "Add %(verbose_name)s"
-msgstr "Adicionar %(verbose_name)s"
-
-#: templates/modelview/object_list.html:36
-msgid "Search"
-msgstr "Pesquisar"
-
-#: templates/modelview/object_list.html:51
-msgid "object"
-msgstr "item"
-
-#: templates/modelview/object_list.html:70
-msgid "Batch form"
-msgstr "Edição em lote"
-
-#: templates/modelview/object_list.html:84
-msgid "Submit"
-msgstr "Enviar"
-
-#: templates/periods/period_list.html:10
+#: templates/periods/period_list.html:9
+#: templates/timetables/add_timetable.html:24
+#: templates/timetables/edit_timetable.html:25
 msgid "name"
 msgstr "nome"
 
-#: templates/periods/period_list.html:11
+#: templates/periods/period_list.html:10
 msgid "year"
 msgstr "ano"
 
@@ -249,34 +270,54 @@ msgstr "Usuário \"%(username)s\""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: templates/towel/_form_errors.html:4
-msgid "Please correct the errors below."
-msgstr "Por favor, corrija os erros abaixo."
+#: templates/scores/classes_list.html:9
+msgid "Click to choose a subject"
+msgstr "Clique para selecionar uma matérica"
 
-#: templates/towel/_form_errors.html:11 templates/towel/_form_errors.html:22
-msgid "Form errors"
+#: templates/scores/scores_list.html:55
+msgid "Final grade formula"
+msgstr "Fórmula da grade final"
+
+#: templates/scores/scores_list.html:59
+msgid "Student"
+msgstr "Estudante"
+
+#: templates/scores/scores_list.html:63
+msgid "Final grade"
+msgstr "Grade final"
+
+#: templates/timetables/add_timetable.html:5
+#: templates/timetables/add_timetable.html:29
+#: templates/timetables/add_timetable.html:34
+#: templates/timetables/edit_timetable.html:5
+#: templates/timetables/edit_timetable.html:30
+#: templates/timetables/edit_timetable.html:36
+msgid "Start"
+msgstr "Início"
+
+#: templates/timetables/add_timetable.html:6
+#: templates/timetables/add_timetable.html:30
+#: templates/timetables/add_timetable.html:37
+#: templates/timetables/edit_timetable.html:6
+#: templates/timetables/edit_timetable.html:31
+#: templates/timetables/edit_timetable.html:39
+msgid "End"
+msgstr "Fim"
+
+#: templates/timetables/add_timetable.html:16
+#: templates/timetables/edit_timetable.html:17
+msgid "timetables"
+msgstr "horários"
+
+#: templates/timetables/add_timetable.html:19
+msgid "add"
+msgstr "adicionar"
+
+#: templates/timetables/add_timetable.html:24
+#: templates/timetables/edit_timetable.html:25
+msgid "timetable name"
 msgstr ""
 
-#: templates/towel/_form_errors.html:17
-msgid "Fieldset errors"
-msgstr ""
-
-#: templates/towel/_form_warnings.html:3
-msgid "Please review the following warnings:"
-msgstr "Por favor, revise os seguintes avisos:"
-
-#: templates/towel/_pagination.html:17
-msgid "show all"
-msgstr "mostrar todos"
-
-#~ msgid "Take attendance"
-#~ msgstr "Chamada"
-
-#~ msgid "Attendances"
-#~ msgstr "Presenças"
-
-#~ msgid "Reports"
-#~ msgstr "Relatórios"
-
-#~ msgid "status"
-#~ msgstr "status"
+#: templates/timetables/timetable_list.html:15
+msgid "Add timetable"
+msgstr "Adicionar horário"
