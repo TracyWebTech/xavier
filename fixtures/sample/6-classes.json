@@ -1,0 +1,2810 @@
+[
+{
+  "pk": 1, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "1 ano"
+  }
+},
+{
+  "pk": 2, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "2 ano"
+  }
+},
+{
+  "pk": 3, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "3 ano"
+  }
+},
+{
+  "pk": 4, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "4 ano"
+  }
+},
+{
+  "pk": 5, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "5 ano"
+  }
+},
+{
+  "pk": 6, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "6 ano"
+  }
+},
+{
+  "pk": 7, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "7 ano"
+  }
+},
+{
+  "pk": 8, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "8 ano"
+  }
+},
+{
+  "pk": 9, 
+  "model": "classes.grade", 
+  "fields": {
+    "grade_type": "Ensino Fundamental", 
+    "name": "9 ano"
+  }
+},
+{
+  "pk": 1, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 1, 
+    "students": [
+      40, 
+      73, 
+      107, 
+      69, 
+      104, 
+      33, 
+      72, 
+      49, 
+      106, 
+      83, 
+      89, 
+      113, 
+      118, 
+      43, 
+      50, 
+      91, 
+      35, 
+      127, 
+      63, 
+      128
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "1-ano-a-2013"
+  }
+},
+{
+  "pk": 2, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 1, 
+    "students": [
+      46, 
+      40, 
+      117, 
+      100, 
+      64, 
+      111, 
+      69, 
+      104, 
+      92, 
+      106, 
+      99, 
+      114, 
+      61, 
+      37, 
+      118, 
+      47, 
+      86, 
+      116, 
+      54, 
+      82
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "1-ano-b-2013"
+  }
+},
+{
+  "pk": 3, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 2, 
+    "students": [
+      117, 
+      129, 
+      115, 
+      111, 
+      104, 
+      34, 
+      97, 
+      108, 
+      74, 
+      55, 
+      124, 
+      43, 
+      71, 
+      66, 
+      91, 
+      53, 
+      58, 
+      35, 
+      127, 
+      44
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "2-ano-a-2013"
+  }
+},
+{
+  "pk": 4, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 2, 
+    "students": [
+      40, 
+      117, 
+      93, 
+      64, 
+      130, 
+      38, 
+      99, 
+      112, 
+      114, 
+      61, 
+      37, 
+      125, 
+      77, 
+      68, 
+      47, 
+      71, 
+      76, 
+      91, 
+      58, 
+      98
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "2-ano-b-2013"
+  }
+},
+{
+  "pk": 5, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 3, 
+    "students": [
+      46, 
+      75, 
+      101, 
+      65, 
+      96, 
+      88, 
+      84, 
+      93, 
+      59, 
+      113, 
+      34, 
+      37, 
+      70, 
+      57, 
+      80, 
+      50, 
+      91, 
+      62, 
+      116, 
+      82
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "3-ano-a-2013"
+  }
+},
+{
+  "pk": 6, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 3, 
+    "students": [
+      117, 
+      129, 
+      32, 
+      38, 
+      33, 
+      49, 
+      60, 
+      90, 
+      61, 
+      74, 
+      55, 
+      52, 
+      123, 
+      71, 
+      66, 
+      41, 
+      53, 
+      35, 
+      126, 
+      82
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "3-ano-b-2013"
+  }
+},
+{
+  "pk": 7, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 4, 
+    "students": [
+      78, 
+      101, 
+      85, 
+      73, 
+      107, 
+      110, 
+      89, 
+      113, 
+      118, 
+      80, 
+      66, 
+      86, 
+      41, 
+      91, 
+      35, 
+      48, 
+      51, 
+      121, 
+      39, 
+      54
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "4-ano-a-2013"
+  }
+},
+{
+  "pk": 8, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 4, 
+    "students": [
+      45, 
+      115, 
+      69, 
+      72, 
+      114, 
+      81, 
+      70, 
+      74, 
+      68, 
+      43, 
+      52, 
+      123, 
+      71, 
+      66, 
+      76, 
+      35, 
+      120, 
+      121, 
+      102, 
+      36
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "4-ano-b-2013"
+  }
+},
+{
+  "pk": 9, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 5, 
+    "students": [
+      75, 
+      94, 
+      45, 
+      129, 
+      115, 
+      73, 
+      100, 
+      95, 
+      83, 
+      113, 
+      97, 
+      118, 
+      70, 
+      77, 
+      124, 
+      50, 
+      66, 
+      62, 
+      42, 
+      102
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "5-ano-a-2013"
+  }
+},
+{
+  "pk": 10, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 5, 
+    "students": [
+      94, 
+      78, 
+      65, 
+      109, 
+      111, 
+      38, 
+      33, 
+      95, 
+      97, 
+      118, 
+      68, 
+      57, 
+      119, 
+      131, 
+      51, 
+      116, 
+      44, 
+      39, 
+      128, 
+      126
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "5-ano-b-2013"
+  }
+},
+{
+  "pk": 11, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 6, 
+    "students": [
+      78, 
+      65, 
+      96, 
+      115, 
+      73, 
+      110, 
+      32, 
+      104, 
+      92, 
+      33, 
+      83, 
+      114, 
+      123, 
+      86, 
+      51, 
+      120, 
+      121, 
+      63, 
+      122, 
+      82
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "6-ano-a-2013"
+  }
+},
+{
+  "pk": 12, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 6, 
+    "students": [
+      45, 
+      101, 
+      96, 
+      129, 
+      84, 
+      64, 
+      104, 
+      90, 
+      112, 
+      97, 
+      55, 
+      43, 
+      47, 
+      66, 
+      86, 
+      119, 
+      41, 
+      53, 
+      58, 
+      102
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "6-ano-b-2013"
+  }
+},
+{
+  "pk": 13, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 7, 
+    "students": [
+      75, 
+      45, 
+      117, 
+      73, 
+      93, 
+      83, 
+      89, 
+      37, 
+      56, 
+      124, 
+      123, 
+      66, 
+      53, 
+      35, 
+      48, 
+      127, 
+      116, 
+      103, 
+      122, 
+      126
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "7-ano-a-2013"
+  }
+},
+{
+  "pk": 14, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 7, 
+    "students": [
+      117, 
+      129, 
+      85, 
+      115, 
+      105, 
+      88, 
+      84, 
+      92, 
+      72, 
+      114, 
+      37, 
+      56, 
+      55, 
+      57, 
+      47, 
+      87, 
+      52, 
+      76, 
+      44, 
+      102
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "7-ano-b-2013"
+  }
+},
+{
+  "pk": 15, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 8, 
+    "students": [
+      46, 
+      115, 
+      67, 
+      69, 
+      32, 
+      38, 
+      60, 
+      112, 
+      113, 
+      56, 
+      55, 
+      68, 
+      124, 
+      41, 
+      131, 
+      121, 
+      116, 
+      42, 
+      128, 
+      36
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "8-ano-a-2013"
+  }
+},
+{
+  "pk": 16, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 8, 
+    "students": [
+      40, 
+      78, 
+      109, 
+      84, 
+      64, 
+      110, 
+      104, 
+      33, 
+      106, 
+      90, 
+      97, 
+      108, 
+      124, 
+      47, 
+      80, 
+      50, 
+      86, 
+      91, 
+      51, 
+      127
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "8-ano-b-2013"
+  }
+},
+{
+  "pk": 17, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 9, 
+    "students": [
+      46, 
+      75, 
+      65, 
+      115, 
+      67, 
+      106, 
+      95, 
+      81, 
+      37, 
+      74, 
+      68, 
+      43, 
+      80, 
+      119, 
+      51, 
+      116, 
+      39, 
+      103, 
+      102, 
+      36
+    ], 
+    "identification": "A", 
+    "period": 1, 
+    "slug": "9-ano-a-2013"
+  }
+},
+{
+  "pk": 18, 
+  "model": "classes.class", 
+  "fields": {
+    "grade": 9, 
+    "students": [
+      78, 
+      101, 
+      73, 
+      109, 
+      84, 
+      107, 
+      38, 
+      33, 
+      60, 
+      90, 
+      77, 
+      87, 
+      123, 
+      86, 
+      76, 
+      116, 
+      42, 
+      103, 
+      122, 
+      126
+    ], 
+    "identification": "B", 
+    "period": 1, 
+    "slug": "9-ano-b-2013"
+  }
+},
+{
+  "pk": 1, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-matematica", 
+    "teacher": 16, 
+    "subject": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-portugues", 
+    "teacher": 6, 
+    "subject": 2
+  }
+},
+{
+  "pk": 3, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-ingles", 
+    "teacher": 29, 
+    "subject": 3
+  }
+},
+{
+  "pk": 4, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-historia", 
+    "teacher": 15, 
+    "subject": 4
+  }
+},
+{
+  "pk": 5, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-biologia", 
+    "teacher": 11, 
+    "subject": 5
+  }
+},
+{
+  "pk": 6, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-fisica", 
+    "teacher": 20, 
+    "subject": 6
+  }
+},
+{
+  "pk": 7, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-quimica", 
+    "teacher": 25, 
+    "subject": 7
+  }
+},
+{
+  "pk": 8, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-geografia", 
+    "teacher": 23, 
+    "subject": 8
+  }
+},
+{
+  "pk": 9, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-educacao-fisica", 
+    "teacher": 14, 
+    "subject": 9
+  }
+},
+{
+  "pk": 10, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-filosofia", 
+    "teacher": 14, 
+    "subject": 10
+  }
+},
+{
+  "pk": 11, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-sociologia", 
+    "teacher": 4, 
+    "subject": 11
+  }
+},
+{
+  "pk": 12, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 1, 
+    "slug": "1-ano-a-2013-religiao", 
+    "teacher": 4, 
+    "subject": 12
+  }
+},
+{
+  "pk": 13, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-matematica", 
+    "teacher": 13, 
+    "subject": 1
+  }
+},
+{
+  "pk": 14, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-portugues", 
+    "teacher": 8, 
+    "subject": 2
+  }
+},
+{
+  "pk": 15, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-ingles", 
+    "teacher": 4, 
+    "subject": 3
+  }
+},
+{
+  "pk": 16, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-historia", 
+    "teacher": 13, 
+    "subject": 4
+  }
+},
+{
+  "pk": 17, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-biologia", 
+    "teacher": 21, 
+    "subject": 5
+  }
+},
+{
+  "pk": 18, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-fisica", 
+    "teacher": 30, 
+    "subject": 6
+  }
+},
+{
+  "pk": 19, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-quimica", 
+    "teacher": 28, 
+    "subject": 7
+  }
+},
+{
+  "pk": 20, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-geografia", 
+    "teacher": 22, 
+    "subject": 8
+  }
+},
+{
+  "pk": 21, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-educacao-fisica", 
+    "teacher": 30, 
+    "subject": 9
+  }
+},
+{
+  "pk": 22, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-filosofia", 
+    "teacher": 4, 
+    "subject": 10
+  }
+},
+{
+  "pk": 23, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-sociologia", 
+    "teacher": 15, 
+    "subject": 11
+  }
+},
+{
+  "pk": 24, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 2, 
+    "slug": "1-ano-b-2013-religiao", 
+    "teacher": 24, 
+    "subject": 12
+  }
+},
+{
+  "pk": 25, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-matematica", 
+    "teacher": 14, 
+    "subject": 1
+  }
+},
+{
+  "pk": 26, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-portugues", 
+    "teacher": 11, 
+    "subject": 2
+  }
+},
+{
+  "pk": 27, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-ingles", 
+    "teacher": 5, 
+    "subject": 3
+  }
+},
+{
+  "pk": 28, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-historia", 
+    "teacher": 27, 
+    "subject": 4
+  }
+},
+{
+  "pk": 29, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-biologia", 
+    "teacher": 20, 
+    "subject": 5
+  }
+},
+{
+  "pk": 30, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-fisica", 
+    "teacher": 13, 
+    "subject": 6
+  }
+},
+{
+  "pk": 31, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-quimica", 
+    "teacher": 14, 
+    "subject": 7
+  }
+},
+{
+  "pk": 32, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-geografia", 
+    "teacher": 20, 
+    "subject": 8
+  }
+},
+{
+  "pk": 33, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-educacao-fisica", 
+    "teacher": 25, 
+    "subject": 9
+  }
+},
+{
+  "pk": 34, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-filosofia", 
+    "teacher": 21, 
+    "subject": 10
+  }
+},
+{
+  "pk": 35, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-sociologia", 
+    "teacher": 15, 
+    "subject": 11
+  }
+},
+{
+  "pk": 36, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 3, 
+    "slug": "2-ano-a-2013-religiao", 
+    "teacher": 31, 
+    "subject": 12
+  }
+},
+{
+  "pk": 37, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-matematica", 
+    "teacher": 16, 
+    "subject": 1
+  }
+},
+{
+  "pk": 38, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-portugues", 
+    "teacher": 2, 
+    "subject": 2
+  }
+},
+{
+  "pk": 39, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-ingles", 
+    "teacher": 30, 
+    "subject": 3
+  }
+},
+{
+  "pk": 40, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-historia", 
+    "teacher": 26, 
+    "subject": 4
+  }
+},
+{
+  "pk": 41, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-biologia", 
+    "teacher": 14, 
+    "subject": 5
+  }
+},
+{
+  "pk": 42, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-fisica", 
+    "teacher": 29, 
+    "subject": 6
+  }
+},
+{
+  "pk": 43, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-quimica", 
+    "teacher": 28, 
+    "subject": 7
+  }
+},
+{
+  "pk": 44, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-geografia", 
+    "teacher": 27, 
+    "subject": 8
+  }
+},
+{
+  "pk": 45, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-educacao-fisica", 
+    "teacher": 19, 
+    "subject": 9
+  }
+},
+{
+  "pk": 46, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-filosofia", 
+    "teacher": 27, 
+    "subject": 10
+  }
+},
+{
+  "pk": 47, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-sociologia", 
+    "teacher": 11, 
+    "subject": 11
+  }
+},
+{
+  "pk": 48, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 4, 
+    "slug": "2-ano-b-2013-religiao", 
+    "teacher": 21, 
+    "subject": 12
+  }
+},
+{
+  "pk": 49, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-matematica", 
+    "teacher": 27, 
+    "subject": 1
+  }
+},
+{
+  "pk": 50, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-portugues", 
+    "teacher": 7, 
+    "subject": 2
+  }
+},
+{
+  "pk": 51, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-ingles", 
+    "teacher": 3, 
+    "subject": 3
+  }
+},
+{
+  "pk": 52, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-historia", 
+    "teacher": 17, 
+    "subject": 4
+  }
+},
+{
+  "pk": 53, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-biologia", 
+    "teacher": 3, 
+    "subject": 5
+  }
+},
+{
+  "pk": 54, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-fisica", 
+    "teacher": 17, 
+    "subject": 6
+  }
+},
+{
+  "pk": 55, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-quimica", 
+    "teacher": 15, 
+    "subject": 7
+  }
+},
+{
+  "pk": 56, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-geografia", 
+    "teacher": 28, 
+    "subject": 8
+  }
+},
+{
+  "pk": 57, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-educacao-fisica", 
+    "teacher": 4, 
+    "subject": 9
+  }
+},
+{
+  "pk": 58, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-filosofia", 
+    "teacher": 14, 
+    "subject": 10
+  }
+},
+{
+  "pk": 59, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-sociologia", 
+    "teacher": 22, 
+    "subject": 11
+  }
+},
+{
+  "pk": 60, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 5, 
+    "slug": "3-ano-a-2013-religiao", 
+    "teacher": 3, 
+    "subject": 12
+  }
+},
+{
+  "pk": 61, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-matematica", 
+    "teacher": 5, 
+    "subject": 1
+  }
+},
+{
+  "pk": 62, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-portugues", 
+    "teacher": 28, 
+    "subject": 2
+  }
+},
+{
+  "pk": 63, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-ingles", 
+    "teacher": 6, 
+    "subject": 3
+  }
+},
+{
+  "pk": 64, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-historia", 
+    "teacher": 12, 
+    "subject": 4
+  }
+},
+{
+  "pk": 65, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-biologia", 
+    "teacher": 30, 
+    "subject": 5
+  }
+},
+{
+  "pk": 66, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-fisica", 
+    "teacher": 12, 
+    "subject": 6
+  }
+},
+{
+  "pk": 67, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-quimica", 
+    "teacher": 20, 
+    "subject": 7
+  }
+},
+{
+  "pk": 68, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-geografia", 
+    "teacher": 5, 
+    "subject": 8
+  }
+},
+{
+  "pk": 69, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-educacao-fisica", 
+    "teacher": 22, 
+    "subject": 9
+  }
+},
+{
+  "pk": 70, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-filosofia", 
+    "teacher": 23, 
+    "subject": 10
+  }
+},
+{
+  "pk": 71, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-sociologia", 
+    "teacher": 13, 
+    "subject": 11
+  }
+},
+{
+  "pk": 72, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 6, 
+    "slug": "3-ano-b-2013-religiao", 
+    "teacher": 16, 
+    "subject": 12
+  }
+},
+{
+  "pk": 73, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-matematica", 
+    "teacher": 9, 
+    "subject": 1
+  }
+},
+{
+  "pk": 74, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-portugues", 
+    "teacher": 9, 
+    "subject": 2
+  }
+},
+{
+  "pk": 75, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-ingles", 
+    "teacher": 7, 
+    "subject": 3
+  }
+},
+{
+  "pk": 76, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-historia", 
+    "teacher": 30, 
+    "subject": 4
+  }
+},
+{
+  "pk": 77, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-biologia", 
+    "teacher": 22, 
+    "subject": 5
+  }
+},
+{
+  "pk": 78, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-fisica", 
+    "teacher": 5, 
+    "subject": 6
+  }
+},
+{
+  "pk": 79, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-quimica", 
+    "teacher": 21, 
+    "subject": 7
+  }
+},
+{
+  "pk": 80, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-geografia", 
+    "teacher": 25, 
+    "subject": 8
+  }
+},
+{
+  "pk": 81, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-educacao-fisica", 
+    "teacher": 27, 
+    "subject": 9
+  }
+},
+{
+  "pk": 82, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-filosofia", 
+    "teacher": 19, 
+    "subject": 10
+  }
+},
+{
+  "pk": 83, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-sociologia", 
+    "teacher": 2, 
+    "subject": 11
+  }
+},
+{
+  "pk": 84, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 7, 
+    "slug": "4-ano-a-2013-religiao", 
+    "teacher": 10, 
+    "subject": 12
+  }
+},
+{
+  "pk": 85, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-matematica", 
+    "teacher": 25, 
+    "subject": 1
+  }
+},
+{
+  "pk": 86, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-portugues", 
+    "teacher": 11, 
+    "subject": 2
+  }
+},
+{
+  "pk": 87, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-ingles", 
+    "teacher": 16, 
+    "subject": 3
+  }
+},
+{
+  "pk": 88, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-historia", 
+    "teacher": 23, 
+    "subject": 4
+  }
+},
+{
+  "pk": 89, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-biologia", 
+    "teacher": 16, 
+    "subject": 5
+  }
+},
+{
+  "pk": 90, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-fisica", 
+    "teacher": 23, 
+    "subject": 6
+  }
+},
+{
+  "pk": 91, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-quimica", 
+    "teacher": 20, 
+    "subject": 7
+  }
+},
+{
+  "pk": 92, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-geografia", 
+    "teacher": 27, 
+    "subject": 8
+  }
+},
+{
+  "pk": 93, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-educacao-fisica", 
+    "teacher": 12, 
+    "subject": 9
+  }
+},
+{
+  "pk": 94, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-filosofia", 
+    "teacher": 9, 
+    "subject": 10
+  }
+},
+{
+  "pk": 95, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-sociologia", 
+    "teacher": 23, 
+    "subject": 11
+  }
+},
+{
+  "pk": 96, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 8, 
+    "slug": "4-ano-b-2013-religiao", 
+    "teacher": 19, 
+    "subject": 12
+  }
+},
+{
+  "pk": 97, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-matematica", 
+    "teacher": 16, 
+    "subject": 1
+  }
+},
+{
+  "pk": 98, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-portugues", 
+    "teacher": 23, 
+    "subject": 2
+  }
+},
+{
+  "pk": 99, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-ingles", 
+    "teacher": 28, 
+    "subject": 3
+  }
+},
+{
+  "pk": 100, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-historia", 
+    "teacher": 4, 
+    "subject": 4
+  }
+},
+{
+  "pk": 101, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-biologia", 
+    "teacher": 30, 
+    "subject": 5
+  }
+},
+{
+  "pk": 102, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-fisica", 
+    "teacher": 25, 
+    "subject": 6
+  }
+},
+{
+  "pk": 103, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-quimica", 
+    "teacher": 7, 
+    "subject": 7
+  }
+},
+{
+  "pk": 104, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-geografia", 
+    "teacher": 17, 
+    "subject": 8
+  }
+},
+{
+  "pk": 105, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-educacao-fisica", 
+    "teacher": 7, 
+    "subject": 9
+  }
+},
+{
+  "pk": 106, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-filosofia", 
+    "teacher": 24, 
+    "subject": 10
+  }
+},
+{
+  "pk": 107, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-sociologia", 
+    "teacher": 12, 
+    "subject": 11
+  }
+},
+{
+  "pk": 108, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 9, 
+    "slug": "5-ano-a-2013-religiao", 
+    "teacher": 7, 
+    "subject": 12
+  }
+},
+{
+  "pk": 109, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-matematica", 
+    "teacher": 19, 
+    "subject": 1
+  }
+},
+{
+  "pk": 110, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-portugues", 
+    "teacher": 4, 
+    "subject": 2
+  }
+},
+{
+  "pk": 111, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-ingles", 
+    "teacher": 8, 
+    "subject": 3
+  }
+},
+{
+  "pk": 112, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-historia", 
+    "teacher": 7, 
+    "subject": 4
+  }
+},
+{
+  "pk": 113, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-biologia", 
+    "teacher": 20, 
+    "subject": 5
+  }
+},
+{
+  "pk": 114, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-fisica", 
+    "teacher": 9, 
+    "subject": 6
+  }
+},
+{
+  "pk": 115, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-quimica", 
+    "teacher": 6, 
+    "subject": 7
+  }
+},
+{
+  "pk": 116, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-geografia", 
+    "teacher": 15, 
+    "subject": 8
+  }
+},
+{
+  "pk": 117, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-educacao-fisica", 
+    "teacher": 31, 
+    "subject": 9
+  }
+},
+{
+  "pk": 118, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-filosofia", 
+    "teacher": 29, 
+    "subject": 10
+  }
+},
+{
+  "pk": 119, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-sociologia", 
+    "teacher": 15, 
+    "subject": 11
+  }
+},
+{
+  "pk": 120, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 10, 
+    "slug": "5-ano-b-2013-religiao", 
+    "teacher": 19, 
+    "subject": 12
+  }
+},
+{
+  "pk": 121, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-matematica", 
+    "teacher": 12, 
+    "subject": 1
+  }
+},
+{
+  "pk": 122, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-portugues", 
+    "teacher": 24, 
+    "subject": 2
+  }
+},
+{
+  "pk": 123, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-ingles", 
+    "teacher": 20, 
+    "subject": 3
+  }
+},
+{
+  "pk": 124, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-historia", 
+    "teacher": 26, 
+    "subject": 4
+  }
+},
+{
+  "pk": 125, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-biologia", 
+    "teacher": 18, 
+    "subject": 5
+  }
+},
+{
+  "pk": 126, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-fisica", 
+    "teacher": 23, 
+    "subject": 6
+  }
+},
+{
+  "pk": 127, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-quimica", 
+    "teacher": 28, 
+    "subject": 7
+  }
+},
+{
+  "pk": 128, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-geografia", 
+    "teacher": 20, 
+    "subject": 8
+  }
+},
+{
+  "pk": 129, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-educacao-fisica", 
+    "teacher": 24, 
+    "subject": 9
+  }
+},
+{
+  "pk": 130, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-filosofia", 
+    "teacher": 14, 
+    "subject": 10
+  }
+},
+{
+  "pk": 131, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-sociologia", 
+    "teacher": 21, 
+    "subject": 11
+  }
+},
+{
+  "pk": 132, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 11, 
+    "slug": "6-ano-a-2013-religiao", 
+    "teacher": 6, 
+    "subject": 12
+  }
+},
+{
+  "pk": 133, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-matematica", 
+    "teacher": 21, 
+    "subject": 1
+  }
+},
+{
+  "pk": 134, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-portugues", 
+    "teacher": 10, 
+    "subject": 2
+  }
+},
+{
+  "pk": 135, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-ingles", 
+    "teacher": 19, 
+    "subject": 3
+  }
+},
+{
+  "pk": 136, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-historia", 
+    "teacher": 14, 
+    "subject": 4
+  }
+},
+{
+  "pk": 137, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-biologia", 
+    "teacher": 27, 
+    "subject": 5
+  }
+},
+{
+  "pk": 138, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-fisica", 
+    "teacher": 2, 
+    "subject": 6
+  }
+},
+{
+  "pk": 139, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-quimica", 
+    "teacher": 23, 
+    "subject": 7
+  }
+},
+{
+  "pk": 140, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-geografia", 
+    "teacher": 26, 
+    "subject": 8
+  }
+},
+{
+  "pk": 141, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-educacao-fisica", 
+    "teacher": 26, 
+    "subject": 9
+  }
+},
+{
+  "pk": 142, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-filosofia", 
+    "teacher": 17, 
+    "subject": 10
+  }
+},
+{
+  "pk": 143, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-sociologia", 
+    "teacher": 4, 
+    "subject": 11
+  }
+},
+{
+  "pk": 144, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 12, 
+    "slug": "6-ano-b-2013-religiao", 
+    "teacher": 10, 
+    "subject": 12
+  }
+},
+{
+  "pk": 145, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-matematica", 
+    "teacher": 10, 
+    "subject": 1
+  }
+},
+{
+  "pk": 146, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-portugues", 
+    "teacher": 6, 
+    "subject": 2
+  }
+},
+{
+  "pk": 147, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-ingles", 
+    "teacher": 17, 
+    "subject": 3
+  }
+},
+{
+  "pk": 148, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-historia", 
+    "teacher": 30, 
+    "subject": 4
+  }
+},
+{
+  "pk": 149, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-biologia", 
+    "teacher": 12, 
+    "subject": 5
+  }
+},
+{
+  "pk": 150, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-fisica", 
+    "teacher": 9, 
+    "subject": 6
+  }
+},
+{
+  "pk": 151, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-quimica", 
+    "teacher": 25, 
+    "subject": 7
+  }
+},
+{
+  "pk": 152, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-geografia", 
+    "teacher": 5, 
+    "subject": 8
+  }
+},
+{
+  "pk": 153, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-educacao-fisica", 
+    "teacher": 19, 
+    "subject": 9
+  }
+},
+{
+  "pk": 154, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-filosofia", 
+    "teacher": 18, 
+    "subject": 10
+  }
+},
+{
+  "pk": 155, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-sociologia", 
+    "teacher": 12, 
+    "subject": 11
+  }
+},
+{
+  "pk": 156, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 13, 
+    "slug": "7-ano-a-2013-religiao", 
+    "teacher": 30, 
+    "subject": 12
+  }
+},
+{
+  "pk": 157, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-matematica", 
+    "teacher": 24, 
+    "subject": 1
+  }
+},
+{
+  "pk": 158, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-portugues", 
+    "teacher": 26, 
+    "subject": 2
+  }
+},
+{
+  "pk": 159, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-ingles", 
+    "teacher": 30, 
+    "subject": 3
+  }
+},
+{
+  "pk": 160, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-historia", 
+    "teacher": 12, 
+    "subject": 4
+  }
+},
+{
+  "pk": 161, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-biologia", 
+    "teacher": 25, 
+    "subject": 5
+  }
+},
+{
+  "pk": 162, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-fisica", 
+    "teacher": 25, 
+    "subject": 6
+  }
+},
+{
+  "pk": 163, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-quimica", 
+    "teacher": 25, 
+    "subject": 7
+  }
+},
+{
+  "pk": 164, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-geografia", 
+    "teacher": 7, 
+    "subject": 8
+  }
+},
+{
+  "pk": 165, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-educacao-fisica", 
+    "teacher": 22, 
+    "subject": 9
+  }
+},
+{
+  "pk": 166, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-filosofia", 
+    "teacher": 12, 
+    "subject": 10
+  }
+},
+{
+  "pk": 167, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-sociologia", 
+    "teacher": 12, 
+    "subject": 11
+  }
+},
+{
+  "pk": 168, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 14, 
+    "slug": "7-ano-b-2013-religiao", 
+    "teacher": 18, 
+    "subject": 12
+  }
+},
+{
+  "pk": 169, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-matematica", 
+    "teacher": 4, 
+    "subject": 1
+  }
+},
+{
+  "pk": 170, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-portugues", 
+    "teacher": 30, 
+    "subject": 2
+  }
+},
+{
+  "pk": 171, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-ingles", 
+    "teacher": 4, 
+    "subject": 3
+  }
+},
+{
+  "pk": 172, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-historia", 
+    "teacher": 20, 
+    "subject": 4
+  }
+},
+{
+  "pk": 173, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-biologia", 
+    "teacher": 4, 
+    "subject": 5
+  }
+},
+{
+  "pk": 174, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-fisica", 
+    "teacher": 14, 
+    "subject": 6
+  }
+},
+{
+  "pk": 175, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-quimica", 
+    "teacher": 14, 
+    "subject": 7
+  }
+},
+{
+  "pk": 176, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-geografia", 
+    "teacher": 2, 
+    "subject": 8
+  }
+},
+{
+  "pk": 177, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-educacao-fisica", 
+    "teacher": 28, 
+    "subject": 9
+  }
+},
+{
+  "pk": 178, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-filosofia", 
+    "teacher": 25, 
+    "subject": 10
+  }
+},
+{
+  "pk": 179, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-sociologia", 
+    "teacher": 13, 
+    "subject": 11
+  }
+},
+{
+  "pk": 180, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 15, 
+    "slug": "8-ano-a-2013-religiao", 
+    "teacher": 27, 
+    "subject": 12
+  }
+},
+{
+  "pk": 181, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-matematica", 
+    "teacher": 18, 
+    "subject": 1
+  }
+},
+{
+  "pk": 182, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-portugues", 
+    "teacher": 24, 
+    "subject": 2
+  }
+},
+{
+  "pk": 183, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-ingles", 
+    "teacher": 16, 
+    "subject": 3
+  }
+},
+{
+  "pk": 184, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-historia", 
+    "teacher": 6, 
+    "subject": 4
+  }
+},
+{
+  "pk": 185, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-biologia", 
+    "teacher": 14, 
+    "subject": 5
+  }
+},
+{
+  "pk": 186, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-fisica", 
+    "teacher": 9, 
+    "subject": 6
+  }
+},
+{
+  "pk": 187, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-quimica", 
+    "teacher": 25, 
+    "subject": 7
+  }
+},
+{
+  "pk": 188, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-geografia", 
+    "teacher": 18, 
+    "subject": 8
+  }
+},
+{
+  "pk": 189, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-educacao-fisica", 
+    "teacher": 3, 
+    "subject": 9
+  }
+},
+{
+  "pk": 190, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-filosofia", 
+    "teacher": 7, 
+    "subject": 10
+  }
+},
+{
+  "pk": 191, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-sociologia", 
+    "teacher": 13, 
+    "subject": 11
+  }
+},
+{
+  "pk": 192, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 16, 
+    "slug": "8-ano-b-2013-religiao", 
+    "teacher": 26, 
+    "subject": 12
+  }
+},
+{
+  "pk": 193, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-matematica", 
+    "teacher": 15, 
+    "subject": 1
+  }
+},
+{
+  "pk": 194, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-portugues", 
+    "teacher": 2, 
+    "subject": 2
+  }
+},
+{
+  "pk": 195, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-ingles", 
+    "teacher": 10, 
+    "subject": 3
+  }
+},
+{
+  "pk": 196, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-historia", 
+    "teacher": 25, 
+    "subject": 4
+  }
+},
+{
+  "pk": 197, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-biologia", 
+    "teacher": 3, 
+    "subject": 5
+  }
+},
+{
+  "pk": 198, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-fisica", 
+    "teacher": 7, 
+    "subject": 6
+  }
+},
+{
+  "pk": 199, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-quimica", 
+    "teacher": 28, 
+    "subject": 7
+  }
+},
+{
+  "pk": 200, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-geografia", 
+    "teacher": 8, 
+    "subject": 8
+  }
+},
+{
+  "pk": 201, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-educacao-fisica", 
+    "teacher": 5, 
+    "subject": 9
+  }
+},
+{
+  "pk": 202, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-filosofia", 
+    "teacher": 20, 
+    "subject": 10
+  }
+},
+{
+  "pk": 203, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-sociologia", 
+    "teacher": 5, 
+    "subject": 11
+  }
+},
+{
+  "pk": 204, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 17, 
+    "slug": "9-ano-a-2013-religiao", 
+    "teacher": 7, 
+    "subject": 12
+  }
+},
+{
+  "pk": 205, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-matematica", 
+    "teacher": 5, 
+    "subject": 1
+  }
+},
+{
+  "pk": 206, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-portugues", 
+    "teacher": 8, 
+    "subject": 2
+  }
+},
+{
+  "pk": 207, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-ingles", 
+    "teacher": 4, 
+    "subject": 3
+  }
+},
+{
+  "pk": 208, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-historia", 
+    "teacher": 17, 
+    "subject": 4
+  }
+},
+{
+  "pk": 209, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-biologia", 
+    "teacher": 11, 
+    "subject": 5
+  }
+},
+{
+  "pk": 210, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-fisica", 
+    "teacher": 14, 
+    "subject": 6
+  }
+},
+{
+  "pk": 211, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-quimica", 
+    "teacher": 18, 
+    "subject": 7
+  }
+},
+{
+  "pk": 212, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-geografia", 
+    "teacher": 5, 
+    "subject": 8
+  }
+},
+{
+  "pk": 213, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-educacao-fisica", 
+    "teacher": 26, 
+    "subject": 9
+  }
+},
+{
+  "pk": 214, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-filosofia", 
+    "teacher": 17, 
+    "subject": 10
+  }
+},
+{
+  "pk": 215, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-sociologia", 
+    "teacher": 28, 
+    "subject": 11
+  }
+},
+{
+  "pk": 216, 
+  "model": "classes.classsubject", 
+  "fields": {
+    "classroom": 18, 
+    "slug": "9-ano-b-2013-religiao", 
+    "teacher": 18, 
+    "subject": 12
+  }
+}
+]

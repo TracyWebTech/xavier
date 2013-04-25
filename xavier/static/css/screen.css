@@ -144,11 +144,12 @@ input.times {
 
 .calendar th, .calendar td { text-align: center }
 .calendar .day { padding:0 }
-.calendar .day a, .calendar .day span { padding:8px; display:block; }
+.calendar .day a, .calendar .day span { padding:12px 8px; display:block; }
 .calendar .day a:hover {
-  padding:7px;
-  border:1px solid #0088cc;
-  text-decoration:none
+  padding: 11px 7px;
+  border: 1px solid #0088cc;
+  text-decoration: none;
+  cursor: pointer;
 }
 .calendar .today a { font-weight: bold; }
 .calendar .break a { background-color: #fcf8e3; }

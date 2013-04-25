@@ -165,14 +165,14 @@ def load_testdata():
     fixtures = sorted(glob.glob(os.path.join(fixt_path, '*.json')))
     management.call_command('loaddata', *fixtures)
 
-    create_teachers()
-    create_students()
-    create_class()
-    populate_classes()
-    create_class_subject()
-    create_eval_criteria()
+    #create_teachers()
+    #create_students()
+    #create_class()
+    #populate_classes()
+    #create_class_subject()
+    #create_eval_criteria()
 
-    management.call_command('loaddata', os.path.join(fixt_path, '0-admin.json'))
+    #management.call_command('loaddata', os.path.join(fixt_path, '0-admin.json'))
 
 
 def translate():
