@@ -148,7 +148,8 @@ input.times {
 .calendar .day a:hover {
   padding:7px;
   border:1px solid #0088cc;
-  text-decoration:none
+  text-decoration:none;
+  cursor: pointer;
 }
 .calendar .today a { font-weight: bold; }
 .calendar .break a { background-color: #fcf8e3; }

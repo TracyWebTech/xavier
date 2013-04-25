@@ -71,7 +71,7 @@
                   {% elif forloop.parentloop.last and day.month != week.0.month %}         
                     <span class="muted">{{ day.day }}</span>
                   {% else %}
-                    <a href="#" data-title="{{ day }}" data-content="
+                    <a data-title="{{ day }}" data-content="
                          <button class='btn btn-warning' onclick=toggleBreak({{ day|date:"'Y-m-d'" }})>
                            {% trans 'Toggle Break' %}</button>
                          <div class='clearfix'></div>">{{ day.day }}</a>
