@@ -75,26 +75,26 @@ a.thumbnail {
 }
 
 .period {
-    float: right;
+  float: right;
 }
 
 ul.list_subjects {
-    text-align: center;
-    display: none;
-    margin-left: -1px;
+  text-align: center;
+  display: none;
+  margin-left: -1px;
 }
 li.subject {
-    font-size: 14px;
-    margin-bottom: 0px;
+  font-size: 14px;
+  margin-bottom: 0px;
 }
 
 li.subject a {
-    line-height: 2.5em;
-    vertical-align: bottom;
+  line-height: 2.5em;
+  vertical-align: bottom;
 }
 
 li.subject hr {
-    margin: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 #class-list .caret {
@@ -104,29 +104,29 @@ li.subject hr {
 }
 
 h2#header {
-    display: inline;
+  display: inline;
 }
 
 h3#subheader {
-    display: inline;
-    color: #C2C2C2;
+  display: inline;
+  color: #C2C2C2;
 }
 
 p#formula {
-    text-align: right;
-    margin: -10px 0 10px 0;
+  text-align: right;
+  margin: -10px 0 10px 0;
 }
 
 .scores {
-    width: 50px;
+  width: 50px;
 }
 
 .average {
-    width: 50px;
+  width: 50px;
 }
 
 input:invalid {
-    border: 1px solid #ff0000;
+  border: 1px solid #ff0000;
 }
 
 
