@@ -9,5 +9,8 @@ urlpatterns = patterns('',
             views.EditTimetable.as_view(), name='edit_timetable'),
     url(r'^add_timetable$', views.AddTimetable.as_view(),
             name='add_timetable'),
+
     url(r'^update_times$', views.UpdateTimes.as_view(), name='update_times'),
+    url(r'^update_timetable$', views.UpdateTimetable.as_view(),
+            name='update_timetable'),
 )

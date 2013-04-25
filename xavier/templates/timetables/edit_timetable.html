@@ -5,7 +5,8 @@
         var START = "{% trans 'Start' %}";
         var END = "{% trans 'End' %}";
         var TIMETABLE_SLUG = "{{ timetable_slug }}";
-        var URL = "{% url 'update_times' %}";
+        var UPDATE_TIMETABLE_URL = "{% url 'update_timetable' %}";
+        var UPDATE_TIMES_URL = "{% url 'update_times' %}";
     </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
 {% endblock %}

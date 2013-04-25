@@ -47,8 +47,28 @@ $(function() {
         $(this).parent().remove();
     });
 
-    // TODO Add ajax to validate and save the times when the values are changed
-    // or if the values are erased
+    // Adding timetables
+    if ($('#timetable_name').val() == "") {
+        $('a#add_new_line').css('display', 'none');
+        $('ul#timetable_list').css('display', 'none');
+    }
+
+    // Save the timetable name
+    $(document).on('change', '#timetable_name', function() {
+        request = $.ajax({
+            type: "POST",
+            url: UPDATE_TIMETABLE_NAME_URL,
+            data: {'timetable_name': $(this).val()},
+        });
+        request.done(function ( data ) {
+            TIMETABLE_SLUG = data;
+            $('a#add_new_line').css('display', 'block');
+            $('ul#timetable_list').css('display', 'block');
+
+        });
+    });
+
+    // Save the timetable with the modifications
     $(document).on('change', '.times', function() {
         // If the element has an ID, it means that he already exists
         $li = $(this).parent().parent();
@@ -61,7 +81,7 @@ $(function() {
         }
         request = $.ajax({
             type: "POST",
-            url: URL,
+            url: UPDATE_TIMES_URL,
             data: {
                 'start': start,
                 'end': end,

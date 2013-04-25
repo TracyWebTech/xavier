@@ -4,7 +4,8 @@
     <script type="text/javascript">
         var START = "{% trans 'Start' %}";
         var END = "{% trans 'End' %}";
-        var URL = "{% url 'update_times' %}";
+        var UPDATE_TIMETABLE_NAME_URL = "{% url 'update_timetable' %}";
+        var UPDATE_TIMES_URL = "{% url 'update_times' %}";
     </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
 {% endblock %}
@@ -20,6 +21,7 @@
 {% endblock %}
 
 {% block heading %}{{ title }}{% endblock %}
+
 {% block main %}
     <label>{% trans 'name'|capfirst %}</label><input type="text" id="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}"></input>
     <br />

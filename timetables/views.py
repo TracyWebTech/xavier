@@ -1,10 +1,11 @@
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import View, TemplateView
 from django.utils.translation import ugettext
 
+from schools.models import School
 from subjects.models import Subject
 from timetables.models import Timetable, Time
 
@@ -61,3 +62,15 @@ class UpdateTimes(View):
                                        timetable=timetable)
             return HttpResponse(json.dumps(time.pk), mimetype="application/json")
         return HttpResponse()
+
+class UpdateTimetable(View):
+
+    def post(self, request, *args, **kwargs):
+        timetable_name = request.POST.get('timetable_name', None)
+        if not timetable_name:
+            return HttpResponseBadRequest()
+        school = School.objects.get_current()
+        timetable = Timetable.objects.create(school=school,
+                                             name=timetable_name)
+        return HttpResponse(json.dumps(timetable.slug),
+                            mimetype="application/json")
