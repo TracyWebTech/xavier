@@ -272,11 +272,11 @@ msgstr "Cancelar"
 
 #: templates/scores/classes_list.html:9
 msgid "Click to choose a subject"
-msgstr "Clique para selecionar uma matérica"
+msgstr "Clique para selecionar uma matéria"
 
 #: templates/scores/scores_list.html:55
 msgid "Final grade formula"
-msgstr "Fórmula da grade final"
+msgstr "Fórmula da nota final"
 
 #: templates/scores/scores_list.html:59
 msgid "Student"
@@ -307,7 +307,7 @@ msgstr "Fim"
 #: templates/timetables/add_timetable.html:16
 #: templates/timetables/edit_timetable.html:17
 msgid "timetables"
-msgstr "horários"
+msgstr "grade de horários"
 
 #: templates/timetables/add_timetable.html:19
 msgid "add"
@@ -316,8 +316,8 @@ msgstr "adicionar"
 #: templates/timetables/add_timetable.html:24
 #: templates/timetables/edit_timetable.html:25
 msgid "timetable name"
-msgstr ""
+msgstr "nome da grade de horários"
 
 #: templates/timetables/timetable_list.html:15
 msgid "Add timetable"
-msgstr "Adicionar horário"
+msgstr "Adicionar grade de horários"
