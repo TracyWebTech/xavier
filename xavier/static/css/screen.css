@@ -97,10 +97,10 @@ li.subject hr {
     margin: 0 0 0 0;
 }
 
-.caret {
-    float: right;
-    position: relative;
-    margin-top: -35px;
+#class-list .caret {
+  float: right;
+  position: relative;
+  margin-top: -35px;
 }
 
 h2#header {
