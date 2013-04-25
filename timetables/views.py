@@ -50,6 +50,9 @@ class UpdateTimes(View):
         timetable_slug = request.POST.get('timetable_slug', None)
         time_pk = request.POST.get('time_combination_pk', None)
         if time_pk:
+            if not start and not end and not timetable_slug:
+                Time.objects.get(pk=time_pk).delete()
+                return HttpResponse()
             time = get_object_or_404(Time, pk=time_pk)
             time.start = start
             time.end = end

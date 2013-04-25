@@ -20,6 +20,25 @@ $(function() {
         $(this).find($('.icon-minus-sign')).remove();
     });
 
+    // Remove schedule from timetable
+    $(document).on('click', '#remove_line', function() {
+        $li = $(this).parent();
+        var time_combination_pk = '';
+        if ($li.attr('id') != undefined) {
+            time_combination_pk = $li.attr('id').replace(/\D+/, '');
+        }
+        request = $.ajax({
+            type: "POST",
+            url: UPDATE_TIMES_URL,
+            data: {
+                'time_combination_pk': time_combination_pk,
+            },
+        });
+        request.done(function() {
+            $li.remove();
+        });
+    });
+
     // Add new line for new start - end inputs
     $('#add_new_line').click(function() {
         $span1 = $('<span>').attr('class', 'span2 timetable');
@@ -40,11 +59,6 @@ $(function() {
         $li.append($span2);
 
         $('ul#timetable_list').append($li);
-    });
-
-    // Removing line if minus sign is clicked
-    $(document).on('click', '#remove_line', function() {
-        $(this).parent().remove();
     });
 
     // Adding timetables
@@ -90,7 +104,9 @@ $(function() {
             },
         });
         request.done(function ( data ) {
-            $li.attr('id', 'timeline-'+data);
+            if ($li.attr('id') == undefined) {
+                $li.attr('id', 'timeline-'+data);
+            }
         });
     });
 });

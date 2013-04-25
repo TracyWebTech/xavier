@@ -20,7 +20,7 @@ class Timetable(models.Model):
         verbose_name_plural = _('timetables')
 
     def __unicode__(self):
-        return u'{0} ({1})'.format(self.name, self.school.short_name)
+        return unicode(self.name)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(unicode(self))
