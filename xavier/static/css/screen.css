@@ -140,6 +140,17 @@ input.times {
     width: 140px;
 }
 
+.timetable a.remove_timetable {
+    display: none;
+    float: right;
+}
+
+.timetable:hover a.remove_timetable {
+    display: block;
+    float: right;
+    margin: 3px 3px 0 0;
+}
+
 /* Calendar */
 
 .calendar th, .calendar td { text-align: center }

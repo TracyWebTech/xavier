@@ -109,4 +109,23 @@ $(function() {
             }
         });
     });
+
+    // Timetables list
+
+    // remove timetable
+    $(document).on('click', '.remove_timetable', function() {
+        var $li = $(this).parent();
+        var timetable_pk = $(this).parent().find('a.timetable_url');
+        var timetable_pk = timetable_pk.attr('id').replace(/\D+/, '');
+        request = $.ajax({
+            type: 'POST',
+            url: REMOVE_TIMETABLE,
+            data: {
+                'timetable_pk': timetable_pk
+            },
+        });
+        request.done(function( data ) {
+            $li.remove();
+        });
+    });
 });

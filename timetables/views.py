@@ -41,6 +41,14 @@ class EditTimetable(TemplateView):
         context['title'] = ugettext('Timetables')
         return context
 
+class RemoveTimetable(View):
+
+    def post(self, request, *args, **kwargs):
+        timetable_pk = request.POST.get('timetable_pk', None)
+        if not timetable_pk:
+            return HttpResponseBadRequest()
+        Timetable.objects.get(pk=timetable_pk).delete()
+        return HttpResponse()
 
 class UpdateTimes(View):
 
