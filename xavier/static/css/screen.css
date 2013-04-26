@@ -143,7 +143,7 @@ input.times {
 /* Calendar */
 
 .calendar th, .calendar td { text-align: center }
-.calendar .day { padding:0 }
+.calendar .day { padding:0; width:14.2857142857% }
 .calendar .day a, .calendar .day span { padding:12px 8px; display:block; }
 .calendar .day a:hover {
   padding: 11px 7px;
