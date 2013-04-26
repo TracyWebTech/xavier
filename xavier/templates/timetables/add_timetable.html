@@ -23,7 +23,13 @@
 {% block heading %}{{ title }}{% endblock %}
 
 {% block main %}
-    <label>{% trans 'name'|capfirst %}</label><input type="text" id="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}"></input>
+    <label>{% trans 'name'|capfirst %}</label>
+        <span class="input-append">
+            <input type="text" class="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}"></input>
+            <button class="btn btn-primary" type="submit" title="{% trans 'Apply name' %}" id="apply_timetable_name">
+                &nbsp;<i class="icon-white icon-ok"></i>&nbsp;
+            </button>
+        </span>
     <br />
     <a href="#" id="add_new_line"><i class="icon-plus-sign"></i></a>
     <ul class="unstyled" id="timetable_list">

@@ -5,7 +5,7 @@ from timetables import views
 
 urlpatterns = patterns('',
     url(r'^$', views.SchoolTimetableList.as_view(), name='school_timetables'),
-    url(r'^edit/(?P<timetable_slug>[-\w]+)$',
+    url(r'^edit/(?P<timetable_pk>[\d]+)$',
             views.EditTimetable.as_view(), name='edit_timetable'),
     url(r'^add$', views.AddTimetable.as_view(), name='add_timetable'),
     url(r'^remove$', views.RemoveTimetable.as_view(), name='remove_timetable'),

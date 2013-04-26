@@ -1,5 +1,7 @@
 $(function() {
 
+    /* TIMETABLE ADD AND EDIT */
+
     // Add the icon with minus sign
     $(document).on('mouseenter', 'li.start_end', function() {
 
@@ -62,20 +64,27 @@ $(function() {
     });
 
     // Adding timetables
-    if ($('#timetable_name').val() == "") {
+    if ($('.timetable_name').val() == "") {
         $('a#add_new_line').css('display', 'none');
         $('ul#timetable_list').css('display', 'none');
     }
 
     // Save the timetable name
-    $(document).on('change', '#timetable_name', function() {
+    $(document).on('click', '#apply_timetable_name', function() {
+        var timetable = $(this).parent().find('.timetable_name');
+        var timetable_pk = '';
+        if (timetable.attr('id') != undefined) {
+            timetable_pk = timetable.attr('id').replace(/\D+/, '');
+        }
         request = $.ajax({
             type: "POST",
             url: UPDATE_TIMETABLE_NAME_URL,
-            data: {'timetable_name': $(this).val()},
+            data: {'timetable_name': timetable.val(),
+                   'timetable_pk': timetable_pk},
         });
         request.done(function ( data ) {
-            TIMETABLE_SLUG = data;
+            TIMETABLE_SLUG = data['slug'];
+            timetable.attr('id', data['pk']);
             $('a#add_new_line').css('display', 'block');
             $('ul#timetable_list').css('display', 'block');
 
@@ -110,7 +119,7 @@ $(function() {
         });
     });
 
-    // Timetables list
+    /* TIMETABLES LIST */
 
     // remove timetable
     $(document).on('click', '.remove_timetable', function() {

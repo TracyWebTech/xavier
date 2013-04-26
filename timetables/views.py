@@ -34,9 +34,8 @@ class EditTimetable(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EditTimetable, self).get_context_data(**kwargs)
-        timetable_slug = context['timetable_slug']
-        context['timetable'] = Timetable.objects.get(slug=timetable_slug)
-        context['subtitle'] = context['timetable'].name
+        timetable_pk = context['timetable_pk']
+        context['timetable'] = Timetable.objects.get(pk=timetable_pk)
         context['times'] = Time.objects.filter(timetable=context['timetable'])
         context['title'] = ugettext('Timetables')
         return context
@@ -78,10 +77,17 @@ class UpdateTimetable(View):
 
     def post(self, request, *args, **kwargs):
         timetable_name = request.POST.get('timetable_name', None)
+        timetable_pk = request.POST.get('timetable_pk', None)
         if not timetable_name:
             return HttpResponseBadRequest()
+        if timetable_pk:
+            timetable = Timetable.objects.get(pk=timetable_pk)
+            timetable.name = timetable_name
+            timetable.save()
+            return HttpResponse()
         school = School.objects.get_current()
         timetable = Timetable.objects.create(school=school,
                                              name=timetable_name)
-        return HttpResponse(json.dumps(timetable.slug),
-                            mimetype="application/json")
+
+        data = {'slug': timetable.slug, 'pk': timetable.pk}
+        return HttpResponse(json.dumps(data), mimetype="application/json")

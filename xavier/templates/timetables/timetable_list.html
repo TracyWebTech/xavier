@@ -29,7 +29,7 @@
                     <a href="#" class="remove_timetable">
                         <i class="icon-remove"></i>
                     </a>
-                    <a class="thumbnail timetable_url" href="{% if timetable.slug %}{% url 'edit_timetable' timetable.slug %}{% endif %}" id="timetable_{{ timetable.pk }}">
+                    <a class="thumbnail timetable_url" href="{% url 'edit_timetable' timetable.pk %}" id="timetable_{{ timetable.pk }}">
                     <div>
                         <div class="caption clearfix">
                             <h4>{{ timetable }}</h4>

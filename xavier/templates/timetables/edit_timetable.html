@@ -5,7 +5,7 @@
         var START = "{% trans 'Start' %}";
         var END = "{% trans 'End' %}";
         var TIMETABLE_SLUG = "{{ timetable_slug }}";
-        var UPDATE_TIMETABLE_URL = "{% url 'update_timetable' %}";
+        var UPDATE_TIMETABLE_NAME_URL = "{% url 'update_timetable' %}";
         var UPDATE_TIMES_URL = "{% url 'update_times' %}";
     </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
@@ -23,7 +23,13 @@
 
 {% block heading %}{{ title }}{% endblock %}
 {% block main %}
-<label>{% trans 'name'|capfirst %}</label><input type="text" id="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}" value="{{ timetable.name }}"></input>
+<label>{% trans 'name'|capfirst %}</label>
+    <span class="input-append">
+        <input type="text" placeholder="{% trans 'timetable name'|capfirst %}" class="timetable_name" id="timetable_{{ timetable.pk }}" value="{{ timetable.name }}"></input>
+        <button class="btn btn-primary" type="submit" title="{% trans 'Apply name' %}" id="apply_timetable_name">
+            &nbsp;<i class="icon-white icon-ok"></i>&nbsp;
+        </button>
+    </span>
     <br />
     <a href="#" id="add_new_line"><i class="icon-plus-sign"></i></a>
     <ul class="unstyled" id="timetable_list">
