@@ -8,6 +8,7 @@ from accounts.models import Student, Teacher
 from periods.models import Period
 from subjects.models import Subject
 from schools.managers import CurrentSchoolManager
+from timetables.models import Timetable
 
 
 class Grade(models.Model):
@@ -33,6 +34,7 @@ class Class(models.Model):
     period = models.ForeignKey(Period, verbose_name=_(u'period'))
     students = models.ManyToManyField(Student, verbose_name=_(u'students'))
     grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
+    timetable = models.ForeignKey(Timetable, verbose_name=_('timetable'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
     objects = models.Manager()

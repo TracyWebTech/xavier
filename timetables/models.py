@@ -54,3 +54,19 @@ class Time(models.Model):
         if intersection.exists():
             error_msg = _('Schedule not valid')
             raise ValidationError(error_msg)
+
+class ClassSubjectTime(models.Model):
+    WEEKDAY_CHOICES = (
+        ('mon', 'Monday'),
+        ('tue', 'Tuesday'),
+        ('wed', 'Wednesday'),
+        ('thu', 'Thursday'),
+        ('fri', 'Friday'),
+        ('sat', 'Saturday'),
+        ('sun', 'Sunday'),
+    )
+    weekday = models.CharField(_('weekday'), max_length=3,
+        choices=WEEKDAY_CHOICES)
+    class_subject = models.ForeignKey('classes.ClassSubject',
+                                      verbose_name=_('class subject'))
+    time = models.ForeignKey(Time, verbose_name=_('time'))
