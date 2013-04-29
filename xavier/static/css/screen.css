@@ -74,6 +74,8 @@ a.thumbnail {
   margin: 5px;
 }
 
+/* Scores */
+
 .period {
   float: right;
 }
@@ -83,6 +85,7 @@ ul.list_subjects {
   display: none;
   margin-left: -1px;
 }
+
 li.subject {
   font-size: 14px;
   margin-bottom: 0px;
