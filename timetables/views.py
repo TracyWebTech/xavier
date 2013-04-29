@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.base import View, TemplateView
 from django.utils.translation import ugettext
 
+from classes.models import Class
 from schools.models import School
 from subjects.models import Subject
 from timetables.models import Timetable, Time
@@ -91,3 +92,24 @@ class UpdateTimetable(View):
 
         data = {'slug': timetable.slug, 'pk': timetable.pk}
         return HttpResponse(json.dumps(data), mimetype="application/json")
+
+
+class ListClasses(TemplateView):
+    template_name = 'timetables/timetable_class_listing.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListClasses, self).get_context_data(**kwargs)
+        context['title'] = ugettext('Class Timetables')
+        return context
+
+class ClassTimetable(TemplateView):
+    template_name = 'timetables/class_timetable.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ClassTimetable, self).get_context_data(**kwargs)
+        classroom = Class.objects.get(slug=context['class_slug'])
+        context['class'] = classroom
+        context['times'] = Time.objects.filter(timetable_id=1)
+        context['title'] = ugettext('Timetable')
+        context['subtitle'] = unicode(classroom)
+        return context

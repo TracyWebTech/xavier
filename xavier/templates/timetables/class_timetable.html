@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/dropdown_subjects.js">
+    </script>
+{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block main %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>{{ class }}</th>
+            <th>{% trans 'Monday' %}</th>
+            <th>{% trans 'Tuesday' %}</th>
+            <th>{% trans 'Wednesday' %}</th>
+            <th>{% trans 'Thursday' %}</th>
+            <th>{% trans 'Friday' %}</th>
+            <th>{% trans 'Saturday' %}</th>
+            <th>{% trans 'Sunday' %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if times %}
+        {% for time in times %}
+            <tr>
+                <td class="timetable_subjects_list">{{ time.start }} - {{ time.end }}</td>
+                <!-- for day in days -->
+                {% for day in 'stqqssd' %}
+                <td class="timetable_subjects_list">
+                    <a class="dropdown-toggle timetable_subjects" data-toggle="dropdown" data-target="#" id="dLabel" role="button" name="subjects" title="{% trans 'Click to choose a subject' %}" href="#">
+                    <div class="caption clearfix">&nbsp;</div></a>
+                    {% include "subjects/includes/dropdown.html" with li_link="False" %}
+                </td>{% endfor %}
+            </tr>
+        {% endfor %}
+        {% endif %}
+        <tr>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

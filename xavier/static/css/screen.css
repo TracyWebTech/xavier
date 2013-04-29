@@ -151,6 +151,15 @@ input.times {
     margin: 3px 3px 0 0;
 }
 
+td.timetable_subjects_list {
+    padding: 0 8px;
+    line-height: 36px;
+}
+
+a.timetable_subjects {
+    text-decoration: none;
+}
+
 /* Calendar */
 
 .calendar th, .calendar td { text-align: center }

@@ -12,4 +12,9 @@ urlpatterns = patterns('',
     url(r'^update_times$', views.UpdateTimes.as_view(), name='update_times'),
     url(r'^update_timetable$', views.UpdateTimetable.as_view(),
             name='update_timetable'),
+
+    url(r'^classes$', views.ListClasses.as_view(),
+            name='list_classes_for_timetables'),
+    url(r'^classes/(?P<class_slug>[-\w]+)$', views.ClassTimetable.as_view(),
+            name='class_timetable'),
 )

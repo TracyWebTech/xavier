@@ -1,0 +1,10 @@
+{% extends "classes/class_listing.html" %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li class="active">{{ title }}</li>
+{% endblock %}
+
+{% block title %}{{ title }} - {{ current_school.name }}{% endblock %}
+{% block heading %}{{ title }}{% endblock %}
+
+{% block thumbnail_url %}href="{% url 'class_timetable' class.slug %}"{% endblock %}
