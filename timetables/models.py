@@ -57,16 +57,24 @@ class Time(models.Model):
 
 class ClassSubjectTime(models.Model):
     WEEKDAY_CHOICES = (
-        ('mon', 'Monday'),
-        ('tue', 'Tuesday'),
-        ('wed', 'Wednesday'),
-        ('thu', 'Thursday'),
-        ('fri', 'Friday'),
-        ('sat', 'Saturday'),
-        ('sun', 'Sunday'),
+        (_('mon'), _('Monday')),
+        (_('tue'), _('Tuesday')),
+        (_('wed'), _('Wednesday')),
+        (_('thu'), _('Thursday')),
+        (_('fri'), _('Friday')),
+        (_('sat'), _('Saturday')),
+        (_('sun'), _('Sunday')),
     )
     weekday = models.CharField(_('weekday'), max_length=3,
         choices=WEEKDAY_CHOICES)
     class_subject = models.ForeignKey('classes.ClassSubject',
                                       verbose_name=_('class subject'))
     time = models.ForeignKey(Time, verbose_name=_('time'))
+
+    def __unicode__(self):
+        return u'{0} - {1}'.format(self.time, self.class_subject)
+
+    class Meta:
+        verbose_name = _('class subject time')
+        verbose_name_plural = _('class subject times')
+        unique_together = ('class_subject', 'weekday', 'time')
