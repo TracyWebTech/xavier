@@ -172,9 +172,11 @@ td.timetable_subjects_list {
     padding: 0 8px;
     line-height: 36px;
     min-width: 130px;
+    text-align: center;
 }
 
 a.timetable_subjects {
+    color: #555;
     text-decoration: none;
 }
 
