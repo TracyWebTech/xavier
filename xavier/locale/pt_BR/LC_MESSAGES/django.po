@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-25 16:04-0300\n"
+"POT-Creation-Date: 2013-05-02 11:56-0300\n"
 "PO-Revision-Date: 2013-04-25 14:56-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,35 +100,35 @@ msgstr[1] "%(counter)s ausentes"
 msgid "no absence"
 msgstr "todos presentes"
 
-#: templates/calendars/calendar.html:53
+#: templates/calendars/calendar.html:52
 msgid "Sun"
 msgstr "Dom"
 
-#: templates/calendars/calendar.html:54
+#: templates/calendars/calendar.html:53
 msgid "Mon"
 msgstr "Seg"
 
-#: templates/calendars/calendar.html:55
+#: templates/calendars/calendar.html:54
 msgid "Tue"
 msgstr "Ter"
 
-#: templates/calendars/calendar.html:56
+#: templates/calendars/calendar.html:55
 msgid "Wed"
 msgstr "Qua"
 
-#: templates/calendars/calendar.html:57
+#: templates/calendars/calendar.html:56
 msgid "Thu"
 msgstr "Qui"
 
-#: templates/calendars/calendar.html:58
+#: templates/calendars/calendar.html:57
 msgid "Fri"
 msgstr "Sex"
 
-#: templates/calendars/calendar.html:59
+#: templates/calendars/calendar.html:58
 msgid "Sat"
 msgstr "Sáb"
 
-#: templates/calendars/calendar.html:76
+#: templates/calendars/calendar.html:75
 msgid "Toggle Break"
 msgstr "Alternar Recesso"
 
@@ -217,15 +217,19 @@ msgstr "Notas"
 msgid "Calendar"
 msgstr "Calendário"
 
-#: templates/includes/navbar.html:36
+#: templates/includes/navbar.html:32
+msgid "Timetables"
+msgstr "grades de horários"
+
+#: templates/includes/navbar.html:37
 msgid "Me"
 msgstr "Eu"
 
-#: templates/includes/navbar.html:47
+#: templates/includes/navbar.html:48
 msgid "Administrator"
 msgstr "Administrador"
 
-#: templates/includes/navbar.html:51
+#: templates/includes/navbar.html:52
 #: templates/registration/password_change_done.html:7
 #: templates/registration/password_change_form.html:3
 #: templates/registration/password_change_form.html:4
@@ -233,7 +237,7 @@ msgstr "Administrador"
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/includes/navbar.html:52
+#: templates/includes/navbar.html:53
 msgid "Logout"
 msgstr "Sair"
 
@@ -271,6 +275,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: templates/scores/classes_list.html:9
+#: templates/timetables/class_timetable.html:38
 msgid "Click to choose a subject"
 msgstr "Clique para selecionar uma matéria"
 
@@ -287,20 +292,20 @@ msgid "Final grade"
 msgstr "Grade final"
 
 #: templates/timetables/add_timetable.html:5
-#: templates/timetables/add_timetable.html:31
-#: templates/timetables/add_timetable.html:36
+#: templates/timetables/add_timetable.html:37
+#: templates/timetables/add_timetable.html:42
 #: templates/timetables/edit_timetable.html:5
-#: templates/timetables/edit_timetable.html:31
 #: templates/timetables/edit_timetable.html:37
+#: templates/timetables/edit_timetable.html:43
 msgid "Start"
 msgstr "Início"
 
 #: templates/timetables/add_timetable.html:6
-#: templates/timetables/add_timetable.html:32
-#: templates/timetables/add_timetable.html:39
+#: templates/timetables/add_timetable.html:38
+#: templates/timetables/add_timetable.html:45
 #: templates/timetables/edit_timetable.html:6
-#: templates/timetables/edit_timetable.html:32
-#: templates/timetables/edit_timetable.html:40
+#: templates/timetables/edit_timetable.html:38
+#: templates/timetables/edit_timetable.html:46
 msgid "End"
 msgstr "Fim"
 
@@ -313,11 +318,20 @@ msgstr "grade de horários"
 msgid "add"
 msgstr "adicionar"
 
-#: templates/timetables/add_timetable.html:26
-#: templates/timetables/edit_timetable.html:26
+#: templates/timetables/add_timetable.html:28
+#: templates/timetables/edit_timetable.html:28
 msgid "timetable name"
 msgstr "nome da grade de horários"
 
-#: templates/timetables/timetable_list.html:15
+#: templates/timetables/add_timetable.html:29
+#: templates/timetables/edit_timetable.html:29
+msgid "Apply name"
+msgstr "Aplicar nome"
+
+#: templates/timetables/class_timetable.html:15
+msgid "class timetables"
+msgstr "grades de horários das turmas"
+
+#: templates/timetables/timetable_list.html:21
 msgid "Add timetable"
 msgstr "Adicionar grade de horários"

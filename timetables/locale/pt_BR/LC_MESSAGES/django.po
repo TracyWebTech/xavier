@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-25 16:04-0300\n"
+"POT-Creation-Date: 2013-05-02 11:56-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,14 +26,70 @@ msgstr "grade de horários"
 msgid "timetables"
 msgstr "grades de horários"
 
-#: models.py:42
+#: models.py:40
 msgid "The start must be before the end"
 msgstr "O início deve ser antes do horário final"
 
-#: models.py:55
+#: models.py:53
 msgid "Schedule not valid"
 msgstr "Horários não válidos"
 
-#: views.py:19 views.py:28 views.py:41
+#: models.py:58
+msgid "Monday"
+msgstr "Segunda"
+
+#: models.py:59
+msgid "Tuesday"
+msgstr "Terça"
+
+#: models.py:60
+msgid "Wednesday"
+msgstr "Quarta"
+
+#: models.py:61
+msgid "Thursday"
+msgstr "Quinta"
+
+#: models.py:62
+msgid "Friday"
+msgstr "Sexta"
+
+#: models.py:63
+msgid "Saturday"
+msgstr "Sábado"
+
+#: models.py:64
+msgid "Sunday"
+msgstr "Domingo"
+
+#: models.py:66
+msgid "weekday"
+msgstr "Dia da semana"
+
+#: models.py:69
+msgid "class subject"
+msgstr "Matéria da turma"
+
+#: models.py:70
+msgid "time"
+msgstr "horário"
+
+#: models.py:76
+msgid "class subject time"
+msgstr "horário da matéria da turma"
+
+#: models.py:77
+msgid "class subject times"
+msgstr "horários da matéria da turma"
+
+#: views.py:20 views.py:29 views.py:41
 msgid "Timetables"
 msgstr "Grades de horários"
+
+#: views.py:102
+msgid "Class Timetables"
+msgstr "Grades de horários das turmas"
+
+#: views.py:141
+msgid "Timetable"
+msgstr "Grade de horários"
