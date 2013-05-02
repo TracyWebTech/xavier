@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 11:56-0300\n"
+"POT-Creation-Date: 2013-05-02 12:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,23 +36,23 @@ msgstr "Horários não válidos"
 
 #: models.py:58
 msgid "Monday"
-msgstr "Segunda"
+msgstr "Segunda-feira"
 
 #: models.py:59
 msgid "Tuesday"
-msgstr "Terça"
+msgstr "Terça-feira"
 
 #: models.py:60
 msgid "Wednesday"
-msgstr "Quarta"
+msgstr "Quarta-feira"
 
 #: models.py:61
 msgid "Thursday"
-msgstr "Quinta"
+msgstr "Quinta-feira"
 
 #: models.py:62
 msgid "Friday"
-msgstr "Sexta"
+msgstr "Sexta-feira"
 
 #: models.py:63
 msgid "Saturday"
