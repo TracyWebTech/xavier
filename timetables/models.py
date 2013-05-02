@@ -55,13 +55,13 @@ class Time(models.Model):
 
 class ClassSubjectTime(models.Model):
     WEEKDAY_CHOICES = (
-        (_('mon'), _('Monday')),
-        (_('tue'), _('Tuesday')),
-        (_('wed'), _('Wednesday')),
-        (_('thu'), _('Thursday')),
-        (_('fri'), _('Friday')),
-        (_('sat'), _('Saturday')),
-        (_('sun'), _('Sunday')),
+        ('mon', _('Monday')),
+        ('tue', _('Tuesday')),
+        ('wed', _('Wednesday')),
+        ('thu', _('Thursday')),
+        ('fri', _('Friday')),
+        ('sat', _('Saturday')),
+        ('sun', _('Sunday')),
     )
     weekday = models.CharField(_('weekday'), max_length=3,
         choices=WEEKDAY_CHOICES)
