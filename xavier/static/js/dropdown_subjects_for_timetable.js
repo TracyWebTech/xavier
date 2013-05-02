@@ -15,6 +15,10 @@ $(function() {
 
         $td = $(this).parent().parent().parent().parent();
         $td.find('a[name="subjects"] div').empty().prepend($(this).text());
+        var class_subject_time_pk = '';
+        if ($td.attr('id') != undefined) {
+            class_subject_time_pk = $td.attr('id');
+        }
 
         var time = $td.parent().find('.time').attr('id');
         var weekday = $td.find('.timetable_subjects').attr('rel');
@@ -26,7 +30,11 @@ $(function() {
                    'class': classroom,
                    'time': time,
                    'weekday': weekday,
+                   'class_subject_time_pk': class_subject_time_pk,
             },
+        });
+        request.done(function ( data ) {
+            $td.attr('id', data);
         });
     });
 });

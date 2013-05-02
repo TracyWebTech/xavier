@@ -129,9 +129,9 @@ class ClassTimetable(TemplateView):
                             class_subject__classroom=context['class'],
                             weekday=day_abbr)
                 except ClassSubjectTime.DoesNotExist:
-                    subject = (day_abbr, None)
+                    subject = (None, day_abbr, None)
                 else:
-                    subject = (day_abbr,
+                    subject = (class_subject_time.pk, day_abbr,
                                class_subject_time.class_subject.subject)
 
                 time_dict['subjects'].append(subject)
@@ -168,7 +168,8 @@ class UpdateClassSubjectTime(View):
                     pk=class_subject_time_pk)
             class_subject_time.class_subject = class_subject
             class_subject_time.save()
-            return HttpResponse()
+            return HttpResponse(json.dumps(class_subject_time.pk),
+                                mimetype="application/json")
 
         class_subject_time = ClassSubjectTime.objects.create(
             weekday=weekday_abbr,
