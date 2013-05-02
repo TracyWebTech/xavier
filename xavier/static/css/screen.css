@@ -84,6 +84,8 @@ ul.list_subjects {
   text-align: center;
   display: none;
   margin-left: -1px;
+  min-width: 130px;
+  width: 100%;
 }
 
 li.subject {
@@ -154,9 +156,22 @@ input.times {
     margin: 3px 3px 0 0;
 }
 
+.timetable_for_class th {
+    text-align: center;
+}
+
+.timetable_for_class td.listing_subjects {
+    padding: 0;
+}
+
+.listing_subjects a {
+    padding: 0 !important;
+}
+
 td.timetable_subjects_list {
     padding: 0 8px;
     line-height: 36px;
+    min-width: 130px;
 }
 
 a.timetable_subjects {

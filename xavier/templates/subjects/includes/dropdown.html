@@ -1,10 +1,10 @@
 <div class="dropdown">
-    <ul class="dropdown-menu span3 list_subjects" role="menu" ariaLabelledby="dLabel">
+    <ul class="dropdown-menu list_subjects" role="menu" ariaLabelledby="dLabel">
         {% for class_subject in class.classsubject_set.all %}
             <li class="subject">
             {% if li_link == "True" %}
                 <a href="{% url 'scores_list' class.slug class_subject.subject.slug %}">{{ class_subject.subject }}</a>
-            {% else %}<a href="#">{{ class_subject.subject }}</a>{% endif %}
+                {% else %}<a href="#" class="subject_choice" rel="{{ class_subject.subject.pk }}">{{ class_subject.subject }}</a>{% endif %}
             {%if not forloop.last %}<hr />{% endif %}</li>
         {% endfor %}
     </ul>

@@ -1,4 +1,5 @@
 $(function() {
+    // Scores
     $('a[name="subjects"]').each(function() {
         $ul = $(this).parent().find('ul.list_subjects');
         if ($('li', $ul).length == 1) {

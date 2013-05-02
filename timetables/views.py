@@ -5,10 +5,10 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.base import View, TemplateView
 from django.utils.translation import ugettext
 
-from classes.models import Class
+from classes.models import Class, ClassSubject
 from schools.models import School
 from subjects.models import Subject
-from timetables.models import Timetable, Time
+from timetables.models import Timetable, Time, ClassSubjectTime
 
 
 class SchoolTimetableList(TemplateView):
@@ -109,7 +109,70 @@ class ClassTimetable(TemplateView):
         context = super(ClassTimetable, self).get_context_data(**kwargs)
         classroom = Class.objects.get(slug=context['class_slug'])
         context['class'] = classroom
-        context['times'] = Time.objects.filter(timetable_id=1)
+        context['days'] = ClassSubjectTime.WEEKDAY_CHOICES
+
+        if classroom.timetable:
+            times = Time.objects.filter(timetable=classroom.timetable)
+        else:
+            times = Time.objects.filter(timetable_id=1)
+
+        # TODO: deploy a method on models to get the timetable
+        day_time_subject = []
+        for time in times:
+            time_dict = {
+                'time': time,
+                'subjects': []
+            }
+            for day_abbr, day in ClassSubjectTime.WEEKDAY_CHOICES:
+                try:
+                    class_subject_time = time.classsubjecttime_set.get(
+                            class_subject__classroom=context['class'],
+                            weekday=day_abbr)
+                except ClassSubjectTime.DoesNotExist:
+                    subject = (day_abbr, None)
+                else:
+                    subject = (day_abbr,
+                               class_subject_time.class_subject.subject)
+
+                time_dict['subjects'].append(subject)
+            day_time_subject.append(time_dict)
+
+        context['times'] = day_time_subject
         context['title'] = ugettext('Timetable')
         context['subtitle'] = unicode(classroom)
         return context
+
+
+class UpdateClassSubjectTime(View):
+
+    def post(self, request, *args, **kwargs):
+        classroom_pk = request.POST.get('class', None)
+        subject_pk = request.POST.get('subject_pk', None)
+        time_pk = request.POST.get('time', None)
+        weekday_abbr = request.POST.get('weekday', None)
+        class_subject_time_pk = request.POST.get('class_subject_time_pk', None)
+        if not classroom_pk or not subject_pk or not time_pk \
+                or not weekday_abbr:
+            return HttpResponseNotFound()
+        classroom = Class.objects.get(pk=classroom_pk)
+        time = Time.objects.get(pk=time_pk)
+        subject = Subject.objects.get(pk=subject_pk)
+        class_subject = ClassSubject.objects.get(classroom=classroom,
+                                                 subject=subject)
+        if not class_subject:
+            return HttpResponseNotFound()
+
+        # TODO return and set the class_subject_time_pk in the html
+        if class_subject_time_pk:
+            class_subject_time = ClassSubjectTime.objects.get(
+                    pk=class_subject_time_pk)
+            class_subject_time.class_subject = class_subject
+            class_subject_time.save()
+            return HttpResponse()
+
+        class_subject_time = ClassSubjectTime.objects.create(
+            weekday=weekday_abbr,
+            class_subject=class_subject,
+            time=time
+        )
+        return HttpResponse()
