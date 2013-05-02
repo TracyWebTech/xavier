@@ -33,9 +33,7 @@ class Time(models.Model):
     end = models.TimeField()
 
     def __unicode__(self):
-        return u'{0} - {1} - {2}'.format(unicode(self.timetable),
-                                         unicode(self.start),
-                                         unicode(self.end))
+        return u'{0} - {1}'.format(unicode(self.start), unicode(self.end))
 
     def clean(self):
         if self.end <= self.start:
