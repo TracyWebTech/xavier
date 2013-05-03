@@ -1,7 +1,7 @@
 import json
 
-from django.http import HttpResponse, HttpResponseBadRequest
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
+from django.shortcuts import get_object_or_404, render
 from django.views.generic.base import View, TemplateView
 from django.utils.translation import ugettext
 
@@ -105,16 +105,28 @@ class ListClasses(TemplateView):
 class ClassTimetable(TemplateView):
     template_name = 'timetables/class_timetable.html'
 
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        if not context['times_exist']:
+            return render(request, 'timetables/no_timetables.html')
+        return super(ClassTimetable, self).get(self, request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(ClassTimetable, self).get_context_data(**kwargs)
         classroom = Class.objects.get(slug=context['class_slug'])
         context['class'] = classroom
         context['days'] = ClassSubjectTime.WEEKDAY_CHOICES
 
+        context['times_exist'] = False
         if classroom.timetable:
             times = Time.objects.filter(timetable=classroom.timetable)
         else:
+            # TODO Set a default timetable somewhere to be used when the
+            # class doesn't have a timetable specified
             times = Time.objects.filter(timetable_id=1)
+
+        if times:
+            context['times_exist'] = True
 
         # TODO: deploy a method on models to get the timetable
         day_time_subject = []

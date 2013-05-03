@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{% trans 'No timetables available' %} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li>
+        <a href="{% url 'list_classes_for_timetables' %}">{% trans 'class timetables'|capfirst %}</a>
+        <span class="divider">/</span>
+    </li>
+    <li class="active">{% trans 'No timetables available' %}</li>
+{% endblock %}
+
+{% block main %}
+    <h4>{% trans "Oops...You don't have a timetable yet" %}</h4>
+    <h5><a href="{% url 'add_timetable' %}">{% trans 'Click here to create one' %}</a></h5>
+{% endblock %}
