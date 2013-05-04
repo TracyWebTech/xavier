@@ -114,6 +114,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'schools.middleware.CurrentSchoolMiddleware',
     'xavier.middleware.LoginRequiredMiddleware',
+    'periods.middleware.XavierPeriodMiddleware',
 )
 
 ROOT_URLCONF = 'xavier.urls'
