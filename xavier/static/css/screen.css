@@ -108,13 +108,16 @@ li.subject hr {
   margin-top: 25px;
 }
 
-h2#header {
+.page-header h2 {
   display: inline;
+  margin-right: 10px;
 }
 
-h3#subheader {
+.page-header h3 {
   display: inline;
   color: #C2C2C2;
+  font-weight: normal;
+  font-size: 1.6em;
 }
 
 p#formula {
