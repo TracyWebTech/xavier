@@ -13,10 +13,8 @@ from scores.models import EvaluationCriteria, Score
 
 
 def classes_list(request):
-    # TODO Dynamic year instead hardcoded
     return render(request, 'scores/classes_list.html', {
         'title': ugettext(u'Scores'),
-        'subtitle': u'{} 2013'.format(ugettext(u'Classes')),
     })
 
 
@@ -26,7 +24,7 @@ def scores_list(request, subject_slug, class_slug):
                                       subject__slug=subject_slug)
     students = class_subject.classroom.students.filter()
 
-    subperiod = class_subject.classroom.period.get_current_subperiod()
+    subperiod = request.subperiod
     students_list = []
     criterias = class_subject.evaluationcriteria_set.all()
 
