@@ -1,8 +1,12 @@
 
-from .models import Period
+from .models import Period, SubPeriod
 
 def periods(request):
+    periods = {}
+    for period in Period.objects.all():
+        periods[period] = SubPeriod.objects.filter(period_id=period.id)
+
     return {
         'subperiod_selected': request.subperiod,
-        'all_periods': Period.objects.all(),
+        'all_period': periods,
     }

@@ -81,28 +81,21 @@
             <div class="page-header">
               <h2>{% block heading %}{{ title }}{% endblock %}</h2>
               <h3>{% block subheading %}{{ subtitle }}{% endblock %}</h3>
-              <div class="pull-right">
-                <div class="btn-group">
-                  <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">{{ subperiod_selected.name }}
-                  <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    {% for subperiod in subperiod_selected.period.subperiod_set.all %}
-                    <li><a href="#">{{ subperiod.name }}</a></li>
+              <div class="btn-group pull-right">
+                <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">{{ subperiod_selected.name }} - {{ subperiod_selected.period.name }}
+                <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  {% for period, subperiods in all_period.items %}
+                  <li class="disabled"><a href="#">{{ period.name }}</a></li>
+                    {% for subperiod in subperiods %}
+                    <li><a href="{% url 'period-select' subperiod.pk %}?next={{ request.get_full_path }}">{{ subperiod.name }}</a></li>
                     {% endfor %}
-                  </ul>
-                </div>
-                <div class="btn-group pull-right">
-                  <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
-                    {{ subperiod_selected.period.name }}
-                    <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    {% for period in all_periods %}
-                    <li><a href="#">{{ period.name }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </div>
+                  {% if not forloop.last %}
+                  <li class="divider"></li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
               </div>
             </div>
 

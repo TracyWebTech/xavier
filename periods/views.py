@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.shortcuts import redirect
 from django.core.urlresolvers import reverse_lazy
 
 from xavier import views
@@ -7,8 +8,21 @@ from periods import models
 from schools.models import School
 
 
+def period_select(request, pk):
+    try:
+        subperiod = models.SubPeriod.objects.get(pk=pk)
+    except models.SubPeriod.DoesNotExist:
+        pass
+    else:
+        request.set_subperiod(subperiod)
+
+    next = request.GET.get('next', '/')
+    return redirect(next)
+
+
 class PeriodMixin(object):
     model = models.Period
+
 
 class PeriodList(PeriodMixin, views.ListView):
     paginate_by = 20
