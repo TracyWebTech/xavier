@@ -191,3 +191,6 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+if os.environ.get('LOAD_HEROKU_SETTINGS'):
+    from heroku_settings import *
