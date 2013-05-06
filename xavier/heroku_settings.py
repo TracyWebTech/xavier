@@ -30,3 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 ALLOWED_HOSTS = ['xavier.herokuapp.com']
 
 LOGGING['handlers']['mail_admins']['include_html'] = True
+
+INSTALLED_APPS += ('storages', )
+
+STATICFILES_STORAGE = 'storages.backends.s3.S3Storage'
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
