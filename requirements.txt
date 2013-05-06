@@ -4,3 +4,4 @@ django-test-pep8>=0.1
 Fabric>=1.6
 dj-database-url
 psycopg2
+gunicorn
