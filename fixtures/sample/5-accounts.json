@@ -674,7 +674,7 @@
   "fields": {
     "username": "LuizAlexandreDeMacedoSoaresAbd", 
     "first_name": "Luiz", 
-    "last_name": "Alexandre De Macedo Soares Abdalla", 
+    "last_name": "Alexandre De Macedo Soares", 
     "gender": "M", 
     "is_active": true, 
     "school": 1, 
@@ -1528,7 +1528,7 @@
   "fields": {
     "username": "MarcosThomasOlmedillaVinhoteCo", 
     "first_name": "Marcos", 
-    "last_name": "Thomas Olmedilla Vinhote Costa", 
+    "last_name": "Thomas Olmedilla Vinhote", 
     "gender": "M", 
     "is_active": true, 
     "school": 1, 
