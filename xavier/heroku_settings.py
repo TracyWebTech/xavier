@@ -27,4 +27,6 @@ STATIC_ROOT = '/tmp/static/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
+ALLOWED_HOSTS = ['xavier.herokuapp.com']
+
 LOGGING['handlers']['mail_admins']['include_html'] = True
