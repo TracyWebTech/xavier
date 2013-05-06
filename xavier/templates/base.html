@@ -78,24 +78,28 @@
               </div>
             {% endif %}
 
-            <div class="page-header">
-              <h2>{% block heading %}{{ title }}{% endblock %}</h2>
-              <h3>{% block subheading %}{{ subtitle }}{% endblock %}</h3>
-              <div class="btn-group pull-right">
-                <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">{{ subperiod_selected.name }} - {{ subperiod_selected.period.name }}
-                <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  {% for period, subperiods in all_period.items %}
-                  <li class="disabled"><a href="#">{{ period.name }}</a></li>
-                    {% for subperiod in subperiods %}
-                    <li><a href="{% url 'period-select' subperiod.pk %}?next={{ request.get_full_path }}">{{ subperiod.name }}</a></li>
+            <div class="page-header row">
+              <div class="span9">
+                <h2>{% block heading %}{{ title }}{% endblock %}</h2>
+                <h3>{% block subheading %}{{ subtitle }}{% endblock %}</h3>
+              </div>
+              <div class="span3">
+                <div class="btn-group pull-right">
+                  <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">{{ subperiod_selected.name }} - {{ subperiod_selected.period.name }}
+                  <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    {% for period, subperiods in all_period.items %}
+                    <li class="disabled"><a href="#">{{ period.name }}</a></li>
+                      {% for subperiod in subperiods %}
+                      <li><a href="{% url 'period-select' subperiod.pk %}?next={{ request.get_full_path }}">{{ subperiod.name }}</a></li>
+                      {% endfor %}
+                    {% if not forloop.last %}
+                    <li class="divider"></li>
+                    {% endif %}
                     {% endfor %}
-                  {% if not forloop.last %}
-                  <li class="divider"></li>
-                  {% endif %}
-                  {% endfor %}
-                </ul>
+                  </ul>
+                </div>
               </div>
             </div>
 
