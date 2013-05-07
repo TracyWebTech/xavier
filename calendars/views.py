@@ -13,15 +13,18 @@ from calendars import models
 class Calendar(generic.TemplateView):
     template_name = 'calendars/calendar.html'
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, request, **kwargs):
+        cal = calendar.Calendar(calendar.SUNDAY)
         context = super(Calendar, self).get_context_data(**kwargs)
         context.update({
             'title': ugettext('Calendar'),
-            'subtitle': '2013',
-            'calendar': calendar.Calendar(calendar.SUNDAY).yeardatescalendar(2013, 2),
-            'today': date.today()
+            'calendar': cal.yeardatescalendar(request.subperiod.period.year, 2),
         })
         return context
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(request, *args, **kwargs)
+        return self.render_to_response(context)
 
 
 def ajax_toggle_break(request):
