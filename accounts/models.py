@@ -9,8 +9,6 @@ from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from schools.managers import CurrentSchoolManager
-from schools.models import School
-from subjects.models import Subject
 
 
 class User(AbstractUser):
@@ -26,7 +24,8 @@ class User(AbstractUser):
         max_length=2,
         choices=GENDER_OPTIONS
     )
-    school = models.ForeignKey(School, null=True, verbose_name=_(u'school'))
+    school = models.ForeignKey("schools.School", null=True,
+                               verbose_name=_(u'school'))
 
     objects = UserManager()
     on_school = CurrentSchoolManager()
@@ -102,7 +101,8 @@ class Employee(User):
 
 
 class Teacher(Employee):
-    subjects = models.ManyToManyField(Subject, verbose_name=_(u'subjects'))
+    subjects = models.ManyToManyField("subjects.Subject",
+                                      verbose_name=_(u'subjects'))
 
     objects = UserManager()
     on_school = CurrentSchoolManager()

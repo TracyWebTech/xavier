@@ -3,16 +3,13 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from accounts.models import Student
-from classes.models import ClassSubject
-from periods.models import SubPeriod
 
 
 # TODO Change modeling of criterias
 class EvaluationCriteria(models.Model):
     name = models.CharField(_(u'name'), max_length=30)
     weight = models.SmallIntegerField(_(u'weight'))
-    class_subject = models.ForeignKey(ClassSubject,
+    class_subject = models.ForeignKey("classes.ClassSubject",
                                       verbose_name=_(u'class subject'))
 
     class Meta:
@@ -25,11 +22,11 @@ class EvaluationCriteria(models.Model):
 
 
 class Score(models.Model):
-    student = models.ForeignKey(Student, verbose_name=_(u'student'))
+    student = models.ForeignKey("accounts.Student", verbose_name=_(u'student'))
     score = models.SmallIntegerField(_(u'score'))
-    criteria = models.ForeignKey(EvaluationCriteria,
+    criteria = models.ForeignKey("scores.EvaluationCriteria",
                                  verbose_name=_(u'criteria'))
-    subperiod = models.ForeignKey(SubPeriod, verbose_name=_(u'subperiod'))
+    subperiod = models.ForeignKey("periods.SubPeriod", verbose_name=_(u'subperiod'))
 
     class Meta:
         unique_together = ('student', 'criteria', 'subperiod')

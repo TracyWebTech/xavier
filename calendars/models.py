@@ -26,7 +26,7 @@ class Break(models.Model):
     off.
 
     """
-    calendar = models.ForeignKey(Calendar)
+    calendar = models.ForeignKey("calendars.Calendar")
     day = models.DateField(_('day'))
 
     class Meta:

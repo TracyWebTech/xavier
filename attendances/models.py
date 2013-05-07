@@ -3,7 +3,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from accounts.models import Student
 from schools.managers import CurrentSchoolManager
 
 
@@ -11,7 +10,7 @@ class AttendanceBook(models.Model):
     classroom = models.ForeignKey('classes.Class')
     day = models.DateField()
     students = models.ManyToManyField(
-        Student,
+        "accounts.Student",
         through='attendances.Attendance',
         verbose_name=_('students')
     )

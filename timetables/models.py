@@ -6,12 +6,9 @@ from django.db.models import Q
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
-from schools.models import School
-from subjects.models import Subject
-
 
 class Timetable(models.Model):
-    school = models.ForeignKey(School)
+    school = models.ForeignKey("schools.School")
     name = models.CharField(max_length=100, unique=True)
     slug = models.CharField(max_length=100, unique=True)
 
@@ -28,7 +25,8 @@ class Timetable(models.Model):
 
 
 class Time(models.Model):
-    timetable = models.ForeignKey(Timetable, verbose_name=_('timetable'))
+    timetable = models.ForeignKey("timetables.Timetable",
+                                  verbose_name=_('timetable'))
     start = models.TimeField()
     end = models.TimeField()
 
@@ -75,7 +73,7 @@ class ClassSubjectTime(models.Model):
         choices=WEEKDAY_CHOICES)
     class_subject = models.ForeignKey('classes.ClassSubject',
                                       verbose_name=_('class subject'))
-    time = models.ForeignKey(Time, verbose_name=_('time'))
+    time = models.ForeignKey("timetables.Time", verbose_name=_('time'))
 
     def __unicode__(self):
         return u'{0} - {1}'.format(self.time, self.class_subject)

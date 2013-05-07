@@ -10,14 +10,13 @@ from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
 from calendars.models import Calendar
-from schools.models import School
 from schools.managers import CurrentSchoolManager
 
 
 class Period(models.Model):
     name = models.CharField(max_length=50, verbose_name=_(u'name'))
     year = models.PositiveSmallIntegerField(verbose_name=_(u'year'))
-    school = models.ForeignKey(School, verbose_name=_(u'school'))
+    school = models.ForeignKey("schools.School", verbose_name=_(u'school'))
     slug = models.SlugField(max_length=50, null=True, unique=True)
 
     objects = models.Manager()
@@ -44,7 +43,7 @@ class SubPeriod(models.Model):
     name = models.CharField(max_length=30, verbose_name=_(u'name'))
     start = models.DateField(verbose_name=_(u'start'))
     end = models.DateField(verbose_name=_(u'end'))
-    period = models.ForeignKey(Period, verbose_name=_(u'period'))
+    period = models.ForeignKey("periods.Period", verbose_name=_(u'period'))
     slug = models.SlugField(max_length=30, null=True, unique=True)
 
     class Meta:

@@ -4,9 +4,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
 
-from accounts.models import Student, Teacher
-from periods.models import Period
-from subjects.models import Subject
 from schools.managers import CurrentSchoolManager
 
 
@@ -30,9 +27,10 @@ class Class(models.Model):
         max_length=20,
         blank=True
     )
-    period = models.ForeignKey(Period, verbose_name=_(u'period'))
-    students = models.ManyToManyField(Student, verbose_name=_(u'students'))
-    grade = models.ForeignKey(Grade, verbose_name=_(u'grade'))
+    period = models.ForeignKey("periods.Period", verbose_name=_(u'period'))
+    students = models.ManyToManyField("accounts.Student",
+                                      verbose_name=_(u'students'))
+    grade = models.ForeignKey("classes.Grade", verbose_name=_(u'grade'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
     objects = models.Manager()
@@ -58,9 +56,10 @@ class Class(models.Model):
 
 
 class ClassSubject(models.Model):
-    classroom = models.ForeignKey(Class, verbose_name=_(u'classroom'))
-    subject = models.ForeignKey(Subject, verbose_name=_(u'subject'))
-    teacher = models.ForeignKey(Teacher, verbose_name=_(u'teacher'))
+    classroom = models.ForeignKey("classes.Class",
+                                  verbose_name=_(u'classroom'))
+    subject = models.ForeignKey("subjects.Subject", verbose_name=_(u'subject'))
+    teacher = models.ForeignKey("accounts.Teacher", verbose_name=_(u'teacher'))
     slug = models.SlugField(max_length=70, null=True, unique=True)
 
     objects = models.Manager()
