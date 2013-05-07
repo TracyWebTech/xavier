@@ -1,6 +1,6 @@
 function add_new_line( value ) {
-    $span1 = $('<span>').attr('class', 'span2 timetable');
-    $span2 = $('<span>').attr('class', 'span2 timetable');
+    $section1 = $('<section>').attr('class', 'span2 timetable');
+    $section2 = $('<section>').attr('class', 'span2 timetable');
 
     $input1 = $('<input>').attr({type: 'time',
                                  class: 'times timetable time-start',
@@ -10,17 +10,18 @@ function add_new_line( value ) {
     $input2 = $('<input>').attr({type: 'time',
                                  class: 'times timetable time-end',
                                  placeholder: END,
+                                 value: '',
                                  pattern: '[0-2][0-9]:[0-6][0-9]'});
 
-    $span1.append($input1);
-    $span2.append($input2);
+    $section1.append($input1);
+    $section2.append($input2);
 
     $li = $('<li>').addClass('start_end');
-    $li.append($span1);
-    $li.append($span2);
+    $li.append($section1);
+    $li.append($section2);
 
     $('ul#timetable_list').append($li);
-    $span1.focus();
+    $section1.focus();
 }
 
 $(function() {
@@ -73,7 +74,9 @@ $(function() {
 
     $('.time-end').keydown(function(event) {
         if (event.which == 9) {
-            add_new_line($(this).val());
+            if ($(this).parent().parent().next().length == 0) {
+                add_new_line($(this).val());
+            }
         }
     });
 

@@ -144,6 +144,11 @@ span.timetable {
     float: none;
 }
 
+section.timetable {
+    display: inline-block;
+    float: none;
+}
+
 input.times {
     width: 140px;
 }
