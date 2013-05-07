@@ -1,88 +1,53 @@
-
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block extrahead %}
-<style type="text/css">
-  @media print {
-    td, th {
-      font-size: 70%;
-      padding: 0;
-      margin: 0;
-    } 
-    tr {
-      padding: 0;
-      margin: 0;
-    }
-    body {
-        padding: 0;
-        margin: 0;
-    }
-  }
-</style>
+{% block breadcrumb %} {{ block.super }}
+  <li class="active">{% trans 'report card'|title %}</li>
 {% endblock %}
-
-{% block heading %}
-  <h2>Boletim Escolar</h2>
-  <h3>Aluno: Sérgio Oliveira Campos</h3>
-{% endblock %}
-
-{% block breadcrumb %} {{ block.super }} {% endblock %}
 
 {% block main %}
-
   <div class="row-fluid">
-    <h4 class="span3">Curso: Ensino Médio</h4>
-    <h4 class="span3">Turma: 3o. Ano - C</h4>
-    <h4 class="span3">Turno: Manhã</h4>
-    <h4 class="span3">Período: 4o. Bimestre 2013</h4>
+    <h4 class="span3">{% trans 'course'|capfirst %}: {{ classroom.grade.grade_type }}</h4>
+    <h4 class="span3">{% trans 'class'|capfirst %}: {{ classroom.grade.name }} {{ classroom.identification }}</h4>
+    <h4 class="span3">{% trans 'period'|capfirst %}: {{ classroom.period.get_current_subperiod }}, {{ classroom.period.year }}</h4>
+    <h4 class="span3">
+      {% trans 'shift'|capfirst %}: {{ shift }}
+    </h4>
   </div>
 
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped"> 
     <tr>
       <th rowspan="2">&nbsp;</th>
-      <th colspan="3">1o. Bimestre</th>
-      <th colspan="3">2o. Bimestre</th>
-      <th colspan="3">3o. Bimestre</th>
-      <th colspan="3">4o. Bimestre</th>
+      {% for subperiod in classroom.period.subperiod_set.all %}
+      <th colspan="3">{{ subperiod }}</th>
+      {% endfor %}
       <th colspan="4">Final</th> 
     </tr>
     <tr>
-      <th>Nota</th>
-      <th>Faltas</th>
-      <th>Freq</th>
-      <th>Nota</th>
-      <th>Faltas</th>
-      <th>Freq</th>
-      <th>Nota</th>
-      <th>Faltas</th>
-      <th>Freq</th>
-      <th>Nota</th>
-      <th>Faltas</th>
-      <th>Freq</th>
-      <th>Nota</th>
-      <th>Faltas</th>
-      <th>Freq</th>
+      {% for subperiod in classroom.period.subperiod_set.all %}
+        <th title="{% trans 'score'|capfirst %}">{% trans 'score'|capfirst|slice:":5" %}</th>
+        <th title="{% trans 'absences'|capfirst %}">{% trans 'absences'|capfirst|slice:":5" %}</th>
+        <th title="{% trans 'frequency'|capfirst %}">{% trans 'frequency'|capfirst|slice:":5" %}</th>
+      {% endfor %}
+      <th title="{% trans 'score'|capfirst %}">{% trans 'score'|capfirst|slice:":5" %}</th>
+      <th title="{% trans 'absences'|capfirst %}">{% trans 'absences'|capfirst|slice:":5" %}</th>
+      <th title="{% trans 'frequency'|capfirst %}">{% trans 'frequency'|capfirst|slice:":5" %}</th>
       <th>Situação</th>
     </tr>
-    <tr>
-      <th>Matemática</th> 
-      <td>10.00</td> 
-      <td>0</td> 
-      <td>100%</td>
-      <td>10.00</td> 
-      <td>1</td> 
-      <td>97%</td>
-      <td>10.00</td> 
-      <td>0</td> 
-      <td>100%</td>
-      <td>10.00</td> 
-      <td>2</td> 
-      <td>90%</td>
-      <td>10.00</td> 
-      <td>3</td> 
-      <td>94%</td>
-      <td>Aprovado</td>
-    </tr>
+    {% for subject, subperiods in report_card.items %}
+      <tr>
+        <th>{{ subject|truncatechars:14 }}</th>
+        {% for subperiod in subperiods %}
+          <td>{{ subperiod.score }}</td>
+          <td>{{ subperiod.absences }}</td>
+          <td>{{ subperiod.frequency }}</td>
+        {% endfor %}
+        <td>10</td>
+        <td>0</td>
+        <td>10%</td>
+        <td><span class="label label-success">Aprovado</span></td>
+      </tr>
+    {% endfor %}
   </table>    
 
   <div class="row-fluid">

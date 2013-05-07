@@ -1,8 +1,7 @@
 
-from django.views.generic import TemplateView                                    
+from django.conf.urls import patterns, url
 
-from django.conf.urls import include, patterns, url                              
-
-urlpatterns = patterns('',                                                       
-    url(r'^$', TemplateView.as_view(template_name='reportcard/report-card.html')),
+urlpatterns = patterns('reportcard.views',
+    url(r'^([\w-]+)/([0-9]+)/$', 'student_reportcard',
+        name='student-reportcard'),
 )
