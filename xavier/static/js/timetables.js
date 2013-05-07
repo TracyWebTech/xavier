@@ -1,3 +1,28 @@
+function add_new_line( value ) {
+    $span1 = $('<span>').attr('class', 'span2 timetable');
+    $span2 = $('<span>').attr('class', 'span2 timetable');
+
+    $input1 = $('<input>').attr({type: 'time',
+                                 class: 'times timetable time-start',
+                                 placeholder: START,
+                                 value: value,
+                                 pattern: '[0-2][0-9]:[0-6][0-9]'});
+    $input2 = $('<input>').attr({type: 'time',
+                                 class: 'times timetable time-end',
+                                 placeholder: END,
+                                 pattern: '[0-2][0-9]:[0-6][0-9]'});
+
+    $span1.append($input1);
+    $span2.append($input2);
+
+    $li = $('<li>').addClass('start_end');
+    $li.append($span1);
+    $li.append($span2);
+
+    $('ul#timetable_list').append($li);
+    $span1.focus();
+}
+
 $(function() {
 
     /* TIMETABLE ADD AND EDIT */
@@ -19,7 +44,7 @@ $(function() {
 
     // Remove minus sign icon
     $(document).on('mouseleave', 'li.start_end', function() {
-        $(this).find($('.icon-minus-sign')).remove();
+        $(this).find($('#remove_line')).remove();
     });
 
     // Remove schedule from timetable
@@ -43,24 +68,13 @@ $(function() {
 
     // Add new line for new start - end inputs
     $('#add_new_line').click(function() {
-        $span1 = $('<span>').attr('class', 'span2 timetable');
-        $span2 = $('<span>').attr('class', 'span2 timetable');
+        add_new_line('');
+    });
 
-        $input1 = $('<input>').attr({type: 'time', class: 'times timetable',
-                                     placeholder: START,
-                                     pattern: '[0-2][0-9]:[0-6][0-9]'});
-        $input2 = $('<input>').attr({type: 'time', class: 'times timetable',
-                                     placeholder: END,
-                                     pattern: '[0-2][0-9]:[0-6][0-9]'});
-
-        $span1.append($input1);
-        $span2.append($input2);
-
-        $li = $('<li>').addClass('start_end');
-        $li.append($span1);
-        $li.append($span2);
-
-        $('ul#timetable_list').append($li);
+    $('.time-end').keydown(function(event) {
+        if (event.which == 9) {
+            add_new_line($(this).val());
+        }
     });
 
     // Adding timetables
