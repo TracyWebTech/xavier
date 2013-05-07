@@ -103,8 +103,7 @@ class Migration(SchemaMigration):
             'identification': ('django.db.models.fields.CharField', [], {'max_length': '20', 'blank': 'True'}),
             'period': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['periods.Period']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '70', 'unique': 'True', 'null': 'True'}),
-            'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'}),
-            'timetable': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['timetables.Timetable']", 'null': 'True'})
+            'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'})
         },
         u'classes.classsubject': {
             'Meta': {'unique_together': "(('classroom', 'subject'),)", 'object_name': 'ClassSubject'},
@@ -172,13 +171,6 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '30', 'unique': 'True', 'null': 'True'})
-        },
-        u'timetables.timetable': {
-            'Meta': {'object_name': 'Timetable'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
-            'school': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['schools.School']"}),
-            'slug': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'})
         }
     }
 

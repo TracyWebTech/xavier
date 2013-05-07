@@ -53,6 +53,14 @@ class Time(models.Model):
             error_msg = _('Schedule not valid')
             raise ValidationError(error_msg)
 
+
+class ClassTimetable(models.Model):
+    classroom = models.ForeignKey('classes.Class', verbose_name=_('classroom'),
+                                  unique=True)
+    timetable = models.ForeignKey('timetables.Timetable',
+                                  verbose_name=_('timetable'))
+
+
 class ClassSubjectTime(models.Model):
     WEEKDAY_CHOICES = (
         ('mon', _('Monday')),

@@ -26,6 +26,14 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'timetables', ['Time'])
 
+        # Adding model 'ClassTimetable'
+        db.create_table(u'timetables_classtimetable', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('classroom', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['classes.Class'], unique=True)),
+            ('timetable', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['timetables.Timetable'])),
+        ))
+        db.send_create_signal(u'timetables', ['ClassTimetable'])
+
         # Adding model 'ClassSubjectTime'
         db.create_table(u'timetables_classsubjecttime', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -48,6 +56,9 @@ class Migration(SchemaMigration):
 
         # Deleting model 'Time'
         db.delete_table(u'timetables_time')
+
+        # Deleting model 'ClassTimetable'
+        db.delete_table(u'timetables_classtimetable')
 
         # Deleting model 'ClassSubjectTime'
         db.delete_table(u'timetables_classsubjecttime')
@@ -108,8 +119,7 @@ class Migration(SchemaMigration):
             'identification': ('django.db.models.fields.CharField', [], {'max_length': '20', 'blank': 'True'}),
             'period': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['periods.Period']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '70', 'unique': 'True', 'null': 'True'}),
-            'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'}),
-            'timetable': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['timetables.Timetable']", 'null': 'True'})
+            'students': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['accounts.Student']", 'symmetrical': 'False'})
         },
         u'classes.classsubject': {
             'Meta': {'unique_together': "(('classroom', 'subject'),)", 'object_name': 'ClassSubject'},
@@ -160,6 +170,12 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'time': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['timetables.Time']"}),
             'weekday': ('django.db.models.fields.CharField', [], {'max_length': '3'})
+        },
+        u'timetables.classtimetable': {
+            'Meta': {'object_name': 'ClassTimetable'},
+            'classroom': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['classes.Class']", 'unique': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'timetable': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['timetables.Timetable']"})
         },
         u'timetables.time': {
             'Meta': {'object_name': 'Time'},
