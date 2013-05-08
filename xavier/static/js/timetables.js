@@ -20,8 +20,8 @@ function add_new_line( value ) {
     $li.append($section1);
     $li.append($section2);
 
-    $('ul#timetable_list').append($li);
-    $section1.focus();
+    $('li#start_end_example').before($li);
+    $input1.focus();
 }
 
 $(function() {
@@ -68,7 +68,7 @@ $(function() {
     });
 
     // Add new line for new start - end inputs
-    $('#add_new_line').click(function() {
+    $('.timetable-add-line').click(function() {
         add_new_line('');
     });
 

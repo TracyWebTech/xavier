@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <script type="text/javascript">
+        var START = "{% trans 'Start' %}";
+        var END = "{% trans 'End' %}";
+        var UPDATE_TIMETABLE_NAME_URL = "{% url 'update_timetable' %}";
+        var UPDATE_TIMES_URL = "{% url 'update_times' %}";
+        {% block extra_vars %}{% endblock %}
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
+{% endblock %}
+
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+    <li>
+        <a href="{% url 'school_timetables' %}">{% trans 'timetables'|capfirst %}</a>
+        <span class="divider">/</span>
+    </li>
+    <li class="active">{% block breadcrumb_active %}{% endblock%} {{ title }}</li>
+{% endblock %}
+
+{% block heading %}{{ title }}{% endblock %}
+
+{% block main %}
+    <label>{% trans 'name'|capfirst %}</label>
+        <span class="input-append">
+            <input type="text" class="timetable_name" placeholder="{% trans 'timetable name'|capfirst %}" {% if timetable %}id="timetable_{{ timetable.pk }}" value="{{ timetable.name }}"{% endif %}></input>
+            <button class="btn btn-primary" type="submit" title="{% trans 'Apply name' %}" id="apply_timetable_name">
+                &nbsp;<i class="icon-white icon-ok"></i>&nbsp;
+            </button>
+        </span>
+    <br />
+    <ul class="unstyled" id="timetable_list">
+        <li>
+            <span class="span2 timetable">{% trans 'Start' %}</span>
+            <span class="span2 timetable">{% trans 'End' %}</span>
+        </li>
+        {% if times %}
+            {% for time in times %}
+                 <li class="start_end" id="timeline-{{ time.pk }}">
+                     <section class="span2 timetable">
+                         <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.start }}" />
+                     </section><section class="span2 timetable">
+                         <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.end }}" />
+                     </section>
+                 </li>
+            {% endfor %}
+        {% else %}
+            <li class="start_end">
+                <section class="span2 timetable">
+                    <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
+                </section><section class="span2 timetable">
+                    <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
+                </section>
+            </li>
+        {% endif %}
+        <li id="start_end_example">
+            <section class="span2 timetable">
+                <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" disabled />
+            </section><section class="span2 timetable">
+                <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" disabled />
+                <!-- The section below was created 'cause firefox doesn't
+                accept any mouse events on disabled elements
+                -->
+                <section class="timetable-add-line"></section>
+            </section>
+        </li>
+    </ul>
+{% endblock %}
