@@ -29,7 +29,7 @@ $(function() {
     /* TIMETABLE ADD AND EDIT */
 
     // Add the icon with minus sign
-    $(document).on('mouseenter', 'li.start_end', function() {
+    $('ul#timetable_list').on('mouseenter', 'li.start_end', function() {
 
         $i = $('<i>').addClass('icon-minus-sign');
         $a = $('<a>').attr('href', '#');
@@ -44,12 +44,12 @@ $(function() {
     });
 
     // Remove minus sign icon
-    $(document).on('mouseleave', 'li.start_end', function() {
+    $('ul#timetable_list').on('mouseleave', 'li.start_end', function() {
         $(this).find($('#remove_line')).remove();
     });
 
     // Remove schedule from timetable
-    $(document).on('click', '#remove_line', function() {
+    $('ul#timetable_list').on('click', '#remove_line', function() {
         $li = $(this).parent();
         var time_combination_pk = '';
         if ($li.attr('id') != undefined) {
@@ -72,10 +72,10 @@ $(function() {
         add_new_line('');
     });
 
-    $('.time-end').keydown(function(event) {
         if (event.which == 9) {
             if ($(this).parent().parent().next().length == 0) {
                 add_new_line($(this).val());
+    $('ul#timetable_list').on("keypress", ".time-end", function(event) {
             }
         }
     });
@@ -109,7 +109,7 @@ $(function() {
     });
 
     // Save the timetable with the modifications
-    $(document).on('change', '.times', function() {
+    $('ul#timetable_list').on('change', '.times', function() {
         // If the element has an ID, it means that he already exists
         $li = $(this).parent().parent();
         var start = $li.find('input.times:first').val();
