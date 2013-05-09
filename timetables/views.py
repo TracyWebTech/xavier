@@ -108,8 +108,10 @@ class ClassTimetable(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        if not context['times_exist']:
-            return render(request, 'timetables/no_timetables.html')
+        if not context['timetables_exist']:
+            self.template_name = 'timetables/no_timetables.html'
+        if context['timetable_list']:
+            self.template_name = 'timetables/choose_timetable_list.html'
         return super(ClassTimetable, self).get(self, request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -117,20 +119,25 @@ class ClassTimetable(TemplateView):
         context['class'] = Class.objects.get(slug=context['class_slug'])
         context['days'] = models.ClassSubjectTime.WEEKDAY_CHOICES
 
-        context['times_exist'] = False
+        context['timetables_exist'] = False
+        if models.Timetable.objects.exists():
+            context['timetables_exist'] = True
+
+        context['timetable_list'] = ''
+        times = ''
         try:
             classtimetable = models.ClassTimetable.objects.get(
                     classroom__slug=context['class_slug'])
         except models.ClassTimetable.DoesNotExist:
             # TODO Set a default timetable somewhere to be used when the
             # class doesn't have a timetable specified
-            times = models.Time.objects.filter(timetable_id=1)
+            # TODO if there is timetables available, list them and send
+            # a warning that there is no timetable linked to this class yet
+            context['timetable_list'] = models.Timetable.objects.filter(
+                    school=School.objects.get_current())
         else:
             times = models.Time.objects.filter(
                     timetable=classtimetable.timetable)
-
-        if times:
-            context['times_exist'] = True
 
         # TODO: deploy a method on models to get the timetable
         day_time_subject = []
