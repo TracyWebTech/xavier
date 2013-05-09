@@ -38,7 +38,7 @@ class EditTimetable(TemplateView):
         timetable_pk = context['timetable_pk']
         context['timetable'] = models.Timetable.objects.get(pk=timetable_pk)
         context['times'] = models.Time.objects.filter(
-                timetable=context['timetable'])
+                timetable=context['timetable']).order_by('start')
         context['title'] = ugettext('Timetables')
         return context
 
@@ -62,7 +62,7 @@ class UpdateTimes(View):
             if not start and not end and not timetable_slug:
                 models.Time.objects.get(pk=time_pk).delete()
                 return HttpResponse()
-            time = get_object_or_404(Time, pk=time_pk)
+            time = get_object_or_404(models.Time, pk=time_pk)
             time.start = start
             time.end = end
             time.save()
