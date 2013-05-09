@@ -102,9 +102,7 @@ $(function() {
                    'timetable_pk': timetable_pk},
         });
         request.done(function ( data ) {
-            TIMETABLE_SLUG = data['slug'];
             timetable.attr('id', data['pk']);
-            $('a#add_new_line').css('display', 'block');
             $('ul#timetable_list').css('display', 'block');
 
         });
@@ -117,7 +115,7 @@ $(function() {
         var start = $li.find('input.times:first').val();
         var end = $li.find('input.times:last').val();
         var time_combination_pk = '';
-        var timetable_slug = TIMETABLE_SLUG;
+        var timetable_pk = $('.timetable_name').attr('id').replace(/\D+/, '');
         if ($li.attr('id') != undefined) {
             time_combination_pk = $li.attr('id').replace(/\D+/, '');
         }
@@ -128,7 +126,7 @@ $(function() {
                 'start': start,
                 'end': end,
                 'time_combination_pk': time_combination_pk,
-                'timetable_slug': timetable_slug
+                'timetable_pk': timetable_pk
             },
         });
         request.done(function ( data ) {

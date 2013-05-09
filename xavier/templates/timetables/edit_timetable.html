@@ -1,7 +1,3 @@
 {% extends "timetables/timetable_base_crud.html" %}
 
-{% block extra_vars %}
-    var TIMETABLE_SLUG = "{{ timetable.slug }}";
-{% endblock %}
-
 {% block breadcrumb_active %}{% trans 'edit'|capfirst %}{% endblock %}

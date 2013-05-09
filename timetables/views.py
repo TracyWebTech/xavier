@@ -56,10 +56,10 @@ class UpdateTimes(View):
     def post(self, request, *args, **kwargs):
         start = request.POST.get('start', None)
         end = request.POST.get('end', None)
-        timetable_slug = request.POST.get('timetable_slug', None)
+        timetable_pk = request.POST.get('timetable_pk', None)
         time_pk = request.POST.get('time_combination_pk', None)
         if time_pk:
-            if not start and not end and not timetable_slug:
+            if not start and not end and not timetable_pk:
                 models.Time.objects.get(pk=time_pk).delete()
                 return HttpResponse()
             time = get_object_or_404(models.Time, pk=time_pk)
@@ -68,8 +68,8 @@ class UpdateTimes(View):
             time.save()
             return HttpResponse()
 
-        if timetable_slug and start and end:
-            timetable = models.Timetable.objects.get(slug=timetable_slug)
+        if timetable_pk and start and end:
+            timetable = models.Timetable.objects.get(pk=timetable_pk)
             time = models.Time.objects.create(start=start, end=end,
                                        timetable=timetable)
             return HttpResponse(json.dumps(time.pk), mimetype="application/json")
