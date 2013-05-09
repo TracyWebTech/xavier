@@ -153,14 +153,10 @@ section.timetable-add-line {
     cursor: pointer;
 }
 
-span.timetable {
+span.timetable, section.timetable {
     display: inline-block;
     float: none;
-}
-
-section.timetable {
-    display: inline-block;
-    float: none;
+    margin-left: 0;
 }
 
 input.times {
@@ -177,6 +173,14 @@ input.times {
     float: right;
     margin: 3px 3px 0 0;
 }
+
+a#remove_line {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: -10px;
+}
+
+/* Class Timetables */
 
 .timetable_for_class th {
     text-align: center;

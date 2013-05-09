@@ -31,16 +31,14 @@ $(function() {
     // Add the icon with minus sign
     $('ul#timetable_list').on('mouseenter', 'li.start_end', function() {
 
-        $i = $('<i>').addClass('icon-minus-sign');
+        $i = $('<i>').addClass('icon-remove');
         $a = $('<a>').attr('href', '#');
 
         $a.attr('id', 'remove_line');
 
         $a.append($i);
-        $a.css('position', 'absolute');
-        $a.css('margin-top', '6px');
 
-        $(this).prepend($a);
+        $(this).append($a);
     });
 
     // Remove minus sign icon
@@ -72,10 +70,14 @@ $(function() {
         add_new_line('');
     });
 
-        if (event.which == 9) {
-            if ($(this).parent().parent().next().length == 0) {
-                add_new_line($(this).val());
     $('ul#timetable_list').on("keypress", ".time-end", function(event) {
+        if (event.which == 0 && event.shiftKey == false || event.which == 13) {
+            if ($(this).parent().parent().next().find('.time-start').val().length == 0 && $(this).parent().parent().next().attr('id') == "start_end_example") {
+                if ($(this).val().length == 0) {
+                    add_new_line('');
+                } else {
+                    add_new_line($(this).val());
+                }
             }
         }
     });
