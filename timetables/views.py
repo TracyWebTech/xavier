@@ -200,3 +200,12 @@ class UpdateClassSubjectTime(View):
             time=time
         )
         return HttpResponse()
+
+class ApplyClassTimetable(View):
+
+    def post(self, request, *args, **kwargs):
+        classroom_pk = request.POST.get('class_pk', None)
+        timetable_pk = request.POST.get('timetable_pk', None)
+        models.ClassTimetable.objects.create(classroom_id=classroom_pk,
+                                             timetable_id=timetable_pk)
+        return HttpResponse()

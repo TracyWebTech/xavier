@@ -2,6 +2,10 @@
 {% block title %}{% trans 'link timetable'|capfirst %} - {{ block.super }}{% endblock %}
 
 {% block extrahead %}
+    <script type="text/javascript">
+        var URL_APPLY_CLASSTIMETABLE="{% url 'apply_classtimetable' %}";
+        var CLASSROOM_PK="{{ class.pk }}";
+    </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
 {% endblock %}
 
@@ -18,7 +22,7 @@
     <h6><a href="{% url 'add_timetable' %}">{% trans "or click here to create one"|capfirst %}.</a></h6>
     <ul class="thumbnails">
     {% for  timetable in timetable_list %}
-        <li class="span3">
+        <li class="span3 timetable_to_apply">
             <a class="thumbnail timetable_block" data-toggle="popover" href="#" id="timetable-{{ timetable.pk }}" data-original-title="{% trans 'choosing timetable'|capfirst %}" data-content="{% include "timetables/includes/choosing_timetable_for_class.html" %}">
                 <div>
                     <div class="caption clearfix">

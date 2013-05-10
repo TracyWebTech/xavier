@@ -19,4 +19,6 @@ urlpatterns = patterns('',
             name='list_classes_for_timetables'),
     url(r'^classes/(?P<class_slug>[-\w]+)/$', views.ClassTimetable.as_view(),
             name='class_timetable'),
+    url(r'^apply_classtimetable/', views.ApplyClassTimetable.as_view(),
+            name='apply_classtimetable'),
 )

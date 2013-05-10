@@ -164,4 +164,21 @@ $(function() {
         $(this).popover('toggle');
         activePopOver = $(this);
     });
+
+    // ajax to save classtimetable
+    $('.timetable_to_apply').on('click', '.apply_timetable_to_class', function() {
+        console.log('wee');
+        request = $.ajax({
+            type: 'POST',
+            url: URL_APPLY_CLASSTIMETABLE,
+            data: {
+                'timetable_pk': $(this).attr('id').replace(/\D+/, ''),
+                'class_pk': CLASSROOM_PK
+            },
+        });
+        request.done(function() {
+            location.reload();
+        });
+    });
+
 });
