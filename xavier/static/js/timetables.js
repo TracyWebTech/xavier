@@ -154,4 +154,14 @@ $(function() {
             $li.remove();
         });
     });
+
+    // Choose timetable popover control
+    var activePopOver = null;
+    $('.timetable_block').popover({html: 'true', trigger: 'manual'}).click(function(el) {
+        if (activePopOver && $(activePopOver)[0] != $(this)[0]) {
+            $(activePopOver).popover('hide');
+        }
+        $(this).popover('toggle');
+        activePopOver = $(this);
+    });
 });
