@@ -167,7 +167,6 @@ $(function() {
 
     // ajax to save classtimetable
     $('.timetable_to_apply').on('click', '.apply_timetable_to_class', function() {
-        console.log('wee');
         request = $.ajax({
             type: 'POST',
             url: URL_APPLY_CLASSTIMETABLE,
@@ -177,7 +176,11 @@ $(function() {
             },
         });
         request.done(function() {
-            location.reload();
+            if (CLASS_TIMETABLE_URL != "") {
+                window.location.href = CLASS_TIMETABLE_URL;
+            } else {
+                location.reload();
+            }
         });
     });
 

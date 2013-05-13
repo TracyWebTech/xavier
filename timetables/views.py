@@ -1,5 +1,6 @@
 import json
 
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound
 from django.shortcuts import get_object_or_404, render
 from django.views.generic.base import View, TemplateView
@@ -10,6 +11,8 @@ from schools.models import School
 from subjects.models import Subject
 from timetables import models
 
+def get_timetables():
+    return models.Timetable.objects.filter(school=School.objects.get_current())
 
 class SchoolTimetableList(TemplateView):
     template_name = 'timetables/timetable_list.html'
@@ -133,8 +136,7 @@ class ClassTimetable(TemplateView):
             # class doesn't have a timetable specified
             # TODO if there is timetables available, list them and send
             # a warning that there is no timetable linked to this class yet
-            context['timetable_list'] = models.Timetable.objects.filter(
-                    school=School.objects.get_current())
+            context['timetable_list'] = get_timetables()
         else:
             times = models.Time.objects.filter(
                     timetable=classtimetable.timetable)
@@ -206,6 +208,24 @@ class ApplyClassTimetable(View):
     def post(self, request, *args, **kwargs):
         classroom_pk = request.POST.get('class_pk', None)
         timetable_pk = request.POST.get('timetable_pk', None)
-        models.ClassTimetable.objects.create(classroom_id=classroom_pk,
-                                             timetable_id=timetable_pk)
+        classtimetable, created = models.ClassTimetable.objects.get_or_create(
+                classroom_id=classroom_pk,
+                defaults={'timetable_id': timetable_pk})
+        if not created:
+            classtimetable.timetable_id = timetable_pk
+            classtimetable.save()
         return HttpResponse()
+
+class LinkClassTimetableList(TemplateView):
+    template_name = 'timetables/choose_timetable_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LinkClassTimetableList,
+                        self).get_context_data(**kwargs)
+        context['class'] = Class.objects.get(slug=context['class_slug'])
+        context['timetable_list'] = get_timetables()
+        context['title'] = ugettext("Timetable")
+        context['subtitle'] = context['class']
+        context['class_timetable_url'] = reverse('class_timetable',
+                kwargs={'class_slug': context['class_slug']})
+        return context

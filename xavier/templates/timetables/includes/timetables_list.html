@@ -1,0 +1,14 @@
+<ul class="thumbnails">
+{% for  timetable in timetable_list %}
+    <li class="span3 timetable_to_apply">
+        <a class="thumbnail timetable_block" data-toggle="popover" href="#" id="timetable-{{ timetable.pk }}" data-original-title="{% trans 'choosing timetable'|capfirst %}" data-content="{% include "timetables/includes/choosing_timetable_for_class.html" %}">
+            <div>
+                <div class="caption clearfix">
+                    <i class="icon-th pull-right"></i>
+                    <h4>{{ timetable.name }}</h4>
+                </div>
+            </div>
+        </a>
+    </li>
+{% endfor %}
+</ul>

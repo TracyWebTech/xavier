@@ -139,6 +139,10 @@ input:invalid {
 
 /* Timetables */
 
+li.timetable_to_apply {
+    background-color: #F7F7FF;
+}
+
 li#start_end_example {
     cursor: pointer;
     position: relative;

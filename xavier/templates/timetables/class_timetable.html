@@ -46,4 +46,5 @@
         {% endif %}
     </tbody>
 </table>
+<a href="{% url 'link_classtimetable_list' class_slug=class.slug %}"><button class="btn btn-info" >{% trans 'change timetable'|capfirst %}</button></a>
 {% endblock %}
