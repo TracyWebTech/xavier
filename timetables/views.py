@@ -196,11 +196,13 @@ class UpdateClassSubjectTime(View):
             return HttpResponse(json.dumps(class_subject_time.pk),
                                 mimetype="application/json")
 
-        class_subject_time = models.ClassSubjectTime.objects.create(
-            weekday=weekday_abbr,
-            class_subject=class_subject,
-            time=time
-        )
+        class_subject_time, created = models.ClassSubjectTime.objects.get_or_create(
+                    weekday=weekday_abbr, time=time,
+                    class_subject__classroom=class_subject.classroom,
+                    defaults={'class_subject': class_subject})
+        if not created:
+            class_subject_time.class_subject = class_subject
+            class_subject_time.save()
         return HttpResponse()
 
 class ApplyClassTimetable(View):

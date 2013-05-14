@@ -78,6 +78,18 @@ class ClassSubjectTime(models.Model):
     def __unicode__(self):
         return u'{0} - {1}'.format(self.time, self.class_subject)
 
+    def clean(self):
+        class_subject_time = ClassSubjectTime.objects.filter(
+            weekday=self.weekday,
+            class_subject__classroom=self.class_subject.classroom,
+            time=self.time
+        )
+        if self.pk:
+            class_subject_time = class_subject_time.exclude(pk=self.pk)
+        if class_subject_time.exists():
+            raise ValidationError(ugettext(
+                    "A class subject time already exist"))
+
     class Meta:
         verbose_name = _('class subject time')
         verbose_name_plural = _('class subject times')
