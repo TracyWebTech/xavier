@@ -139,6 +139,11 @@ input:invalid {
 
 /* Timetables */
 
+.list-timetables .popover {
+    width: 168px;
+    text-align: center;
+}
+
 li.timetable_to_apply {
     background-color: #F7F7FF;
 }

@@ -109,14 +109,6 @@ class ListClasses(TemplateView):
 class ClassTimetable(TemplateView):
     template_name = 'timetables/class_timetable.html'
 
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        if not context['timetables_exist']:
-            self.template_name = 'timetables/no_timetables.html'
-        if context['timetable_list']:
-            self.template_name = 'timetables/choose_timetable_list.html'
-        return super(ClassTimetable, self).get(self, request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(ClassTimetable, self).get_context_data(**kwargs)
         context['class'] = Class.objects.get(slug=context['class_slug'])
@@ -127,10 +119,12 @@ class ClassTimetable(TemplateView):
             context['timetables_exist'] = True
 
         context['timetable_list'] = ''
+        context['timetable_pk'] = ''
         times = ''
         try:
             classtimetable = models.ClassTimetable.objects.get(
                     classroom__slug=context['class_slug'])
+            context['timetable_pk'] = classtimetable.timetable.pk
         except models.ClassTimetable.DoesNotExist:
             # TODO Set a default timetable somewhere to be used when the
             # class doesn't have a timetable specified
@@ -142,6 +136,7 @@ class ClassTimetable(TemplateView):
                     timetable=classtimetable.timetable)
 
         # TODO: deploy a method on models to get the timetable
+        context['timetable_list'] = get_timetables()
         day_time_subject = []
         for time in times:
             time_dict = {

@@ -157,16 +157,17 @@ $(function() {
 
     // Choose timetable popover control
     var activePopOver = null;
-    $('.timetable_block').popover({html: 'true', trigger: 'manual'}).click(function(el) {
+    $('.timetable_block').popover({html: 'true', trigger: 'manual'}).click(function() {
         if (activePopOver && $(activePopOver)[0] != $(this)[0]) {
             $(activePopOver).popover('hide');
         }
         $(this).popover('toggle');
         activePopOver = $(this);
+        return false;
     });
 
     // ajax to save classtimetable
-    $('.timetable_to_apply').on('click', '.apply_timetable_to_class', function() {
+    $('.timetable_to_apply').on('click', '.apply_timetable_to_class', function(e) {
         request = $.ajax({
             type: 'POST',
             url: URL_APPLY_CLASSTIMETABLE,

@@ -4,10 +4,16 @@
 
 {% block extrahead %}
     <script type="text/javascript">
+        var URL_APPLY_CLASSTIMETABLE = "{% url 'apply_classtimetable' %}";
+        var CLASS_TIMETABLE_URL = "{{ class_timetable_url }}";
+        var CLASSROOM_PK = "{{ class.pk }}";
+    </script>
+    <script type="text/javascript">
         var UPDATE_CLASSSUBJECT_TIME = "{% url 'update_class_subject_time' %}";
     </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/dropdown_subjects_for_timetable.js">
     </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
 {% endblock %}
 
 {% block breadcrumb %}{{ block.super }}
@@ -19,6 +25,27 @@
 {% endblock %}
 
 {% block main %}
+<!-- right button -->
+<div class="btn-group pull-right">
+    <a class="btn btn-info dropdown-toggle" href="#" data-toggle="dropdown">
+        <i class="icon-pencil icon-white"></i>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu timetable_to_apply" id="change_timetable">
+        <li class="disabled"><a href="#">{% trans 'change timetable'|capfirst %}</a></li>
+        {% for timetable in timetable_list %}
+            <li class="list-timetables"><a href="#" class="timetable_block" data-toggle="popover" id="timetable-{{ timetable.pk }}" data-original-title="{% trans 'choosing timetable' %}" data-content="{% include "timetables/includes/choosing_timetable_for_class.html" %}" data-placement="left">{{ timetable.name }} {% if timetable.pk == timetable_pk %}<i class="icon-ok-sign"></i>{% endif %}</a></li>
+        {% endfor %}
+        <li class="divider"></li>
+        <li>
+            <a href="{% url 'add_timetable' %}"><i class="icon-plus"></i> {% trans 'new'|capfirst %}</a>
+        </li>
+    </ul>
+</div>
+
+<br />
+<br />
+
 <table class="table table-bordered table-hover timetable_for_class">
     <thead>
         <tr>
@@ -46,5 +73,4 @@
         {% endif %}
     </tbody>
 </table>
-<a href="{% url 'link_classtimetable_list' class_slug=class.slug %}"><button class="btn btn-info" >{% trans 'change timetable'|capfirst %}</button></a>
 {% endblock %}
