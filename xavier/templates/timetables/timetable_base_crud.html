@@ -6,6 +6,8 @@
         var END = "{% trans 'End' %}";
         var UPDATE_TIMETABLE_NAME_URL = "{% url 'update_timetable' %}";
         var UPDATE_TIMES_URL = "{% url 'update_times' %}";
+        var TIMETABLE_LIST_URL = "{% url 'school_timetables' %}";
+        var REMOVE_TIMETABLE = "{% url 'remove_timetable' %}"
     </script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/timetables.js"></script>
 {% endblock %}
@@ -44,6 +46,7 @@
                      </section><section class="span2 timetable">
                          <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.end }}" />
                      </section>
+                     <a href="#" id="remove_line"><button class="btn btn-danger"><i class="icon-remove icon-white"></i></button></a>
                  </li>
             {% endfor %}
         {% else %}
@@ -53,6 +56,7 @@
                 </section><section class="span2 timetable">
                     <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
                 </section>
+                <a href="#" id="remove_line"><button class="btn btn-danger"><i class="icon-remove icon-white"></i></button></a>
             </li>
         {% endif %}
         <li id="start_end_example">
@@ -67,4 +71,9 @@
             </section>
         </li>
     </ul>
+    {% if timetable %}
+    <span class="clearfix"></span>
+    <hr />
+    <a href="#"><button class="btn btn-danger remove_timetable">{% trans 'remove timetable'|capfirst %}</button></a>
+    {% endif %}
 {% endblock %}

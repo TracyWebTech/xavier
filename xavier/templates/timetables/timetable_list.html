@@ -2,12 +2,6 @@
 
 {% block title %}{{ title }} - {{ block.super }}{% endblock %}
 
-{% block extrahead %}
-    <script type="text/javascript">
-        var REMOVE_TIMETABLE = "{% url 'remove_timetable' %}";
-    </script>
-    <script type="text/javascript" src="{{ STATIC_URL}}js/timetables.js"></script>
-{% endblock %}
 {% block breadcrumb %}{{ block.super }}
     <li class="active">{{ title }}</li>
 {% endblock %}
@@ -26,9 +20,6 @@
         {% for timetable in timetables %}
             {% if timetable.slug %}
                 <li class="span3 timetable">
-                    <a href="#" class="remove_timetable">
-                        <i class="icon-remove"></i>
-                    </a>
                     <a class="thumbnail timetable_url" href="{% url 'edit_timetable' timetable.pk %}" id="timetable_{{ timetable.pk }}">
                     <div>
                         <div class="caption clearfix">

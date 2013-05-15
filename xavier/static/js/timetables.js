@@ -20,6 +20,13 @@ function add_new_line( value ) {
     $li.append($section1);
     $li.append($section2);
 
+    $i = $('<i>').attr('class', 'icon-remove icon-white');
+    $btn = $('<button>').attr('class', 'btn btn-danger');
+    $a = $('<a>').attr({href: '#', id: 'remove_line'});
+    $btn.append($i);
+    $a.append($btn);
+    $li.append($a);
+
     $('li#start_end_example').before($li);
     $input1.focus();
 }
@@ -27,24 +34,6 @@ function add_new_line( value ) {
 $(function() {
 
     /* TIMETABLE ADD AND EDIT */
-
-    // Add the icon with minus sign
-    $('ul#timetable_list').on('mouseenter', 'li.start_end', function() {
-
-        $i = $('<i>').addClass('icon-remove');
-        $a = $('<a>').attr('href', '#');
-
-        $a.attr('id', 'remove_line');
-
-        $a.append($i);
-
-        $(this).append($a);
-    });
-
-    // Remove minus sign icon
-    $('ul#timetable_list').on('mouseleave', 'li.start_end', function() {
-        $(this).find($('#remove_line')).remove();
-    });
 
     // Remove schedule from timetable
     $('ul#timetable_list').on('click', '#remove_line', function() {
@@ -140,9 +129,7 @@ $(function() {
 
     // remove timetable
     $(document).on('click', '.remove_timetable', function() {
-        var $li = $(this).parent();
-        var timetable_pk = $(this).parent().find('a.timetable_url');
-        var timetable_pk = timetable_pk.attr('id').replace(/\D+/, '');
+        var timetable_pk = $('.timetable_name').attr('id').replace(/\D+/, '');
         request = $.ajax({
             type: 'POST',
             url: REMOVE_TIMETABLE,
@@ -151,7 +138,7 @@ $(function() {
             },
         });
         request.done(function( data ) {
-            $li.remove();
+            window.location.href = TIMETABLE_LIST_URL;
         });
     });
 
