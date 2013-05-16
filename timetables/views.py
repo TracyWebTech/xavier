@@ -152,7 +152,8 @@ class ClassTimetable(TemplateView):
                     subject = (None, day_abbr, None)
                 else:
                     subject = (class_subject_time.pk, day_abbr,
-                               class_subject_time.class_subject.subject)
+                               class_subject_time.class_subject.subject,
+                               class_subject_time.class_subject.teacher)
 
                 time_dict['subjects'].append(subject)
             day_time_subject.append(time_dict)

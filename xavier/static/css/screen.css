@@ -219,8 +219,13 @@ a#remove_line {
 td.timetable_subjects_list {
     padding: 0 8px;
     line-height: 36px;
-    min-width: 130px;
     text-align: center;
+}
+
+td.timetable_subjects_list .subject_choice, .subject_chosen {
+    overflow: hidden;
+    font-size: small;
+    line-height: 125%;
 }
 
 a.timetable_subjects {

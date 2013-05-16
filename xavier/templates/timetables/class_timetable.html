@@ -61,10 +61,10 @@
         {% for time in times %}
             <tr>
                 <td class="timetable_subjects_list time" id="{{ time.time.pk }}">{{ time.time.start }} - {{ time.time.end }}</td>
-                {% for class_subject_time_pk, abbr, subject in time.subjects %}
+                {% for class_subject_time_pk, abbr, subject, teacher in time.subjects %}
                     <td class="timetable_subjects_list listing_subjects" {% if class_subject_time_pk %}id="{{ class_subject_time_pk }}"{% endif %}>
                         <a class="dropdown-toggle timetable_subjects" data-toggle="dropdown" data-target="#" id="dLabel" role="button" name="subjects" title="{% trans 'Click to choose a subject' %}" href="#" rel="{{ abbr }}">
-                            <div class="caption clearfix">{% if subject %}{{ subject }}{% else %}&nbsp;{% endif %}</div>
+                            <div class="caption clearfix subject_chosen">{% if subject %}<strong>{{ subject.name|truncatechars:15 }}</strong><br />({{ teacher.first_name }}){% else %}&nbsp;{% endif %}</div>
                         </a>
                         {% include "subjects/includes/dropdown.html" with li_link="False" %}
                     </td>
