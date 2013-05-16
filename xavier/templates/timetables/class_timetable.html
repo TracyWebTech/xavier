@@ -34,14 +34,15 @@
     <ul class="dropdown-menu timetable_to_apply" id="change_timetable">
         <li class="disabled"><a href="#">{% trans 'change timetable'|capfirst %}</a></li>
         {% for timetable in timetable_list %}
-            <li class="list-timetables"><a href="#" class="timetable_block" data-toggle="popover" id="timetable-{{ timetable.pk }}" data-original-title="{% trans 'choosing timetable' %}" data-content="{% include "timetables/includes/choosing_timetable_for_class.html" %}" data-placement="left">{% if timetable.pk == timetable_pk %}<i class="icon-ok" style="margin-left:-19px"></i><strong> {{ timetable.name }}</strong>{% else %}{{ timetable.name }}{% endif %}</a></li>
+            <li class="list-timetables"><a href="#" class="timetable_block" data-toggle="popover" id="timetable-{{ timetable.pk }}" data-original-title="{% trans 'choosing timetable' %}" data-content="{% include "timetables/includes/choosing_timetable_for_class.html" %}" data-placement="left">{% if timetable.pk == timetable_pk %}<i class="icon-ok timetables-list-icon"></i><span class="timetable-list-item-chosen"><strong>{{ timetable.name }}</strong></span>{% else %}<span class="timetable-list-item">{{ timetable.name }}</span>{% endif %}</a></li>
         {% endfor %}
         <li class="divider"></li>
         <li>
-            <a href="{% url 'add_timetable' %}"><i class="icon-plus"></i> {% trans 'new'|capfirst %}</a>
+            <a href="{% url 'add_timetable' %}"><i class="icon-plus timetables-list-icon"></i><span class="add-timetable-item">{% trans 'new'|capfirst %}</span></a>
         </li>
     </ul>
 </div>
+<!-- end right button -->
 
 <br />
 <br />

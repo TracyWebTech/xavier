@@ -139,6 +139,19 @@ input:invalid {
 
 /* Timetables */
 
+.timetables-list-icon {
+    padding: 0 5px;
+    margin-left: -15px;
+}
+
+.timetable-list-item {
+    margin-left: 9px;
+}
+
+.timetable-list-item-chosen, .add-timetable-item {
+    margin-left: 0 !important;
+}
+
 .list-timetables .popover {
     width: 168px;
     text-align: center;
