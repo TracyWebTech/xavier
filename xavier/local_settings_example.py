@@ -35,3 +35,31 @@ else:
     INSTALLED_APPS += (
         'django_extensions',
     )
+
+try:
+    import devserver
+except ImportError:
+    pass
+else:
+    INSTALLED_APPS += (
+        'devserver',
+    )
+    MIDDLEWARE_CLASSES += (
+        'devserver.middleware.DevServerMiddleware',
+    )
+
+try:
+    import debug_toolbar
+except ImportError:
+    pass
+else:
+    INTERNAL_IPS = ('127.0.0.1', '192.168.56.1')
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+    MIDDLEWARE_CLASSES += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS': False
+    }
