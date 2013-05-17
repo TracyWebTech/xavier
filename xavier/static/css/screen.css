@@ -228,6 +228,10 @@ td.timetable_subjects_list .subject_choice, .subject_chosen {
     line-height: 125%;
 }
 
+td.timetable_subjects_list {
+    width: 12%;
+}
+
 a.timetable_subjects {
     color: #555;
     text-decoration: none;
