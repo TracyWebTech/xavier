@@ -4,7 +4,7 @@
             <li class="subject">
             {% if li_link == "True" %}
                 <a href="{% url 'scores_list' class.slug class_subject.subject.slug %}">{{ class_subject.subject }}</a>
-                {% else %}<a href="#" class="subject_choice" rel="{{ class_subject.subject.pk }}"><strong>{{ class_subject.subject }}</strong><br />({{ class_subject.teacher.first_name }})</a>{% endif %}
+                {% else %}<a href="#" class="subject_choice" rel="{{ class_subject.subject.pk }}"><strong>{{ class_subject.subject }}</strong><br /><small>({{ class_subject.teacher.first_name }})</small></a>{% endif %}
             {%if not forloop.last %}<hr />{% endif %}</li>
         {% endfor %}
     </ul>

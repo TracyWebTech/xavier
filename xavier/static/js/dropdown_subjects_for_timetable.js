@@ -10,10 +10,14 @@ $(function() {
     $('.subject_choice').click(function() {
         $(this).parent().parent().toggle();
 
+        var subject_for_time = $('strong', $(this)).text();
+        var teacher = $('small', $(this)).text();
+        var subject_chosen = $(this).parents('td:first').find('.subject_chosen');
+
         var classroom = $('table.timetable_for_class').find('th:first').attr('id');
         var subject = $(this).attr('rel');
 
-        $td = $(this).parent().parent().parent().parent();
+        $td = $(this).parents('td:first');
         $td.find('a[name="subjects"] div').empty().prepend($(this).text());
         var class_subject_time_pk = '';
         if ($td.attr('id') != undefined) {
@@ -36,5 +40,14 @@ $(function() {
         request.done(function ( data ) {
             $td.attr('id', data);
         });
+        var $strong = $('<strong>');
+        var $br = $('<br>');
+        var $small = $('<small>');
+        $strong.append(subject_for_time);
+        $small.append(teacher);
+        subject_chosen.empty();
+        subject_chosen.append($strong);
+        subject_chosen.append($br);
+        subject_chosen.append($small);
     });
 });
