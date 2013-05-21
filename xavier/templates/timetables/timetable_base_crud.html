@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load timetables_tags %}
+
 {% block extrahead %}
     <script type="text/javascript">
         var START = "{% trans 'Start' %}";
@@ -42,9 +44,9 @@
             {% for time in times %}
                  <li class="start_end" id="timeline-{{ time.pk }}">
                      <section class="span2 timetable">
-                         <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.start }}" />
+                         <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.start }}" tabindex="{{ forloop.counter|mult:2|add:-1 }}" />
                      </section><section class="span2 timetable">
-                         <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.end }}" />
+                         <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.end }}" tabindex="{{ forloop.counter|mult:2 }}" />
                      </section>
                      <a href="#" id="remove_line"><button class="btn btn-danger"><i class="icon-remove icon-white"></i></button></a>
                  </li>

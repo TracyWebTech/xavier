@@ -1,4 +1,4 @@
-function add_new_line( value ) {
+function add_new_line( value, tabindex ) {
     $section1 = $('<section>').attr('class', 'span2 timetable');
     $section2 = $('<section>').attr('class', 'span2 timetable');
 
@@ -6,12 +6,14 @@ function add_new_line( value ) {
                                  class: 'times timetable time-start',
                                  placeholder: START,
                                  value: value,
-                                 pattern: '[0-2][0-9]:[0-6][0-9]'});
+                                 pattern: '[0-2][0-9]:[0-6][0-9]',
+                                 tabindex: (parseInt(tabindex)+1)});
     $input2 = $('<input>').attr({type: 'time',
                                  class: 'times timetable time-end',
                                  placeholder: END,
                                  value: '',
-                                 pattern: '[0-2][0-9]:[0-6][0-9]'});
+                                 pattern: '[0-2][0-9]:[0-6][0-9]',
+                                 tabindex: (parseInt(tabindex)+2)});
 
     $section1.append($input1);
     $section2.append($input2);
@@ -56,16 +58,17 @@ $(function() {
 
     // Add new line for new start - end inputs
     $('.timetable-add-line').click(function() {
-        add_new_line('');
+        add_new_line('', $(this).parents('li:first').prev().find('input:last').attr('tabindex'));
     });
 
     $('ul#timetable_list').on("keypress", ".time-end", function(event) {
         if (event.which == 0 && event.shiftKey == false || event.which == 13) {
             if ($(this).parent().parent().next().find('.time-start').val().length == 0 && $(this).parent().parent().next().attr('id') == "start_end_example") {
                 if ($(this).val().length == 0) {
-                    add_new_line('');
+                    console.log($(this).attr('tabindex'));
+                    add_new_line('', $(this).attr('tabindex'));
                 } else {
-                    add_new_line($(this).val());
+                    add_new_line($(this).val(), $(this).attr('tabindex'));
                 }
             }
         }
