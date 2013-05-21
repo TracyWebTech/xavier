@@ -151,7 +151,7 @@ class ClassTimetable(TemplateView):
                 except models.ClassSubjectTime.DoesNotExist:
                     subject = (None, day_abbr, None)
                 else:
-                    subject = (class_subject_time.pk, day_abbr,
+                    subject = (class_subject_time.pk, day_abbr, day,
                                class_subject_time.class_subject.subject,
                                class_subject_time.class_subject.teacher)
 

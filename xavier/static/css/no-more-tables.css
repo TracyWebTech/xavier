@@ -1,0 +1,55 @@
+@media only screen and (max-width: 800px) {
+/* Force table to not be like tables anymore */
+#no-more-tables table,
+#no-more-tables thead,
+#no-more-tables tbody,
+#no-more-tables th,
+#no-more-tables td,
+#no-more-tables tr {
+display: block;
+}
+ 
+/* Hide table headers (but not display: none;, for accessibility) */
+#no-more-tables thead tr {
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+ 
+#no-more-tables tr { border: 1px solid #ccc; }
+ 
+#no-more-tables td, #no-more-tables th {
+/* Behave like a "row" */
+border: none;
+border-bottom: 1px solid #eee;
+position: relative;
+padding-left: 50%;
+white-space: normal;
+text-align:left;
+width: auto;
+vertical-align: middle;
+}
+
+#no-more-tables th {
+background-color: #CCC;
+}
+ 
+#no-more-tables td:before, #no-more-tables th:before {
+/* Now like a table header */
+position: absolute;
+/* Top/left values mimic padding */
+top: 6px;
+left: 6px;
+width: 45%;
+padding-right: 10px;
+white-space: nowrap;
+text-align:left;
+vertical-align: middle;
+}
+ 
+/*
+Label the data
+*/
+#no-more-tables td:before { content: attr(data-title); }
+#no-more-tables th:before { content: attr(data-title); }
+}
