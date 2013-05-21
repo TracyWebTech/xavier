@@ -204,8 +204,9 @@ a#remove_line {
 
 /* Class Timetables */
 
-.timetable_for_class th {
+.timetable_for_class th, .timetable_for_class td {
     text-align: center;
+    width: 12.5%;
 }
 
 .timetable_for_class td.listing_subjects {
@@ -218,18 +219,12 @@ a#remove_line {
 
 td.timetable_subjects_list {
     padding: 0 8px;
-    line-height: 36px;
     text-align: center;
 }
 
 td.timetable_subjects_list .subject_choice, .subject_chosen {
     overflow: hidden;
     font-size: small;
-    line-height: 125%;
-}
-
-td.timetable_subjects_list {
-    width: 12%;
 }
 
 a.timetable_subjects {
