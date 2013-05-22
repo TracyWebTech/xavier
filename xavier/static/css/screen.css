@@ -232,6 +232,10 @@ a.timetable_subjects {
     text-decoration: none;
 }
 
+.timetable_for_class .weekend {
+    background-color: #F6F6F6;
+}
+
 /* Calendar */
 
 .calendar th, .calendar td { text-align: center }
