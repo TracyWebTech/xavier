@@ -27,6 +27,12 @@
 {% endblock %}
 
 {% block main %}
+{% if not times %}
+    <div class="alert fade in">
+        <button class="close" data-dismiss="alert" type="button">x</button>
+        {% trans "choose a timetable already created or create one, and be sure the chosen timetable has schedules"|capfirst %}.
+    </div>
+{% endif %}
 <!-- right button -->
 <div class="btn-group pull-right">
     <a class="btn btn-info dropdown-toggle" href="#" data-toggle="dropdown">
@@ -48,7 +54,7 @@
 
 <br />
 <br />
-
+{% if times %}
 <section id="no-more-tables">
 <table class="table table-bordered table-condensed table-hover timetable_for_class cf" id="timetable_class">
     <thead class="cf">
@@ -60,7 +66,6 @@
         </tr>
     </thead>
     <tbody>
-        {% if times %}
         {% for time in times %}
             <tr>
                 <th class="timetable_subjects_list time" id="{{ time.time.pk }}" data-title="{% trans 'time'|capfirst %}" style="vertical-align: middle"><small>{{ time.time.start }} - {{ time.time.end }}</small></th>
@@ -74,8 +79,8 @@
                 {% endfor %}
             </tr>
         {% endfor %}
-        {% endif %}
     </tbody>
 </table>
 </section>
+{% endif %}
 {% endblock %}
