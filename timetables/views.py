@@ -120,6 +120,7 @@ class ClassTimetable(TemplateView):
 
         context['timetable_list'] = ''
         context['timetable_pk'] = ''
+        context['block_timetable_change'] = False
         times = ''
         try:
             classtimetable = models.ClassTimetable.objects.get(
@@ -134,6 +135,12 @@ class ClassTimetable(TemplateView):
         else:
             times = models.Time.objects.filter(
                     timetable=classtimetable.timetable)
+
+            cst = models.ClassSubjectTime.objects.filter(
+                class_subject__classroom=classtimetable.classroom
+            )
+            if cst.exists():
+                context['block_timetable_change'] = True
 
         # TODO: deploy a method on models to get the timetable
         context['timetable_list'] = get_timetables()
