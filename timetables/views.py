@@ -41,7 +41,7 @@ class EditTimetable(TemplateView):
         timetable_pk = context['timetable_pk']
         context['timetable'] = models.Timetable.objects.get(pk=timetable_pk)
         context['times'] = models.Time.objects.filter(
-                timetable=context['timetable']).order_by('start')
+                timetable=context['timetable'])
         context['title'] = ugettext('Timetables')
         return context
 

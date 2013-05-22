@@ -30,6 +30,9 @@ class Time(models.Model):
     start = models.TimeField()
     end = models.TimeField()
 
+    class Meta:
+        ordering = ['start', ]
+
     def __unicode__(self):
         return u'{0} - {1}'.format(unicode(self.start), unicode(self.end))
 
