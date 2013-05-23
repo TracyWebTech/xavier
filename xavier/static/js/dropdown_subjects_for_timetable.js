@@ -11,7 +11,7 @@ $(function() {
         $(this).parent().parent().toggle();
 
         var subject_for_time = $('strong', $(this)).text();
-        var teacher = $('small', $(this)).text();
+        var teacher = $('span', $(this)).text();
         var subject_chosen = $(this).parents('td:first').find('.subject_chosen');
 
         var classroom = $('table.timetable_for_class').find('th:first').attr('id');
@@ -42,12 +42,12 @@ $(function() {
         });
         var $strong = $('<strong>');
         var $br = $('<br>');
-        var $small = $('<small>');
+        var $span = $('<span>').addClass('muted');
         $strong.append(subject_for_time);
-        $small.append(teacher);
+        $span.append(teacher);
         subject_chosen.empty();
         subject_chosen.append($strong);
         subject_chosen.append($br);
-        subject_chosen.append($small);
+        subject_chosen.append($span);
     });
 });
