@@ -22,6 +22,7 @@
     padding-left: 50%;
     text-align: left;
     border-bottom: 1px solid #eee;
+    height: 2.5em;
 }
  
 #no-more-tables th {
@@ -32,13 +33,12 @@
 
 /* Behave like a "row" */
 #no-more-tables td, #no-more-tables th {
-    border: none;
     position: relative;
     white-space: normal;
     width: auto;
     vertical-align: middle;
 }
- 
+
 #no-more-tables td:before, #no-more-tables th:before {
     /* Now like a table header */
     position: absolute;
@@ -55,5 +55,6 @@
 /* Label the data */
 #no-more-tables td:before {
     content: attr(data-title);
+    margin-top: 0.25em;
 }
 }
