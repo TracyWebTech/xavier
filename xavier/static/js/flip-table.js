@@ -17,7 +17,7 @@ function transpose() {
 
 $(function() {
     window.current_width = window.innerWidth;
-    if (window.innerWidth < 800) {
+    if (window.innerWidth <= 800) {
         transpose();
     }
 
