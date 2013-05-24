@@ -179,11 +179,16 @@ class UpdateClassSubjectTime(View):
         time_pk = request.POST.get('time', None)
         weekday_abbr = request.POST.get('weekday', None)
         class_subject_time_pk = request.POST.get('class_subject_time_pk', None)
-        if not classroom_pk or not subject_pk or not time_pk \
-                or not weekday_abbr:
+        if not classroom_pk or not time_pk or not weekday_abbr:
             return HttpResponseNotFound()
         classroom = Class.objects.get(pk=classroom_pk)
         time = models.Time.objects.get(pk=time_pk)
+        if not subject_pk:
+            models.ClassSubjectTime.objects.get(
+                class_subject__classroom=classroom, time=time,
+                weekday=weekday_abbr
+            ).delete()
+            return HttpResponse()
         subject = Subject.objects.get(pk=subject_pk)
         class_subject = ClassSubject.objects.get(classroom=classroom,
                                                  subject=subject)

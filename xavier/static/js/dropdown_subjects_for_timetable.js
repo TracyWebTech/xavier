@@ -49,5 +49,12 @@ $(function() {
         subject_chosen.append($strong);
         subject_chosen.append($br);
         subject_chosen.append($span);
+        if (subject.length == 0) {
+            var $br = $('<br>');
+            subject_chosen.empty();
+            subject_chosen.append('&nbsp;');
+            subject_chosen.append($br);
+            subject_chosen.append('&nbsp;');
+        }
     });
 });
