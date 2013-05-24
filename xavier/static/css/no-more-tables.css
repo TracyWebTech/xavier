@@ -22,7 +22,7 @@
     padding-left: 50%;
     text-align: left;
     border-bottom: 1px solid #eee;
-    height: 2.5em;
+    height: 2.8em;
 }
  
 #no-more-tables th {
@@ -54,6 +54,6 @@
 /* Label the data */
 #no-more-tables td:before {
     content: attr(data-title);
-    margin-top: 0.25em;
+    margin-top: 0.26em;
 }
 }
