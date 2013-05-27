@@ -9,17 +9,17 @@ from django.utils.translation import ugettext
 from classes.models import Class, ClassSubject
 from schools.models import School
 from subjects.models import Subject
-from timetables import models
+from timetables.models import Timetable, Time, ClassTimetable, ClassSubjectTime
 
 def get_timetables():
-    return models.Timetable.objects.filter(school=School.objects.get_current())
+    return Timetable.objects.filter(school=School.objects.get_current())
 
 class SchoolTimetableList(TemplateView):
     template_name = 'timetables/timetable_list.html'
 
     def get_context_data(self, **kwargs):
         context = super(SchoolTimetableList, self).get_context_data(**kwargs)
-        context['timetables'] = models.Timetable.objects.all()
+        context['timetables'] = Timetable.objects.all()
         context['title'] = ugettext('Timetables')
         return context
 
@@ -39,8 +39,8 @@ class EditTimetable(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(EditTimetable, self).get_context_data(**kwargs)
         timetable_pk = context['timetable_pk']
-        context['timetable'] = models.Timetable.objects.get(pk=timetable_pk)
-        context['times'] = models.Time.objects.filter(
+        context['timetable'] = Timetable.objects.get(pk=timetable_pk)
+        context['times'] = Time.objects.filter(
                 timetable=context['timetable'])
         context['title'] = ugettext('Timetables')
         return context
@@ -51,7 +51,7 @@ class RemoveTimetable(View):
         timetable_pk = request.POST.get('timetable_pk', None)
         if not timetable_pk:
             return HttpResponseBadRequest()
-        models.Timetable.objects.get(pk=timetable_pk).delete()
+        Timetable.objects.get(pk=timetable_pk).delete()
         return HttpResponse()
 
 class UpdateTimes(View):
@@ -63,17 +63,19 @@ class UpdateTimes(View):
         time_pk = request.POST.get('time_combination_pk', None)
         if time_pk:
             if not start and not end and not timetable_pk:
-                models.Time.objects.get(pk=time_pk).delete()
+                # TODO it must verify if there is any subject using this time
+                # and warn the user
+                Time.objects.get(pk=time_pk).delete()
                 return HttpResponse()
-            time = get_object_or_404(models.Time, pk=time_pk)
+            time = get_object_or_404(Time, pk=time_pk)
             time.start = start
             time.end = end
             time.save()
             return HttpResponse()
 
         if timetable_pk and start and end:
-            timetable = models.Timetable.objects.get(pk=timetable_pk)
-            time = models.Time.objects.create(start=start, end=end,
+            timetable = Timetable.objects.get(pk=timetable_pk)
+            time = Time.objects.create(start=start, end=end,
                                        timetable=timetable)
             return HttpResponse(json.dumps(time.pk), mimetype="application/json")
         return HttpResponse()
@@ -86,12 +88,12 @@ class UpdateTimetable(View):
         if not timetable_name:
             return HttpResponseBadRequest()
         if timetable_pk:
-            timetable = models.Timetable.objects.get(pk=timetable_pk)
+            timetable = Timetable.objects.get(pk=timetable_pk)
             timetable.name = timetable_name
             timetable.save()
             return HttpResponse()
         school = School.objects.get_current()
-        timetable = models.Timetable.objects.create(school=school,
+        timetable = Timetable.objects.create(school=school,
                                              name=timetable_name)
 
         data = {'slug': timetable.slug, 'pk': timetable.pk}
@@ -106,16 +108,16 @@ class ListClasses(TemplateView):
         context['title'] = ugettext('Class Timetables')
         return context
 
-class ClassTimetable(TemplateView):
+class ClassTimetableView(TemplateView):
     template_name = 'timetables/class_timetable.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ClassTimetable, self).get_context_data(**kwargs)
+        context = super(ClassTimetableView, self).get_context_data(**kwargs)
         context['class'] = Class.objects.get(slug=context['class_slug'])
-        context['days'] = models.ClassSubjectTime.WEEKDAY_CHOICES
+        context['days'] = ClassSubjectTime.WEEKDAY_CHOICES
 
         context['timetables_exist'] = False
-        if models.Timetable.objects.exists():
+        if Timetable.objects.exists():
             context['timetables_exist'] = True
 
         context['timetable_list'] = ''
@@ -123,20 +125,20 @@ class ClassTimetable(TemplateView):
         context['block_timetable_change'] = False
         times = ''
         try:
-            classtimetable = models.ClassTimetable.objects.get(
+            classtimetable = ClassTimetable.objects.get(
                     classroom__slug=context['class_slug'])
             context['timetable_pk'] = classtimetable.timetable.pk
-        except models.ClassTimetable.DoesNotExist:
+        except ClassTimetable.DoesNotExist:
             # TODO Set a default timetable somewhere to be used when the
             # class doesn't have a timetable specified
             # TODO if there is timetables available, list them and send
             # a warning that there is no timetable linked to this class yet
             context['timetable_list'] = get_timetables()
         else:
-            times = models.Time.objects.filter(
+            times = Time.objects.filter(
                     timetable=classtimetable.timetable)
 
-            cst = models.ClassSubjectTime.objects.filter(
+            cst = ClassSubjectTime.objects.filter(
                 class_subject__classroom=classtimetable.classroom
             )
             if cst.exists():
@@ -150,12 +152,12 @@ class ClassTimetable(TemplateView):
                 'time': time,
                 'subjects': []
             }
-            for day_abbr, day in models.ClassSubjectTime.WEEKDAY_CHOICES:
+            for day_abbr, day in ClassSubjectTime.WEEKDAY_CHOICES:
                 try:
                     class_subject_time = time.classsubjecttime_set.get(
                             class_subject__classroom=context['class'],
                             weekday=day_abbr)
-                except models.ClassSubjectTime.DoesNotExist:
+                except ClassSubjectTime.DoesNotExist:
                     subject = (None, day_abbr, None)
                 else:
                     subject = (class_subject_time.pk, day_abbr, day,
@@ -182,7 +184,7 @@ class UpdateClassSubjectTime(View):
         if not classroom_pk or not time_pk or not weekday_abbr:
             return HttpResponseNotFound()
         classroom = Class.objects.get(pk=classroom_pk)
-        time = models.Time.objects.get(pk=time_pk)
+        time = Time.objects.get(pk=time_pk)
 
         if not class_subject_time_pk and not subject_pk:
             return HttpResponse()
@@ -190,7 +192,7 @@ class UpdateClassSubjectTime(View):
         if not subject_pk:
             # TODO we shouldn't be deleting the subjects, we should keep the
             # time the subject remained on that class
-            models.ClassSubjectTime.objects.get(
+            ClassSubjectTime.objects.get(
                 class_subject__classroom=classroom, time=time,
                 weekday=weekday_abbr
             ).delete()
@@ -203,14 +205,14 @@ class UpdateClassSubjectTime(View):
 
         # TODO return and set the class_subject_time_pk in the html
         if class_subject_time_pk:
-            class_subject_time = models.ClassSubjectTime.objects.get(
+            class_subject_time = ClassSubjectTime.objects.get(
                     pk=class_subject_time_pk)
             class_subject_time.class_subject = class_subject
             class_subject_time.save()
             return HttpResponse(json.dumps(class_subject_time.pk),
                                 mimetype="application/json")
 
-        class_subject_time, created = models.ClassSubjectTime.objects.get_or_create(
+        class_subject_time, created = ClassSubjectTime.objects.get_or_create(
                     weekday=weekday_abbr, time=time,
                     class_subject__classroom=class_subject.classroom,
                     defaults={'class_subject': class_subject})
@@ -225,7 +227,7 @@ class ApplyClassTimetable(View):
     def post(self, request, *args, **kwargs):
         classroom_pk = request.POST.get('class_pk', None)
         timetable_pk = request.POST.get('timetable_pk', None)
-        classtimetable, created = models.ClassTimetable.objects.get_or_create(
+        classtimetable, created = ClassTimetable.objects.get_or_create(
                 classroom_id=classroom_pk,
                 defaults={'timetable_id': timetable_pk})
         if not created:
