@@ -8,7 +8,10 @@ $(function() {
     });
 
     $('a[name="subjects"]').blur(function() {
-        $ul = $(this).parent().find('ul.list_subjects').hide();
+        var dropdown = $(this).parent().find('ul.list_subjects');
+        setTimeout(function () {
+            dropdown.hide();
+        }, 100);
     });
 
     $('.subject_choice').click(function() {
