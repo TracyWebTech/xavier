@@ -7,6 +7,10 @@ $(function() {
         $ul.toggle();
     });
 
+    $('a[name="subjects"]').blur(function() {
+        $ul = $(this).parent().find('ul.list_subjects').hide();
+    });
+
     $('.subject_choice').click(function() {
         $(this).parent().parent().toggle();
 
