@@ -188,6 +188,8 @@ class UpdateClassSubjectTime(View):
             return HttpResponse()
 
         if not subject_pk:
+            # TODO we shouldn't be deleting the subjects, we should keep the
+            # time the subject remained on that class
             models.ClassSubjectTime.objects.get(
                 class_subject__classroom=classroom, time=time,
                 weekday=weekday_abbr
@@ -215,7 +217,8 @@ class UpdateClassSubjectTime(View):
         if not created:
             class_subject_time.class_subject = class_subject
             class_subject_time.save()
-        return HttpResponse()
+        return HttpResponse(json.dumps(class_subject_time.pk),
+                            mimetype="application/json")
 
 class ApplyClassTimetable(View):
 
