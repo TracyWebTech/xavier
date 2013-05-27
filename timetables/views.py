@@ -183,6 +183,10 @@ class UpdateClassSubjectTime(View):
             return HttpResponseNotFound()
         classroom = Class.objects.get(pk=classroom_pk)
         time = models.Time.objects.get(pk=time_pk)
+
+        if not class_subject_time_pk and not subject_pk:
+            return HttpResponse()
+
         if not subject_pk:
             models.ClassSubjectTime.objects.get(
                 class_subject__classroom=classroom, time=time,
