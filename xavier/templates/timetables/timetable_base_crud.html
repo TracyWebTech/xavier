@@ -35,17 +35,17 @@
             </button>
         </span>
     <br />
-    <ul class="unstyled span4" id="timetable_list">
+    <ul class="unstyled span12" id="timetable_list">
         <li>
-            <span class="span2 timetable">{% trans 'Start' %}</span>
-            <span class="span2 timetable">{% trans 'End' %}</span>
+            <span class="timetable">{% trans 'Start' %}</span>
+            <span class="timetable">{% trans 'End' %}</span>
         </li>
         {% if times %}
             {% for time in times %}
                  <li class="start_end" id="timeline-{{ time.pk }}">
-                     <section class="span2 timetable">
+                     <section class="timetable">
                          <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.start }}" tabindex="{{ forloop.counter|mult:2|add:-1 }}" />
-                     </section><section class="span2 timetable">
+                     </section><section class="timetable">
                          <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" value="{{ time.end }}" tabindex="{{ forloop.counter|mult:2 }}" />
                      </section>
                      <a href="#" id="remove_line"><button class="btn btn-danger"><i class="icon-remove icon-white"></i></button></a>
@@ -53,18 +53,18 @@
             {% endfor %}
         {% else %}
             <li class="start_end">
-                <section class="span2 timetable">
+                <section class="timetable">
                     <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
-                </section><section class="span2 timetable">
+                </section><section class="timetable">
                     <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" />
                 </section>
                 <a href="#" id="remove_line"><button class="btn btn-danger"><i class="icon-remove icon-white"></i></button></a>
             </li>
         {% endif %}
         <li id="start_end_example">
-            <section class="span2 timetable">
+            <section class="timetable">
                 <input type="time" class="times timetable time-start" placeholder="{% trans 'Start' %}" pattern="[0-2][0-9]:[0-6][0-9]" disabled />
-            </section><section class="span2 timetable">
+            </section><section class="timetable">
                 <input type="time" class="times timetable time-end" placeholder="{% trans 'End' %}" pattern="[0-2][0-9]:[0-6][0-9]" disabled />
                 <!-- The section below was created 'cause firefox doesn't
                 accept any mouse events on disabled elements

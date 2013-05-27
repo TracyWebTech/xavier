@@ -1,6 +1,6 @@
 function add_new_line( value, tabindex ) {
-    $section1 = $('<section>').attr('class', 'span2 timetable');
-    $section2 = $('<section>').attr('class', 'span2 timetable');
+    $section1 = $('<section>').attr('class', 'timetable');
+    $section2 = $('<section>').attr('class', 'timetable');
 
     $input1 = $('<input>').attr({type: 'time',
                                  class: 'times timetable time-start',

@@ -19,6 +19,10 @@ input[type="color"],
   height: 30px;
 }
 
+.input-append .btn, .input-prepend .btn {
+    height: 40px;
+}
+
 /* h1 is the name of the school and will always be in the navbar*/
 h1 {
   margin: 0;
@@ -175,10 +179,11 @@ section.timetable-add-line {
     cursor: pointer;
 }
 
-span.timetable, section.timetable {
+span.timetable, section.timetable, section.timetable input {
     display: inline-block;
     float: none;
-    margin-left: 0;
+    width: 90px;
+    margin-right: 25px;
 }
 
 input.times {
@@ -198,8 +203,7 @@ input.times {
 
 a#remove_line {
     position: absolute;
-    margin-top: 3px;
-    margin-left: -10px;
+    margin-top: 5px;
 }
 
 /* Class Timetables */
