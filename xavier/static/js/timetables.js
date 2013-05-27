@@ -65,7 +65,6 @@ $(function() {
         if (event.which == 0 && event.shiftKey == false || event.which == 13) {
             if ($(this).parent().parent().next().find('.time-start').val().length == 0 && $(this).parent().parent().next().attr('id') == "start_end_example") {
                 if ($(this).val().length == 0) {
-                    console.log($(this).attr('tabindex'));
                     add_new_line('', $(this).attr('tabindex'));
                 } else {
                     add_new_line($(this).val(), $(this).attr('tabindex'));
