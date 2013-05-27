@@ -21,25 +21,24 @@ $(function() {
         var teacher = $('span', $(this)).text();
         var subject_chosen = $(this).parents('td:first').find('.subject_chosen');
 
-        var classroom = $('table.timetable_for_class').find('th:first').attr('id');
+        var classroom = $('table.timetable_for_class').find('th:first').attr('id').replace(/\D+/, '');
         var subject_pk = $(this).attr('rel');
 
         $td = $(this).parents('td:first');
         var td_index = $td.index()+1;
-        console.log(td_index);
         $td.find('a[name="subjects"] div').empty().prepend($(this).text());
         var class_subject_time_pk = '';
         if ($td.attr('id') != undefined) {
-            class_subject_time_pk = $td.attr('id');
+            class_subject_time_pk = $td.attr('id').replace(/\D+/, '');
         }
 
         var time = '';
         var transposed = false;
         if ($td.parent().find('.time').attr('id') != undefined) {
-            time = $td.parent().find('.time').attr('id');
+            time = $td.parent().find('.time').attr('id').replace(/\D+/, '');
         }
         if (time.length == 0) {
-            time = $("table.timetable_for_class thead th:nth-child("+ td_index +")").attr('id');
+            time = $("table.timetable_for_class thead th:nth-child("+ td_index +")").attr('id').replace(/\D+/, '');
             transposed = true;
         }
         var weekday = $td.find('.timetable_subjects').attr('rel');
@@ -55,10 +54,11 @@ $(function() {
             },
         });
         request.done(function ( data ) {
+            var cst = 'cst-' + data;
             if (!transposed) {
-                $td.attr('id', data);
+                $td.attr('id', cst);
             } else {
-                $("table.timetable_for_class thead th:nth-child("+ td_index +")").attr('id', data);
+                $("table.timetable_for_class thead th:nth-child("+ td_index +")").attr('id', cst);
             }
         });
         var $strong = $('<strong>');

@@ -94,7 +94,8 @@ $(function() {
                    'timetable_pk': timetable_pk},
         });
         request.done(function ( data ) {
-            timetable.attr('id', data['pk']);
+            var timetable_id = 'timetable_' + data['pk'];
+            timetable.attr('id', timetable_id);
             $('ul#timetable_list').css('display', 'block');
 
         });

@@ -59,7 +59,7 @@
 <table class="table table-bordered table-condensed timetable_for_class cf" id="timetable_class">
     <thead class="cf">
         <tr>
-            <th id="{{ class.pk }}">{{ class }}</th>
+            <th id="classroom-{{ class.pk }}">{{ class }}</th>
             {% for abbr, day in days %}
                 <th data-title="{% trans 'day'|capfirst %}">{{ day }}</th>
             {% endfor %}
@@ -68,9 +68,9 @@
     <tbody>
         {% for time in times %}
             <tr>
-                <th class="timetable_subjects_list time" id="{{ time.time.pk }}" data-title="{% trans 'time'|capfirst %}" style="vertical-align: middle"><small>{{ time.time.start }} - {{ time.time.end }}</small></th>
+                <th class="timetable_subjects_list time" id="time-{{ time.time.pk }}" data-title="{% trans 'time'|capfirst %}" style="vertical-align: middle"><small>{{ time.time.start }} - {{ time.time.end }}</small></th>
                 {% for class_subject_time_pk, abbr, day, subject, teacher in time.subjects %}
-                    <td class="timetable_subjects_list listing_subjects {% if abbr == 'sat' or abbr == 'sun' %}weekend{% endif %}" {% if class_subject_time_pk %}id="{{ class_subject_time_pk }}"{% endif %} data-title="{{ time.time.start }} - {{ time.time.end }}">
+                    <td class="timetable_subjects_list listing_subjects {% if abbr == 'sat' or abbr == 'sun' %}weekend{% endif %}" {% if class_subject_time_pk %}id="cst-{{ class_subject_time_pk }}"{% endif %} data-title="{{ time.time.start }} - {{ time.time.end }}">
                         <a class="dropdown-toggle timetable_subjects" data-toggle="dropdown" data-target="#" id="dLabel" role="button" name="subjects" title="{% trans 'Click to choose a subject' %}" href="#" rel="{{ abbr }}">
                             <div class="caption clearfix subject_chosen" style="vertical-align: middle">{% if subject %}<strong>{{ subject.name|truncatechars:15 }}</strong><br /><span class="muted">({{ teacher.first_name }})</span>{% else %}&nbsp;<br />&nbsp;{% endif %}</div>
                         </a>
