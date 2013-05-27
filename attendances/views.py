@@ -11,7 +11,7 @@ from django.utils.translation import ugettext
 
 from xavier import views
 from accounts.models import Student
-from attendances import models
+from attendances.models import AttendanceBook, Attendance
 from classes.models import Class
 
 
@@ -21,7 +21,7 @@ def get_attendance_book(classroom, day):
         day = date(int(year), int(month), int(month_day))
     if not isinstance(classroom, Class):
         classroom = Class.objects.get(slug=classroom)
-    attendance_book, _ = models.AttendanceBook.objects.get_or_create(
+    attendance_book, _ = AttendanceBook.objects.get_or_create(
         classroom=classroom,
         day=day,
     )
@@ -68,7 +68,7 @@ def ajax_attendance_change_status(request, classroom_slug, student):
             return http.HttpResponse(status=400)
         except exceptions.ObjectDoesNotExist:
             return http.HttpResponse(status=400)
-        attendance, created = models.Attendance.objects.get_or_create(
+        attendance, created = Attendance.objects.get_or_create(
             attendance_book=attendance_book,
             student=student,
             defaults={'status': status}
@@ -91,7 +91,7 @@ def ajax_attendance_set_explanation(request, classroom_slug, student):
             return http.HttpResponse(status=400)
         except exceptions.ObjectDoesNotExist:
             return http.HttpResponse(status=400)
-        attendance, created = models.Attendance.objects.get_or_create(
+        attendance, created = Attendance.objects.get_or_create(
             attendance_book=attendance_book,
             student=student,
             defaults={'status': 'absent', 'explanation': explanation}
