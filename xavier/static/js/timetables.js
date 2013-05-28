@@ -36,6 +36,11 @@ function add_new_line( value, tabindex ) {
 $(function() {
 
     /* TIMETABLE ADD AND EDIT */
+    $('span.add_name').on("keypress", ".timetable_name", function(event) {
+        if (event.which == 13) {
+            $('#apply_timetable_name').click();
+        }
+    });
 
     // Remove schedule from timetable
     $('ul#timetable_list').on('click', '#remove_line', function() {
