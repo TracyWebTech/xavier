@@ -9,6 +9,8 @@ from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
+from datetime import timedelta
+
 from calendars.models import Calendar
 from schools.managers import CurrentSchoolManager
 
@@ -50,6 +52,13 @@ class SubPeriod(models.Model):
         unique_together = ('name', 'period')
         verbose_name = _(u'subperiod')
         verbose_name_plural = _(u'subperiods')
+
+    def get_days(self):
+        days = {}
+        for day in range(int((self.end - self.start).days)):
+            weekday = (self.start + timedelta(day)).weekday()
+            days[weekday] = days[weekday] + 1 if weekday in days else 1
+        return days
 
     def save(self, *args, **kwargs):
         # validate subperiod
