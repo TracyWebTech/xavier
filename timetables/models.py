@@ -63,6 +63,7 @@ class ClassTimetable(models.Model):
 
 
 class ClassSubjectTime(models.Model):
+    # weekday
     WEEKDAY_CHOICES = (
         ('mon', _('Monday')),
         ('tue', _('Tuesday')),
@@ -77,6 +78,19 @@ class ClassSubjectTime(models.Model):
     class_subject = models.ForeignKey('classes.ClassSubject',
                                       verbose_name=_('class subject'))
     time = models.ForeignKey("timetables.Time", verbose_name=_('time'))
+
+    def get_all_classes(self, subperiod):
+        # the var below has the number of existing classes given on the week
+        weekdays = {'mon': 0, 'tue': 1, 'wed': 2, 'thu': 3, 'fri': 4,
+                'sat': 5, 'sun': 6}
+        days = subperiod.get_days()
+        csts = ClassSubjectTime.objects.filter(
+            class_subject=self.class_subject
+        )
+        classes_given = 0
+        for cst in csts:
+            classes_given += days[weekdays[cst.weekday]]
+        return classes_given
 
     def __unicode__(self):
         return u'{0} - {1}'.format(self.time, self.class_subject)
