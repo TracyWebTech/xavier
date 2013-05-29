@@ -79,16 +79,13 @@ class ClassSubjectTime(models.Model):
                                       verbose_name=_('class subject'))
     time = models.ForeignKey("timetables.Time", verbose_name=_('time'))
 
-    def get_all_classes(self, subperiod):
-        # the var below has the number of existing classes given on the week
+    @classmethod
+    def get_classes_given(cls, class_subject, subperiod):
         weekdays = {'mon': 0, 'tue': 1, 'wed': 2, 'thu': 3, 'fri': 4,
                 'sat': 5, 'sun': 6}
         days = subperiod.get_days()
-        csts = ClassSubjectTime.objects.filter(
-            class_subject=self.class_subject
-        )
         classes_given = 0
-        for cst in csts:
+        for cst in cls.objects.filter(class_subject=class_subject):
             classes_given += days[weekdays[cst.weekday]]
         return classes_given
 
