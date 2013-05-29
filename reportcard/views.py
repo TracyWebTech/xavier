@@ -22,7 +22,7 @@ def get_report_card(student, classroom):
         for subperiod in classroom.period.subperiod_set.all():
             subperiod = {
                 'name': unicode(subperiod),
-#                'score': get_student_score(student, classroom, subperiod),
+                'score': student.get_average(subperiod, classsub),
                 'absences': 0,
                 'frequency': '100%',
             }
