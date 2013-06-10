@@ -4,13 +4,7 @@ from django.views import generic
 
 from accounts.models import Student
 from classes.models import Class
-#from periods.models import Period
 
-
-#def get_student_score(student, classroom, subject):#, subperiod):
-#    classsub = ClassSubject.objects.get(classroom.classroom, subject=subject)
-#    crit = EvaluationCriteria.objects.get(class_subject=classsub)
-#    Score(
 
 def get_report_card(student, classroom):
 
@@ -27,6 +21,14 @@ def get_report_card(student, classroom):
                 'frequency': '100%',
             }
             subject.append(subperiod)
+
+        subject.append({
+            'name': _(u'Final'),
+            'score': student.get_final_score(classroom.period, classsub),
+            'absences': 0,
+            'frequency': '100%',
+            'status': student.get_status(classroom.period, classsub),
+        })
 
     return report_card
 

@@ -144,6 +144,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
+    'xavier',
     'schools',
     'periods',
     'subjects',

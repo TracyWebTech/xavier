@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
+from periods.models import SubPeriod
 from schools.managers import CurrentSchoolManager
 
 
@@ -58,6 +59,28 @@ class Student(User):
         if class_subject:
             scores = scores.filter(criteria__class_subject=class_subject)
         return scores
+
+    def get_final_score(self, period, class_subject):
+        scores = []
+        for subperiod in period.subperiod_set.all():
+            score = self.get_average(subperiod.id, class_subject)
+            if score is not None:
+                scores.append(score)
+
+        if len(scores):
+            return sum(scores) / float(len(scores))
+        else:
+            return None
+
+
+    def get_status(self, period, class_subject):
+        final_score = self.get_final_score(period, class_subject)
+
+        if final_score is None:
+            return ''
+        elif final_score > 5:
+            return True
+        return False
 
     def get_average(self, subperiod_id, class_subject=None):
         # TODO subject = None it works just when a class subject is given
