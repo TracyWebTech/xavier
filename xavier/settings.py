@@ -9,6 +9,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 # Internacionalization
 ugettext = lambda s: s
 LANGUAGES = (
+    ('en', ugettext('English')),
     ('es', ugettext('Spanish')),
     ('pt-br', ugettext('Brazilian Portuguese')),
 )
