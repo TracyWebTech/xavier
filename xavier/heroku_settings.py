@@ -8,6 +8,8 @@ TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = os.path.dirname(__file__)
 
+LANGUAGE_CODE = 'en'
+
 ADMINS = ADMINS = (
     ('Tracy SysAdmin', 'sysadmin@tracy.com.br'),
 )
