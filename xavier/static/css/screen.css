@@ -31,6 +31,7 @@ h1 {
 
 .btn-with-label {
   padding: 3px 5px;
+  min-width: 60px;
 }
 
 .btn-with-label .icon {
