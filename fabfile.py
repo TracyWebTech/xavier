@@ -182,3 +182,11 @@ def translate():
             with lcd(dir):
                 local('django-admin.py makemessages --all')
                 local('django-admin.py compilemessages')
+
+
+def deploy_heroku():
+    local('git push heroku master')
+    local('heroku run python manage.py syncdb --noinput')
+    local('heroku run python manage.py migrate --noinput')
+    local('heroku run python manage.py collectstatic --noinput')
+    local('heroku ps:restart')
